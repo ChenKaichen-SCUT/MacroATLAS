@@ -1,0 +1,486 @@
+time of writing,name of the test file,number of accepting traces,number or rejecting traces,depth of formula,number of variables,max length of traces,specified formula,solving time sat,obtained formula sat,comment sat
+2024-02-07 14:36,../LTL-Learning/benchmark/5to10Traces/0182.trace,75,75,3,3,5,"G(->(x1,G(x0)))",56.909567253002024,"[G(->(x1,G(x0)))]",
+2024-02-07 14:37,../LTL-Learning/benchmark/5to10Traces/0151.trace,13,225,1,2,10,G(x0),5.164445856000384,[G(x0)],
+2024-02-07 14:37,../LTL-Learning/benchmark/5to10Traces/0169.trace,175,175,2,3,10,"->(F(x1),U(x0,x1))",36.97254448100284,"[U(x0,x1)]",
+2024-02-07 14:38,../LTL-Learning/benchmark/5to10Traces/0108.trace,250,250,1,2,5,F(x0),4.6734924470001715,[F(x0)],
+2024-02-07 14:38,../LTL-Learning/benchmark/5to10Traces/0027.trace,50,50,3,3,10,"->(F(x1),U(!(x0),x1))",33.03389501700076,"[U(->(x0,x1),x1)]",
+2024-02-07 14:38,../LTL-Learning/benchmark/5to10Traces/0188.trace,150,150,3,3,5,"G(->(x1,G(x0)))",97.6819326579971,"[G(->(x1,G(x0)))]",
+2024-02-07 14:40,../LTL-Learning/benchmark/5to10Traces/0053.trace,16,100,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 14:43,../LTL-Learning/benchmark/5to10Traces/0096.trace,100,100,1,2,5,F(x0),1.8174382549987058,[F(x0)],
+2024-02-07 14:43,../LTL-Learning/benchmark/5to10Traces/0138.trace,75,75,1,2,5,G(x0),1.3728408419992775,[G(x0)],
+2024-02-07 14:43,../LTL-Learning/benchmark/5to10Traces/0160.trace,75,75,2,3,5,"->(F(x1),U(x0,x1))",38.9376861310011,"[->(F(x1),U(x0,x1))]",
+2024-02-07 14:44,../LTL-Learning/benchmark/5to10Traces/0127.trace,2,200,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",4.796935061000113,[G(x0)],
+2024-02-07 14:44,../LTL-Learning/benchmark/5to10Traces/0028.trace,75,75,3,3,5,"->(F(x1),U(!(x0),x1))",178.07403168699966,"[->(F(x1),U(->(x0,x1),x1))]",
+2024-02-07 14:47,../LTL-Learning/benchmark/5to10Traces/0173.trace,225,225,2,3,10,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 14:50,../LTL-Learning/benchmark/5to10Traces/0185.trace,20,100,3,3,10,"G(->(x1,G(x0)))",115.21927060999951,"[G(->(x1,G(x0)))]",
+2024-02-07 14:52,../LTL-Learning/benchmark/5to10Traces/0038.trace,200,200,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 14:55,../LTL-Learning/benchmark/5to10Traces/0086.trace,250,250,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 14:58,../LTL-Learning/benchmark/5to10Traces/0020.trace,250,250,2,2,5,G(!(x0)),18.258502217999194,[G(!(x0))],
+2024-02-07 14:58,../LTL-Learning/benchmark/5to10Traces/0122.trace,108,150,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 15:01,../LTL-Learning/benchmark/5to10Traces/0064.trace,250,250,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 15:04,../LTL-Learning/benchmark/5to10Traces/0023.trace,5,5,3,3,10,"->(F(x1),U(!(x0),x1))",3.040770564999548,"[U(->(x0,x1),x1)]",
+2024-02-07 15:04,../LTL-Learning/benchmark/5to10Traces/0159.trace,50,50,2,3,10,"->(F(x1),U(x0,x1))",10.392119263000495,"[U(x0,x1)]",
+2024-02-07 15:04,../LTL-Learning/benchmark/5to10Traces/0056.trace,150,150,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 15:07,../LTL-Learning/benchmark/5to10Traces/0101.trace,150,10,1,2,10,F(x0),3.384016645999509,[F(x0)],
+2024-02-07 15:07,../LTL-Learning/benchmark/5to10Traces/0125.trace,1,175,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",4.0386156879976625,[G(x0)],
+2024-02-07 15:07,../LTL-Learning/benchmark/5to10Traces/0153.trace,11,250,1,2,10,G(x0),5.699908292997861,[G(x0)],
+2024-02-07 15:07,../LTL-Learning/benchmark/5to10Traces/0146.trace,175,175,1,2,5,G(x0),3.14911240299989,[G(x0)],
+2024-02-07 15:07,../LTL-Learning/benchmark/5to10Traces/0147.trace,12,175,1,2,10,G(x0),4.047836667996307,[G(x0)],
+2024-02-07 15:08,../LTL-Learning/benchmark/5to10Traces/0074.trace,100,100,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 15:11,../LTL-Learning/benchmark/5to10Traces/0187.trace,20,125,3,3,10,"G(->(x1,G(x0)))",141.7700827150038,"[G(->(x1,G(x0)))]",
+2024-02-07 15:13,../LTL-Learning/benchmark/5to10Traces/0095.trace,75,6,1,2,10,F(x0),1.799522702000104,[F(x0)],
+2024-02-07 15:13,../LTL-Learning/benchmark/5to10Traces/0052.trace,100,100,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 15:16,../LTL-Learning/benchmark/5to10Traces/0025.trace,25,25,3,3,10,"->(F(x1),U(!(x0),x1))",15.876848232997872,"[U(!(x0),x1)]",
+2024-02-07 15:16,../LTL-Learning/benchmark/5to10Traces/0168.trace,175,175,2,3,5,"->(F(x1),U(x0,x1))",125.56702334000147,"[->(F(x1),U(x0,x1))]",
+2024-02-07 15:18,../LTL-Learning/benchmark/5to10Traces/0066.trace,5,5,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",0.11958510700060287,[F(x1)],
+2024-02-07 15:18,../LTL-Learning/benchmark/5to10Traces/0008.trace,100,100,2,2,5,G(!(x0)),7.107720642998174,[G(!(x0))],
+2024-02-07 15:18,../LTL-Learning/benchmark/5to10Traces/0163.trace,100,100,2,3,10,"->(F(x1),U(x0,x1))",20.42524471899378,"[U(x0,x1)]",
+2024-02-07 15:19,../LTL-Learning/benchmark/5to10Traces/0030.trace,100,100,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 15:22,../LTL-Learning/benchmark/5to10Traces/0190.trace,175,175,3,3,5,"G(->(x1,G(x0)))",119.32847292500082,"[G(->(x1,G(x0)))]",
+2024-02-07 15:24,../LTL-Learning/benchmark/5to10Traces/0132.trace,5,5,1,2,5,G(x0),0.11192740999831585,[G(x0)],
+2024-02-07 15:24,../LTL-Learning/benchmark/5to10Traces/0172.trace,225,225,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 15:27,../LTL-Learning/benchmark/5to10Traces/0156.trace,25,25,2,3,5,"->(F(x1),U(x0,x1))",12.529584130999865,"[U(x0,->(F(x1),x1))]",
+2024-02-07 15:27,../LTL-Learning/benchmark/5to10Traces/0054.trace,125,125,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 15:30,../LTL-Learning/benchmark/5to10Traces/0077.trace,125,19,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",141.87530014300137,"[U(F(x1),&(x0,F(x1)))]",
+2024-02-07 15:32,../LTL-Learning/benchmark/5to10Traces/0143.trace,5,125,1,2,10,G(x0),2.800884705997305,[G(x0)],
+2024-02-07 15:32,../LTL-Learning/benchmark/5to10Traces/0120.trace,69,125,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",2.0695090329973027,[G(x0)],
+2024-02-07 15:32,../LTL-Learning/benchmark/5to10Traces/0034.trace,150,150,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 15:35,../LTL-Learning/benchmark/5to10Traces/0131.trace,3,250,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 15:38,../LTL-Learning/benchmark/5to10Traces/0135.trace,2,25,1,2,10,G(x0),0.6222709430003306,[G(x0)],
+2024-02-07 15:39,../LTL-Learning/benchmark/5to10Traces/0076.trace,125,125,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 15:42,../LTL-Learning/benchmark/5to10Traces/0081.trace,175,30,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 15:45,../LTL-Learning/benchmark/5to10Traces/0090.trace,25,25,1,2,5,F(x0),0.4528005110041704,[F(x0)],
+2024-02-07 15:45,../LTL-Learning/benchmark/5to10Traces/0109.trace,250,17,1,2,10,F(x0),5.817971547003253,[F(x0)],
+2024-02-07 15:45,../LTL-Learning/benchmark/5to10Traces/0040.trace,225,225,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 15:48,../LTL-Learning/benchmark/5to10Traces/0116.trace,57,75,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 15:51,../LTL-Learning/benchmark/5to10Traces/0047.trace,9,25,4,3,10,"G(->(x1,G(!(x0))))",109.25969876399904,"[!(U(F(X(x0)),x1))]",
+2024-02-07 15:53,../LTL-Learning/benchmark/5to10Traces/0036.trace,175,175,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 15:56,../LTL-Learning/benchmark/5to10Traces/0166.trace,150,150,2,3,5,"->(F(x1),U(x0,x1))",98.87415603000409,"[U(x0,->(F(x1),x1))]",
+2024-02-07 15:57,../LTL-Learning/benchmark/5to10Traces/0094.trace,75,75,1,2,5,F(x0),1.3780682369979331,[F(x0)],
+2024-02-07 15:57,../LTL-Learning/benchmark/5to10Traces/0192.trace,200,200,3,3,5,"G(->(x1,G(x0)))",146.26507432099606,"[G(->(x1,G(x0)))]",
+2024-02-07 16:00,../LTL-Learning/benchmark/5to10Traces/0029.trace,75,75,3,3,10,"->(F(x1),U(!(x0),x1))",51.22225202499976,"[U(!(x0),x1)]",
+2024-02-07 16:00,../LTL-Learning/benchmark/5to10Traces/0145.trace,4,150,1,2,10,G(x0),3.30199361799896,[G(x0)],
+2024-02-07 16:01,../LTL-Learning/benchmark/5to10Traces/0178.trace,25,25,3,3,5,"G(->(x1,G(x0)))",12.718630711002334,"[G(->(x1,G(x0)))]",
+2024-02-07 16:01,../LTL-Learning/benchmark/5to10Traces/0043.trace,250,250,3,3,10,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 16:04,../LTL-Learning/benchmark/5to10Traces/0197.trace,51,250,3,3,10,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 16:07,../LTL-Learning/benchmark/5to10Traces/0142.trace,125,125,1,2,5,G(x0),2.2207212339999387,[G(x0)],
+2024-02-07 16:07,../LTL-Learning/benchmark/5to10Traces/0018.trace,225,225,2,2,5,G(!(x0)),16.360586137998325,[!(F(x0))],
+2024-02-07 16:07,../LTL-Learning/benchmark/5to10Traces/0055.trace,23,125,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 16:10,../LTL-Learning/benchmark/5to10Traces/0189.trace,24,150,3,3,10,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 16:13,../LTL-Learning/benchmark/5to10Traces/0012.trace,150,150,2,2,5,G(!(x0)),10.95350813800178,[G(!(x0))],
+2024-02-07 16:13,../LTL-Learning/benchmark/5to10Traces/0017.trace,8,200,2,2,10,G(!(x0)),20.855570266998257,[!(F(x0))],
+2024-02-07 16:14,../LTL-Learning/benchmark/5to10Traces/0051.trace,10,75,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 16:17,../LTL-Learning/benchmark/5to10Traces/0050.trace,75,75,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 16:20,../LTL-Learning/benchmark/5to10Traces/0106.trace,225,225,1,2,5,F(x0),4.108700595003029,[F(x0)],
+2024-02-07 16:20,../LTL-Learning/benchmark/5to10Traces/0183.trace,19,75,3,3,10,"G(->(x1,G(x0)))",86.81810484600283,"[G(->(x1,G(x0)))]",
+2024-02-07 16:21,../LTL-Learning/benchmark/5to10Traces/0087.trace,250,36,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 16:24,../LTL-Learning/benchmark/5to10Traces/0196.trace,250,250,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 16:27,../LTL-Learning/benchmark/5to10Traces/0098.trace,125,125,1,2,5,F(x0),2.288553257996682,[F(x0)],
+2024-02-07 16:27,../LTL-Learning/benchmark/5to10Traces/0010.trace,125,125,2,2,5,G(!(x0)),9.815558689995669,[!(F(x0))],
+2024-02-07 16:27,../LTL-Learning/benchmark/5to10Traces/0061.trace,42,200,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 16:30,../LTL-Learning/benchmark/5to10Traces/0035.trace,150,150,3,3,10,"->(F(x1),U(!(x0),x1))",98.15639923400158,"[U(->(x0,x1),x1)]",
+2024-02-07 16:32,../LTL-Learning/benchmark/5to10Traces/0006.trace,75,75,2,2,5,G(!(x0)),5.538400383004046,[!(F(x0))],
+2024-02-07 16:32,../LTL-Learning/benchmark/5to10Traces/0000.trace,5,5,2,2,5,G(!(x0)),0.40204655900015496,[G(!(x0))],
+2024-02-07 16:32,../LTL-Learning/benchmark/5to10Traces/0088.trace,5,5,1,2,5,F(x0),0.11551096699986374,[F(x0)],
+2024-02-07 16:32,../LTL-Learning/benchmark/5to10Traces/0193.trace,39,200,3,3,10,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 16:35,../LTL-Learning/benchmark/5to10Traces/0141.trace,7,100,1,2,10,G(x0),2.377296865997778,[G(x0)],
+2024-02-07 16:35,../LTL-Learning/benchmark/5to10Traces/0024.trace,25,25,3,3,5,"->(F(x1),U(!(x0),x1))",43.67592565200175,"[->(F(x1),U(->(x0,x1),x1))]",
+2024-02-07 16:36,../LTL-Learning/benchmark/5to10Traces/0117.trace,1,75,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",24.848439642999438,"[&(x1,G(x0))]",
+2024-02-07 16:36,../LTL-Learning/benchmark/5to10Traces/0079.trace,150,33,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 16:39,../LTL-Learning/benchmark/5to10Traces/0177.trace,3,5,3,3,10,"G(->(x1,G(x0)))",2.488373287997092,"[!(|(x0,x1))]",
+2024-02-07 16:39,../LTL-Learning/benchmark/5to10Traces/0103.trace,175,7,1,2,10,F(x0),4.036044878004759,[F(x0)],
+2024-02-07 16:40,../LTL-Learning/benchmark/5to10Traces/0174.trace,250,250,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 16:43,../LTL-Learning/benchmark/5to10Traces/0097.trace,100,4,1,2,10,F(x0),2.2146078949954244,[F(x0)],
+2024-02-07 16:43,../LTL-Learning/benchmark/5to10Traces/0191.trace,37,175,3,3,10,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 16:46,../LTL-Learning/benchmark/5to10Traces/0045.trace,2,5,4,3,10,"G(->(x1,G(!(x0))))",5.730892571002187,"[&(x0,X(!(x1)))]",
+2024-02-07 16:46,../LTL-Learning/benchmark/5to10Traces/0058.trace,175,175,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 16:49,../LTL-Learning/benchmark/5to10Traces/0099.trace,125,7,1,2,10,F(x0),2.8121064820006723,[F(x0)],
+2024-02-07 16:49,../LTL-Learning/benchmark/5to10Traces/0019.trace,14,225,2,2,10,G(!(x0)),24.41063574999862,[!(F(x0))],
+2024-02-07 16:49,../LTL-Learning/benchmark/5to10Traces/0044.trace,5,5,4,3,5,"G(->(x1,G(!(x0))))",2.661988712992752,"[!(|(x1,X(x0)))]",
+2024-02-07 16:49,../LTL-Learning/benchmark/5to10Traces/0037.trace,175,175,3,3,10,"->(F(x1),U(!(x0),x1))",107.60577548199944,"[U(!(x0),x1)]",
+2024-02-07 16:51,../LTL-Learning/benchmark/5to10Traces/0170.trace,200,200,2,3,5,"->(F(x1),U(x0,x1))",120.30042181400495,"[U(x0,->(F(x1),x1))]",
+2024-02-07 16:53,../LTL-Learning/benchmark/5to10Traces/0092.trace,50,50,1,2,5,F(x0),0.9387961649990757,[F(x0)],
+2024-02-07 16:53,../LTL-Learning/benchmark/5to10Traces/0152.trace,250,250,1,2,5,G(x0),4.553004670000519,[G(x0)],
+2024-02-07 16:53,../LTL-Learning/benchmark/5to10Traces/0128.trace,163,225,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 16:56,../LTL-Learning/benchmark/5to10Traces/0046.trace,25,25,4,3,5,"G(->(x1,G(!(x0))))",84.90550924599665,"[!(U(F(x0),&(x1,F(x0))))]",
+2024-02-07 16:58,../LTL-Learning/benchmark/5to10Traces/0136.trace,50,50,1,2,5,G(x0),0.9791338239956531,[G(x0)],
+2024-02-07 16:58,../LTL-Learning/benchmark/5to10Traces/0041.trace,225,225,3,3,10,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 17:01,../LTL-Learning/benchmark/5to10Traces/0105.trace,200,10,1,2,10,F(x0),4.776583376995404,[F(x0)],
+2024-02-07 17:01,../LTL-Learning/benchmark/5to10Traces/0161.trace,75,75,2,3,10,"->(F(x1),U(x0,x1))",15.767789413999708,"[U(x0,x1)]",
+2024-02-07 17:01,../LTL-Learning/benchmark/5to10Traces/0167.trace,150,150,2,3,10,"->(F(x1),U(x0,x1))",32.924716555993655,"[U(x0,x1)]",
+2024-02-07 17:01,../LTL-Learning/benchmark/5to10Traces/0164.trace,125,125,2,3,5,"->(F(x1),U(x0,x1))",83.90598855900316,"[->(F(x1),U(x0,x1))]",
+2024-02-07 17:03,../LTL-Learning/benchmark/5to10Traces/0048.trace,50,50,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 17:06,../LTL-Learning/benchmark/5to10Traces/0042.trace,250,250,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 17:09,../LTL-Learning/benchmark/5to10Traces/0003.trace,1,25,2,2,10,G(!(x0)),2.715272969995567,[!(F(x0))],
+2024-02-07 17:09,../LTL-Learning/benchmark/5to10Traces/0031.trace,100,100,3,3,10,"->(F(x1),U(!(x0),x1))",65.99487545900047,"[U(!(x0),x1)]",
+2024-02-07 17:10,../LTL-Learning/benchmark/5to10Traces/0083.trace,200,34,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 17:13,../LTL-Learning/benchmark/5to10Traces/0148.trace,200,200,1,2,5,G(x0),3.6451169779975316,[G(x0)],
+2024-02-07 17:13,../LTL-Learning/benchmark/5to10Traces/0114.trace,37,50,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 17:16,../LTL-Learning/benchmark/5to10Traces/0075.trace,100,22,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",113.20573184300156,"[U(F(x1),&(x0,F(x1)))]",
+2024-02-07 17:18,../LTL-Learning/benchmark/5to10Traces/0009.trace,5,100,2,2,10,G(!(x0)),10.512490945999161,[!(F(x0))],
+2024-02-07 17:18,../LTL-Learning/benchmark/5to10Traces/0134.trace,25,25,1,2,5,G(x0),0.5046093159980956,[G(x0)],
+2024-02-07 17:18,../LTL-Learning/benchmark/5to10Traces/0176.trace,5,5,3,3,5,"G(->(x1,G(x0)))",0.41012293200037675,"[&(x0,X(x0))]",
+2024-02-07 17:18,../LTL-Learning/benchmark/5to10Traces/0162.trace,100,100,2,3,5,"->(F(x1),U(x0,x1))",56.254394891999254,"[->(F(x1),U(x0,x1))]",
+2024-02-07 17:19,../LTL-Learning/benchmark/5to10Traces/0069.trace,25,2,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",0.6338910720005515,[F(x1)],
+2024-02-07 17:19,../LTL-Learning/benchmark/5to10Traces/0091.trace,25,2,1,2,10,F(x0),0.6193876870020176,[F(x0)],
+2024-02-07 17:19,../LTL-Learning/benchmark/5to10Traces/0154.trace,5,5,2,3,5,"->(F(x1),U(x0,x1))",0.4300391870056046,"[U(x0,x1)]",
+2024-02-07 17:19,../LTL-Learning/benchmark/5to10Traces/0194.trace,225,225,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 17:22,../LTL-Learning/benchmark/5to10Traces/0078.trace,150,150,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 17:25,../LTL-Learning/benchmark/5to10Traces/0149.trace,11,200,1,2,10,G(x0),8.247029671001656,[G(x0)],
+2024-02-07 17:25,../LTL-Learning/benchmark/5to10Traces/0014.trace,175,175,2,2,5,G(!(x0)),21.886578369994822,[!(F(x0))],
+2024-02-07 17:26,../LTL-Learning/benchmark/5to10Traces/0093.trace,50,3,1,2,10,F(x0),2.1422727099998156,[F(x0)],
+2024-02-07 17:26,../LTL-Learning/benchmark/5to10Traces/0022.trace,5,5,3,3,5,"->(F(x1),U(!(x0),x1))",0.7761952499931795,"[U(x2,x1)]",
+2024-02-07 17:26,../LTL-Learning/benchmark/5to10Traces/0032.trace,125,125,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 17:29,../LTL-Learning/benchmark/5to10Traces/0063.trace,56,225,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 17:32,../LTL-Learning/benchmark/5to10Traces/0021.trace,14,250,2,2,10,G(!(x0)),46.5883320369976,[!(F(x0))],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0119.trace,1,100,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",4.496904140003608,[G(x0)],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0155.trace,5,5,2,3,10,"->(F(x1),U(x0,x1))",0.06365652000386035,[x1],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0100.trace,150,150,1,2,5,F(x0),4.822368982997432,[F(x0)],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0129.trace,1,225,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",9.017229704004421,[G(x0)],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0104.trace,200,200,1,2,5,F(x0),6.485793117994035,[F(x0)],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0144.trace,150,150,1,2,5,G(x0),4.529707330999372,[G(x0)],
+2024-02-07 17:33,../LTL-Learning/benchmark/5to10Traces/0060.trace,200,200,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 17:36,../LTL-Learning/benchmark/5to10Traces/0039.trace,200,200,3,3,10,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 17:39,../LTL-Learning/benchmark/5to10Traces/0073.trace,75,13,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",125.16142934199888,"[U(F(x1),&(x0,F(x1)))]",
+2024-02-07 17:41,../LTL-Learning/benchmark/5to10Traces/0137.trace,2,50,1,2,10,G(x0),2.1067647009986104,[G(x0)],
+2024-02-07 17:41,../LTL-Learning/benchmark/5to10Traces/0121.trace,2,125,6,4,10,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",5.466771642997628,[G(x0)],
+2024-02-07 17:41,../LTL-Learning/benchmark/5to10Traces/0072.trace,75,75,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 17:44,../LTL-Learning/benchmark/5to10Traces/0158.trace,50,50,2,3,5,"->(F(x1),U(x0,x1))",55.18332414000179,"[->(F(x1),U(x0,x1))]",
+2024-02-07 17:45,../LTL-Learning/benchmark/5to10Traces/0195.trace,44,225,3,3,10,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 17:48,../LTL-Learning/benchmark/5to10Traces/0033.trace,125,125,3,3,10,"->(F(x1),U(!(x0),x1))",161.41590050899686,"[U(!(x0),x1)]",
+2024-02-07 17:51,../LTL-Learning/benchmark/5to10Traces/0080.trace,175,175,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 17:54,../LTL-Learning/benchmark/5to10Traces/0157.trace,25,25,2,3,10,"->(F(x1),U(x0,x1))",9.53807167999912,"[U(x0,x1)]",
+2024-02-07 17:54,../LTL-Learning/benchmark/5to10Traces/0016.trace,200,200,2,2,5,G(!(x0)),26.13345825500437,[!(F(x0))],
+2024-02-07 17:55,../LTL-Learning/benchmark/5to10Traces/0084.trace,225,225,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 17:58,../LTL-Learning/benchmark/5to10Traces/0007.trace,7,75,2,2,10,G(!(x0)),14.289777490994311,[G(!(x0))],
+2024-02-07 17:58,../LTL-Learning/benchmark/5to10Traces/0026.trace,50,50,3,3,5,"->(F(x1),U(!(x0),x1))",120.58820487299818,"[U(!(x0),->(F(x1),x1))]",
+2024-02-07 18:00,../LTL-Learning/benchmark/5to10Traces/0068.trace,25,25,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 18:03,../LTL-Learning/benchmark/5to10Traces/0070.trace,50,50,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 18:06,../LTL-Learning/benchmark/5to10Traces/0110.trace,4,5,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",0.13117798299936112,[G(x0)],
+2024-02-07 18:06,../LTL-Learning/benchmark/5to10Traces/0112.trace,14,25,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",0.4668515119992662,[G(x0)],
+2024-02-07 18:06,../LTL-Learning/benchmark/5to10Traces/0013.trace,4,150,2,2,10,G(!(x0)),16.875319512000715,[!(F(x0))],
+2024-02-07 18:06,../LTL-Learning/benchmark/5to10Traces/0071.trace,50,8,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",53.81426867400296,"[F(&(x0,X(x1)))]",
+2024-02-07 18:07,../LTL-Learning/benchmark/5to10Traces/0059.trace,39,175,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 18:10,../LTL-Learning/benchmark/5to10Traces/0004.trace,50,50,2,2,5,G(!(x0)),6.482245126004273,[G(!(x0))],
+2024-02-07 18:10,../LTL-Learning/benchmark/5to10Traces/0175.trace,250,250,2,3,10,"->(F(x1),U(x0,x1))",79.18285358700086,"[U(x0,x1)]",
+2024-02-07 18:12,../LTL-Learning/benchmark/5to10Traces/0102.trace,175,175,1,2,5,F(x0),3.44526125700213,[F(x0)],
+2024-02-07 18:12,../LTL-Learning/benchmark/5to10Traces/0140.trace,100,100,1,2,5,G(x0),1.985751842999889,[G(x0)],
+2024-02-07 18:12,../LTL-Learning/benchmark/5to10Traces/0049.trace,12,50,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 18:15,../LTL-Learning/benchmark/5to10Traces/0065.trace,46,250,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 18:18,../LTL-Learning/benchmark/5to10Traces/0002.trace,25,25,2,2,5,G(!(x0)),2.0175036180007737,[G(!(x0))],
+2024-02-07 18:18,../LTL-Learning/benchmark/5to10Traces/0057.trace,23,150,4,3,10,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 18:21,../LTL-Learning/benchmark/5to10Traces/0107.trace,225,8,1,2,10,F(x0),5.267696322996926,[F(x0)],
+2024-02-07 18:21,../LTL-Learning/benchmark/5to10Traces/0179.trace,6,25,3,3,10,"G(->(x1,G(x0)))",30.06181605099846,"[G(->(x1,G(x0)))]",
+2024-02-07 18:21,../LTL-Learning/benchmark/5to10Traces/0085.trace,225,32,4,3,10,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 18:24,../LTL-Learning/benchmark/5to10Traces/0180.trace,50,50,3,3,5,"G(->(x1,G(x0)))",40.9489419370002,"[G(->(x1,G(x0)))]",
+2024-02-07 18:25,../LTL-Learning/benchmark/5to10Traces/0118.trace,63,100,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 18:28,../LTL-Learning/benchmark/5to10Traces/0015.trace,10,175,2,2,10,G(!(x0)),18.993294346000766,[!(F(x0))],
+2024-02-07 18:28,../LTL-Learning/benchmark/5to10Traces/0062.trace,225,225,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 18:31,../LTL-Learning/benchmark/5to10Traces/0181.trace,13,50,3,3,10,"G(->(x1,G(x0)))",74.21196660800342,"[G(->(x1,G(x0)))]",
+2024-02-07 18:33,../LTL-Learning/benchmark/5to10Traces/0011.trace,8,125,2,2,10,G(!(x0)),14.511513165998622,[G(!(x0))],
+2024-02-07 18:33,../LTL-Learning/benchmark/5to10Traces/0126.trace,137,200,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 18:36,../LTL-Learning/benchmark/5to10Traces/0130.trace,173,250,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 18:39,../LTL-Learning/benchmark/5to10Traces/0184.trace,100,100,3,3,5,"G(->(x1,G(x0)))",56.66902278600173,"[G(->(x1,G(x0)))]",
+2024-02-07 18:40,../LTL-Learning/benchmark/5to10Traces/0124.trace,104,175,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-07 18:43,../LTL-Learning/benchmark/5to10Traces/0171.trace,200,200,2,3,10,"->(F(x1),U(x0,x1))",43.42905259399413,"[U(x0,x1)]",
+2024-02-07 18:44,../LTL-Learning/benchmark/5to10Traces/0005.trace,2,50,2,2,10,G(!(x0)),5.292321157998231,[G(!(x0))],
+2024-02-07 18:44,../LTL-Learning/benchmark/5to10Traces/0165.trace,125,125,2,3,10,"->(F(x1),U(x0,x1))",27.049921707002795,"[U(x0,x1)]",
+2024-02-07 18:44,../LTL-Learning/benchmark/5to10Traces/0082.trace,200,200,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-07 18:47,../LTL-Learning/benchmark/5to10Traces/0150.trace,225,225,1,2,5,G(x0),4.104160733004392,[G(x0)],
+2024-02-07 18:47,../LTL-Learning/benchmark/5to10Traces/0139.trace,3,75,1,2,10,G(x0),1.741493093999452,[G(x0)],
+2024-02-07 18:47,../LTL-Learning/benchmark/5to10Traces/0186.trace,125,125,3,3,5,"G(->(x1,G(x0)))",121.07083075699484,"[G(->(x1,G(x0)))]",
+2024-02-07 18:49,../LTL-Learning/benchmark/baseTest/0027.trace,111,51,2,3,5,"->(F(x1),U(x0,x1))",43.52568584399705,"[U(x0,->(F(x1),x1))]",
+2024-02-07 18:50,../LTL-Learning/benchmark/baseTest/0028.trace,15,6,2,3,5,"->(F(x1),U(x0,x1))",0.8468729419982992,"[U(x0,x1)]",
+2024-02-07 18:50,../LTL-Learning/benchmark/baseTest/0038.trace,143,1357,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 18:53,../LTL-Learning/benchmark/baseTest/0020.trace,42,458,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 18:56,../LTL-Learning/benchmark/baseTest/0023.trace,43,11,2,3,5,"->(F(x1),U(x0,x1))",14.815366468996217,"[->(F(x1),U(x0,x1))]",
+2024-02-07 18:56,../LTL-Learning/benchmark/baseTest/0001.trace,250,101,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 18:59,../LTL-Learning/benchmark/baseTest/0025.trace,450,201,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 19:02,../LTL-Learning/benchmark/baseTest/0008.trace,34,966,2,2,5,G(!(x0)),37.559938550999505,[!(F(x0))],
+2024-02-07 19:03,../LTL-Learning/benchmark/baseTest/0030.trace,2,98,1,2,5,G(x0),0.9755667319986969,[G(x0)],
+2024-02-07 19:03,../LTL-Learning/benchmark/baseTest/0034.trace,17,483,1,2,5,G(x0),4.728527784995094,[G(x0)],
+2024-02-07 19:03,../LTL-Learning/benchmark/baseTest/0040.trace,431,4569,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 19:06,../LTL-Learning/benchmark/baseTest/0036.trace,85,915,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 19:09,../LTL-Learning/benchmark/baseTest/0029.trace,40,960,1,2,5,G(x0),9.684386830995209,[G(x0)],
+2024-02-07 19:09,../LTL-Learning/benchmark/baseTest/0018.trace,190,1810,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 19:12,../LTL-Learning/benchmark/baseTest/0012.trace,149,4851,2,2,5,G(!(x0)),/,/,timeout: 180
+2024-02-07 19:15,../LTL-Learning/benchmark/baseTest/0017.trace,132,1368,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 19:18,../LTL-Learning/benchmark/baseTest/0010.trace,51,1449,2,2,5,G(!(x0)),55.591155381000135,[G(!(x0))],
+2024-02-07 19:19,../LTL-Learning/benchmark/baseTest/0035.trace,2,48,1,2,5,G(x0),0.5104348830063827,[G(x0)],
+2024-02-07 19:19,../LTL-Learning/benchmark/baseTest/0006.trace,89,51,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 19:22,../LTL-Learning/benchmark/baseTest/0024.trace,381,151,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 19:25,../LTL-Learning/benchmark/baseTest/0019.trace,407,4593,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 19:28,../LTL-Learning/benchmark/baseTest/0037.trace,5,95,3,3,5,"G(->(x1,G(x0)))",26.72937059600372,"[->(F(x1),G(x0))]",
+2024-02-07 19:29,../LTL-Learning/benchmark/baseTest/0041.trace,49,451,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 19:32,../LTL-Learning/benchmark/baseTest/0042.trace,4,46,3,3,5,"G(->(x1,G(x0)))",14.887240042000485,"[->(F(x1),G(x0))]",
+2024-02-07 19:32,../LTL-Learning/benchmark/baseTest/0003.trace,315,151,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 19:35,../LTL-Learning/benchmark/baseTest/0031.trace,53,1447,1,2,5,G(x0),14.139034918000107,[G(x0)],
+2024-02-07 19:35,../LTL-Learning/benchmark/baseTest/0009.trace,4,96,2,2,5,G(!(x0)),3.945457785994222,[G(!(x0))],
+2024-02-07 19:35,../LTL-Learning/benchmark/baseTest/0014.trace,4,46,2,2,5,G(!(x0)),1.9233443570046802,[!(F(x0))],
+2024-02-07 19:35,../LTL-Learning/benchmark/baseTest/0022.trace,262,101,2,3,5,"->(F(x1),U(x0,x1))",122.27335493099963,"[->(F(x1),U(x0,x1))]",
+2024-02-07 19:37,../LTL-Learning/benchmark/baseTest/0032.trace,68,1932,1,2,5,G(x0),19.355226207997475,[G(x0)],
+2024-02-07 19:38,../LTL-Learning/benchmark/baseTest/0021.trace,6,42,4,3,5,"G(->(x1,G(!(x0))))",87.10087572500197,"[!(U(F(x0),&(x1,F(x0))))]",
+2024-02-07 19:39,../LTL-Learning/benchmark/baseTest/0039.trace,174,1826,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 19:42,../LTL-Learning/benchmark/baseTest/0033.trace,148,4852,1,2,5,G(x0),45.581098433998704,[G(x0)],
+2024-02-07 19:43,../LTL-Learning/benchmark/baseTest/0016.trace,11,76,4,3,5,"G(->(x1,G(!(x0))))",106.06683476499893,"[!(U(F(x0),&(x1,F(x0))))]",
+2024-02-07 19:45,../LTL-Learning/benchmark/baseTest/0007.trace,10,6,3,3,5,"->(F(x1),U(!(x0),x1))",15.421109510003589,"[->(U(|(x0,X(x0)),x1),x1)]",
+2024-02-07 19:45,../LTL-Learning/benchmark/baseTest/0026.trace,1205,501,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 19:48,../LTL-Learning/benchmark/baseTest/0013.trace,15,485,2,2,5,G(!(x0)),18.027138833997014,[G(!(x0))],
+2024-02-07 19:48,../LTL-Learning/benchmark/baseTest/0004.trace,524,201,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 19:51,../LTL-Learning/benchmark/baseTest/0002.trace,11,11,3,3,5,"->(F(x1),U(!(x0),x1))",7.0146798089990625,"[->(|(x0,X(x0)),x1)]",
+2024-02-07 19:51,../LTL-Learning/benchmark/baseTest/0015.trace,101,889,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 19:54,../LTL-Learning/benchmark/baseTest/0011.trace,57,1943,2,2,5,G(!(x0)),87.15299191200029,[!(F(x0))],
+2024-02-07 19:56,../LTL-Learning/benchmark/baseTest/0005.trace,1112,501,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 19:59,../LTL-Learning/benchmark/disjunctedExistence/0064.trace,7,300,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:02,../LTL-Learning/benchmark/disjunctedExistence/0066.trace,400,400,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:05,../LTL-Learning/benchmark/disjunctedExistence/0030.trace,150,1,3,4,5,"|(F(x2),|(F(x0),F(x1)))",19.349571488004585,"[F(|(x0,x1))]",
+2024-02-07 20:05,../LTL-Learning/benchmark/disjunctedExistence/0054.trace,150,150,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:08,../LTL-Learning/benchmark/disjunctedExistence/0036.trace,250,1,3,4,5,"|(F(x2),|(F(x0),F(x1)))",32.921685786001035,"[|(x3,F(x1))]",
+2024-02-07 20:09,../LTL-Learning/benchmark/disjunctedExistence/0018.trace,400,68,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:12,../LTL-Learning/benchmark/disjunctedExistence/0055.trace,3,150,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:15,../LTL-Learning/benchmark/disjunctedExistence/0012.trace,250,38,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:18,../LTL-Learning/benchmark/disjunctedExistence/0051.trace,100,100,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:21,../LTL-Learning/benchmark/disjunctedExistence/0010.trace,200,1,5,5,10,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",73.25721457799955,"[U(F(x1),x2)]",
+2024-02-07 20:22,../LTL-Learning/benchmark/disjunctedExistence/0061.trace,4,250,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:25,../LTL-Learning/benchmark/disjunctedExistence/0006.trace,150,23,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:28,../LTL-Learning/benchmark/disjunctedExistence/0000.trace,50,6,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:31,../LTL-Learning/benchmark/disjunctedExistence/0067.trace,8,400,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:34,../LTL-Learning/benchmark/disjunctedExistence/0045.trace,500,1,3,4,5,"|(F(x2),|(F(x0),F(x1)))",65.02190275900648,"[F(|(x0,x2))]",
+2024-02-07 20:35,../LTL-Learning/benchmark/disjunctedExistence/0058.trace,2,200,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",5.727381145996333,[G(x0)],
+2024-02-07 20:35,../LTL-Learning/benchmark/disjunctedExistence/0048.trace,50,50,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:38,../LTL-Learning/benchmark/disjunctedExistence/0042.trace,400,2,3,4,5,"|(F(x2),|(F(x0),F(x1)))",49.772615459005465,"[F(|(x0,x2))]",
+2024-02-07 20:39,../LTL-Learning/benchmark/disjunctedExistence/0003.trace,100,14,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:42,../LTL-Learning/benchmark/disjunctedExistence/0009.trace,200,32,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:45,../LTL-Learning/benchmark/disjunctedExistence/0069.trace,500,500,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:48,../LTL-Learning/benchmark/disjunctedExistence/0063.trace,300,300,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:51,../LTL-Learning/benchmark/disjunctedExistence/0021.trace,500,107,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 20:54,../LTL-Learning/benchmark/disjunctedExistence/0060.trace,250,250,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 20:57,../LTL-Learning/benchmark/disjunctedExistence/0033.trace,200,1,3,4,5,"|(F(x2),|(F(x0),F(x1)))",23.390828875999432,"[|(x2,F(x0))]",
+2024-02-07 20:58,../LTL-Learning/benchmark/disjunctedExistence/0070.trace,9,500,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 21:01,../LTL-Learning/benchmark/disjunctedExistence/0049.trace,2,50,7,7,10,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",18.466169879997324,"[G(U(x0,x3))]",
+2024-02-07 21:01,../LTL-Learning/benchmark/disjunctedExistence/0057.trace,200,200,7,7,5,"|(G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1)))))),G(&(x3,->(!(x4),U(!(x4),&(x5,!(x4)))))))",/,/,timeout: 180
+2024-02-07 21:04,../LTL-Learning/benchmark/disjunctedExistence/0015.trace,300,50,5,5,5,"|(|(G(!(x0)),F(&(x0,F(x1)))),|(G(!(x3)),F(&(x2,F(x3)))))",/,/,timeout: 180
+2024-02-07 21:07,../LTL-Learning/benchmark/equal/0027.trace,50,50,2,3,5,"->(F(x1),U(x0,x1))",36.451707480999175,"[->(F(U(x0,x1)),U(x0,x1))]",
+2024-02-07 21:08,../LTL-Learning/benchmark/equal/0028.trace,5,5,2,3,5,"->(F(x1),U(x0,x1))",0.4251231559974258,"[U(x0,x1)]",
+2024-02-07 21:08,../LTL-Learning/benchmark/equal/0038.trace,150,150,3,3,5,"G(->(x1,G(x0)))",108.41178720699827,"[G(->(x1,G(x0)))]",
+2024-02-07 21:10,../LTL-Learning/benchmark/equal/0020.trace,50,50,4,3,5,"G(->(x1,G(!(x0))))",176.83743702599895,"[G(->(x1,G(!(x0))))]",
+2024-02-07 21:12,../LTL-Learning/benchmark/equal/0023.trace,10,10,2,3,5,"->(F(x1),U(x0,x1))",0.8025442620055401,"[U(x0,x1)]",
+2024-02-07 21:13,../LTL-Learning/benchmark/equal/0001.trace,100,100,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 21:16,../LTL-Learning/benchmark/equal/0025.trace,200,200,2,3,5,"->(F(x1),U(x0,x1))",170.71858958400117,"[U(x0,->(F(x1),x1))]",
+2024-02-07 21:18,../LTL-Learning/benchmark/equal/0008.trace,100,100,2,2,5,G(!(x0)),7.512924178001413,[!(F(x0))],
+2024-02-07 21:18,../LTL-Learning/benchmark/equal/0030.trace,10,10,1,2,5,G(x0),0.2040437249961542,[G(x0)],
+2024-02-07 21:19,../LTL-Learning/benchmark/equal/0034.trace,50,50,1,2,5,G(x0),0.9075465189962415,[G(x0)],
+2024-02-07 21:19,../LTL-Learning/benchmark/equal/0040.trace,500,500,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-07 21:22,../LTL-Learning/benchmark/equal/0036.trace,100,100,3,3,5,"G(->(x1,G(x0)))",75.45669751999958,"[G(->(x1,G(x0)))]",
+2024-02-07 21:23,../LTL-Learning/benchmark/equal/0029.trace,100,100,1,2,5,G(x0),1.85015184799704,[G(x0)],
+2024-02-07 21:23,../LTL-Learning/benchmark/equal/0018.trace,200,200,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 21:26,../LTL-Learning/benchmark/equal/0012.trace,500,500,2,2,5,G(!(x0)),37.98195868399489,[G(!(x0))],
+2024-02-07 21:26,../LTL-Learning/benchmark/equal/0017.trace,150,150,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 21:29,../LTL-Learning/benchmark/equal/0010.trace,150,150,2,2,5,G(!(x0)),11.427770590998989,[!(F(x0))],
+2024-02-07 21:30,../LTL-Learning/benchmark/equal/0035.trace,5,5,1,2,5,G(x0),0.11366181100311223,[G(x0)],
+2024-02-07 21:30,../LTL-Learning/benchmark/equal/0006.trace,50,50,3,3,5,"->(F(x1),U(!(x0),x1))",123.56489395599783,"[->(F(x1),U(!(x0),x1))]",
+2024-02-07 21:32,../LTL-Learning/benchmark/equal/0024.trace,150,150,2,3,5,"->(F(x1),U(x0,x1))",102.38854041800369,"[->(F(x1),U(x0,x1))]",
+2024-02-07 21:33,../LTL-Learning/benchmark/equal/0019.trace,500,500,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 21:36,../LTL-Learning/benchmark/equal/0037.trace,10,10,3,3,5,"G(->(x1,G(x0)))",6.210693540997454,"[G(->(x1,G(x0)))]",
+2024-02-07 21:37,../LTL-Learning/benchmark/equal/0041.trace,50,50,3,3,5,"G(->(x1,G(x0)))",33.23843237199617,"[G(->(x1,G(x0)))]",
+2024-02-07 21:37,../LTL-Learning/benchmark/equal/0042.trace,5,5,3,3,5,"G(->(x1,G(x0)))",1.1167685749969678,"[G(->(x1,x0))]",
+2024-02-07 21:37,../LTL-Learning/benchmark/equal/0003.trace,150,150,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 21:40,../LTL-Learning/benchmark/equal/0031.trace,150,150,1,2,5,G(x0),2.7516888009995455,[G(x0)],
+2024-02-07 21:40,../LTL-Learning/benchmark/equal/0009.trace,10,10,2,2,5,G(!(x0)),0.7703890459961258,[!(F(x0))],
+2024-02-07 21:40,../LTL-Learning/benchmark/equal/0014.trace,5,5,2,2,5,G(!(x0)),0.4519526760050212,[!(F(x0))],
+2024-02-07 21:40,../LTL-Learning/benchmark/equal/0022.trace,100,100,2,3,5,"->(F(x1),U(x0,x1))",58.98318801699497,"[->(F(x1),U(x0,x1))]",
+2024-02-07 21:41,../LTL-Learning/benchmark/equal/0032.trace,200,200,1,2,5,G(x0),3.6220799069997156,[G(x0)],
+2024-02-07 21:41,../LTL-Learning/benchmark/equal/0021.trace,5,5,4,3,5,"G(->(x1,G(!(x0))))",3.7191906350053614,"[G(->(x0,!(x1)))]",
+2024-02-07 21:41,../LTL-Learning/benchmark/equal/0039.trace,200,200,3,3,5,"G(->(x1,G(x0)))",128.6531353800019,"[G(->(x1,G(x0)))]",
+2024-02-07 21:43,../LTL-Learning/benchmark/equal/0033.trace,500,500,1,2,5,G(x0),9.114723381993826,[G(x0)],
+2024-02-07 21:44,../LTL-Learning/benchmark/equal/0016.trace,10,10,4,3,5,"G(->(x1,G(!(x0))))",5.686337184000877,"[!(F(&(x0,x1)))]",
+2024-02-07 21:44,../LTL-Learning/benchmark/equal/0007.trace,5,5,3,3,5,"->(F(x1),U(!(x0),x1))",0.40540275999956066,"[U(x2,x1)]",
+2024-02-07 21:44,../LTL-Learning/benchmark/equal/0026.trace,500,500,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-07 21:47,../LTL-Learning/benchmark/equal/0013.trace,50,50,2,2,5,G(!(x0)),3.857458737002162,[G(!(x0))],
+2024-02-07 21:47,../LTL-Learning/benchmark/equal/0004.trace,200,200,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 21:50,../LTL-Learning/benchmark/equal/0002.trace,10,10,3,3,5,"->(F(x1),U(!(x0),x1))",15.799500267996336,"[U(->(x0,x1),->(F(x1),x1))]",
+2024-02-07 21:50,../LTL-Learning/benchmark/equal/0015.trace,100,100,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-07 21:53,../LTL-Learning/benchmark/equal/0011.trace,200,200,2,2,5,G(!(x0)),14.680144420002762,[G(!(x0))],
+2024-02-07 21:53,../LTL-Learning/benchmark/equal/0005.trace,500,500,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-07 21:56,../LTL-Learning/benchmark/increasingNumVariables/0027.trace,30,30,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 21:59,../LTL-Learning/benchmark/increasingNumVariables/0053.trace,40,40,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 22:02,../LTL-Learning/benchmark/increasingNumVariables/0028.trace,35,35,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 22:05,../LTL-Learning/benchmark/increasingNumVariables/0038.trace,45,45,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-07 22:08,../LTL-Learning/benchmark/increasingNumVariables/0020.trace,35,35,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 22:11,../LTL-Learning/benchmark/increasingNumVariables/0023.trace,50,50,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 22:14,../LTL-Learning/benchmark/increasingNumVariables/0001.trace,20,20,3,3,5,"G(->(x1,G(x0)))",13.001261855999473,"[G(->(x1,G(x0)))]",
+2024-02-07 22:15,../LTL-Learning/benchmark/increasingNumVariables/0052.trace,35,35,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 22:18,../LTL-Learning/benchmark/increasingNumVariables/0025.trace,20,20,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 22:21,../LTL-Learning/benchmark/increasingNumVariables/0008.trace,15,15,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-07 22:24,../LTL-Learning/benchmark/increasingNumVariables/0030.trace,45,45,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 22:27,../LTL-Learning/benchmark/increasingNumVariables/0054.trace,45,45,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 22:30,../LTL-Learning/benchmark/increasingNumVariables/0034.trace,25,25,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-07 22:33,../LTL-Learning/benchmark/increasingNumVariables/0040.trace,15,15,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 22:36,../LTL-Learning/benchmark/increasingNumVariables/0047.trace,50,50,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 22:39,../LTL-Learning/benchmark/increasingNumVariables/0036.trace,35,35,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-07 22:42,../LTL-Learning/benchmark/increasingNumVariables/0029.trace,40,40,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 22:45,../LTL-Learning/benchmark/increasingNumVariables/0043.trace,30,30,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 22:48,../LTL-Learning/benchmark/increasingNumVariables/0018.trace,25,25,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 22:51,../LTL-Learning/benchmark/increasingNumVariables/0055.trace,50,50,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 22:54,../LTL-Learning/benchmark/increasingNumVariables/0012.trace,35,35,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-07 22:57,../LTL-Learning/benchmark/increasingNumVariables/0017.trace,20,20,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 23:00,../LTL-Learning/benchmark/increasingNumVariables/0051.trace,30,30,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 23:03,../LTL-Learning/benchmark/increasingNumVariables/0050.trace,25,25,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 23:06,../LTL-Learning/benchmark/increasingNumVariables/0010.trace,25,25,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-07 23:09,../LTL-Learning/benchmark/increasingNumVariables/0035.trace,30,30,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-07 23:12,../LTL-Learning/benchmark/increasingNumVariables/0006.trace,45,45,3,3,5,"G(->(x1,G(x0)))",41.119317821998266,"[G(->(x1,G(x0)))]",
+2024-02-07 23:13,../LTL-Learning/benchmark/increasingNumVariables/0000.trace,15,15,3,3,5,"G(->(x1,G(x0)))",19.20719585399638,"[G(->(x1,G(x0)))]",
+2024-02-07 23:13,../LTL-Learning/benchmark/increasingNumVariables/0024.trace,15,15,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 23:16,../LTL-Learning/benchmark/increasingNumVariables/0045.trace,40,40,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 23:19,../LTL-Learning/benchmark/increasingNumVariables/0019.trace,30,30,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 23:22,../LTL-Learning/benchmark/increasingNumVariables/0044.trace,35,35,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 23:25,../LTL-Learning/benchmark/increasingNumVariables/0037.trace,40,40,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-07 23:28,../LTL-Learning/benchmark/increasingNumVariables/0046.trace,45,45,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 23:31,../LTL-Learning/benchmark/increasingNumVariables/0041.trace,20,20,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 23:34,../LTL-Learning/benchmark/increasingNumVariables/0048.trace,15,15,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-07 23:37,../LTL-Learning/benchmark/increasingNumVariables/0042.trace,25,25,7,8,5,"G(->(&(&(&(&(&(x1,x2),x3),x4),x5),x6),G(x0)))",/,/,timeout: 180
+2024-02-07 23:40,../LTL-Learning/benchmark/increasingNumVariables/0003.trace,30,30,3,3,5,"G(->(x1,G(x0)))",23.273656789002416,"[G(->(x1,G(x0)))]",
+2024-02-07 23:41,../LTL-Learning/benchmark/increasingNumVariables/0031.trace,50,50,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-07 23:44,../LTL-Learning/benchmark/increasingNumVariables/0009.trace,20,20,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-07 23:47,../LTL-Learning/benchmark/increasingNumVariables/0014.trace,45,45,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-07 23:50,../LTL-Learning/benchmark/increasingNumVariables/0022.trace,45,45,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 23:53,../LTL-Learning/benchmark/increasingNumVariables/0032.trace,15,15,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-07 23:56,../LTL-Learning/benchmark/increasingNumVariables/0021.trace,40,40,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-07 23:59,../LTL-Learning/benchmark/increasingNumVariables/0039.trace,50,50,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-08 00:02,../LTL-Learning/benchmark/increasingNumVariables/0033.trace,20,20,6,7,5,"G(->(&(&(&(&(x1,x2),x3),x4),x5),G(x0)))",/,/,timeout: 180
+2024-02-08 00:05,../LTL-Learning/benchmark/increasingNumVariables/0016.trace,15,15,4,5,5,"G(->(&(&(x1,x2),x3),G(x0)))",/,/,timeout: 180
+2024-02-08 00:08,../LTL-Learning/benchmark/increasingNumVariables/0007.trace,50,50,3,3,5,"G(->(x1,G(x0)))",26.442031615995802,"[G(->(x1,G(x0)))]",
+2024-02-08 00:08,../LTL-Learning/benchmark/increasingNumVariables/0026.trace,25,25,5,6,5,"G(->(&(&(&(x1,x2),x3),x4),G(x0)))",/,/,timeout: 180
+2024-02-08 00:11,../LTL-Learning/benchmark/increasingNumVariables/0013.trace,40,40,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-08 00:14,../LTL-Learning/benchmark/increasingNumVariables/0004.trace,35,35,3,3,5,"G(->(x1,G(x0)))",19.090047883000807,"[G(->(x1,G(x0)))]",
+2024-02-08 00:15,../LTL-Learning/benchmark/increasingNumVariables/0049.trace,20,20,8,9,5,"G(->(&(&(&(&(&(&(x1,x2),x3),x4),x5),x6),x7),G(x0)))",/,/,timeout: 180
+2024-02-08 00:18,../LTL-Learning/benchmark/increasingNumVariables/0002.trace,25,25,3,3,5,"G(->(x1,G(x0)))",18.66857022700424,"[G(->(x1,G(x0)))]",
+2024-02-08 00:18,../LTL-Learning/benchmark/increasingNumVariables/0015.trace,50,50,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-08 00:21,../LTL-Learning/benchmark/increasingNumVariables/0011.trace,30,30,3,4,5,"G(->(&(x1,x2),G(x0)))",/,/,timeout: 180
+2024-02-08 00:24,../LTL-Learning/benchmark/increasingNumVariables/0005.trace,40,40,3,3,5,"G(->(x1,G(x0)))",25.10370590799721,"[G(->(x1,G(x0)))]",
+2024-02-08 00:24,../LTL-Learning/benchmark/moreDetailedTest/0108.trace,400,400,1,2,5,G(x0),7.31482238600438,[G(x0)],
+2024-02-08 00:24,../LTL-Learning/benchmark/moreDetailedTest/0027.trace,5,5,2,2,5,G(!(x0)),0.4068274239980383,[!(F(x0))],
+2024-02-08 00:25,../LTL-Learning/benchmark/moreDetailedTest/0053.trace,500,500,1,2,5,F(x0),9.096818356003496,[F(x0)],
+2024-02-08 00:25,../LTL-Learning/benchmark/moreDetailedTest/0096.trace,50,50,2,3,5,"->(F(x1),U(x0,x1))",26.07469903200399,"[U(x0,->(F(x1),x1))]",
+2024-02-08 00:25,../LTL-Learning/benchmark/moreDetailedTest/0028.trace,75,75,2,2,5,G(!(x0)),5.4325367659912445,[G(!(x0))],
+2024-02-08 00:25,../LTL-Learning/benchmark/moreDetailedTest/0038.trace,400,400,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 00:28,../LTL-Learning/benchmark/moreDetailedTest/0086.trace,10,10,2,3,5,"->(F(x1),U(x0,x1))",0.7583107120008208,"[U(x0,x1)]",
+2024-02-08 00:28,../LTL-Learning/benchmark/moreDetailedTest/0020.trace,200,200,2,2,5,G(!(x0)),14.598981182003627,[!(F(x0))],
+2024-02-08 00:28,../LTL-Learning/benchmark/moreDetailedTest/0122.trace,400,400,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-08 00:31,../LTL-Learning/benchmark/moreDetailedTest/0064.trace,300,300,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 00:34,../LTL-Learning/benchmark/moreDetailedTest/0023.trace,350,350,2,2,5,G(!(x0)),25.156457510995097,[G(!(x0))],
+2024-02-08 00:35,../LTL-Learning/benchmark/moreDetailedTest/0001.trace,100,100,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 00:38,../LTL-Learning/benchmark/moreDetailedTest/0056.trace,75,75,1,2,5,F(x0),1.5913695039926097,[F(x0)],
+2024-02-08 00:38,../LTL-Learning/benchmark/moreDetailedTest/0101.trace,125,125,1,2,5,G(x0),2.579721388989128,[G(x0)],
+2024-02-08 00:38,../LTL-Learning/benchmark/moreDetailedTest/0125.trace,5,5,3,3,5,"G(->(x1,G(x0)))",0.4785907729965402,[G(X(x0))],
+2024-02-08 00:38,../LTL-Learning/benchmark/moreDetailedTest/0074.trace,107,150,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 00:41,../LTL-Learning/benchmark/moreDetailedTest/0095.trace,500,500,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-08 00:44,../LTL-Learning/benchmark/moreDetailedTest/0052.trace,400,400,1,2,5,F(x0),9.048158290999709,[F(x0)],
+2024-02-08 00:44,../LTL-Learning/benchmark/moreDetailedTest/0025.trace,500,500,2,2,5,G(!(x0)),45.78498146399215,[!(F(x0))],
+2024-02-08 00:45,../LTL-Learning/benchmark/moreDetailedTest/0066.trace,400,400,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 00:48,../LTL-Learning/benchmark/moreDetailedTest/0008.trace,300,300,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 00:51,../LTL-Learning/benchmark/moreDetailedTest/0030.trace,10,10,4,3,5,"G(->(x1,G(!(x0))))",24.13923916000931,"[!(U(F(x0),&(x1,F(x0))))]",
+2024-02-08 00:51,../LTL-Learning/benchmark/moreDetailedTest/0054.trace,50,50,1,2,5,F(x0),1.1949745190067915,[F(x0)],
+2024-02-08 00:51,../LTL-Learning/benchmark/moreDetailedTest/0077.trace,155,250,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 00:54,../LTL-Learning/benchmark/moreDetailedTest/0120.trace,300,300,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-08 00:57,../LTL-Learning/benchmark/moreDetailedTest/0034.trace,200,200,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 01:00,../LTL-Learning/benchmark/moreDetailedTest/0076.trace,124,200,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 01:03,../LTL-Learning/benchmark/moreDetailedTest/0113.trace,100,100,3,3,5,"G(->(x1,G(x0)))",86.30938455999421,"[G(->(x1,G(x0)))]",
+2024-02-08 01:05,../LTL-Learning/benchmark/moreDetailedTest/0081.trace,331,500,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 01:08,../LTL-Learning/benchmark/moreDetailedTest/0090.trace,200,200,2,3,5,"->(F(x1),U(x0,x1))",126.71803924700362,"[U(x0,->(F(x1),x1))]",
+2024-02-08 01:10,../LTL-Learning/benchmark/moreDetailedTest/0109.trace,500,500,1,2,5,G(x0),9.634762914996827,[G(x0)],
+2024-02-08 01:10,../LTL-Learning/benchmark/moreDetailedTest/0040.trace,50,50,4,3,5,"G(->(x1,G(!(x0))))",99.8354782309907,"[!(U(F(x0),&(x1,F(x0))))]",
+2024-02-08 01:12,../LTL-Learning/benchmark/moreDetailedTest/0116.trace,150,150,3,3,5,"G(->(x1,G(x0)))",172.30074597599742,"[G(->(x1,G(x0)))]",
+2024-02-08 01:15,../LTL-Learning/benchmark/moreDetailedTest/0047.trace,175,175,1,2,5,F(x0),4.145355455999379,[F(x0)],
+2024-02-08 01:15,../LTL-Learning/benchmark/moreDetailedTest/0115.trace,125,125,3,3,5,"G(->(x1,G(x0)))",115.75952807000431,"[G(->(x1,G(x0)))]",
+2024-02-08 01:17,../LTL-Learning/benchmark/moreDetailedTest/0036.trace,300,300,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 01:20,../LTL-Learning/benchmark/moreDetailedTest/0089.trace,175,175,2,3,5,"->(F(x1),U(x0,x1))",116.74300039299123,"[->(F(x1),U(x0,x1))]",
+2024-02-08 01:22,../LTL-Learning/benchmark/moreDetailedTest/0094.trace,400,400,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-08 01:25,../LTL-Learning/benchmark/moreDetailedTest/0029.trace,100,100,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 01:28,../LTL-Learning/benchmark/moreDetailedTest/0043.trace,100,100,1,2,5,F(x0),2.4104031730093993,[F(x0)],
+2024-02-08 01:28,../LTL-Learning/benchmark/moreDetailedTest/0018.trace,150,150,2,2,5,G(!(x0)),14.368972291005775,[G(!(x0))],
+2024-02-08 01:28,../LTL-Learning/benchmark/moreDetailedTest/0055.trace,5,5,1,2,5,F(x0),0.15340140799526125,[F(x0)],
+2024-02-08 01:28,../LTL-Learning/benchmark/moreDetailedTest/0012.trace,50,50,3,3,5,"->(F(x1),U(!(x0),x1))",110.53555271400546,"[U(!(x0),->(F(x1),x1))]",
+2024-02-08 01:30,../LTL-Learning/benchmark/moreDetailedTest/0017.trace,125,125,2,2,5,G(!(x0)),12.249968487987644,[G(!(x0))],
+2024-02-08 01:30,../LTL-Learning/benchmark/moreDetailedTest/0051.trace,350,350,1,2,5,F(x0),7.400421675003599,[F(x0)],
+2024-02-08 01:30,../LTL-Learning/benchmark/moreDetailedTest/0050.trace,300,300,1,2,5,F(x0),8.264187423992553,[F(x0)],
+2024-02-08 01:30,../LTL-Learning/benchmark/moreDetailedTest/0106.trace,300,300,1,2,5,G(x0),7.9339421820041025,[G(x0)],
+2024-02-08 01:30,../LTL-Learning/benchmark/moreDetailedTest/0087.trace,125,125,2,3,5,"->(F(x1),U(x0,x1))",91.41663885500748,"[U(x0,->(F(x1),x1))]",
+2024-02-08 01:32,../LTL-Learning/benchmark/moreDetailedTest/0098.trace,75,75,2,3,5,"->(F(x1),U(x0,x1))",46.39523087600537,"[->(F(x1),U(x0,x1))]",
+2024-02-08 01:33,../LTL-Learning/benchmark/moreDetailedTest/0010.trace,400,400,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 01:36,../LTL-Learning/benchmark/moreDetailedTest/0061.trace,175,175,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 01:39,../LTL-Learning/benchmark/moreDetailedTest/0035.trace,250,250,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 01:42,../LTL-Learning/benchmark/moreDetailedTest/0006.trace,200,200,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 01:45,../LTL-Learning/benchmark/moreDetailedTest/0088.trace,150,150,2,3,5,"->(F(x1),U(x0,x1))",94.42406935000326,"[U(x0,->(F(x1),x1))]",
+2024-02-08 01:46,../LTL-Learning/benchmark/moreDetailedTest/0024.trace,400,400,2,2,5,G(!(x0)),30.788895339006558,[G(!(x0))],
+2024-02-08 01:47,../LTL-Learning/benchmark/moreDetailedTest/0117.trace,175,175,3,3,5,"G(->(x1,G(x0)))",133.3014719310013,"[G(->(x1,G(x0)))]",
+2024-02-08 01:49,../LTL-Learning/benchmark/moreDetailedTest/0067.trace,500,500,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 01:52,../LTL-Learning/benchmark/moreDetailedTest/0079.trace,213,350,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 01:55,../LTL-Learning/benchmark/moreDetailedTest/0103.trace,175,175,1,2,5,G(x0),5.5988213819946395,[G(x0)],
+2024-02-08 01:55,../LTL-Learning/benchmark/moreDetailedTest/0097.trace,5,5,2,3,5,"->(F(x1),U(x0,x1))",0.7542964489985025,"[U(x0,x1)]",
+2024-02-08 01:55,../LTL-Learning/benchmark/moreDetailedTest/0045.trace,125,125,1,2,5,F(x0),3.993654236997827,[F(x0)],
+2024-02-08 01:55,../LTL-Learning/benchmark/moreDetailedTest/0058.trace,10,10,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",28.591002593995654,"[|(&(x0,F(x1)),G(F(x1)))]",
+2024-02-08 01:56,../LTL-Learning/benchmark/moreDetailedTest/0099.trace,100,100,1,2,5,G(x0),3.106058531004237,[G(x0)],
+2024-02-08 01:56,../LTL-Learning/benchmark/moreDetailedTest/0019.trace,175,175,2,2,5,G(!(x0)),22.175624259994947,[!(F(x0))],
+2024-02-08 01:56,../LTL-Learning/benchmark/moreDetailedTest/0044.trace,10,9,1,2,5,F(x0),0.28458931201021187,[F(x0)],
+2024-02-08 01:56,../LTL-Learning/benchmark/moreDetailedTest/0037.trace,350,350,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 01:59,../LTL-Learning/benchmark/moreDetailedTest/0092.trace,300,300,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-08 02:02,../LTL-Learning/benchmark/moreDetailedTest/0046.trace,150,150,1,2,5,F(x0),4.737815828004386,[F(x0)],
+2024-02-08 02:02,../LTL-Learning/benchmark/moreDetailedTest/0041.trace,5,5,4,3,5,"G(->(x1,G(!(x0))))",18.745967005001148,"[U(!(x1),G(!(x0)))]",
+2024-02-08 02:03,../LTL-Learning/benchmark/moreDetailedTest/0105.trace,250,250,1,2,5,G(x0),7.977303654988646,[G(x0)],
+2024-02-08 02:03,../LTL-Learning/benchmark/moreDetailedTest/0048.trace,200,200,1,2,5,F(x0),6.73862972400093,[F(x0)],
+2024-02-08 02:03,../LTL-Learning/benchmark/moreDetailedTest/0042.trace,75,75,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 02:06,../LTL-Learning/benchmark/moreDetailedTest/0003.trace,125,125,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 02:09,../LTL-Learning/benchmark/moreDetailedTest/0031.trace,125,125,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 02:12,../LTL-Learning/benchmark/moreDetailedTest/0083.trace,1,5,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",0.15710007199959364,[G(x0)],
+2024-02-08 02:12,../LTL-Learning/benchmark/moreDetailedTest/0114.trace,10,10,3,3,5,"G(->(x1,G(x0)))",9.246411932996125,"[G(->(x1,G(x0)))]",
+2024-02-08 02:12,../LTL-Learning/benchmark/moreDetailedTest/0075.trace,116,175,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 02:15,../LTL-Learning/benchmark/moreDetailedTest/0009.trace,350,350,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 02:18,../LTL-Learning/benchmark/moreDetailedTest/0069.trace,5,5,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",0.9275976420030929,[G(F(x1))],
+2024-02-08 02:18,../LTL-Learning/benchmark/moreDetailedTest/0091.trace,250,250,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-08 02:21,../LTL-Learning/benchmark/moreDetailedTest/0078.trace,174,300,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 02:24,../LTL-Learning/benchmark/moreDetailedTest/0014.trace,75,75,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 02:27,../LTL-Learning/benchmark/moreDetailedTest/0093.trace,350,350,2,3,5,"->(F(x1),U(x0,x1))",/,/,timeout: 180
+2024-02-08 02:30,../LTL-Learning/benchmark/moreDetailedTest/0022.trace,300,300,2,2,5,G(!(x0)),23.103485444997204,[!(F(x0))],
+2024-02-08 02:31,../LTL-Learning/benchmark/moreDetailedTest/0032.trace,150,150,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 02:34,../LTL-Learning/benchmark/moreDetailedTest/0063.trace,250,250,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 02:37,../LTL-Learning/benchmark/moreDetailedTest/0021.trace,250,250,2,2,5,G(!(x0)),19.738683485004003,[G(!(x0))],
+2024-02-08 02:37,../LTL-Learning/benchmark/moreDetailedTest/0119.trace,250,250,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-08 02:40,../LTL-Learning/benchmark/moreDetailedTest/0100.trace,10,10,1,2,5,G(x0),0.2135212229914032,[G(x0)],
+2024-02-08 02:40,../LTL-Learning/benchmark/moreDetailedTest/0123.trace,500,500,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-08 02:43,../LTL-Learning/benchmark/moreDetailedTest/0104.trace,200,200,1,2,5,G(x0),3.82239223299257,[G(x0)],
+2024-02-08 02:43,../LTL-Learning/benchmark/moreDetailedTest/0060.trace,150,150,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 02:46,../LTL-Learning/benchmark/moreDetailedTest/0039.trace,500,500,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 02:49,../LTL-Learning/benchmark/moreDetailedTest/0073.trace,80,125,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 02:52,../LTL-Learning/benchmark/moreDetailedTest/0121.trace,350,350,3,3,5,"G(->(x1,G(x0)))",/,/,timeout: 180
+2024-02-08 02:55,../LTL-Learning/benchmark/moreDetailedTest/0072.trace,7,10,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",0.21354612499999348,[G(x0)],
+2024-02-08 02:55,../LTL-Learning/benchmark/moreDetailedTest/0033.trace,175,175,4,3,5,"G(->(x1,G(!(x0))))",/,/,timeout: 180
+2024-02-08 02:58,../LTL-Learning/benchmark/moreDetailedTest/0080.trace,317,400,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 03:01,../LTL-Learning/benchmark/moreDetailedTest/0016.trace,10,10,2,2,5,G(!(x0)),0.8062513000040781,[G(!(x0))],
+2024-02-08 03:01,../LTL-Learning/benchmark/moreDetailedTest/0084.trace,52,75,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 03:04,../LTL-Learning/benchmark/moreDetailedTest/0007.trace,250,250,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 03:07,../LTL-Learning/benchmark/moreDetailedTest/0026.trace,50,50,2,2,5,G(!(x0)),3.8222670129907783,[G(!(x0))],
+2024-02-08 03:07,../LTL-Learning/benchmark/moreDetailedTest/0068.trace,50,50,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 03:10,../LTL-Learning/benchmark/moreDetailedTest/0070.trace,75,75,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 03:13,../LTL-Learning/benchmark/moreDetailedTest/0110.trace,50,50,1,2,5,G(x0),0.9664845229999628,[G(x0)],
+2024-02-08 03:13,../LTL-Learning/benchmark/moreDetailedTest/0112.trace,75,75,1,2,5,G(x0),1.4542885349947028,[G(x0)],
+2024-02-08 03:13,../LTL-Learning/benchmark/moreDetailedTest/0013.trace,5,5,3,3,5,"->(F(x1),U(!(x0),x1))",1.1169605110044358,"[->(G(F(x1)),x1)]",
+2024-02-08 03:13,../LTL-Learning/benchmark/moreDetailedTest/0071.trace,70,100,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",/,/,timeout: 180
+2024-02-08 03:16,../LTL-Learning/benchmark/moreDetailedTest/0059.trace,125,125,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 03:20,../LTL-Learning/benchmark/moreDetailedTest/0004.trace,150,150,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 03:23,../LTL-Learning/benchmark/moreDetailedTest/0102.trace,150,150,1,2,5,G(x0),2.790258349996293,[G(x0)],
+2024-02-08 03:23,../LTL-Learning/benchmark/moreDetailedTest/0049.trace,250,250,1,2,5,F(x0),4.698241919002612,[F(x0)],
+2024-02-08 03:23,../LTL-Learning/benchmark/moreDetailedTest/0065.trace,350,350,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 03:26,../LTL-Learning/benchmark/moreDetailedTest/0002.trace,10,10,3,3,5,"->(F(x1),U(!(x0),x1))",2.2106439149938524,"[U(!(x0),x1)]",
+2024-02-08 03:26,../LTL-Learning/benchmark/moreDetailedTest/0057.trace,100,100,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 03:29,../LTL-Learning/benchmark/moreDetailedTest/0107.trace,350,350,1,2,5,G(x0),6.487604883004678,[G(x0)],
+2024-02-08 03:29,../LTL-Learning/benchmark/moreDetailedTest/0085.trace,100,100,2,3,5,"->(F(x1),U(x0,x1))",55.74285430800228,"[->(F(x1),U(x0,x1))]",
+2024-02-08 03:30,../LTL-Learning/benchmark/moreDetailedTest/0118.trace,200,200,3,3,5,"G(->(x1,G(x0)))",159.33969806299137,"[G(->(x1,G(x0)))]",
+2024-02-08 03:32,../LTL-Learning/benchmark/moreDetailedTest/0015.trace,100,100,2,2,5,G(!(x0)),7.8179214730043896,[G(!(x0))],
+2024-02-08 03:33,../LTL-Learning/benchmark/moreDetailedTest/0062.trace,200,200,4,3,5,"|(G(!(x0)),F(&(x0,F(x1))))",/,/,timeout: 180
+2024-02-08 03:36,../LTL-Learning/benchmark/moreDetailedTest/0011.trace,500,500,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 03:39,../LTL-Learning/benchmark/moreDetailedTest/0126.trace,75,75,3,3,5,"G(->(x1,G(x0)))",39.415485455989256,"[G(->(x1,G(x0)))]",
+2024-02-08 03:39,../LTL-Learning/benchmark/moreDetailedTest/0124.trace,50,50,3,3,5,"G(->(x1,G(x0)))",27.476548256003298,"[G(->(x1,G(x0)))]",
+2024-02-08 03:40,../LTL-Learning/benchmark/moreDetailedTest/0111.trace,5,5,1,2,5,G(x0),0.1113132449972909,[G(x0)],
+2024-02-08 03:40,../LTL-Learning/benchmark/moreDetailedTest/0005.trace,175,175,3,3,5,"->(F(x1),U(!(x0),x1))",/,/,timeout: 180
+2024-02-08 03:43,../LTL-Learning/benchmark/moreDetailedTest/0082.trace,36,50,6,4,5,"G(&(x0,->(!(x1),U(!(x1),&(x2,!(x1))))))",0.9301971209933981,[G(x0)],

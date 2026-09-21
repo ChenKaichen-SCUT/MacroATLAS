@@ -1,0 +1,79 @@
+time of writing,name of the test file,number of accepting traces,number or rejecting traces,depth of formula,number of variables,max length of traces,specified formula,solving time sat,obtained formula sat,comment sat
+2024-02-13 17:21,../fortis-bin/problems/weaken_antecedent_40_10_10.trace,10,10,3,3,40,"G(->(&(x0,x2),x1))",72.2065771959999,"[G(->(x2,->(x0,x1))), G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:22,../fortis-bin/problems/weaken_antecedent_10_80_80.trace,80,80,3,3,10,"G(->(&(x0,x2),x1))",135.605232999,"[G(->(x2,->(x0,x1))), G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:24,../fortis-bin/problems/weaken_antecedent_10_45_45.trace,45,45,3,3,10,"G(->(&(x0,x2),x1))",126.41802971900006,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:26,../fortis-bin/problems/weaken_antecedent_100_10_10.trace,10,10,3,3,100,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 17:29,../fortis-bin/problems/weaken_antecedent_10_50_50.trace,50,50,3,3,10,"G(->(&(x0,x2),x1))",75.65800762399977,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:30,../fortis-bin/problems/weaken_antecedent_10_60_60.trace,60,60,3,3,10,"G(->(&(x0,x2),x1))",109.71688355300012,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:32,../fortis-bin/problems/weaken_antecedent_5_10_10.trace,10,10,3,3,5,"G(->(&(x0,x2),x1))",7.663598781000019,"[G(->(x2,->(x0,x1))), G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:32,../fortis-bin/problems/weaken_antecedent_10_5_5.trace,5,5,3,3,10,"G(->(&(x0,x2),x1))",6.335850939000011,"[G(->(x2,->(x0,x1))), G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:32,../fortis-bin/problems/weaken_antecedent_70_10_10.trace,10,10,3,3,70,"G(->(&(x0,x2),x1))",164.45078797999986,"[G(->(x2,->(x0,x1))), G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:35,../fortis-bin/problems/weaken_antecedent_60_10_10.trace,10,10,3,3,60,"G(->(&(x0,x2),x1))",99.12208584900009,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:37,../fortis-bin/problems/weaken_antecedent_10_100_100.trace,100,100,3,3,10,"G(->(&(x0,x2),x1))",163.63542550400007,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:40,../fortis-bin/problems/weaken_antecedent_10_25_25.trace,25,25,3,3,10,"G(->(&(x0,x2),x1))",26.332561668999915,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:40,../fortis-bin/problems/weaken_antecedent_15_10_10.trace,10,10,3,3,15,"G(->(&(x0,x2),x1))",19.42461613999967,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:40,../fortis-bin/problems/weaken_antecedent_95_10_10.trace,10,10,3,3,95,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 17:43,../fortis-bin/problems/weaken_antecedent_50_10_10.trace,10,10,3,3,50,"G(->(&(x0,x2),x1))",71.40119523900012,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:45,../fortis-bin/problems/weaken_antecedent_85_10_10.trace,10,10,3,3,85,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 17:48,../fortis-bin/problems/weaken_antecedent_10_55_55.trace,55,55,3,3,10,"G(->(&(x0,x2),x1))",58.06608457600032,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:49,../fortis-bin/problems/weaken_antecedent_75_10_10.trace,10,10,3,3,75,"G(->(&(x0,x2),x1))",143.3047668119998,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:51,../fortis-bin/problems/weaken_antecedent_10_15_15.trace,15,15,3,3,10,"G(->(&(x0,x2),x1))",14.85941548899973,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:51,../fortis-bin/problems/weaken_antecedent_45_10_10.trace,10,10,3,3,45,"G(->(&(x0,x2),x1))",104.326294727,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:53,../fortis-bin/problems/weaken_antecedent_10_35_35.trace,35,35,3,3,10,"G(->(&(x0,x2),x1))",74.28699364500017,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:54,../fortis-bin/problems/weaken_antecedent_65_10_10.trace,10,10,3,3,65,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 17:57,../fortis-bin/problems/weaken_antecedent_35_10_10.trace,10,10,3,3,35,"G(->(&(x0,x2),x1))",74.83244301400009,"[G(->(&(x0,x2),x1))]",
+2024-02-13 17:58,../fortis-bin/problems/weaken_antecedent_20_10_10.trace,10,10,3,3,20,"G(->(&(x0,x2),x1))",43.55119111100066,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:59,../fortis-bin/problems/weaken_antecedent_10_10_10.trace,10,10,3,3,10,"G(->(&(x0,x2),x1))",20.94073171400032,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 17:59,../fortis-bin/problems/weaken_antecedent_10_75_75.trace,75,75,3,3,10,"G(->(&(x0,x2),x1))",170.85268878200077,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 18:02,../fortis-bin/problems/weaken_antecedent_10_90_90.trace,90,90,3,3,10,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 18:05,../fortis-bin/problems/weaken_antecedent_30_10_10.trace,10,10,3,3,30,"G(->(&(x0,x2),x1))",68.0203849290001,"[G(->(&(x0,x2),x1))]",
+2024-02-13 18:06,../fortis-bin/problems/weaken_antecedent_10_85_85.trace,85,85,3,3,10,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 18:10,../fortis-bin/problems/weaken_antecedent_90_10_10.trace,10,10,3,3,90,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 18:13,../fortis-bin/problems/weaken_antecedent_10_40_40.trace,40,40,3,3,10,"G(->(&(x0,x2),x1))",88.93170261799969,"[G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 18:14,../fortis-bin/problems/weaken_antecedent_10_65_65.trace,65,65,3,3,10,"G(->(&(x0,x2),x1))",130.12776102099997,"[G(->(&(x0,x2),x1))]",
+2024-02-13 18:16,../fortis-bin/problems/weaken_antecedent_10_30_30.trace,30,30,3,3,10,"G(->(&(x0,x2),x1))",70.66638358299952,"[G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 18:17,../fortis-bin/problems/weaken_antecedent_10_70_70.trace,70,70,3,3,10,"G(->(&(x0,x2),x1))",131.01832417400055,"[G(->(&(x0,x2),x1))]",
+2024-02-13 18:20,../fortis-bin/problems/weaken_antecedent_10_95_95.trace,95,95,3,3,10,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-13 18:23,../fortis-bin/problems/weaken_antecedent_55_10_10.trace,10,10,3,3,55,"G(->(&(x0,x2),x1))",128.44928035199973,"[G(->(&(x0,x2),x1))]",
+2024-02-13 18:25,../fortis-bin/problems/weaken_antecedent_10_20_20.trace,20,20,3,3,10,"G(->(&(x0,x2),x1))",46.467399731000114,"[G(->(x0,->(x2,x1))), G(->(x2,->(x0,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 18:25,../fortis-bin/problems/weaken_antecedent_25_10_10.trace,10,10,3,3,25,"G(->(&(x0,x2),x1))",65.95608094800082,"[G(->(x2,->(x0,x1))), G(->(x0,->(x2,x1))), G(->(&(x0,x2),x1))]",
+2024-02-13 18:27,../fortis-bin/problems/weaken_antecedent_80_10_10.trace,10,10,3,3,80,"G(->(&(x0,x2),x1))",/,/,timeout: 180
+2024-02-14 17:38,../fortis-bin/problems/weaken_consequent/weaken_consequent_95_10_10.trace,10,10,4,3,95,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:41,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_60_60.trace,60,60,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:44,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_90_90.trace,90,90,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:47,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_35_35.trace,35,35,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:50,../fortis-bin/problems/weaken_consequent/weaken_consequent_80_10_10.trace,10,10,4,3,80,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:53,../fortis-bin/problems/weaken_consequent/weaken_consequent_100_10_10.trace,10,10,4,3,100,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:56,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_15_15.trace,15,15,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 17:59,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_70_70.trace,70,70,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:02,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_10_10.trace,10,10,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:05,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_95_95.trace,95,95,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:08,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_65_65.trace,65,65,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:11,../fortis-bin/problems/weaken_consequent/weaken_consequent_55_10_10.trace,10,10,4,3,55,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:14,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_25_25.trace,25,25,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:17,../fortis-bin/problems/weaken_consequent/weaken_consequent_90_10_10.trace,10,10,4,3,90,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:20,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_50_50.trace,50,50,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:23,../fortis-bin/problems/weaken_consequent/weaken_consequent_60_10_10.trace,10,10,4,3,60,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:26,../fortis-bin/problems/weaken_consequent/weaken_consequent_25_10_10.trace,10,10,4,3,25,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:29,../fortis-bin/problems/weaken_consequent/weaken_consequent_65_10_10.trace,10,10,4,3,65,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:32,../fortis-bin/problems/weaken_consequent/weaken_consequent_15_10_10.trace,10,10,4,3,15,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:35,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_80_80.trace,80,80,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:38,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_75_75.trace,75,75,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:41,../fortis-bin/problems/weaken_consequent/weaken_consequent_70_10_10.trace,10,10,4,3,70,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:44,../fortis-bin/problems/weaken_consequent/weaken_consequent_85_10_10.trace,10,10,4,3,85,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:47,../fortis-bin/problems/weaken_consequent/weaken_consequent_40_10_10.trace,10,10,4,3,40,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:50,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_100_100.trace,100,100,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:53,../fortis-bin/problems/weaken_consequent/weaken_consequent_35_10_10.trace,10,10,4,3,35,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:56,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_40_40.trace,40,40,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 18:59,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_45_45.trace,45,45,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:02,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_5_5.trace,5,5,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:05,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_55_55.trace,55,55,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:08,../fortis-bin/problems/weaken_consequent/weaken_consequent_30_10_10.trace,10,10,4,3,30,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:11,../fortis-bin/problems/weaken_consequent/weaken_consequent_5_10_10.trace,10,10,4,3,5,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:14,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_30_30.trace,30,30,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:17,../fortis-bin/problems/weaken_consequent/weaken_consequent_45_10_10.trace,10,10,4,3,45,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:20,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_20_20.trace,20,20,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:23,../fortis-bin/problems/weaken_consequent/weaken_consequent_20_10_10.trace,10,10,4,3,20,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:26,../fortis-bin/problems/weaken_consequent/weaken_consequent_50_10_10.trace,10,10,4,3,50,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:29,../fortis-bin/problems/weaken_consequent/weaken_consequent_75_10_10.trace,10,10,4,3,75,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180
+2024-02-14 19:32,../fortis-bin/problems/weaken_consequent/weaken_consequent_10_85_85.trace,85,85,4,3,10,"G(->(x0,|(&(x1,x2),x1)))",/,/,timeout: 180

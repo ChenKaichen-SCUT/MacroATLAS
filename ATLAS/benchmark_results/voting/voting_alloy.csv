@@ -1,0 +1,11 @@
+filename,numOfPositives,numOfNegatives,maxNumOfOP,numOfVariables,maxLengthOfTraces,expected,solvingTime,formula
+benchmark/voting_machine/voting10.trace,3,7,3,10,16,"[G(->(x5,x8)), G(->(x9,x4))]",3.025,"G(->(x5,x8))"
+benchmark/voting_machine/voting8.trace,11,5,3,10,16,"[G(->(x5,x8)), G(->(x9,x4))]",4.629,"G(->(x5,x8))"
+benchmark/voting_machine/voting4.trace,10,3,3,10,16,"[G(->(x5,x8)), G(->(x9,x4))]",4.003,"G(->(x5,x8))"
+benchmark/voting_machine/voting9.trace,8,5,3,10,16,"[G(->(x5,x8)), G(->(x9,x4))]",3.996,"G(->(x5,x8))"
+benchmark/voting_machine/voting3.trace,10,2,3,10,11,"[G(->(x5,x8)), G(->(x9,x4))]",1.954,"G(->(x5,x8))"
+benchmark/voting_machine/voting13.trace,11,8,3,10,16,"[G(->(x5,x8)), G(->(x9,x4))]",4.192,"G(->(x5,x8))"
+benchmark/voting_machine/voting5.trace,11,2,3,10,11,"[G(->(x5,x8)), G(->(x9,x4))]",1.905,"G(->(x5,x8))"
+benchmark/voting_machine/voting14.trace,6,2,3,10,11,"[G(->(x5,x8)), G(->(x9,x4))]",1.728,"G(->(x5,x8))"
+benchmark/voting_machine/voting7.trace,11,3,3,10,16,"[G(->(x5,x8)), G(->(x9,x4))]",3.721,"G(->(x5,x8))"
+benchmark/voting_machine/voting2.trace,8,2,3,10,11,"[G(->(x5,x8)), G(->(x9,x4))]",1.61,"G(->(x9,x4))"

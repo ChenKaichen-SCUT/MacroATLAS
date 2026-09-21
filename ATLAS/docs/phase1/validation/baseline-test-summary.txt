@@ -1,0 +1,8 @@
+[INFO] Running cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.739 s - in cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Running cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.456 s - in cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time:  35.632 s
+[INFO] Finished at: 2026-09-21T14:40:53Z

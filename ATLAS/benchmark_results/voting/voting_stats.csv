@@ -1,0 +1,11 @@
+time of writing,name of the test file,number of accepting traces,number or rejecting traces,depth of formula,number of variables,max length of traces,specified formula,solving time sat,obtained formula sat,comment sat
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting10.trace,3,7,2,10,16,"G(->(x5,x8));G(->(x9,x4))",4.05049506999967,"[G(->(x5,x8))]",
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting8.trace,11,5,2,10,16,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting4.trace,10,3,2,10,16,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting9.trace,8,5,2,10,16,"G(->(x5,x8));G(->(x9,x4))",5.19080908000069,"[G(->(x5,x8))]",
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting3.trace,10,2,2,10,11,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting13.trace,11,8,2,10,16,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting5.trace,11,2,2,10,11,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting14.trace,6,2,2,10,11,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting7.trace,11,3,2,10,16,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180
+2024-03-15 20:46,../LTL-Learning/benchmark/voting_machine/voting2.trace,8,2,2,10,11,"G(->(x5,x8));G(->(x9,x4))",/,/,timeout: 180

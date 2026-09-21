@@ -1,0 +1,19 @@
+# Build output and local caches; ATLAS also retains its upstream .gitignore.
+**/target/
+**/build/
+**/out/
+**/__pycache__/
+**/.pytest_cache/
+.venv/
+venv/
+
+# Local editor and operating-system metadata.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Local configuration containing credentials.
+.env
+.env.*
+!.env.example
