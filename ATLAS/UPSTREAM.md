@@ -12,6 +12,11 @@ MacroATLAS 第一阶段新增的实现位于 `src/main/kotlin/cmu/s3d/ltl/macro/
 新增测试位于 `src/test/kotlin/cmu/s3d/ltl/macro/`。
 完整改动与验证说明见 [实现报告](docs/phase1/IMPLEMENTATION_REPORT.md)。
 
+第二阶段在同一 `macro/` 包下新增 `dag/`、`analysis/`、`kernel/`，
+用于真实解的 DAG 提取和可验证的 macro 压缩—重建闭环；原求解器源码与依赖版本保持不变。
+细节见 [Phase 2 实现报告](docs/phase2/IMPLEMENTATION_REPORT.md)。
+同时将 `lib/open-wbo` 在 Git 中的文件模式修正为 `100755`，确保 Linux clone 后可直接执行。
+
 ## Git 收录方式
 
 `ATLAS/` 作为普通目录直接收录于

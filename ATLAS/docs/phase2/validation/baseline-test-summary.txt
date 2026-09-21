@@ -1,0 +1,14 @@
+[INFO] Running cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.769 s - in cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Running cmu.s3d.ltl.macro.ConstraintAutomataTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.168 s - in cmu.s3d.ltl.macro.ConstraintAutomataTests
+[INFO] Running cmu.s3d.ltl.macro.FiberTableTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.802 s - in cmu.s3d.ltl.macro.FiberTableTests
+[INFO] Running cmu.s3d.ltl.macro.UnaryNormalizerTests
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.145 s - in cmu.s3d.ltl.macro.UnaryNormalizerTests
+[INFO] Running cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.231 s - in cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time:  24.719 s
+[INFO] Finished at: 2026-09-21T17:46:55Z

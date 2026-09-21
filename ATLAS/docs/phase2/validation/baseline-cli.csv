@@ -1,0 +1,2 @@
+filename,numOfPositives,numOfNegatives,maxNumOfOP,numOfVariables,maxLengthOfTraces,expected,solvingTime,formula
+src/test/resources/samples2ltl/example0000.trace,5,5,3,2,5,"[G(!(x0)), !(F(x0))]",0.383,"!(F(x0))"

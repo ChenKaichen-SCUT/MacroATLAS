@@ -1,0 +1,26 @@
+[INFO] Running cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.731 s - in cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Running cmu.s3d.ltl.macro.analysis.DagAnalysisTests
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s - in cmu.s3d.ltl.macro.analysis.DagAnalysisTests
+[INFO] Running cmu.s3d.ltl.macro.ConstraintAutomataTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in cmu.s3d.ltl.macro.ConstraintAutomataTests
+[INFO] Running cmu.s3d.ltl.macro.dag.AlloySolutionDagExtractorTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.577 s - in cmu.s3d.ltl.macro.dag.AlloySolutionDagExtractorTests
+[INFO] Running cmu.s3d.ltl.macro.dag.FormulaDagTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in cmu.s3d.ltl.macro.dag.FormulaDagTests
+[INFO] Running cmu.s3d.ltl.macro.FiberTableTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.894 s - in cmu.s3d.ltl.macro.FiberTableTests
+[INFO] Running cmu.s3d.ltl.macro.kernel.MacroKernelTests
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in cmu.s3d.ltl.macro.kernel.MacroKernelTests
+[INFO] Running cmu.s3d.ltl.macro.kernel.MacroSemanticsTests
+Phase 2 random: seed=20260921, 1200 cases; sharing=643 protected=817 reductions=76
+Phase 2 exhaustive: 60 DAGs, 36 lassos, 2616 round trips, 94176 root-vector comparisons
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.951 s - in cmu.s3d.ltl.macro.kernel.MacroSemanticsTests
+[INFO] Running cmu.s3d.ltl.macro.UnaryNormalizerTests
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in cmu.s3d.ltl.macro.UnaryNormalizerTests
+[INFO] Running cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.211 s - in cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time:  30.683 s
+[INFO] Finished at: 2026-09-21T18:05:51Z
