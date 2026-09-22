@@ -1,5 +1,30 @@
 # 并行服务器部署与数据保存
 
+## 已部署服务器配置
+
+服务器：`110.41.76.57`，Ubuntu 22.04、KVM、Xeon Gold 6266C，12 个可见逻辑 CPU、
+6 组 SMT sibling cores、约 93 GiB RAM。用户已将云盘扩容至 120 GB，部署时同步扩展 ext4 文件系统。
+固定 Temurin 8u462、Maven 3.6.3、Python 3.10、matplotlib 3.10.9、bundled OpenWBOWeighted。
+
+5 个 worker 分别使用 CPU `2,3` / `4,5` / `6,7` / `8,9` / `10,11`；CPU `0,1` 留给系统。
+每个 worker 硬内存上限 16 GiB，禁用 swap，JVM heap 4 GiB，ActiveProcessorCount=2。
+总内存预算 80 GiB，保留约 13 GiB 系统余量。低于 8 GiB 磁盘可用空间即停止，结果可恢复。
+
+登录后简短命令：
+
+```bash
+macroatlas run       # 启动或继续
+macroatlas tail      # tail -F 所有 worker 和总控日志；Ctrl-C 只退出查看
+macroatlas status    # 完成数、各状态、剩余磁盘
+macroatlas summary   # 全部完成后完整验证、表格与 PDF
+macroatlas stop      # 暂停并保留结果
+macroatlas backup    # 暂停或完成后打包并生成 SHA256
+```
+
+结果根目录 `/srv/macroatlas/experiments/phase4`，源码 `/srv/macroatlas/repo`。
+该服务器 5-worker 小样例运行已通过，内核 OOM 分类、停止后恢复、磁盘保护均有独立预检证据。
+这些预检不作为正式性能数据；正式正确性证书在最终干净提交上重新生成。
+
 用户本次明确要求尽量并行、避免资源竞争，因此本协议覆盖原实验指引第 36 节的串行要求。
 算法和支持范围不变。论文报告必须说明实际采用的是隔离 worker 的并行环境。
 CPU affinity/cpuset 和内存硬限制避免 CPU 超额分配与内存超卖；共享 LLC、内存带宽、SSD
@@ -14,6 +39,7 @@ CPU affinity/cpuset 和内存硬限制避免 CPU 超额分配与内存超卖；�
 - 同一 task 的两种方法和全部 repeats 固定分配给同一 worker，顺序由固定 seed 打乱。
 - JVM heap、ActiveProcessorCount、180 秒超时和 OpenWBOWeighted 对双方相同。
 - 保存每题前后 `memory.events`、cpuset、CPU/IO/pressure 等证据，只有内核 `oom_kill` 增加才归为 `ERROR/CGROUP_OOM`。
+- 每两秒检查磁盘剩余空间；默认低于 8 GiB 则停止整批任务并保留现场。扩容后使用同一启动命令继续，不能将存储中断当成 solver timeout。
 - 控制器持有全仓库互斥锁；通过注册和 cgroup 核查的 worker 才能使用单独的 worker 锁。
 
 阶段依次为 Original 论文任务、matched、AUTO 全工作负载、synthetic（含安全配置对照）。

@@ -49,7 +49,7 @@ def make_plan(a):
     output = a.output.resolve()
     if output.exists():
         raise ValueError("Campaign directory must be new")
-    if a.workers < 1 or a.memory_mb < 1024 or a.repeats < 1 or a.timeout <= 0:
+    if a.workers < 1 or a.memory_mb < 1024 or a.repeats < 1 or a.timeout <= 0 or a.min_free_disk_gb < 1:
         raise ValueError("Invalid worker/memory/repeat/timeout setting")
     groups = topology()
     cpus, reserved = allocate(groups, a.workers)
@@ -79,7 +79,7 @@ def make_plan(a):
                 controllerUnit=a.controller_unit, cpuGroups=groups, reservedCpus=reserved,
                 workers=a.workers, workerCpus=cpus, workerMemoryMb=a.memory_mb, reserveMemoryMb=a.reserve_memory_mb,
                 heap=a.heap, java=str(pathlib.Path(shutil.which(a.java) or a.java).resolve()), python=sys.executable,
-                timeoutSec=a.timeout, seed=a.seed, b=a.b, pilot=a.pilot,
+                timeoutSec=a.timeout, seed=a.seed, b=a.b, pilot=a.pilot, minFreeDiskGb=a.min_free_disk_gb,
                 gate=str(a.gate.resolve()), phases=[],
                 protocolAmendment='User requested parallel execution. Disjoint visible CPU sibling groups and hard memory limits; shared hardware interference cannot be eliminated.')
     campaign_id = digest(dict(output=str(output), commit=env['commit']))[:10]
@@ -258,13 +258,19 @@ def run_campaign(directory):
     if controller.get('ActiveState') != 'active':
         raise ValueError("Run through the registered controller service so worker lifetimes are bound to it")
     current_units = []
+    def check_disk():
+        free = shutil.disk_usage(output).free
+        if free < plan.get('minFreeDiskGb', 8) * 1024**3:
+            raise InterruptedError('LOW_DISK: %.2f GiB free; expand storage before resuming' % (free/1024**3))
     def interrupted(signum, frame):
         raise InterruptedError("Controller received signal %s" % signum)
     signal.signal(signal.SIGTERM, interrupted)
+    (ATLAS/'results').mkdir(exist_ok=True)
     with (ATLAS/'results/.runner.lock').open('a') as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         try:
             for phase in plan['phases']:
+                check_disk()
                 print(timestamp(), 'START', phase['id'], flush=True)
                 save_json(output/'state.json', dict(status='RUNNING', phase=phase['id'], updatedUtc=timestamp()))
                 if (output/phase['id']/'merged').exists():
@@ -284,6 +290,7 @@ def run_campaign(directory):
                     subprocess.run(command, check=True)
                 last = 0
                 while True:
+                    check_disk()
                     states = {unit: service_state(unit) for unit in current_units}
                     for unit, state in states.items():
                         if state.get('ActiveState') == 'failed' or state.get('Result') not in {'success', ''} or state.get('ActiveState') == 'inactive':
@@ -309,10 +316,13 @@ def run_campaign(directory):
         except BaseException as error:
             save_json(output/'state.json', dict(status='INTERRUPTED' if isinstance(error, (InterruptedError, KeyboardInterrupt)) else 'FAILED',
                                                updatedUtc=timestamp(), error=str(error)))
+            if isinstance(error, (InterruptedError, KeyboardInterrupt)):
+                print(timestamp(), 'INTERRUPTED', str(error), flush=True)
+                return
             raise
         finally:
             if current_units:
-                subprocess.run(['systemctl', 'stop']+current_units)
+                subprocess.run(['systemctl', 'stop']+current_units, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
 def summarize(directory, finalize=False):
@@ -386,6 +396,7 @@ def main():
     create.add_argument('--workers', type=int, required=True)
     create.add_argument('--memory-mb', type=int, default=16384)
     create.add_argument('--reserve-memory-mb', type=int, default=4096)
+    create.add_argument('--min-free-disk-gb', type=float, default=8)
     create.add_argument('--repeats', type=int, default=3)
     create.add_argument('--timeout', type=float, default=180)
     create.add_argument('--seed', type=int, default=20260922)

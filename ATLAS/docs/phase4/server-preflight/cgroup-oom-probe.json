@@ -1,0 +1,19 @@
+{
+  "exitCode": 137,
+  "isolation": {
+    "cpu.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=10\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=10",
+    "cpu.stat": "usage_usec 42607\nuser_usec 38346\nsystem_usec 4260\nnr_periods 0\nnr_throttled 0\nthrottled_usec 0",
+    "cpuset.cpus.effective": "2-3",
+    "io.stat": "252:0 rbytes=0 wbytes=4096 rios=0 wios=1 dbytes=0 dios=0",
+    "memory.current": "7692288",
+    "memory.events": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+    "memory.events.local": "low 0\nhigh 0\nmax 0\noom 0\noom_kill 0",
+    "memory.max": "134217728",
+    "memory.pressure": "some avg10=0.00 avg60=0.00 avg300=0.00 total=0\nfull avg10=0.00 avg60=0.00 avg300=0.00 total=0",
+    "memory.swap.max": "0",
+    "path": "/sys/fs/cgroup/system.slice/macroatlas-isolation-probe.service"
+  },
+  "peakRssKb": 105044,
+  "reason": "CGROUP_OOM",
+  "wall": 0.11483010000006288
+}

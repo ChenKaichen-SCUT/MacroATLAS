@@ -197,6 +197,8 @@ def run(a):
                 save_csv(result / "raw.csv", rows)
                 continue
             if folder.exists():
+                if not a.keep_solver_temp and (folder / "solver-tmp").exists():
+                    shutil.rmtree(folder / "solver-tmp")
                 interrupted = result / "interrupted"
                 interrupted.mkdir(exist_ok=True)
                 folder.rename(interrupted / (folder.name + "-" + str(time.time_ns())))
