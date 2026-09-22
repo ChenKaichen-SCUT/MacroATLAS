@@ -4,11 +4,14 @@ import cmu.s3d.ltl.learning.AlloyMaxBase
 import cmu.s3d.ltl.learning.LTLLearningSolution
 import cmu.s3d.ltl.samples2ltl.Task
 import cmu.s3d.ltl.samples2ltl.TaskParser
+import cmu.s3d.ltl.macro.search.*
+import com.github.ajalt.clikt.core.CliktError
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.options.default
 import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.int
+import com.github.ajalt.clikt.parameters.types.choice
 import edu.mit.csail.sdg.translator.A4Options
 import java.io.File
 import java.lang.management.ManagementFactory
@@ -27,6 +30,11 @@ class CLI : CliktCommand(
     private val model by option("--model", "-m", help = "Print the model to use for learning.").flag(default = false)
     private val findAny by option("--findAny", "-A", help = "Find any solution. Default: false").flag(default = false)
     private val expected by option("--expected", "-e", help = "Enumerate until the expected formula found.").flag(default = false)
+    private val macroMode by option("--macro", help = "Opt-in macro search: off, auto (safe fallback), force (unsupported is an error).")
+        .choice("off", "auto", "force").default("off")
+    private val macroBinaryBudget by option("--macro-max-binary", help = "Required binary-node bound for macro search.").int()
+    private val macroNodeBudget by option("--macro-max-nodes", help = "Expanded node bound; default maxNumOfOP + number of propositions.").int()
+    private val macroDebug by option("--macro-debug", help = "Directory for macro model, domains, assignment and verification artifacts.")
 
     override fun run() {
         val options = AlloyMaxBase.defaultAlloyOptions()
@@ -47,6 +55,25 @@ class CLI : CliktCommand(
 //                println("--- solving ${f.name}")
                 val task = TaskParser.parseTask(f.readText())
                 try {
+                    if (macroMode != "off") {
+                        val analysis = if (options.solver in listOf(A4Options.SatSolver.SAT4J, A4Options.SatSolver.MiniSatJNI))
+                            MacroTaskAnalysis.Unsupported(listOf(MacroUnsupportedReason.UNSUPPORTED_BACKEND), "Macro optimization requires an AlloyMax backend")
+                        else RecognizedConstraintAnalyzer.analyze(task, macroBinaryBudget,
+                            macroNodeBudget ?: (task.maxNumOfOP + task.literals.size), !findAny && !expected)
+                        MacroTaskDispatcher.run(MacroSolverMode.valueOf(macroMode.uppercase()), { analysis }, { Unit }, { supported ->
+                            val startTime = System.currentTimeMillis()
+                            val result = solveMacro(supported.plan, task, options)
+                            val seconds = (System.currentTimeMillis() - startTime).toDouble() / 1000
+                            System.err.println(metadataJson(result.metadata))
+                            println("$_run,${task.toCSVString()},$seconds,\"${result.formula}\"")
+                        }, { unsupported ->
+                            val metadata = metadataJson(mapOf("solverMode" to if (macroMode == "force") "UNSUPPORTED" else "ORIGINAL",
+                                "fallbackReason" to unsupported.reasons.joinToString(","), "detail" to unsupported.detail))
+                            System.err.println(metadata)
+                            macroDebug?.let { File(it).mkdirs(); File(it, "analysis.json").writeText(metadata + "\n") }
+                        })
+                        if (analysis is MacroTaskAnalysis.Supported) return
+                    }
                     val learner = task.buildLearner(options, !findAny)
                     if (model)
                         println(learner.generateAlloyModel().trimIndent())
@@ -56,6 +83,7 @@ class CLI : CliktCommand(
                     val formula = if (!expected) solution?.getLTL2() ?: "UNSAT" else findExpected(task, solution)
                     println("$_run,${task.toCSVString()},$solvingTime,\"$formula\"")
                 } catch (e: Exception) {
+                    if (macroMode != "off") throw CliktError("${e.javaClass.simpleName}: ${e.message}")
                     val message = e.message?.replace("\\v".toRegex(), " ") ?: "Unknown error"
                     println("$_run,${task.toCSVString()},\"ERR:$message\",-")
                 }
@@ -85,6 +113,9 @@ class CLI : CliktCommand(
             }
         }
     }
+
+    private fun <Q : Any> solveMacro(plan: MacroConstraintPlan<Q>, task: Task, options: A4Options): MacroSolveResult =
+        MacroLearner(plan, task.positiveExamples, task.negativeExamples, options).solve(macroDebug?.let { File(it) }, model)
 
     private fun findExpected(task: Task, solution: LTLLearningSolution?): String {
         var sol = solution
@@ -117,6 +148,15 @@ class CLI : CliktCommand(
         if (model) cmd.add("-m")
         if (findAny) cmd.add("-A")
         if (expected) cmd.add("-e")
+        if (macroMode != "off") {
+            cmd.addAll(listOf("--macro", macroMode))
+            macroBinaryBudget?.let { cmd.addAll(listOf("--macro-max-binary", it.toString())) }
+            macroNodeBudget?.let { cmd.addAll(listOf("--macro-max-nodes", it.toString())) }
+            macroDebug?.let { directory ->
+                val destination = if (traces == null) directory else File(directory, f.relativeTo(File(traces!!)).path).path
+                cmd.addAll(listOf("--macro-debug", destination))
+            }
+        }
 
         val processBuilder = ProcessBuilder(cmd)
         processBuilder.redirectErrorStream(true)
@@ -139,10 +179,12 @@ class CLI : CliktCommand(
             val output = process.inputStream.bufferedReader().readText()
             print(output)
 
-            process.waitFor()
+            val code = process.waitFor()
             timer.cancel()
+            if (macroMode != "off" && code != 0) throw CliktError("Task process exited with status $code")
         } catch (e: Exception) {
             process.destroyForcibly()
+            if (macroMode != "off") throw e
         }
     }
 }
