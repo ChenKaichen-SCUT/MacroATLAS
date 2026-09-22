@@ -1,0 +1,5 @@
+seed=20260922
+tasks=243
+SAT=84
+UNSAT=159
+mismatches=0

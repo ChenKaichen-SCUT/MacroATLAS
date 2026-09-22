@@ -17,6 +17,10 @@ MacroATLAS 第一阶段新增的实现位于 `src/main/kotlin/cmu/s3d/ltl/macro/
 细节见 [Phase 2 实现报告](docs/phase2/IMPLEMENTATION_REPORT.md)。
 同时将 `lib/open-wbo` 在 Git 中的文件模式修正为 `100755`，确保 Linux clone 后可直接执行。
 
+第三阶段新增 `macro/search/`、fixed-template automata 与 CLI 可选 `--macro` 参数。
+原 `LTLLearner`、TaskParser、Phase 1/2 源码和 bundled 依赖保持不变。
+默认 CLI 仍走原求解路径；详见 [Phase 3 实现报告](docs/phase3/IMPLEMENTATION_REPORT.md)。
+
 ## Git 收录方式
 
 `ATLAS/` 作为普通目录直接收录于

@@ -1,0 +1,14 @@
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.092 s - in cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.2 s - in cmu.s3d.ltl.macro.analysis.DagAnalysisTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in cmu.s3d.ltl.macro.ConstraintAutomataTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.678 s - in cmu.s3d.ltl.macro.dag.AlloySolutionDagExtractorTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in cmu.s3d.ltl.macro.dag.FormulaDagTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.694 s - in cmu.s3d.ltl.macro.FiberTableTests
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in cmu.s3d.ltl.macro.kernel.MacroKernelTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.651 s - in cmu.s3d.ltl.macro.kernel.MacroSemanticsTests
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.138 s - in cmu.s3d.ltl.macro.UnaryNormalizerTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 9.333 s - in cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time:  33.611 s
+[INFO] Finished at: 2026-09-22T03:10:58Z

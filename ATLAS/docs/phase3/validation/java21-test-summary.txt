@@ -1,0 +1,18 @@
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.733 s - in cmu.s3d.ltl.learning.SimpleLTLLearnerTests
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.268 s - in cmu.s3d.ltl.macro.analysis.DagAnalysisTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.067 s - in cmu.s3d.ltl.macro.ConstraintAutomataTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.688 s - in cmu.s3d.ltl.macro.dag.AlloySolutionDagExtractorTests
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in cmu.s3d.ltl.macro.dag.FormulaDagTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.685 s - in cmu.s3d.ltl.macro.FiberTableTests
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in cmu.s3d.ltl.macro.kernel.MacroKernelTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.729 s - in cmu.s3d.ltl.macro.kernel.MacroSemanticsTests
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 16.762 s - in cmu.s3d.ltl.macro.search.MacroCliTest
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 27.985 s - in cmu.s3d.ltl.macro.search.MacroDifferentialTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in cmu.s3d.ltl.macro.search.MacroDomainsTest
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.292 s - in cmu.s3d.ltl.macro.search.MacroSearchTest
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.139 s - in cmu.s3d.ltl.macro.UnaryNormalizerTests
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.885 s - in cmu.s3d.ltl.samples2ltl.TaskParserTests
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0
+[INFO] BUILD SUCCESS
+[INFO] Total time:  01:25 min
+[INFO] Finished at: 2026-09-22T03:43:27Z

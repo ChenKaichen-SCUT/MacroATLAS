@@ -1,0 +1,5 @@
+literal: x0; verified
+eventually: F(x0); verified
+next: X(x0); verified
+nnf: !(x0); verified
+repair: F(x0); verified

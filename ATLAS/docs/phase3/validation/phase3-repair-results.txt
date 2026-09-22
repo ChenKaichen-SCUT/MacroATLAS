@@ -1,0 +1,6 @@
+seed=920226
+tasks=50
+SAT=30
+UNSAT=20
+mismatches=0
+objective=max kept distinct pairs, then min size

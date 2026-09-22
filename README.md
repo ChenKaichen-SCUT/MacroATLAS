@@ -16,15 +16,17 @@ MacroATLAS 在 [ATLAS](https://github.com/cmu-soda/ATLAS) v1.0.2 基础上实现
 - 生成带完整 fiber 的 `MacroDag`，支持原始身份重建和最短代表重建。
 - 用生产侧 round-trip verifier 和独立 lasso 语义测试验证压缩正确性。
 
-实现保持原 ATLAS 求解器行为，没有改写 AlloyMax/MaxSAT 搜索编码或增加 CLI 搜索模式。
-验证包含 Java 8/21、原有 40 项回归测试、第二阶段结构与集成测试、穷举和固定种子随机语义检查。
-完整结果见 [第二阶段测试报告](ATLAS/docs/phase2/validation/TEST_RESULTS.md)。
+第三阶段增加可选的直接 MacroDAG 搜索：有限约束状态域与 fiber catalog、
+anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protected identity 和 repair 优化。
+复用原 AlloyMax 后端，并通过 Phase 2 重建及独立语义检查验证输出。
+默认 CLI 保持原 ATLAS 行为；`--macro auto/force` 显式启用新路径。
+支持范围与复现说明见 [Phase 3 实现报告](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md)。
 
 ## 仓库内容
 
 | 路径 | 内容 |
 | --- | --- |
-| [`ATLAS/`](ATLAS/) | 完整 ATLAS 源码、原始数据和依赖，以及 MacroATLAS 第一、二阶段实现 |
+| [`ATLAS/`](ATLAS/) | 完整 ATLAS 源码、原始数据和依赖，以及 MacroATLAS Phase 1–3 实现 |
 | [`ATLAS/UPSTREAM.md`](ATLAS/UPSTREAM.md) | 上游来源、版本及本仓库的收录方式 |
 | [`MacroATLAS_Prototype_Phase1_Implementation_Guide.md`](MacroATLAS_Prototype_Phase1_Implementation_Guide.md) | 第一阶段实现规格 |
 | [`ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md) | 文件职责、API、设计说明和复现命令 |
@@ -32,6 +34,9 @@ MacroATLAS 在 [ATLAS](https://github.com/cmu-soda/ATLAS) v1.0.2 基础上实现
 | [`MacroATLAS_Prototype_Phase2_Implementation_Guide.md`](MacroATLAS_Prototype_Phase2_Implementation_Guide.md) | 第二阶段实现规格 |
 | [`ATLAS/docs/phase2/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase2/IMPLEMENTATION_REPORT.md) | DAG 适配、压缩重建 API、约束边界与实现说明 |
 | [`ATLAS/docs/phase2/validation/TEST_RESULTS.md`](ATLAS/docs/phase2/validation/TEST_RESULTS.md) | 第二阶段完整验证结果 |
+| [`MacroATLAS_Prototype_Phase3_Implementation_Guide.md`](MacroATLAS_Prototype_Phase3_Implementation_Guide.md) | 第三阶段实现规格 |
+| [`ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md) | 宏搜索实现、边界和运行方式 |
+| [`ATLAS/docs/phase3/validation/TEST_RESULTS.md`](ATLAS/docs/phase3/validation/TEST_RESULTS.md) | 第三阶段 Java 8/21、差分与 CLI 验证 |
 | [`Constrained LTL Specification Learning from Examples.pdf`](Constrained%20LTL%20Specification%20Learning%20from%20Examples.pdf) | ATLAS 对应论文 |
 | [`The Complexity of Learning LTL, CTL and ATL.pdf`](The%20Complexity%20of%20Learning%20LTL%2C%20CTL%20and%20ATL.pdf) | 相关理论参考论文 |
 
@@ -48,7 +53,10 @@ mvn -B clean verify
 ```
 
 CLI 使用方式参见原始 [ATLAS README](ATLAS/README.md) 和
-[第一阶段实现报告](ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md)。
+[Phase 3 支持范围](ATLAS/docs/phase3/SUPPORTED_FRAGMENT.md)。
+
+启用宏搜索时必须显式指定二元节点预算，例如 `--macro force --macro-max-binary 1`；
+仅对 U-free 且可完整识别的约束提供有界精确最优保证。
 
 ## 后续开发与提交
 

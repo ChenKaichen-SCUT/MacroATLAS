@@ -1,0 +1,4 @@
+lassos=98
+fibers=44
+all-position vector comparisons=4312
+mismatches=0
