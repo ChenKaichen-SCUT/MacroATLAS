@@ -22,11 +22,17 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 默认 CLI 保持原 ATLAS 行为；`--macro auto/force` 显式启用新路径。
 支持范围与复现说明见 [Phase 3 实现报告](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md)。
 
+第四阶段增加 Original ATLAS 复现实验入口、同域 ATLAS-B baseline、覆盖清单生成、
+串行实验运行器、正确性门禁、合成数据与结果图表脚本。
+实验代码与本地预检已完成；完整 180 秒同机实验等待服务器，尚无正式加速结论。
+见 [Phase 4 实验协议](ATLAS/docs/phase4/EXPERIMENT_PROTOCOL.md) 和
+[服务器资源建议](ATLAS/docs/phase4/ENVIRONMENT.md)。
+
 ## 仓库内容
 
 | 路径 | 内容 |
 | --- | --- |
-| [`ATLAS/`](ATLAS/) | 完整 ATLAS 源码、原始数据和依赖，以及 MacroATLAS Phase 1–3 实现 |
+| [`ATLAS/`](ATLAS/) | 完整 ATLAS 源码、原始数据和依赖，以及 MacroATLAS Phase 1–4 代码 |
 | [`ATLAS/UPSTREAM.md`](ATLAS/UPSTREAM.md) | 上游来源、版本及本仓库的收录方式 |
 | [`MacroATLAS_Prototype_Phase1_Implementation_Guide.md`](MacroATLAS_Prototype_Phase1_Implementation_Guide.md) | 第一阶段实现规格 |
 | [`ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md) | 文件职责、API、设计说明和复现命令 |
@@ -37,6 +43,9 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 | [`MacroATLAS_Prototype_Phase3_Implementation_Guide.md`](MacroATLAS_Prototype_Phase3_Implementation_Guide.md) | 第三阶段实现规格 |
 | [`ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md) | 宏搜索实现、边界和运行方式 |
 | [`ATLAS/docs/phase3/validation/TEST_RESULTS.md`](ATLAS/docs/phase3/validation/TEST_RESULTS.md) | 第三阶段 Java 8/21、差分与 CLI 验证 |
+| [`MacroATLAS_Phase4_Experiment_Guide.md`](MacroATLAS_Phase4_Experiment_Guide.md) | 第四阶段实验规格 |
+| [`ATLAS/scripts/phase4/`](ATLAS/scripts/phase4/) | 数据准备、运行、验证和分析脚本 |
+| [`ATLAS/docs/phase4/COVERAGE.md`](ATLAS/docs/phase4/COVERAGE.md) | 原始 artifact 与 U-free 变体的真实支持范围 |
 | [`Constrained LTL Specification Learning from Examples.pdf`](Constrained%20LTL%20Specification%20Learning%20from%20Examples.pdf) | ATLAS 对应论文 |
 | [`The Complexity of Learning LTL, CTL and ATL.pdf`](The%20Complexity%20of%20Learning%20LTL%2C%20CTL%20and%20ATL.pdf) | 相关理论参考论文 |
 

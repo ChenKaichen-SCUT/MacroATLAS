@@ -83,8 +83,12 @@ class LassoPositions(val trace: LassoTrace, maxShift: Int) {
 class MacroCompilationContext<Q : Any>(val plan: MacroConstraintPlan<Q>, positives: List<LassoTrace>, negatives: List<LassoTrace>) {
     val positives = immutableList(positives)
     val negatives = immutableList(negatives)
+    private val registryStart = System.nanoTime()
     val registry = ConstraintStateRegistry(plan)
+    val registryNanoseconds = System.nanoTime() - registryStart
+    private val fiberStart = System.nanoTime()
     val catalog = FiberCatalog(registry)
+    val fiberNanoseconds = System.nanoTime() - fiberStart
     val positions = (positives + negatives).map { LassoPositions(it, plan.nodeBudget) }
     init { require(positions.all { p -> p.trace.getTrace().all { it.values.keys.containsAll(plan.propositions) } }) }
 }

@@ -14,7 +14,8 @@ data class MacroSolveResult(val dag: FormulaDag?, val assignment: MacroAssignmen
 }
 
 /** Uses the existing AlloyMax backend; no invocation of LTLLearner or post-hoc compression. */
-class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val options: A4Options = AlloyMaxBase.defaultAlloyOptions()) {
+class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val options: A4Options = AlloyMaxBase.defaultAlloyOptions(),
+                          private val reporter: A4Reporter = A4Reporter.NOP) {
     constructor(plan: MacroConstraintPlan<Q>, positives: List<LassoTrace>, negatives: List<LassoTrace>, options: A4Options = AlloyMaxBase.defaultAlloyOptions()) :
         this(MacroCompilationContext(plan, positives, negatives), options)
 
@@ -27,11 +28,23 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         dump("verification.json", metadataJson(mapOf("status" to "IN_PROGRESS")))
         dump("constraint_states.txt", context.registry.states.mapIndexed { i, q -> "$i\t$q" }.joinToString("\n"))
         dump("fiber_catalog.txt", context.catalog.entries.joinToString("\n"))
+        var encodingNanos = 0L
+        var backendNanos = 0L
+        var modelBytes = 0L
+        fun build(minimumKept: Int = 0): String {
+            val start = System.nanoTime()
+            val source = builder.build(minimumKept)
+            encodingNanos += System.nanoTime() - start
+            modelBytes = maxOf(modelBytes, source.toByteArray(Charsets.UTF_8).size.toLong())
+            return source
+        }
         fun execute(source: String, filename: String): MacroAssignment? {
             dump(filename, source)
             if (printModel) println(source)
-            val world = CompUtil.parseEverything_fromString(A4Reporter.NOP, source)
-            val solution = TranslateAlloyToKodkod.execute_command(A4Reporter.NOP, world.allReachableSigs, world.allCommands.first(), options)
+            val backendStart = System.nanoTime()
+            val world = CompUtil.parseEverything_fromString(reporter, source)
+            val solution = TranslateAlloyToKodkod.execute_command(reporter, world.allReachableSigs, world.allCommands.first(), options)
+            backendNanos += System.nanoTime() - backendStart
             if (!solution.satisfiable()) return null
             fun eval(expression: String): Any = solution.eval(CompUtil.parseOneExpression_fromString(world, expression))
             fun tuples(expression: String): List<List<String>> = (eval(expression) as A4TupleSet).map { tuple ->
@@ -51,7 +64,7 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         val start = System.nanoTime()
         val objective = context.plan.objective as? MacroObjective.Repair
         val repair = objective != null
-        var finalSource = builder.build()
+        var finalSource = build()
         var assignment = execute(finalSource, "macro_model.als")
         var passes = 1
         // AlloyMax 1.0.3 can simplify `maxsome none` to hard false. A monotone cardinality
@@ -62,7 +75,7 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
             var high = objective.oldEdges.size
             while (low < high) {
                 val middle = low + (high-low+1)/2
-                val source = builder.build(minimumKept = middle)
+                val source = build(minimumKept = middle)
                 val candidate = execute(source,"repair_bound_$middle.als"); passes++
                 if (candidate == null) high = middle-1 else {
                     check(candidate.keptEdges >= middle)
@@ -72,7 +85,15 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         }
         dump("macro_model.als", finalSource)
         val solverNanos = System.nanoTime() - start
-        val dag = assignment?.let { FinalSolutionVerifier.verify(context, it, MacroAssignmentDecoder.decode(context,it)) }
+        val decodeStart = System.nanoTime()
+        val decoded = assignment?.let { MacroAssignmentDecoder.decode(context,it) }
+        val decodeNanos = System.nanoTime() - decodeStart
+        val verifyStart = System.nanoTime()
+        val dag = assignment?.let {
+            try { FinalSolutionVerifier.verify(context, it, checkNotNull(decoded)) }
+            catch (e: Exception) { throw MacroVerificationException(e) }
+        }
+        val verifyNanos = System.nanoTime() - verifyStart
         val metadata = linkedMapOf<String, Any>(
             "solverMode" to "MACRO", "nodeBudget" to context.plan.nodeBudget, "binaryBudget" to context.plan.binaryBudget,
             "protectedCount" to context.plan.protectedIdentities.size, "anchorSlotBudget" to builder.k,
@@ -82,7 +103,14 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
             "expandedNodeCount" to (assignment?.expandedSize ?: 0),
             "binaryNodeCount" to (assignment?.anchors?.values?.count { context.plan.labels[it.label] is MacroLabel.Binary } ?: 0),
             "objectiveValue" to (assignment?.let { if (repair) "kept=${it.keptEdges},size=${it.expandedSize}" else "size=${it.expandedSize}" } ?: "none"),
-            "solverStatus" to if (assignment == null) "UNSAT" else "OPTIMAL", "optimizationPasses" to passes
+            "solverStatus" to if (assignment == null) "UNSAT" else "OPTIMAL", "optimizationPasses" to passes,
+            "modelBytes" to modelBytes, "semanticTypeCount" to context.catalog.entries.map { it.key.semanticType }.distinct().size,
+            "selectedFiberCount" to (assignment?.ports?.values?.map { it.fiber }?.distinct()?.size ?: 0),
+            "meanRepresentativeLength" to (assignment?.ports?.values?.map { context.catalog.entries[it.fiber].length }?.average()?.takeUnless { it.isNaN() } ?: 0.0),
+            "maxRepresentativeLength" to (assignment?.ports?.values?.maxOfOrNull { context.catalog.entries[it.fiber].length } ?: 0),
+            "registrySec" to context.registryNanoseconds/1e9, "fiberSec" to context.fiberNanoseconds/1e9,
+            "encodingSec" to encodingNanos/1e9, "solverSec" to backendNanos/1e9,
+            "decodeSec" to decodeNanos/1e9, "verifySec" to verifyNanos/1e9
         )
         dump("analysis.json", metadataJson(metadata))
         dump("timing.json", metadataJson(mapOf("solverNanoseconds" to solverNanos)))
@@ -92,6 +120,8 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         return MacroSolveResult(dag, assignment, metadata)
     }
 }
+
+class MacroVerificationException(cause: Exception) : IllegalStateException("Macro solution verification failed", cause)
 
 fun metadataJson(values: Map<String, Any>): String {
     fun quote(s: String) = "\"" + s.flatMap { c -> when(c) {

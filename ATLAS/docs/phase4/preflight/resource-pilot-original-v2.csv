@@ -1,0 +1,8 @@
+task,family,variant,repeat,status,outcome,solverMode,fallbackReason,B,b,p,K,qStates,fiberCount,activeAnchors,activeMacroEdges,expandedSize,objectiveKind,objectivePrimary,objectiveSecondary,analysisSec,registrySec,fiberSec,encodingSec,solverSec,decodeSec,verifySec,totalSec,peakRssKb,verification,modelBytes,vars,backendTotalClauses,error,searchNodeUniverse,primaryVars,semanticTypeCount,selectedFiberCount,meanRepresentativeLength,maxRepresentativeLength,optimizationPasses
+moreDetailedTest/0008.trace,moreDetailedTest,original,1,TIMEOUT,,NONE,,,,,,,,,,,,,,,,,,,,,20.003009862004546,2525056,IN_PROGRESS,,,,TIMEOUT,,,,,,,
+peterson/extra_traces/liveness2.trace,peterson,original,1,TIMEOUT,,NONE,,,,,,,,,,,,,,,,,,,,,20.008712234994164,1921520,IN_PROGRESS,,,,TIMEOUT,,,,,,,
+voting_machine/voting10.trace,voting_machine,original,1,SAT,SAT,ORIGINAL,,13,UNRESTRICTED,,,,,,,4,,,,9.99e-07,,,,2.253234359,,0.107477019,2.936969128990313,724076,TRACE_PASSED,,,,,,,,,,,
+5to10Traces/0000.trace,5to10Traces,original,1,SAT,SAT,ORIGINAL,,5,UNRESTRICTED,,,,,,,3,,,,1.398e-06,,,,0.359516276,,0.102178894,1.0316002550243866,224684,TRACE_PASSED,,,,,,,,,,,
+increasingNumVariables/0028.trace,increasingNumVariables,original,1,TIMEOUT,,NONE,,,,,,,,,,,,,,,,,,,,,20.021489569015102,1172096,IN_PROGRESS,,,,TIMEOUT,,,,,,,
+weakening/weaken_antecedent/weaken_antecedent_40_10_10.trace,weakening,original,1,TIMEOUT,,NONE,,,,,,,,,,,,,,,,,,,,,20.01292495900998,8184888,IN_PROGRESS,,,,TIMEOUT,,,,,,,
+robot/RAtrace/final44.trace,robot,original,1,SAT,SAT,ORIGINAL,,2050,UNRESTRICTED,,,,,,,9,,,,1.674e-06,,,,16.158568489,,0.091532875,16.897957052016864,3484432,TRACE_PASSED,,,,,,,,,,,

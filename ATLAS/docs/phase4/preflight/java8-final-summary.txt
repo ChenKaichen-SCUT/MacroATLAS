@@ -1,0 +1,45 @@
+Phase 4 final Java 8 validation
+openjdk version "1.8.0_462"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_462-b08)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.462-b08, mixed mode)
+Kotlin source tree SHA256: 81236a160f3c075282ed14cc577bb202ae92995e4742b8aea1be7a8226404548
+cmu.s3d.ltl.learning.SimpleLTLLearnerTests tests=2 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.ConstraintAutomataTests tests=10 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.FiberTableTests tests=10 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.UnaryNormalizerTests tests=8 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.analysis.DagAnalysisTests tests=6 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.dag.AlloySolutionDagExtractorTests tests=5 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.dag.FormulaDagTests tests=5 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.kernel.MacroKernelTests tests=12 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.kernel.MacroSemanticsTests tests=4 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.search.MacroCliTest tests=4 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.search.MacroDifferentialTest tests=2 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.search.MacroDomainsTest tests=4 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.search.MacroSearchTest tests=7 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.macro.search.MatchedAtlasTest tests=5 failures=0 errors=0 skipped=0
+cmu.s3d.ltl.samples2ltl.TaskParserTests tests=10 failures=0 errors=0 skipped=0
+TOTAL: 94 tests, 0 failures, 0 errors, 0 skipped; BUILD SUCCESS
+
+phase3-tiny-results.txt
+seed=20260922
+tasks=243
+SAT=84
+UNSAT=159
+mismatches=0
+
+
+phase3-repair-results.txt
+seed=920226
+tasks=50
+SAT=30
+UNSAT=20
+mismatches=0
+objective=max kept distinct pairs, then min size
+
+
+phase4-matched-reference.txt
+seed=20260923
+tasks=80
+SAT=33
+UNSAT=47
+objective mismatches=0

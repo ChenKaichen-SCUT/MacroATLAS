@@ -1,0 +1,3117 @@
+[
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0064.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0064.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0066.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0066.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0030.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0030.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0054.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0054.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0036.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0036.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0018.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0018.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0055.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0055.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0012.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0012.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0051.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0051.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0010.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0010.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0061.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0061.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0006.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0006.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0000.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0000.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0067.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0067.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0045.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0045.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0058.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0058.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0048.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0048.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0042.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0042.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0003.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0003.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0009.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0009.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0069.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0069.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0063.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0063.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0021.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0021.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0060.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0060.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0033.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0033.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0070.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0070.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0049.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0049.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0057.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0057.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/disjunctedExistence/0015.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "disjunctedExistence/0015.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0027.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0027.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0053.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0053.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0028.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0028.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0038.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0038.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0020.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0020.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0023.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0023.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0001.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0001.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0052.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0052.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0025.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0025.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0008.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0008.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0030.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0030.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0054.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0054.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0034.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0034.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0040.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0040.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0047.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0047.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0036.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0036.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0029.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0029.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0043.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0043.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0018.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0018.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0055.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0055.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0012.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0012.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0017.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0017.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0051.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0051.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0050.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0050.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0010.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0010.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0035.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0035.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0006.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0006.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0000.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0000.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0024.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0024.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0045.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0045.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0019.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0019.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0044.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0044.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0037.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0037.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0046.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0046.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0041.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0041.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0048.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0048.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0042.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0042.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0003.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0003.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0031.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0031.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0009.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0009.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0014.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0014.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0022.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0022.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0032.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0032.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0021.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0021.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0039.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0039.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0033.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0033.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0016.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0016.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0007.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0007.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0026.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0026.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0013.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0013.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0004.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0004.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0049.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0049.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0002.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0002.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0015.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0015.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0011.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0011.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/increasingNumVariables/0005.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "increasingNumVariables/0005.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0027.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0027.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0028.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0028.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0038.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0038.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0020.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0020.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0023.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0023.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0001.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0001.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0025.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0025.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0008.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0008.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0030.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0030.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0034.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0034.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0040.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0040.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0036.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0036.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0029.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0029.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0018.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0018.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0012.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0012.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0017.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0017.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0010.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0010.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0035.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0035.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0006.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0006.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0024.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0024.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0019.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0019.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0037.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0037.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0041.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0041.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0042.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0042.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0003.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0003.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0031.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0031.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0009.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0009.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0014.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0014.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0022.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0022.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0032.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0032.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0021.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0021.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0039.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0039.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0033.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0033.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0016.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0016.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0007.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0007.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0026.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0026.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0013.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0013.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0004.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0004.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0002.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0002.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0015.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0015.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0011.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0011.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/baseTest/0005.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "baseTest/0005.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0027.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0027.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0028.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0028.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0038.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0038.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0020.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0020.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0023.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0023.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0001.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0001.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0025.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0025.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0008.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0008.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0030.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0030.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0034.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0034.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0040.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0040.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0036.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0036.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0029.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0029.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0018.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0018.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0012.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0012.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0017.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0017.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0010.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0010.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0035.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0035.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0006.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0006.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0024.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0024.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0019.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0019.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0037.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0037.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0041.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0041.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0042.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0042.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0003.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0003.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0031.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0031.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0009.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0009.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0014.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0014.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0022.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0022.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0032.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0032.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0021.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0021.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0039.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0039.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0033.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0033.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0016.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0016.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0007.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0007.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0026.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0026.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0013.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0013.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0004.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0004.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0002.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0002.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0015.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0015.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0011.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0011.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/equal/0005.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "equal/0005.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0182.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0182.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0151.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0151.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0169.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0169.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0108.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0108.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0027.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0027.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0188.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0188.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0053.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0053.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0096.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0096.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0138.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0138.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0160.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0160.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0127.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0127.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0028.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0028.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0173.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0173.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0185.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0185.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0038.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0038.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0086.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0086.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0020.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0020.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0122.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0122.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0064.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0064.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0023.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0023.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0159.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0159.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0056.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0056.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0101.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0101.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0125.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0125.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0153.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0153.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0146.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0146.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0147.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0147.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0074.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0074.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0187.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0187.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0095.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0095.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0052.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0052.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0025.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0025.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0168.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0168.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0066.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0066.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0008.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0008.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0163.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0163.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0030.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0030.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0190.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0190.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0132.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0132.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0172.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0172.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0156.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0156.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0054.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0054.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0077.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0077.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0143.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0143.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0120.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0120.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0034.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0034.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0131.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0131.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0135.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0135.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0076.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0076.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0081.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0081.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0090.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0090.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0109.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0109.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0040.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0040.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0116.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0116.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0047.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0047.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0036.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0036.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0166.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0166.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0094.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0094.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0192.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0192.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0029.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0029.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0145.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0145.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0178.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0178.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0043.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0043.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0197.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0197.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0142.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0142.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0018.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0018.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0055.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0055.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0189.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0189.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0012.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0012.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0017.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0017.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0051.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0051.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0050.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0050.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0106.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0106.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0183.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0183.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0087.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0087.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0196.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0196.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0098.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0098.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0010.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0010.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0061.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0061.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0035.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0035.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0006.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0006.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0000.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0000.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0088.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0088.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0193.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0193.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0141.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0141.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0024.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0024.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0117.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0117.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0079.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0079.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0177.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0177.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0103.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0103.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0174.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0174.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0097.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0097.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0191.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0191.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0045.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0045.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0058.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0058.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0099.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0099.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0019.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0019.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0044.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0044.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0037.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0037.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0170.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0170.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0092.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0092.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0152.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0152.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0128.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0128.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0046.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0046.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0136.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0136.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0041.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0041.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0105.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0105.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0161.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0161.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0167.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0167.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0164.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0164.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0048.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0048.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0042.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0042.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0003.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0003.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0031.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0031.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0083.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0083.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0148.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0148.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0114.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0114.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0075.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0075.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0009.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0009.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0134.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0134.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0176.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0176.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0162.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0162.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0069.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0069.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0091.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0091.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0154.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0154.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0194.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0194.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0078.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0078.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0149.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0149.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0014.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0014.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0093.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0093.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0022.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0022.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0032.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0032.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0063.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0063.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0021.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0021.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0119.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0119.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0155.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0155.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0100.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0100.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0129.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0129.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0104.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0104.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0144.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0144.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0060.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0060.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0039.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0039.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0073.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0073.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0137.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0137.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0121.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0121.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0072.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0072.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0158.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0158.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0195.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0195.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0033.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0033.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0080.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0080.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0157.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0157.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0016.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0016.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0084.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0084.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0007.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0007.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0026.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0026.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0068.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0068.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0070.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0070.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0110.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0110.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0112.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0112.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0013.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0013.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0071.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0071.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0059.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0059.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0004.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0004.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0175.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0175.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0102.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0102.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0140.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0140.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0049.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0049.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0065.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0065.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0002.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0002.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0057.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0057.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0107.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0107.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0179.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0179.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0085.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0085.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0180.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0180.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0118.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0118.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0015.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0015.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0062.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0062.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0181.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0181.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0011.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0011.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0126.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0126.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0130.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0130.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0184.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0184.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0124.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0124.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0171.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0171.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0005.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0005.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0165.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0165.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0082.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0082.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0150.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0150.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0139.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0139.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/5to10Traces/0186.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "5to10Traces/0186.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0108.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0108.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0027.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0027.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0053.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0053.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0096.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0096.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0028.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0028.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0038.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0038.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0086.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0086.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0020.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0020.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0122.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0122.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0064.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0064.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0023.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0023.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0001.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0001.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0056.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0056.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0101.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0101.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0125.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0125.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0074.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0074.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0095.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0095.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0052.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0052.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0025.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0025.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0066.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0066.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0008.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0008.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0030.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0030.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0054.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0054.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0077.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0077.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0120.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0120.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0034.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0034.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0076.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0076.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0113.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0113.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0081.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0081.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0090.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0090.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0109.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0109.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0040.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0040.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0116.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0116.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0047.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0047.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0115.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0115.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0036.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0036.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0089.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0089.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0094.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0094.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0029.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0029.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0043.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0043.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0018.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0018.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0055.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0055.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0012.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0012.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0017.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0017.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0051.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0051.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0050.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0050.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0106.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0106.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0087.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0087.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0098.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0098.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0010.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0010.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0061.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0061.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0035.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0035.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0006.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0006.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0088.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0088.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0024.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0024.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0117.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0117.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0067.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0067.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0079.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0079.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0103.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0103.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0097.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0097.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0045.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0045.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0058.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0058.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0099.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0099.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0019.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0019.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0044.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0044.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0037.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0037.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0092.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0092.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0046.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0046.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0041.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0041.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0105.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0105.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0048.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0048.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0042.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0042.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0003.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0003.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0031.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0031.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0083.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0083.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0114.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0114.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0075.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0075.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0009.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0009.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0069.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0069.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0091.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0091.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0078.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0078.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0014.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0014.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0093.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0093.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0022.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0022.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0032.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0032.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0063.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0063.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0021.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0021.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0119.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0119.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0100.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0100.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0123.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0123.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0104.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0104.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0060.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0060.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0039.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0039.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0073.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0073.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0121.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0121.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0072.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0072.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0033.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0033.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0080.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0080.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0016.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0016.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0084.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0084.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0007.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0007.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0026.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0026.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0068.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0068.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0070.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0070.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0110.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0110.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0112.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0112.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0013.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0013.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0071.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0071.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0059.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0059.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0004.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0004.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0102.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0102.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0049.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0049.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0065.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0065.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0002.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0002.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0057.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0057.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0107.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0107.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0085.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0085.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0118.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0118.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0015.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0015.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0062.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0062.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0011.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0011.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0126.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0126.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0124.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0124.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0111.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0111.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0005.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0005.trace"
+  },
+  {
+    "archivedFilename": "../LTL-Learning/benchmark/moreDetailedTest/0082.trace",
+    "table": "baselines/baseline_alloy_all.csv",
+    "task": "moreDetailedTest/0082.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/liveness2.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/liveness2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/liveness3.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/liveness3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/liveness5.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/liveness5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/safety4.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/safety4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/liveness1.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/liveness1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/safety3.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/safety3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/liveness4.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/liveness4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/safety5.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/safety5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/safety2.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/safety2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/extra_traces/safety1.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/extra_traces/safety1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/liveness2.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/liveness2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/liveness3.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/liveness3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/liveness5.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/liveness5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/safety4.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/safety4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/liveness1.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/liveness1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/safety3.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/safety3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/liveness4.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/liveness4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/safety5.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/safety5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/safety2.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/safety2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/base/safety1.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/base/safety1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/liveness2.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/liveness2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/liveness3.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/liveness3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/liveness5.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/liveness5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/safety4.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/safety4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/liveness1.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/liveness1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/safety3.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/safety3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/liveness4.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/liveness4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/safety5.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/safety5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/safety2.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/safety2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/peterson/constrained/safety1.trace",
+    "table": "peterson/peterson_alloy.csv",
+    "task": "peterson/constrained/safety1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting10.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting10.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting8.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting8.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting4.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting9.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting9.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting3.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting13.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting13.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting5.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting14.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting14.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting7.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting7.trace"
+  },
+  {
+    "archivedFilename": "benchmark/voting_machine/voting2.trace",
+    "table": "voting/voting_alloy.csv",
+    "task": "voting_machine/voting2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final44.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final44.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final21.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final21.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final45.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final45.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final42.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final42.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final46.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final46.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final3.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final3.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final47.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final47.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final4.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final22.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final22.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RAtrace/final43.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RAtrace/final43.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order2.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order2.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order1.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order1.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order5.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order5.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order4.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order4.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order6.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order6.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order10.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order10.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order9.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order9.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order8.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order8.trace"
+  },
+  {
+    "archivedFilename": "benchmark/robot/RRtrace/order7.trace",
+    "table": "robot/robot_alloy.csv",
+    "task": "robot/RRtrace/order7.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_40_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_40_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_80_80.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_80_80.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_45_45.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_45_45.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_100_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_100_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_50_50.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_50_50.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_60_60.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_60_60.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_5_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_5_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_5_5.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_5_5.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_70_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_70_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_60_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_60_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_100_100.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_100_100.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_25_25.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_25_25.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_15_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_15_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_95_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_95_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_50_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_50_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_85_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_85_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_55_55.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_55_55.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_75_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_75_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_15_15.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_15_15.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_45_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_45_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_35_35.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_35_35.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_65_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_65_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_35_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_35_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_20_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_20_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_75_75.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_75_75.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_90_90.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_90_90.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_30_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_30_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_85_85.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_85_85.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_90_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_90_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_40_40.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_40_40.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_65_65.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_65_65.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_30_30.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_30_30.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_70_70.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_70_70.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_95_95.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_95_95.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_55_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_55_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_10_20_20.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_20_20.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_25_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_25_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_antecedent/weaken_antecedent_80_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_80_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_95_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_60_60.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_60_60.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_90_90.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_90_90.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_35_35.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_35_35.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_80_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_100_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_15_15.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_15_15.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_70_70.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_70_70.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_95_95.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_95_95.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_65_65.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_65_65.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_55_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_25_25.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_25_25.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_90_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_50_50.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_50_50.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_60_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_25_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_25_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_65_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_15_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_15_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_80_80.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_80_80.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_75_75.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_75_75.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_70_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_85_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_40_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_40_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_100_100.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_100_100.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_35_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_35_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_40_40.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_40_40.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_45_45.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_45_45.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_5_5.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_5_5.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_55_55.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_55_55.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_30_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_30_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_5_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_5_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_30_30.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_30_30.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_45_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_20_20.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_20_20.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_20_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_20_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_50_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_75_10_10.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace"
+  },
+  {
+    "archivedFilename": "problems/weaken_consequent/weaken_consequent_10_85_85.trace",
+    "table": "weakening/weakening_alloy_gr1_new.csv",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_85_85.trace"
+  }
+]

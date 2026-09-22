@@ -1,0 +1,40 @@
+{
+  "archiveMd5": "d60fecbcdf54d47a9c00a791865365bd",
+  "archiveSha256": "888944e3a611683aaaf136968404cac8a67d9850b85e85f49ec1ca6f46111c6f",
+  "artifactUrl": "https://zenodo.org/records/14578202/files/ATLAS-main.zip?download=1",
+  "differences": [],
+  "historicalTables": [
+    {
+      "historicalCappedHours": 9.066707777777774,
+      "rows": 485,
+      "sha256": "55b216df02fb9a777b16a00ee1c172f0ff28a52e70fb389f7eb0080803feda4b",
+      "table": "baselines/baseline_alloy_all.csv"
+    },
+    {
+      "historicalCappedHours": 0.3637627777777777,
+      "rows": 30,
+      "sha256": "e1f95010605eec8a18cea73cef9553efebffeb986e6d1e6b20fd2188dfec6c9a",
+      "table": "peterson/peterson_alloy.csv"
+    },
+    {
+      "historicalCappedHours": 0.008545277777777778,
+      "rows": 10,
+      "sha256": "7202425815494b21778a362dfd2533c959e8f9f08481bfc4d0b339a7f08d876e",
+      "table": "voting/voting_alloy.csv"
+    },
+    {
+      "historicalCappedHours": 0.20693777777777778,
+      "rows": 20,
+      "sha256": "f228e16dc02d545fa6ddf96ed31cadc53cdad6de95b3d73b1e9c8ca706b08a78",
+      "table": "robot/robot_alloy.csv"
+    },
+    {
+      "historicalCappedHours": 1.4463005555555557,
+      "rows": 78,
+      "sha256": "79e688e4164c377e71d4f20c5e5499a9751d605a2d9889d39a713789193a8d50",
+      "table": "weakening/weakening_alloy_gr1_new.csv"
+    }
+  ],
+  "matchingBenchmarkFiles": 1252,
+  "warning": "Archived runtime is provenance and planning evidence, never current-machine baseline"
+}

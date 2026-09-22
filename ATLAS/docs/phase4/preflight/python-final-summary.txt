@@ -1,0 +1,12 @@
+test_formula_labels_on_infinite_lassos (test_pipeline.PipelineTests) ... ok
+test_generation_is_deterministic_and_never_edits_labels (test_pipeline.PipelineTests) ... ok
+test_objective_and_unsat_mismatch_stop_comparison (test_pipeline.PipelineTests) ... ok
+test_par2_keeps_failures_and_uses_repeat_medians (test_pipeline.PipelineTests) ... ok
+test_result_schema_preserves_verification_and_resource_fields (test_pipeline.PipelineTests) ... ok
+test_timeout_reaps_the_whole_process_group (test_pipeline.PipelineTests) ... ok
+test_validator_rejects_missing_runs_missing_artifacts_and_changed_results (test_pipeline.PipelineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.220s
+
+OK

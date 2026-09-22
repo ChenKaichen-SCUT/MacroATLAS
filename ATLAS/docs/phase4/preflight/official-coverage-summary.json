@@ -1,0 +1,73 @@
+{
+  "5to10Traces": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 190,
+    "supported": 0,
+    "total": 190
+  },
+  "baseTest": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 42,
+    "supported": 0,
+    "total": 42
+  },
+  "disjunctedExistence": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 29,
+    "supported": 0,
+    "total": 29
+  },
+  "equal": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 42,
+    "supported": 0,
+    "total": 42
+  },
+  "increasingNumVariables": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 56,
+    "supported": 0,
+    "total": 56
+  },
+  "ltlsketch": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 486,
+    "supported": 0,
+    "total": 486
+  },
+  "moreDetailedTest": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 126,
+    "supported": 0,
+    "total": 126
+  },
+  "peterson": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 30,
+    "supported": 0,
+    "total": 30
+  },
+  "peterson_ltlsketch": {
+    "OTHER_INPUT_FORMAT": 30,
+    "supported": 0,
+    "total": 30
+  },
+  "robot": {
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 20,
+    "supported": 0,
+    "total": 20
+  },
+  "robot_ltlsketch": {
+    "OTHER_INPUT_FORMAT": 20,
+    "supported": 0,
+    "total": 20
+  },
+  "voting_machine": {
+    "BINARY_TEMPORAL_UNTIL_REQUIRED": 10,
+    "supported": 0,
+    "total": 10
+  },
+  "voting_machine_ltlsketch": {
+    "OTHER_INPUT_FORMAT": 10,
+    "supported": 0,
+    "total": 10
+  },
+  "weakening": {
+    "OTHER_INPUT_FORMAT": 78,
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 78,
+    "supported": 0,
+    "total": 156
+  }
+}

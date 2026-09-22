@@ -17,3 +17,7 @@ Thumbs.db
 .env
 .env.*
 !.env.example
+
+# Phase 4 generated inputs and full per-process experiment logs (archive separately).
+ATLAS/generated/
+ATLAS/results/

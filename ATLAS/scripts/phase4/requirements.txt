@@ -1,0 +1,2 @@
+# Runner/generator/validation use only Python's standard library. Plotting dependency:
+matplotlib==3.10.9

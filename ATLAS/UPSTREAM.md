@@ -21,6 +21,11 @@ MacroATLAS 第一阶段新增的实现位于 `src/main/kotlin/cmu/s3d/ltl/macro/
 原 `LTLLearner`、TaskParser、Phase 1/2 源码和 bundled 依赖保持不变。
 默认 CLI 仍走原求解路径；详见 [Phase 3 实现报告](docs/phase3/IMPLEMENTATION_REPORT.md)。
 
+第四阶段新增独立 `experiment/` 入口和 `scripts/phase4/` 实验工具。
+Original ATLAS 路径继续调用未经修改的原求解器；ATLAS-B 是明确修改边界、目标和
+trace successor 编码的实验基线，详见 [实验协议](docs/phase4/EXPERIMENT_PROTOCOL.md)。
+Phase 3 宏求解器仅添加统计和验证失败分类，不增加支持范围。
+
 ## Git 收录方式
 
 `ATLAS/` 作为普通目录直接收录于

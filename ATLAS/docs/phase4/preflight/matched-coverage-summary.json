@@ -1,0 +1,59 @@
+{
+  "5to10Traces": {
+    "SUPPORTED_MACRO": 190,
+    "supported": 190,
+    "total": 190
+  },
+  "baseTest": {
+    "SUPPORTED_MACRO": 42,
+    "supported": 42,
+    "total": 42
+  },
+  "disjunctedExistence": {
+    "SUPPORTED_MACRO": 29,
+    "supported": 29,
+    "total": 29
+  },
+  "equal": {
+    "SUPPORTED_MACRO": 42,
+    "supported": 42,
+    "total": 42
+  },
+  "increasingNumVariables": {
+    "SUPPORTED_MACRO": 56,
+    "supported": 56,
+    "total": 56
+  },
+  "ltlsketch": {
+    "SUPPORTED_MACRO": 36,
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 450,
+    "supported": 36,
+    "total": 486
+  },
+  "moreDetailedTest": {
+    "SUPPORTED_MACRO": 126,
+    "supported": 126,
+    "total": 126
+  },
+  "peterson": {
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 30,
+    "supported": 0,
+    "total": 30
+  },
+  "robot": {
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 20,
+    "supported": 0,
+    "total": 20
+  },
+  "voting_machine": {
+    "INVALID_TRACE": 8,
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 2,
+    "supported": 0,
+    "total": 10
+  },
+  "weakening": {
+    "UNKNOWN_CUSTOM_ALLOY_CONSTRAINT": 78,
+    "supported": 0,
+    "total": 78
+  }
+}
