@@ -1,5 +1,7 @@
 # 并行服务器部署与数据保存
 
+需要先试跑原论文的 1/4 分层子集时，见 [QUARTER_PILOT.md](QUARTER_PILOT.md)。
+
 ## 已部署服务器配置
 
 服务器：`110.41.76.57`，Ubuntu 22.04、KVM、Xeon Gold 6266C，12 个可见逻辑 CPU、

@@ -51,6 +51,10 @@ object ExperimentMain {
                 val formula=solution?.getLTL2() ?: "UNSAT"
                 data["outcome"]=if(solution==null) "UNSAT" else "SAT"
                 data["status"]=if(fallback) "FALLBACK" else data.getValue("outcome")
+                directory.resolve("reconstructed_formula.txt").writeText(formula+"\n")
+                // Keep the original solver outcome, but never call a partial valuation verified.
+                // An invalid artifact input is an ERROR; a wrong result on valid input still stops the campaign.
+                ArtifactVerifier.requireConcreteInput(task)
                 if(solution!=null) {
                     val verifyStart=System.nanoTime();val dag=AlloySolutionDagExtractor().extract(solution)
                     directory.resolve("reconstructed_formula.txt").writeText(formula+"\n")
@@ -95,7 +99,7 @@ object ExperimentMain {
         } catch(e:Exception) {
             data["status"]=if(e is MacroVerificationException) "VERIFICATION_FAILED" else "ERROR"
             data["error"]="${e.javaClass.simpleName}: ${e.message}"
-            write("verification.json",mapOf("status" to "FAILED","detail" to data.getValue("error")))
+            write("verification.json",mapOf("status" to if(e is InvalidArtifactTraceException) "INVALID_INPUT" else "FAILED","detail" to data.getValue("error")))
             e.printStackTrace(System.err)
         } finally {
             data["totalInternalSec"]=(System.nanoTime()-start)/1e9

@@ -3,14 +3,15 @@ set -euo pipefail
 
 # Installed as /usr/local/bin/macroatlas on the dedicated experiment server.
 macroatlas_python=/srv/macroatlas/venv/bin/python
-macroatlas_script=/srv/macroatlas/repo/ATLAS/scripts/phase4/campaign.py
-macroatlas_campaign=/srv/macroatlas/experiments/phase4
-macroatlas_unit=macroatlas-phase4
+macroatlas_script=${MACROATLAS_SCRIPT:-/srv/macroatlas/repo/ATLAS/scripts/phase4/campaign.py}
+macroatlas_campaign=${MACROATLAS_CAMPAIGN:-/srv/macroatlas/experiments/phase4}
+macroatlas_unit=${MACROATLAS_UNIT:-macroatlas-phase4}
+macroatlas_label=${MACROATLAS_LABEL:-macroatlas}
 
 case "${1:-status}" in
   run|start|resume)
     systemctl start "$macroatlas_unit"
-    printf 'Started/resumed. Progress: macroatlas status; logs: macroatlas tail\n'
+    printf 'Started/resumed. Progress: %s status; logs: %s tail\n' "$macroatlas_label" "$macroatlas_label"
     ;;
   stop)
     systemctl stop "$macroatlas_unit"
@@ -27,7 +28,7 @@ case "${1:-status}" in
     exec "$macroatlas_python" "$macroatlas_script" summarize "$macroatlas_campaign"
     ;;
   backup)
-    macroatlas_archive="/srv/macroatlas/archives/phase4-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
+    macroatlas_archive="/srv/macroatlas/archives/${macroatlas_campaign##*/}-$(date -u +%Y%m%dT%H%M%SZ).tar.gz"
     exec "$macroatlas_python" "$macroatlas_script" archive "$macroatlas_campaign" --output "$macroatlas_archive"
     ;;
   *)

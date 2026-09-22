@@ -63,13 +63,25 @@ def make_plan(a):
         gate = read_json(a.gate)
         if gate.get('status') != 'PASSED' or any(gate.get(k) != env[k] for k in ['commit', 'java', 'applicationSha256', 'solverSha256', 'alloySha256']):
             raise ValueError("Run the correctness gate on this server/commit before planning")
-    official, synthetic = a.official.resolve(), a.synthetic.resolve()
+    official = a.official.resolve()
+    synthetic = a.synthetic.resolve() if a.synthetic else None
+    selected_phases = a.phases
+    if 'e8-synthetic' in selected_phases and synthetic is None:
+        raise ValueError("--synthetic is required for e8-synthetic")
+    selection = None
+    if a.paper_fraction is not None:
+        if 'e8-synthetic' in selected_phases:
+            raise ValueError("A paper subset excludes synthetic tasks; select e3-original e4-matched e5-auto")
+        from paper_subset import selection_manifest
+        selection = selection_manifest(official, a.paper_fraction, a.seed)
     source_phases = [
         ('e3-original', 'original', ATLAS/'benchmark', official/'paper_tasks.txt', 1, False),
         ('e4-matched', 'matched', official/'matched_u_free', official/'matched/supported_tasks.txt', a.repeats, False),
         ('e5-auto', 'auto', ATLAS/'benchmark', official/'original_tasks.txt', 1, False),
-        ('e8-synthetic', 'matched', synthetic/'matched_u_free', synthetic/'matched/supported_tasks.txt', a.repeats, True),
     ]
+    if synthetic:
+        source_phases.append(('e8-synthetic', 'matched', synthetic/'matched_u_free', synthetic/'matched/supported_tasks.txt', a.repeats, True))
+    source_phases = [p for p in source_phases if p[0] in selected_phases]
     if a.smoke_root:
         if not a.pilot:
             raise ValueError("Smoke workload must be labelled pilot")
@@ -85,6 +97,10 @@ def make_plan(a):
     campaign_id = digest(dict(output=str(output), commit=env['commit']))[:10]
     output.mkdir(parents=True)
     (output/'logs').mkdir()
+    if selection:
+        plan['paperSubset'] = selection
+        save_json(output/'selection.json', selection)
+        save_csv(output/'selection-counts.csv', selection['counts'], list(selection['counts'][0]))
     if a.gate.exists():
         shutil.copy2(a.gate, output/'correctness-gate.json')
         if a.gate.with_suffix('.log').exists():
@@ -100,6 +116,11 @@ def make_plan(a):
             coverage = {r['task']: r for r in all_rows if r['supported'] == 'true'}
             if set(names) != set(coverage):
                 raise ValueError("Source support list differs from analyzer coverage")
+        if selection:
+            selected_names = {r['task'] for r in selection['tasks']}
+            names = [n for n in names if n in selected_names]
+            if not names:
+                raise ValueError("Selected phase has no eligible tasks: " + name)
         records = []
         for task in names:
             file = (root/task).resolve()
@@ -313,6 +334,8 @@ def run_campaign(directory):
                 current_units = []
             save_json(output/'state.json', dict(status='COMPLETE', updatedUtc=timestamp()))
             print(timestamp(), 'CAMPAIGN COMPLETE', flush=True)
+            from paper_subset import report
+            report(plan)
         except BaseException as error:
             save_json(output/'state.json', dict(status='INTERRUPTED' if isinstance(error, (InterruptedError, KeyboardInterrupt)) else 'FAILED',
                                                updatedUtc=timestamp(), error=str(error)))
@@ -335,6 +358,8 @@ def summarize(directory, finalize=False):
         for phase in plan['phases']:
             merged = merge_phase(plan, phase)
             print(phase['id'], json.dumps(analyze(merged)))
+        from paper_subset import report
+        report(plan)
 
 
 def install_service(directory):
@@ -392,7 +417,10 @@ def main():
     create = commands.add_parser('plan')
     create.add_argument('--output', type=pathlib.Path, required=True)
     create.add_argument('--official', type=pathlib.Path, required=True)
-    create.add_argument('--synthetic', type=pathlib.Path, required=True)
+    create.add_argument('--synthetic', type=pathlib.Path)
+    create.add_argument('--phases', nargs='+', choices=['e3-original', 'e4-matched', 'e5-auto', 'e8-synthetic'],
+                        default=['e3-original', 'e4-matched', 'e5-auto', 'e8-synthetic'])
+    create.add_argument('--paper-fraction', type=float, help='Outcome-independent stratified subset of paper tasks')
     create.add_argument('--workers', type=int, required=True)
     create.add_argument('--memory-mb', type=int, default=16384)
     create.add_argument('--reserve-memory-mb', type=int, default=4096)

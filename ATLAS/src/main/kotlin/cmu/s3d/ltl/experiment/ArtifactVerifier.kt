@@ -4,9 +4,24 @@ import cmu.s3d.ltl.LassoTrace
 import cmu.s3d.ltl.macro.constraint.BinaryOperator
 import cmu.s3d.ltl.macro.dag.*
 import cmu.s3d.ltl.macro.unary.UnaryOperator
+import cmu.s3d.ltl.samples2ltl.Task
+
+/** The artifact sometimes contains incomplete valuations; these are not concrete traces. */
+class InvalidArtifactTraceException(message: String): IllegalArgumentException(message)
 
 /** Independent concrete lasso evaluator for Original ATLAS, including U. Does not normalize. */
 object ArtifactVerifier {
+    fun requireConcreteInput(task: Task) {
+        for ((index, trace) in (task.positiveExamples + task.negativeExamples).withIndex()) {
+            if (trace.length() == 0) throw InvalidArtifactTraceException("Empty trace $index")
+            for ((position, state) in trace.getTrace().withIndex()) {
+                if (state.values.keys != task.literals.toSet()) {
+                    throw InvalidArtifactTraceException("Trace $index state $position: expected ${task.literals.size} propositions, got ${state.values.size}; original input preserved")
+                }
+            }
+        }
+    }
+
     fun evaluate(dag: FormulaDag, trace: LassoTrace): Boolean {
         val size=trace.length();require(size>0)
         fun next(i:Int)=if(i+1<size)i+1 else if(trace.loop.isEmpty())size-1 else trace.prefix.size
