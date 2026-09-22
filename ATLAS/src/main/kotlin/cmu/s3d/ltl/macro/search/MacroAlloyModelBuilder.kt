@@ -52,6 +52,9 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
         line("fun bin: set Label { ${labelSet { it is MacroLabel.Binary }} }")
         line("fun nonempty: set Fiber { ${union(context.catalog.entries.filter { it.key.nonEmpty }.map { "E${it.id}" })} }")
         line("fun graph: Anchor -> Anchor { ~src.target }")
+        val carriers = (0 until k).map { "A$it" } + portNames
+        line("fun unitNext: Unit -> Unit { ${if (p.nodeBudget < 2) "none->none" else union((0 until p.nodeBudget-1).map { "U$it->U${it+1}" })} }")
+        line("fun carrierNext: Carrier -> Carrier { ${union(carriers.zipWithNext().map { (a,b) -> "$a->$b" })} }")
         for ((fn, prefix) in listOf("child" to "C", "left" to "L", "right" to "D"))
             line("fun $fn[a: Anchor]: set Port { a.(${union((0 until k).map { "A$it->$prefix$it" })}) }")
         line("fact Structure {")
@@ -80,6 +83,11 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
             if (i > p.protectedIdentities.size) line("some A$i.lab implies some A${i-1}.lab")
         }
         line("all disj c, d: Carrier | no c.cost & d.cost")
+        // Unit atoms have no meaning except counting expanded size. Give every cost-length
+        // vector a canonical prefix allocation in carrier order, removing factorial choices
+        // of indistinguishable cost units without restricting the represented formula.
+        line("all u: Unit - U0 | some cost.u implies some cost.(u.~unitNext)")
+        line("all u: Unit | some cost.u implies cost.(u.~unitNext) in (cost.u).*~carrierNext")
         for (entry in context.catalog.entries) {
             line("E${entry.id}.qi = Q${entry.qIn}\nE${entry.id}.qo = Q${entry.qOut}")
         }

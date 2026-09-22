@@ -66,7 +66,7 @@ cd /srv/macroatlas/repo/ATLAS
 ```bash
 /srv/macroatlas/venv/bin/python scripts/phase4/campaign.py plan \
   --official generated/server-official --synthetic generated/server-synthetic-ready \
-  --output /srv/macroatlas/experiments/phase4 --workers 3 --memory-mb 16384 --repeats 3
+  --output /srv/macroatlas/experiments/phase4 --workers 3 --memory-mb 16384 --repeats 1
 /srv/macroatlas/venv/bin/python scripts/phase4/campaign.py install-service \
   /srv/macroatlas/experiments/phase4
 ```

@@ -1,8 +1,12 @@
 # 原论文 1/4 分层探索实验
 
+当前协议：每个任务、每种算法只运行一次。旧三次重复计划及结果保持原样，
+新脚本拒绝 `--repeats 3`，避免误启动重复运行。E3 与 E5 的 Original 属于两个
+独立比较阶段，各运行一次；不复用跨阶段的测量。
+
 本批次用于决定是否继续全量实验，不代替全量结论。旧全量批次及其源码保持原样，
-新批次使用独立 checkout `/srv/macroatlas/repo-quarter` 和结果目录
-`/srv/macroatlas/experiments/phase4-quarter`。
+新批次使用独立 checkout `/srv/macroatlas/repo-encoding-fix` 和结果目录
+`/srv/macroatlas/experiments/phase4-quarter-once`。
 
 固定 seed=20260922，不读取既有运行耗时、SAT/TIMEOUT 或历史结果值来选择任务。
 从原论文历史表的 **文件名映射**确定 623 题总体，按论文类别比例分配 156 个名额，
@@ -19,9 +23,9 @@
 | 总计 | 623 | 156 | 121 |
 
 - E3: 156 个原样输入运行 Original，一次。
-- E4: 121 个被选中的、可支持的 U-free 输入副本，ATLAS-B/Macro 各重复三次，共 726 次。
+- E4: 121 个被选中的、可支持的 U-free 输入副本，ATLAS-B/Macro 各运行一次，共 242 次。
 - E5: 同一批 156 个原样输入，Original/AUTO 各一次，共 312 次。
-- 共 1194 次；本批次不运行额外的 ltlsketch 或 synthetic 工作负载。
+- 共 710 次；本批次不运行额外的 ltlsketch 或 synthetic 工作负载。
 - 当前原样输入全部回退；constrained 部分没有可用于 Macro 同域比较的任务。
   因此 constrained 只报告 Original/AUTO、回退及覆盖率，不能声称测到了 Macro 的 constrained 加速。
 - 180 秒超时、5 workers、每 worker 同一 SMT 组的两个逻辑 CPU、16 GiB 内存上限、4 GiB heap 不变。
@@ -55,7 +59,7 @@ macroatlas-quarter summary      # 全部完成后校验、分类统计、CSV 与
 macroatlas-quarter backup       # 暂停或完成后备份
 ```
 
-分类别汇总：`/srv/macroatlas/experiments/phase4-quarter/processed/paper-subset-summary.csv`。
+分类别汇总：`/srv/macroatlas/experiments/phase4-quarter-once/processed/paper-subset-summary.csv`。
 逐阶段完整统计/图：`<campaign>/<phase>/merged/processed/`。
 `selection.json`、`selection-counts.csv` 记录抽样与分母。
 summary 不把未完成的配对或阶段当作完整结果；运行中使用 status/tail。
@@ -72,10 +76,10 @@ python scripts/phase4/prepare.py --output generated/server-official --b 2
 python scripts/phase4/campaign.py plan \
   --official generated/server-official \
   --phases e3-original e4-matched e5-auto --paper-fraction 0.25 \
-  --output /srv/macroatlas/experiments/phase4-quarter \
-  --controller-unit macroatlas-phase4-quarter \
-  --workers 5 --memory-mb 16384 --repeats 3 --timeout 180 --seed 20260922
-python scripts/phase4/campaign.py install-service /srv/macroatlas/experiments/phase4-quarter
+  --output /srv/macroatlas/experiments/phase4-quarter-once \
+  --controller-unit macroatlas-phase4-quarter-once \
+  --workers 5 --memory-mb 16384 --repeats 1 --timeout 180 --seed 20260922
+python scripts/phase4/campaign.py install-service /srv/macroatlas/experiments/phase4-quarter-once
 ```
 
 服务安装后还需部署专用 wrapper 及与旧 controller 的 Conflicts 配置。

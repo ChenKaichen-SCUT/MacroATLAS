@@ -25,7 +25,7 @@ python3 scripts/phase4/prepare.py --output generated/official --b 2
 python3 scripts/phase4/run.py --suite original --root benchmark \
   --tasks generated/official/paper_tasks.txt --timeout 180
 python3 scripts/phase4/run.py --suite matched --root generated/official/matched_u_free \
-  --tasks generated/official/matched/supported_tasks.txt --b 2 --timeout 180 --repeats 3
+  --tasks generated/official/matched/supported_tasks.txt --b 2 --timeout 180 --repeats 1
 ```
 
 Read [the full protocol](../../docs/phase4/EXPERIMENT_PROTOCOL.md) before formal runs,
@@ -49,7 +49,7 @@ For example, after a complete matched batch, explicitly create a repeat subset:
 python3 scripts/phase4/select_runs.py results/COMMIT/MACHINE/BATCH \
   --root generated/official/matched_u_free --output generated/repeats --mode common
 python3 scripts/phase4/run.py --suite matched --root generated/repeats/inputs \
-  --tasks generated/repeats/analysis/supported_tasks.txt --b 2 --repeats 3
+  --tasks generated/repeats/analysis/supported_tasks.txt --b 2 --repeats 1
 ```
 
 The subset result must stay separate from full-workload solved/PAR-2 statistics.

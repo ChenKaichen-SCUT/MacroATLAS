@@ -429,7 +429,8 @@ def main():
     create.add_argument('--memory-mb', type=int, default=16384)
     create.add_argument('--reserve-memory-mb', type=int, default=4096)
     create.add_argument('--min-free-disk-gb', type=float, default=8)
-    create.add_argument('--repeats', type=int, default=3)
+    create.add_argument('--repeats', type=int, choices=[1], default=1,
+                        help='One run per task/algorithm under the current exploratory protocol')
     create.add_argument('--timeout', type=float, default=180)
     create.add_argument('--seed', type=int, default=20260922)
     create.add_argument('--b', type=int, default=2)

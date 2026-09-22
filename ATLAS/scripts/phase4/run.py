@@ -254,7 +254,8 @@ def main():
     p.add_argument("--tasks", type=pathlib.Path, required=True)
     p.add_argument("--suite", choices=["original", "matched", "auto"], required=True)
     p.add_argument("--output", type=pathlib.Path)
-    p.add_argument("--repeats", type=int, default=1)
+    p.add_argument("--repeats", type=int, choices=[1], default=1,
+                   help="Current exploratory protocol runs each task/algorithm once")
     p.add_argument("--seed", type=int, default=20260922)
     p.add_argument("--timeout", type=float, default=180)
     p.add_argument("--b", type=int, default=2)
