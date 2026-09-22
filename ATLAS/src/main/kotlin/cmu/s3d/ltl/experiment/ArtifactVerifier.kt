@@ -6,20 +6,15 @@ import cmu.s3d.ltl.macro.dag.*
 import cmu.s3d.ltl.macro.unary.UnaryOperator
 import cmu.s3d.ltl.samples2ltl.Task
 
-/** The artifact sometimes contains incomplete valuations; these are not concrete traces. */
-class InvalidArtifactTraceException(message: String): IllegalArgumentException(message)
-
-/** Independent concrete lasso evaluator for Original ATLAS, including U. Does not normalize. */
+/** Independent lasso evaluator using Original ATLAS input semantics, including U. */
 object ArtifactVerifier {
-    fun requireConcreteInput(task: Task) {
-        for ((index, trace) in (task.positiveExamples + task.negativeExamples).withIndex()) {
-            if (trace.length() == 0) throw InvalidArtifactTraceException("Empty trace $index")
-            for ((position, state) in trace.getTrace().withIndex()) {
-                if (state.values.keys != task.literals.toSet()) {
-                    throw InvalidArtifactTraceException("Trace $index state $position: expected ${task.literals.size} propositions, got ${state.values.size}; original input preserved")
-                }
-            }
-        }
+    fun inputDiagnostics(task: Task): Map<String, Any> {
+        val declared = task.literals.toSet()
+        val states = (task.positiveExamples + task.negativeExamples).flatMap { it.getTrace() }
+        return mapOf("policy" to "Original LTLLearner.generateTrace: missing declared values are false; undeclared columns ignored; source bytes unchanged",
+            "statesWithMissingValues" to states.count { !it.values.keys.containsAll(declared) },
+            "missingValues" to states.sumOf { (declared - it.values.keys).size },
+            "ignoredExtraValues" to states.sumOf { (it.values.keys - declared).size })
     }
 
     fun evaluate(dag: FormulaDag, trace: LassoTrace): Boolean {
@@ -32,7 +27,8 @@ object ArtifactVerifier {
             return current
         }
         for(id in dag.postOrder()) values[id]=when(val n=dag.node(id)) {
-            is LiteralNode -> BooleanArray(size){trace.getStateAt(it).values.getValue(n.proposition)}
+            // Exactly the input interpretation in LTLLearner.generateTrace, without editing the trace.
+            is LiteralNode -> BooleanArray(size){trace.getStateAt(it).values[n.proposition] == true}
             is UnaryNode -> {val c=values.getValue(n.child);when(n.operator) {
                 UnaryOperator.NOT -> BooleanArray(size){!c[it]}
                 UnaryOperator.X -> BooleanArray(size){c[next(it)]}

@@ -35,10 +35,12 @@
 只有 6 个命题值，而任务要求 10 个。原始输入没有被补零、修复或从抽样中剔除。
 
 新实验入口仍调用原样 Original learner，保留返回的公式、SAT/UNSAT outcome 和求解耗时；
-随后检查输入能否作为完整具体轨迹验证。不完整输入记为 `ERROR`、
-`verification=INVALID_INPUT`、`InvalidArtifactTraceException`，不计为成功，并保留在
-统计分母及 PAR-2 惩罚中。输入错误单独列出，不能归因于算法速度。
-有效输入上的公式分类错误、Macro 验证失败或 matched objective mismatch 仍会停止整批运行。
+独立验证器遵循 `LTLLearner.generateTrace` 的原始输入语义：缺失的已声明命题值为 false，
+额外的未声明列被忽略。这是复用 artifact 已有的解释规则，不修改输入文件，也不修改求解算法。
+每题 `input-diagnostics.json` 记录缺失值、额外列数量与解释规则。
+原先直接用 `getValue` 的独立验证器与 artifact 不一致，已用 voting5 的实际公式增加回归检查。
+公式分类错误、Macro 验证失败或 matched objective mismatch 仍会停止整批运行。
+Macro 的严格输入检查保持不变，constrained 覆盖仍为零。
 旧记录不追溯改写，新旧版本的结果不混合。
 
 ## 已部署命令

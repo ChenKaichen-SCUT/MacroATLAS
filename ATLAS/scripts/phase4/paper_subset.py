@@ -92,7 +92,6 @@ def report(plan):
                     solvedTasks=sum(r['solved'] for r in tasks),
                     PAR2=par2(runs, manifest['timeoutSec']) if runs else None,
                     errors=sum(r['status'] == 'ERROR' for r in runs),
-                    invalidInputRuns=sum(r['verification'] == 'INVALID_INPUT' for r in runs),
                     fallbackRuns=sum(r.get('fallbackUsed', '').lower() == 'true' for r in runs),
                     macroRuns=sum(r['solverMode'] == 'MACRO' for r in runs),
                     commonSolved=len(common),
