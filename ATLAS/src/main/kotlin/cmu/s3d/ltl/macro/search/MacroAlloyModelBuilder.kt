@@ -11,6 +11,10 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
     val portNames = listOf("R") + (0 until k).flatMap { listOf("C$it", "L$it", "D$it") }
     val offsets = context.positions.runningFold(0) { n, pos -> n + pos.successor.size }.dropLast(1)
     val positionCount = context.positions.sumOf { it.successor.size }
+    // Positions are local to a trace. Separate valuation fields avoid adding one Alloy atom
+    // per sample position (and the resulting cubic-universe translation capacity failure).
+    val localPositionCount = context.positions.maxOfOrNull { it.successor.size } ?: 0
+    val traceShapes = context.positions.map { it.successor.size to it.trace.prefix.size }.distinct()
     private fun union(values: Iterable<String>) = values.joinToString(" + ").ifEmpty { "none" }
     private fun labelSet(test: (MacroLabel) -> Boolean) = union(p.labels.indices.filter { test(p.labels[it]) }.map { "T$it" })
     private fun slot(id: cmu.s3d.ltl.macro.dag.NodeId) = "A${p.protectedIdentities.indexOfFirst { it.id == id }.also { require(it >= 0) }}"
@@ -34,13 +38,13 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
         line("abstract sig Fiber { qi: one Q, qo: one Q }")
         atoms("Fiber", context.catalog.entries.map { "E${it.id}" })
         line("abstract sig Pos {}")
-        atoms("Pos", (0 until positionCount).map { "P$it" })
+        atoms("Pos", (0 until localPositionCount).map { "P$it" })
         line("abstract sig Carrier { cost: set Unit }")
         line("abstract sig Anchor extends Carrier { lab: lone Label, state: lone Q }")
         atoms("Anchor", (0 until k).map { "A$it" })
         line("abstract sig Port extends Carrier { src: lone Anchor, target: lone Anchor, fiber: lone Fiber }")
         atoms("Port", portNames)
-        line("one sig V { av: Anchor -> Pos, ev: Port -> Pos }")
+        line("one sig V { ${context.positions.indices.flatMap { listOf("av$it: Anchor -> Pos", "ev$it: Port -> Pos") }.joinToString(",\n")} }")
         line("fun active: set Anchor { lab.Label }")
         line("fun used: set Port { target.Anchor }")
         line("fun lit: set Label { ${labelSet { it is MacroLabel.Literal }} }")
@@ -104,47 +108,68 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
             is MacroIdentityConstraint.NamedReachability -> if (p.protectedIdentities.size <= k) line("${slot(c.target)} in ${slot(c.source)}.^graph")
         }
         line("}")
-        line("fact Semantics {")
-        line("V.av in active->Pos\nV.ev in used->Pos")
-        for ((traceIndex, pos) in context.positions.withIndex()) {
-            val offset = offsets[traceIndex]
-            fun av(at: Int) = "(e.target->P${offset+at} in V.av)"
-            fun ev(port: String, at: Int) = "($port->P${offset+at} in V.ev)"
-            for ((type, entries) in context.catalog.entries.groupBy { it.key.semanticType }) {
-                fun base(at: Int) = if (type.negated) "not ${av(at)}" else av(at)
-                fun f(at: Int) = pos.future[at].joinToString(" or ", "(", ")") { base(it) }
-                fun g(at: Int) = pos.future[at].joinToString(" and ", "(", ")") { base(it) }
-                for (at in pos.successor.indices) {
-                    val start = pos.succPow[type.xCount][at]
-                    val rhs = when (type.tail) {
-                        TemporalTail.ID -> base(start)
-                        TemporalTail.F -> f(start)
-                        TemporalTail.G -> g(start)
-                        TemporalTail.FG -> pos.future[start].joinToString(" or ", "(", ")") { g(it) }
-                        TemporalTail.GF -> pos.future[start].joinToString(" and ", "(", ")") { f(it) }
-                    }
-                    line("all e: used | e.fiber in (${union(entries.map { "E${it.id}" })}) implies (${ev("e",at)} iff ($rhs))")
-                }
+        // One predicate per (length, loop start), reused across all samples of that shape.
+        // No constraints, fiber identities, costs or words are discarded.
+        for ((shapeIndex, shape) in traceShapes.withIndex()) {
+            val pos = context.positions.first { it.successor.size == shape.first && it.trace.prefix.size == shape.second }
+            val range = "range$shapeIndex"; val next = "next$shapeIndex"; val future = "future$shapeIndex"; val loop = "loop$shapeIndex"
+            line("fun $range: set Pos { ${union(pos.successor.indices.map { "P$it" })} }")
+            line("fun $loop: set Pos { ${union((shape.second until shape.first).map { "P$it" })} }")
+            line("fun $next: Pos -> Pos { ${union(pos.successor.mapIndexed { i, j -> "P$i->P$j" })} }")
+            line("fun $future: Pos -> Pos { (*$next) & ($range->$range) }")
+            val shifts = context.catalog.entries.map { pos.succPow[it.key.semanticType.xCount] }.distinct()
+            for ((i, shift) in shifts.withIndex())
+                line("fun shift${shapeIndex}_$i: Pos -> Pos { ${union(shift.mapIndexed { a, b -> "P$a->P$b" })} }")
+            line("pred semantics$shapeIndex[av: Anchor -> Pos, ev: Port -> Pos] {")
+            line("av in active->$range\nev in used->$range")
+            // Shifts with the same action on this finite lasso share a clause; distinct fibers remain selectable.
+            val groups = context.catalog.entries.groupBy {
+                val type = it.key.semanticType
+                Triple(type.tail, type.negated, if (type.tail in listOf(TemporalTail.FG, TemporalTail.GF)) -1 else shifts.indexOf(pos.succPow[type.xCount]))
             }
-            for ((i, label) in p.labels.withIndex()) for (at in pos.successor.indices) {
+            for ((key, entries) in groups) {
+                val (tail, negated, shiftIndex) = key
+                val values = if (negated) "($range - e.target.av)" else "(e.target.av)"
+                val start = "(i.shift${shapeIndex}_$shiftIndex)"
+                val test = when (tail) {
+                    TemporalTail.ID -> "$start in $values"
+                    TemporalTail.F -> "some ($start.$future & $values)"
+                    TemporalTail.G -> "$start.$future in $values"
+                    // On an ultimately periodic trace, FG/GF depend only on the cycle, at every position.
+                    TemporalTail.FG -> "$loop in $values"
+                    TemporalTail.GF -> "some ($loop & $values)"
+                }
+                line("all e: used | e.fiber in (${union(entries.map { "E${it.id}" })}) implies e.ev = {i: $range | $test}")
+            }
+            for ((i, label) in p.labels.withIndex()) {
                 val rhs = when (label) {
-                    is MacroLabel.Literal -> if (pos.trace.getStateAt(at).values.getValue(label.proposition)) "some Unit" else "no Unit"
+                    is MacroLabel.Literal -> continue // Concrete literal vectors are fixed separately for each sample.
                     is MacroLabel.Unary -> when (label.operator) {
-                        UnaryOperator.NOT -> "not ${ev("child[a]",at)}"
-                        UnaryOperator.X -> ev("child[a]",pos.successor[at])
-                        UnaryOperator.F -> pos.future[at].joinToString(" or ","(",")") { ev("child[a]",it) }
-                        UnaryOperator.G -> pos.future[at].joinToString(" and ","(",")") { ev("child[a]",it) }
+                        UnaryOperator.NOT -> "$range - child[a].ev"
+                        UnaryOperator.X -> "$next.(child[a].ev)"
+                        UnaryOperator.F -> "{i: $range | some (i.$future & child[a].ev)}"
+                        UnaryOperator.G -> "{i: $range | i.$future in child[a].ev}"
                     }
                     is MacroLabel.Binary -> when (label.operator) {
-                        BinaryOperator.AND -> "${ev("left[a]",at)} and ${ev("right[a]",at)}"
-                        BinaryOperator.OR -> "${ev("left[a]",at)} or ${ev("right[a]",at)}"
-                        BinaryOperator.IMPLIES -> "${ev("left[a]",at)} implies ${ev("right[a]",at)}"
+                        BinaryOperator.AND -> "left[a].ev & right[a].ev"
+                        BinaryOperator.OR -> "left[a].ev + right[a].ev"
+                        BinaryOperator.IMPLIES -> "($range - left[a].ev) + right[a].ev"
                         BinaryOperator.UNTIL -> error("U is unsupported")
                     }
                 }
-                line("all a: active | a.lab = T$i implies ((a->P${offset+at} in V.av) iff ($rhs))")
+                line("all a: active | a.lab = T$i implies a.av = ($rhs)")
             }
-            line("${if (traceIndex >= context.positives.size) "not " else ""}(R->P$offset in V.ev)")
+            line("}")
+        }
+        line("fact Semantics {")
+        for ((traceIndex, pos) in context.positions.withIndex()) {
+            val shapeIndex = traceShapes.indexOf(pos.successor.size to pos.trace.prefix.size)
+            line("semantics$shapeIndex[V.av$traceIndex, V.ev$traceIndex]")
+            for ((i, label) in p.labels.withIndex()) if (label is MacroLabel.Literal) {
+                val truth = union(pos.successor.indices.filter { pos.trace.getStateAt(it).values.getValue(label.proposition) }.map { "P$it" })
+                line("all a: lab.T$i | a.(V.av$traceIndex) = ($truth)")
+            }
+            line("${if (traceIndex >= context.positives.size) "not " else ""}(R->P0 in V.ev$traceIndex)")
         }
         line("}")
         val repair = p.objective as? MacroObjective.Repair

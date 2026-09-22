@@ -313,6 +313,10 @@ def run_campaign(directory):
                 while True:
                     check_disk()
                     states = {unit: service_state(unit) for unit in current_units}
+                    # BindsTo can stop a worker before systemd delivers SIGTERM to its controller.
+                    # A user-requested stop is an interruption, not an algorithm failure.
+                    if service_state(plan['controllerUnit']).get('ActiveState') in {'deactivating', 'inactive'}:
+                        raise InterruptedError('Controller service is stopping')
                     for unit, state in states.items():
                         if state.get('ActiveState') == 'failed' or state.get('Result') not in {'success', ''} or state.get('ActiveState') == 'inactive':
                             raise RuntimeError("Worker stopped/failed: %s %s" % (unit, state))

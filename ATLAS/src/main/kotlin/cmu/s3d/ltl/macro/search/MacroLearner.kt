@@ -30,8 +30,21 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         dump("fiber_catalog.txt", context.catalog.entries.joinToString("\n"))
         var encodingNanos = 0L
         var backendNanos = 0L
+        var parseNanos = 0L
         var modelBytes = 0L
+        val progressStart = System.nanoTime()
+        fun checkpoint(stage: String) {
+            val runtime = Runtime.getRuntime()
+            dump("stage.json", metadataJson(linkedMapOf(
+                "stage" to stage, "elapsedSec" to (System.nanoTime()-progressStart)/1e9,
+                "encodingSec" to encodingNanos/1e9, "parseSec" to parseNanos/1e9,
+                "backendSec" to backendNanos/1e9, "modelBytes" to modelBytes,
+                "heapUsedBytes" to runtime.totalMemory()-runtime.freeMemory(), "heapMaxBytes" to runtime.maxMemory(),
+                "fiberCount" to context.catalog.entries.size, "positionCount" to builder.positionCount,
+                "localPositionAtoms" to builder.localPositionCount, "traceShapeCount" to builder.traceShapes.size)))
+        }
         fun build(minimumKept: Int = 0): String {
+            checkpoint("ENCODING")
             val start = System.nanoTime()
             val source = builder.build(minimumKept)
             encodingNanos += System.nanoTime() - start
@@ -41,10 +54,14 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         fun execute(source: String, filename: String): MacroAssignment? {
             dump(filename, source)
             if (printModel) println(source)
+            checkpoint("PARSING")
             val backendStart = System.nanoTime()
             val world = CompUtil.parseEverything_fromString(reporter, source)
+            parseNanos += System.nanoTime() - backendStart
+            checkpoint("TRANSLATING_AND_SOLVING")
             val solution = TranslateAlloyToKodkod.execute_command(reporter, world.allReachableSigs, world.allCommands.first(), options)
             backendNanos += System.nanoTime() - backendStart
+            checkpoint("EXTRACTING_ASSIGNMENT")
             if (!solution.satisfiable()) return null
             fun eval(expression: String): Any = solution.eval(CompUtil.parseOneExpression_fromString(world, expression))
             fun tuples(expression: String): List<List<String>> = (eval(expression) as A4TupleSet).map { tuple ->
@@ -58,8 +75,12 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
                 name to PortAssignment(it.substring(1).toInt(), single("$name.fiber")!!.substring(1).toInt())
             } }.toMap()
             return MacroAssignment(anchors, ports, eval("#(Carrier.cost)").toString().toInt(), eval("#kept").toString().toInt(),
-                tuples("V.av").map { it[0].substring(1).toInt() to it[1].substring(1).toInt() }.toSet(),
-                tuples("V.ev").map { it[0] to it[1].substring(1).toInt() }.toSet())
+                context.positions.indices.flatMap { i -> tuples("V.av$i").map {
+                    it[0].substring(1).toInt() to builder.offsets[i] + it[1].substring(1).toInt()
+                } }.toSet(),
+                context.positions.indices.flatMap { i -> tuples("V.ev$i").map {
+                    it[0] to builder.offsets[i] + it[1].substring(1).toInt()
+                } }.toSet())
         }
         val start = System.nanoTime()
         val objective = context.plan.objective as? MacroObjective.Repair
@@ -86,9 +107,11 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         dump("macro_model.als", finalSource)
         val solverNanos = System.nanoTime() - start
         val decodeStart = System.nanoTime()
+        checkpoint("DECODING")
         val decoded = assignment?.let { MacroAssignmentDecoder.decode(context,it) }
         val decodeNanos = System.nanoTime() - decodeStart
         val verifyStart = System.nanoTime()
+        checkpoint("VERIFYING")
         val dag = assignment?.let {
             try { FinalSolutionVerifier.verify(context, it, checkNotNull(decoded)) }
             catch (e: Exception) { throw MacroVerificationException(e) }
@@ -99,6 +122,7 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
             "protectedCount" to context.plan.protectedIdentities.size, "anchorSlotBudget" to builder.k,
             "constraintStateCount" to context.registry.states.size, "fiberCount" to context.catalog.entries.size,
             "portSlotCount" to builder.portNames.size, "semanticValuationCount" to (builder.k + builder.portNames.size) * builder.positionCount,
+            "localPositionAtoms" to builder.localPositionCount, "traceShapeCount" to builder.traceShapes.size,
             "activeAnchorCount" to (assignment?.anchors?.size ?: 0), "activeMacroEdgeCount" to (assignment?.ports?.size ?: 0),
             "expandedNodeCount" to (assignment?.expandedSize ?: 0),
             "binaryNodeCount" to (assignment?.anchors?.values?.count { context.plan.labels[it.label] is MacroLabel.Binary } ?: 0),
@@ -110,6 +134,7 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
             "maxRepresentativeLength" to (assignment?.ports?.values?.maxOfOrNull { context.catalog.entries[it.fiber].length } ?: 0),
             "registrySec" to context.registryNanoseconds/1e9, "fiberSec" to context.fiberNanoseconds/1e9,
             "encodingSec" to encodingNanos/1e9, "solverSec" to backendNanos/1e9,
+            "parseSec" to parseNanos/1e9, "translationAndSolveSec" to (backendNanos-parseNanos)/1e9,
             "decodeSec" to decodeNanos/1e9, "verifySec" to verifyNanos/1e9
         )
         dump("analysis.json", metadataJson(metadata))
@@ -117,6 +142,7 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         dump("macro_assignment.txt", assignment?.toString() ?: "UNSAT")
         dump("reconstructed_formula.txt", dag?.let { FormulaDagRenderer.render(it) } ?: "UNSAT")
         dump("verification.json", metadataJson(mapOf("status" to if (dag == null) "NOT_APPLICABLE_UNSAT" else "PASSED")))
+        checkpoint("COMPLETE")
         return MacroSolveResult(dag, assignment, metadata)
     }
 }
