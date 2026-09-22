@@ -1,5 +1,6 @@
 """Shared deterministic manifests and result schema; standard library only."""
 import hashlib
+import csv
 import json
 import os
 import pathlib
@@ -29,7 +30,23 @@ def save_json(path, data):
     path = pathlib.Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temp = path.with_name(path.name + ".tmp")
-    temp.write_text(json.dumps(data, indent=2, sort_keys=True) + "\n")
+    with temp.open("w") as f:
+        f.write(json.dumps(data, indent=2, sort_keys=True) + "\n")
+        f.flush()
+        os.fsync(f.fileno())
+    temp.replace(path)
+
+
+def save_csv(path, rows, fields=FIELDS):
+    """Atomically checkpoint complete rows so monitoring never sees a truncated CSV."""
+    path = pathlib.Path(path)
+    temp = path.with_name(path.name + ".tmp")
+    with temp.open("w", newline="") as f:
+        writer = csv.DictWriter(f, fieldnames=fields, lineterminator="\n")
+        writer.writeheader()
+        writer.writerows(rows)
+        f.flush()
+        os.fsync(f.fileno())
     temp.replace(path)
 
 

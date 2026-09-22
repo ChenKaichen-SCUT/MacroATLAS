@@ -27,6 +27,8 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 实验代码与本地预检已完成；完整 180 秒同机实验等待服务器，尚无正式加速结论。
 见 [Phase 4 实验协议](ATLAS/docs/phase4/EXPERIMENT_PROTOCOL.md) 和
 [服务器资源建议](ATLAS/docs/phase4/ENVIRONMENT.md)。
+服务器的隔离并行、systemd 后台运行、实时监控、断点恢复和归档命令见
+[部署操作说明](ATLAS/docs/phase4/SERVER_DEPLOYMENT.md)。
 
 ## 仓库内容
 

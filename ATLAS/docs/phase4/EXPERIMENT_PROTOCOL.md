@@ -33,6 +33,10 @@ repair 的目标最优性与不同长度 trace 的 X 语义另在 SAT4JMax 和 O
 
 ## 运行协议
 
+用户后续要求服务器并行执行。该部署使用 [并行协议](SERVER_DEPLOYMENT.md) 的 CPU/cgroup 隔离、
+同题同 worker 和统一资源配额，并在 manifest 明示覆盖本节的串行默认设置。
+已有单机 pilot 不与该服务器结果混合。
+
 单任务一个 JVM，一次只跑一个 task，含原生 OpenWBO 子进程。`run.py` 采用仓库级文件锁防止两个控制器竞争；每个任务独立进程组，超时或 RSS guard 时杀死整个组。统一 OpenWBOWeighted，默认 180 秒，`-Xms512m -Xmx4g`；双方所有设置相同。
 
 每次运行使用独立 `java.io.tmpdir`，子进程回收后删除 native solver 临时文件，避免超时任务填满系统 `/tmp`；`--keep-solver-temp` 可显式保留。模型、命令和结果日志始终保留。

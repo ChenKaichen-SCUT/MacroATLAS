@@ -14,6 +14,8 @@ Use the same JVM, solver, heap, CPU affinity and timeout for both methods.
 | `analyze.py` | Rebuild performance/encoding/repair tables, failure lists and PDF plots from validated raw data |
 | `synthetic.py` | Generate deterministic labelled lassos and parameter sidecars; 55 prespecified default tasks |
 | `select_runs.py` | Explicitly select common-solved or stratified follow-up tasks, preserving selection provenance |
+| `campaign.py` | Plan isolated parallel workers, install a systemd controller, resume, monitor, merge and archive |
+| `isolation.py` | Verify CPU sibling allocations, cgroup memory/swap limits and kernel OOM evidence |
 
 Start with:
 
@@ -32,6 +34,14 @@ Use `--pilot` for labelled development checks; `--limit` is pilot-only.
 Outputs must use a new directory. Result batches and generated inputs are ignored by
 Git; archive formal batches separately with hashes. The committed preflight summaries
 are resource/functional evidence, not performance claims.
+
+For the user's parallel server deployment, follow
+[SERVER_DEPLOYMENT.md](../../docs/phase4/SERVER_DEPLOYMENT.md).
+This explicitly amends the original serial protocol; CPU/memory isolation cannot
+eliminate shared cache, memory-bandwidth or cloud-host interference.
+`run.py --resume` retains completed results, checks the frozen configuration and
+archives unfinished attempts before rerunning them. `java` in new manifests records
+the full JVM version, while `javaExecutable` separately records the command path.
 
 For example, after a complete matched batch, explicitly create a repeat subset:
 
