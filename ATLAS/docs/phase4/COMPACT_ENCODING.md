@@ -15,6 +15,9 @@ F/G/FG/GF 布尔表达式。相同的轨迹形状被重复展开，FG/GF 还嵌�
    与有限前缀和当前位置无关。保留内层否定的极性，不将 FG/GF 混同。
 4. 同一轨迹形状上产生相同移位作用的语义分组复用子句。所有 fiber ID、代表词、长度、
    空/非空区别、约束状态转换都保留，分组不改变可选 fiber、成本或搜索域。
+5. Unit 仅用于计数，为它们固定线性顺序，并让各 Carrier 的成本按 Carrier 顺序占用连续
+   前缀区间。每种合法成本长度向量都有这样的分配，且总成本不变；消除的是 Unit 排列，
+   不是公式或受保护节点的身份。实际模型 136,737 bytes（含该顺序约束）。
 
 B、b、共享 DAG 与受保护节点约束、repair 字典序目标均不变。
 Original ATLAS 和 ATLAS-B 的求解实现未修改。原始 artifact 的 Alloy 翻译容量限制
@@ -35,3 +38,32 @@ Original ATLAS 和 ATLAS-B 的求解实现未修改。原始 artifact 的 Alloy 
 正式全量/1/4 批次均保持停止，旧数据和旧 checkout 不原地覆盖。诊断重跑必须另建目录，
 标记 pilot，保持 Java 8、4 GiB heap、16 GiB worker 上限、180 秒、2 个逻辑 CPU，
 不得把针对已知问题选择的样例当成全量加速证据。
+
+## 服务器定向诊断结果
+
+完整可审查记录见 [comparison.csv](encoding-diagnostics/comparison.csv) 与
+[comparison.json](encoding-diagnostics/comparison.json)，含 commit、原始 CSV SHA256、验证状态、
+耗时、模型大小、RSS 及最后阶段。`before` 为 c5ef59b，`after` 为 f9bf930，`ordered` 为 70260bf。
+同一台服务器、相同 cpuset/heap/worker 内存上限/180 秒，每个版本每个 task/variant 仅一次。
+4 个任务是针对已观察问题选的诊断集，不代表随机抽样或全量加速结论。
+
+| Macro 任务 | 旧版 | 紧凑编码 | 紧凑编码 + 计数顺序 |
+| --- | --- | --- | --- |
+| equal/0023.trace | SAT 72.51s / 1850 MiB | SAT 36.03s / 444 MiB | SAT 12.29s / 424 MiB |
+| 5to10Traces/0107.trace | TIMEOUT / 4312 MiB | SAT 16.78s / 2053 MiB | SAT 16.74s / 2064 MiB |
+| 5to10Traces/0075.trace | JVM_OOM / 4293 MiB | TIMEOUT / 3394 MiB | TIMEOUT / 3501 MiB |
+| moreDetailedTest/0080.trace | JVM_OOM / 4196 MiB | TIMEOUT / 2229 MiB | TIMEOUT / 2201 MiB |
+
+所有 SAT 均通过独立验证，完成的 matched 对目标相符。新版本没有在这四例复现 OOM，
+但两例仍在后端翻译/求解阶段超时；未声称解决全部超时或超过 ATLAS-B。
+例如 ordered 的 equal/0023 上 ATLAS-B 仍约 6.93 秒，快于 Macro 12.29 秒。
+诊断结束后 controller 全部停止，正式实验不自动恢复。
+
+## 单次运行协议
+
+根据用户的新指令，campaign.py 与 run.py 的 `--repeats` 仅接受 1，默认也为 1。
+全量新计划为 `phase4-once`，1/4 新计划为 `phase4-quarter-once`；旧计划、结果和
+checkpoint 不改写、不混合。两个新计划及旧 controller 互斥，默认不启动。
+E3、E4、E5、E8 每个阶段内每个 task/variant 只出现一次。
+E3 原论文复现和 E5 AUTO 对照是独立阶段，Original 在两者各测一次，不跨阶段复用计时。
+1/4 新计划为 156 + 242 + 312 = 710 次，全量新计划为 623 + 1042 + 2218 + 110 = 3993 次。

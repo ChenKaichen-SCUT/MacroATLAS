@@ -3,9 +3,9 @@ set -euo pipefail
 
 # Installed as /usr/local/bin/macroatlas on the dedicated experiment server.
 macroatlas_python=/srv/macroatlas/venv/bin/python
-macroatlas_script=${MACROATLAS_SCRIPT:-/srv/macroatlas/repo/ATLAS/scripts/phase4/campaign.py}
-macroatlas_campaign=${MACROATLAS_CAMPAIGN:-/srv/macroatlas/experiments/phase4}
-macroatlas_unit=${MACROATLAS_UNIT:-macroatlas-phase4}
+macroatlas_script=${MACROATLAS_SCRIPT:-/srv/macroatlas/repo-encoding-fix/ATLAS/scripts/phase4/campaign.py}
+macroatlas_campaign=${MACROATLAS_CAMPAIGN:-/srv/macroatlas/experiments/phase4-once}
+macroatlas_unit=${MACROATLAS_UNIT:-macroatlas-phase4-once}
 macroatlas_label=${MACROATLAS_LABEL:-macroatlas}
 
 case "${1:-status}" in

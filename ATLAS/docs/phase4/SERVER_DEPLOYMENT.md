@@ -1,5 +1,7 @@
 # 并行服务器部署与数据保存
 
+当前运行协议每个阶段、每个任务/算法只运行一次，新计划使用 `phase4-once`；旧三次计划冻结保留。
+
 需要先试跑原论文的 1/4 分层子集时，见 [QUARTER_PILOT.md](QUARTER_PILOT.md)。
 
 ## 已部署服务器配置
@@ -23,7 +25,7 @@ macroatlas stop      # 暂停并保留结果
 macroatlas backup    # 暂停或完成后打包并生成 SHA256
 ```
 
-结果根目录 `/srv/macroatlas/experiments/phase4`，源码 `/srv/macroatlas/repo`。
+结果根目录 `/srv/macroatlas/experiments/phase4-once`，源码 `/srv/macroatlas/repo-encoding-fix`。
 该服务器 5-worker 小样例运行已通过，内核 OOM 分类、停止后恢复、磁盘保护均有独立预检证据。
 这些预检不作为正式性能数据；正式正确性证书在最终干净提交上重新生成。
 
@@ -53,7 +55,7 @@ CPU affinity/cpuset 和内存硬限制避免 CPU 超额分配与内存超卖；�
 Python 3.10+ venv、GNU time 和 matplotlib。源码使用独立的冻结 checkout，不在运行期间 pull/build。
 
 ```bash
-cd /srv/macroatlas/repo/ATLAS
+cd /srv/macroatlas/repo-encoding-fix/ATLAS
 /srv/macroatlas/venv/bin/python scripts/phase4/correctness_gate.py
 /srv/macroatlas/venv/bin/python scripts/phase4/prepare.py --output generated/server-official --b 2
 /srv/macroatlas/venv/bin/python scripts/phase4/synthetic.py --output generated/server-synthetic
@@ -66,9 +68,9 @@ cd /srv/macroatlas/repo/ATLAS
 ```bash
 /srv/macroatlas/venv/bin/python scripts/phase4/campaign.py plan \
   --official generated/server-official --synthetic generated/server-synthetic-ready \
-  --output /srv/macroatlas/experiments/phase4 --workers 3 --memory-mb 16384 --repeats 1
+  --output /srv/macroatlas/experiments/phase4-once --controller-unit macroatlas-phase4-once --workers 3 --memory-mb 16384 --repeats 1
 /srv/macroatlas/venv/bin/python scripts/phase4/campaign.py install-service \
-  /srv/macroatlas/experiments/phase4
+  /srv/macroatlas/experiments/phase4-once
 ```
 
 以上 workers 数只是示例，必须以实际 RAM 和拓扑审核后的 plan 为准。安装 service 不会自动启动正式实验。
@@ -78,22 +80,22 @@ cd /srv/macroatlas/repo/ATLAS
 
 ```bash
 # 开始；已中断时使用同一命令继续。退出 SSH 不会停止实验。
-systemctl start macroatlas-phase4
+systemctl start macroatlas-phase4-once
 
 # 总控进度与每题结果
-tail -n 30 -F /srv/macroatlas/experiments/phase4/logs/controller.log \
-  /srv/macroatlas/experiments/phase4/logs/*-w*.log
+tail -n 30 -F /srv/macroatlas/experiments/phase4-once/logs/controller.log \
+  /srv/macroatlas/experiments/phase4-once/logs/*-w*.log
 
 # 随时可用：只展示当前完成数，不把未完成批次当作正式结论
-/srv/macroatlas/venv/bin/python /srv/macroatlas/repo/ATLAS/scripts/phase4/campaign.py \
-  status /srv/macroatlas/experiments/phase4
+/srv/macroatlas/venv/bin/python /srv/macroatlas/repo-encoding-fix/ATLAS/scripts/phase4/campaign.py \
+  status /srv/macroatlas/experiments/phase4-once
 
 # 全部完成后：检查完整性并重建表格和 PDF 图
-/srv/macroatlas/venv/bin/python /srv/macroatlas/repo/ATLAS/scripts/phase4/campaign.py \
-  summarize /srv/macroatlas/experiments/phase4
+/srv/macroatlas/venv/bin/python /srv/macroatlas/repo-encoding-fix/ATLAS/scripts/phase4/campaign.py \
+  summarize /srv/macroatlas/experiments/phase4-once
 
 # 暂停；正在求解的任务会在下次启动时重新运行，已完成题不会重跑
-systemctl stop macroatlas-phase4
+systemctl stop macroatlas-phase4-once
 ```
 
 ## 保存与恢复
@@ -110,8 +112,8 @@ Campaign 根目录保存不可变 `plan.json` 与 checksum、源代码 `source.b
 在完成或暂停后归档（拒绝对仍在写入的 campaign 做不完整快照）：
 
 ```bash
-/srv/macroatlas/venv/bin/python /srv/macroatlas/repo/ATLAS/scripts/phase4/campaign.py archive \
-  /srv/macroatlas/experiments/phase4 --output /srv/macroatlas/archives/phase4-backup.tar.gz
+/srv/macroatlas/venv/bin/python /srv/macroatlas/repo-encoding-fix/ATLAS/scripts/phase4/campaign.py archive \
+  /srv/macroatlas/experiments/phase4-once --output /srv/macroatlas/archives/phase4-backup.tar.gz
 cd /srv/macroatlas/archives
 sha256sum -c phase4-backup.tar.gz.sha256
 ```
