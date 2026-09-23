@@ -12,6 +12,8 @@ class Rq1Tests(unittest.TestCase):
         self.assertEqual(first, [case_input(i, 20260923) for i in range(8)])
         self.assertEqual(8, len({item[1]["family"] for item in first}))
         self.assertEqual(3, len(MODES))
+        self.assertEqual("literal", case_input(8, 20260923)[1]["inputPattern"])
+        self.assertEqual("literal", case_input(12, 20260923)[1]["inputPattern"])
         for contents, info in first:
             self.assertIn("---", contents)
             self.assertNotIn("U,", contents)

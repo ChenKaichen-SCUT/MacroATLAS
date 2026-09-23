@@ -37,12 +37,15 @@ def read(path):
 
 
 def case_input(index, seed):
+    """Generate diverse, outcome-independent tiny domains with known target patterns.
+
+    The oracle still decides the true optimum; the patterns only shape the input.
+    """
     rng = random.Random(seed + index * 1000003)
     families = ("plain", "nnf", "cnf", "dnf", "required", "no_dag_reuse", "global_prop", "repair")
     family = families[index % len(families)]
-    ap = 1 if family == "repair" or (index // 8) % 2 == 0 else 2
-    B = (2 + (index // 16) % 3) if family not in {"global_prop", "repair"} else (3 + (index // 16) % 2)
-    b = (index // 24) % 3 if family not in {"global_prop", "repair"} else (0 if family == "repair" else 1)
+    cycle = index // len(families)
+    pattern = cycle % (3 if family == "repair" else 5 if family in {"cnf", "dnf", "global_prop"} else 8)
     constraints = {
         "plain": "",
         "nnf": "fact { all n: Neg | n.l in Literal }",
@@ -53,28 +56,64 @@ def case_input(index, seed):
         "global_prop": "fact { root in G all n: childrenAndSelfOf[root.l] | n in (Literal + Neg + And + Or + Imply) }",
         "repair": "one sig F0 extends F {}\nfact { root = F0 }\nfact { x0 in childrenAndSelfOf[root] }\nfact { maxsome[2] subDAG[root] & (F0->x0) }",
     }[family]
-    conflict = index % 4 == 0
-    temporal = index % 5 == 1
-    positive_count = 1 + (index // 32) % 2
-    negative_count = 1 + (index // 64) % 2
+    ap = 2 if pattern in {3, 4} and family != "repair" else 1
+    kind = ("conflict", "literal", "negated", "and", "or", "eventually", "next", "next_next")[pattern]
+    if family == "repair":
+        kind = ("conflict", "repair_kept", "repair_dropped")[pattern]
+    elif family == "global_prop":
+        kind = ("conflict", "global_literal", "global_negated", "global_and", "global_or")[pattern]
+    elif family in {"cnf", "dnf"}:
+        kind = ("conflict", "literal", "negated", "and", "or")[pattern]
+    B = {"conflict": 2, "literal": 2, "negated": 3, "and": 3, "or": 3,
+         "eventually": 3, "next": 3, "next_next": 4,
+         "repair_kept": 3, "repair_dropped": 4,
+         "global_literal": 3, "global_negated": 4, "global_and": 4, "global_or": 4}[kind]
+    B = max(B, ap)
+    b = 1 if kind in {"and", "or", "global_and", "global_or"} else 0
 
-    def trace(positive):
-        length = 2 if temporal else 1 + rng.randrange(3)
-        loop = rng.randrange(length)
-        states = []
-        for position in range(length):
-            x0 = positive and (not temporal or position > 0)
-            bits = [int(x0)] + [rng.randrange(2) for _ in range(ap - 1)]
-            states.append(",".join(map(str, bits)))
-        return ";".join(states) + "::" + str(loop)
+    def constant(bits):
+        n = 1 + rng.randrange(3)
+        states = [list(bits) for _ in range(n)]
+        return states, rng.randrange(n)
 
-    pos = [trace(True) for _ in range(positive_count)]
-    neg = [pos[0]] + [trace(False) for _ in range(negative_count - 1)] if conflict else [trace(False) for _ in range(negative_count)]
+    def temporal(bits):
+        return [[int(value)] for value in bits], rng.randrange(1, len(bits))
+
+    if kind == "conflict":
+        positive = [constant([1])]
+        negative = [positive[0]]
+    elif kind in {"literal", "repair_kept", "global_literal"}:
+        positive = [constant([1])]
+        negative = [constant([0])]
+    elif kind in {"negated", "repair_dropped", "global_negated"}:
+        positive = [constant([0])]
+        negative = [constant([1])]
+    elif kind in {"and", "global_and"}:
+        positive = [constant([1, 1])]
+        negative = [constant([1, 0]), constant([0, 1])]
+    elif kind in {"or", "global_or"}:
+        positive = [constant([1, 0]), constant([0, 1])]
+        negative = [constant([0, 0])]
+    elif kind == "eventually":
+        positive = [temporal([0, 1, 0])]
+        negative = [temporal([0, 0, 0])]
+    elif kind == "next":
+        positive = [temporal([0, 1, 0])]
+        negative = [temporal([0, 0, 1])]
+    else:
+        positive = [temporal([0, 0, 1, 0])]
+        negative = [temporal([0, 0, 0, 1])]
+
+    def render(trace):
+        states, loop = trace
+        return ";".join(",".join(str(bit) for bit in state) for state in states) + "::" + str(loop)
+
+    pos = [render(trace) for trace in positive]
+    neg = [render(trace) for trace in negative]
     text = "\n".join(pos) + "\n---\n" + "\n".join(neg) + "\n---\n!,X,F,G,&,|,->\n---\n[" + str(B - ap) + "]\n---\n\n---\n" + constraints + "\n"
     record = dict(id=f"tiny_{index:05d}", family=family, index=index, caseSeed=seed + index * 1000003,
-                  B=B, b=b, numAP=ap, positiveTraceCount=positive_count,
-                  negativeTraceCount=negative_count, conflictByConstruction=conflict,
-                  temporalPattern=temporal, constraints=constraints)
+                  inputPattern=kind, B=B, b=b, numAP=ap, positiveTraceCount=len(pos),
+                  negativeTraceCount=len(neg), conflictByConstruction=kind == "conflict", constraints=constraints)
     return text, record
 
 
