@@ -123,6 +123,7 @@ def make_plan(a):
                 workers=a.workers, workerCpus=cpus, workerMemoryMb=a.memory_mb, reserveMemoryMb=a.reserve_memory_mb,
                 heap=a.heap, java=str(pathlib.Path(shutil.which(a.java) or a.java).resolve()), python=sys.executable,
                 timeoutSec=a.timeout, seed=a.seed, b=a.b, pilot=a.pilot, minFreeDiskGb=a.min_free_disk_gb,
+                strictOnce=a.strict_once,
                 gate=str(a.gate.resolve()), phases=[],
                 protocolAmendment='User requested parallel execution. Disjoint visible CPU sibling groups and hard memory limits; shared hardware interference cannot be eliminated.')
     campaign_id = digest(dict(output=str(output), commit=env['commit']))[:10]
@@ -251,6 +252,8 @@ def worker_command(plan, phase, worker):
         command += ['--variants'] + phase_variants(phase)
     if plan['pilot']:
         command.append('--pilot')
+    if plan.get('strictOnce'):
+        command.append('--strict-once')
     if phase['perTaskBudgets']:
         command.append('--task-budgets')
     properties = dict(WorkingDirectory=str(ATLAS), AllowedCPUs=config['cpus'], CPUAffinity=config['cpus'].replace(',', ' '),
@@ -487,6 +490,8 @@ def main():
     create.add_argument('--min-free-disk-gb', type=float, default=8)
     create.add_argument('--repeats', type=int, choices=[1], default=1,
                         help='One run per task/algorithm under the current exploratory protocol')
+    create.add_argument('--strict-once', action='store_true',
+                        help='Treat an interrupted started job as ERROR on resume; never make a second attempt')
     create.add_argument('--timeout', type=float, default=180)
     create.add_argument('--seed', type=int, default=20260922)
     create.add_argument('--b', type=int, default=2)

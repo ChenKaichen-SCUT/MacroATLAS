@@ -172,6 +172,8 @@ def run(a):
                   cpuAffinity=a.cpu, repeats=a.repeats, seed=a.seed, pilot=a.pilot, javaExecutable=a.java,
                   binaryBudget=a.b, nodeBudget=a.B, perTaskBudgets=a.task_budgets,
                   keepSolverTemp=a.keep_solver_temp, commandTemplate=java_command(a.java, a.heap))
+    if a.strict_once:
+        config['strictOnce'] = True
     # Keep manifests made before selective execution resume-compatible. New
     # campaigns pass --variants explicitly and record the exact algorithms.
     if a.variants is not None:
@@ -217,6 +219,28 @@ def run(a):
                 save_csv(result / "raw.csv", rows)
                 continue
             if folder.exists():
+                if a.strict_once:
+                    # A started job without a terminal result may have reached the
+                    # solver before interruption. Count it as unresolved rather
+                    # than silently making a second attempt on resume.
+                    interrupted_meta=dict(status='ERROR', solverMode='NONE',
+                                          error='INTERRUPTED_PRIOR_ATTEMPT')
+                    if not (folder/'command.json').exists():
+                        save_json(folder/'command.json',dict(job,command=[],commit=env['commit']))
+                    for name in ('stdout.csv','stderr.log'):
+                        (folder/name).touch(exist_ok=True)
+                    for name, content in (('metadata.json',interrupted_meta),
+                                          ('analysis.json',{}),('timing.json',{}),
+                                          ('verification.json',{'status':'NOT_RUN'})):
+                        if not (folder/name).exists():
+                            save_json(folder/name,content)
+                    saved = row_from_metadata(interrupted_meta, {'status':'NOT_RUN'}, job, 0, 0)
+                    save_json(folder/'result.json', saved)
+                    rows.append(saved)
+                    save_csv(result/'raw.csv', rows)
+                    print('%d/%d %s %s ERROR INTERRUPTED_PRIOR_ATTEMPT' %
+                          (index+1, len(jobs), job['variant'], job['task']), flush=True)
+                    continue
                 if not a.keep_solver_temp and (folder / "solver-tmp").exists():
                     shutil.rmtree(folder / "solver-tmp")
                 interrupted = result / "interrupted"
@@ -290,6 +314,7 @@ def main():
     p.add_argument("--limit", type=int)
     p.add_argument("--pilot", action="store_true")
     p.add_argument("--resume", action="store_true", help="Verify immutable configuration and retain completed results")
+    p.add_argument("--strict-once", action="store_true", help="Record an interrupted attempt as ERROR instead of rerunning it")
     p.add_argument("--worker-config", type=pathlib.Path, help="Registered systemd/cgroup worker configuration from campaign.py")
     p.add_argument("--keep-solver-temp", action="store_true", help="Retain per-task native solver scratch files; models and logs are always retained")
     p.add_argument("--gate", type=pathlib.Path, default=ATLAS/"generated/phase4-gate.json")

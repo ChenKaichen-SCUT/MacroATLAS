@@ -16,6 +16,25 @@ object ExperimentMain {
         val b=a["b"]?.toInt() ?: 2
         val directory=File(a.getValue("output")).apply { mkdirs() }
         if(a["mode"]=="coverage") { coverage(File(a.getValue("root")),b,directory);return }
+        if(a["mode"]=="inspect") {
+            val task=TaskParser.parseTask(File(a.getValue("file")).readText())
+            val nodeBudget=a["B"]?.toInt() ?: task.maxNumOfOP+task.literals.size
+            val analysis=RecognizedConstraintAnalyzer.analyze(task,b,nodeBudget)
+            val result=when(analysis) {
+                is MacroTaskAnalysis.Supported -> {
+                    val plan=analysis.plan
+                    mapOf<String,Any>("supported" to true,"nodeBudget" to plan.nodeBudget,
+                        "binaryBudget" to plan.binaryBudget,"protectedCount" to plan.protectedIdentities.size,
+                        "anchorSlotBudget" to plan.anchorSlotBudget,
+                        "constraintStateCount" to ConstraintStateRegistry(plan).states.size,
+                        "recognizedFeatures" to analysis.recognizedFeatures.joinToString(";"))
+                }
+                is MacroTaskAnalysis.Unsupported -> mapOf<String,Any>("supported" to false,
+                    "reason" to analysis.reasons.joinToString(";"),"detail" to analysis.detail)
+            }
+            directory.resolve("inspect.json").writeText(metadataJson(result)+"\n")
+            return
+        }
         val data=linkedMapOf<String,Any>("variant" to a.getValue("mode"),"status" to "ERROR","solverMode" to "NONE")
         val start=System.nanoTime()
         fun write(name:String,values:Map<String,Any>)=directory.resolve(name).writeText(metadataJson(values)+"\n")
@@ -97,6 +116,7 @@ object ExperimentMain {
                 }
                 val result=solve(plan)
                 data.putAll(result.metadata);data.putAll(reporter.metadata())
+                result.dag?.let { data.putAll(formulaStructure(it)) }
                 data["status"]=if(result.dag==null) "UNSAT" else "SAT"
                 if(mode=="auto" && result.dag==null) {
                     runOriginal(AutoDomainSafety.BOUNDED_UNSAT,
@@ -127,6 +147,19 @@ object ExperimentMain {
             write("timing.json",data.filterKeys { it.endsWith("Sec") })
         }
         if(data["status"] in listOf("ERROR","VERIFICATION_FAILED")) exitProcess(1)
+    }
+
+    private fun formulaStructure(dag: FormulaDag): Map<String,Any> {
+        val chain=hashMapOf<NodeId,Int>()
+        for(id in dag.postOrder()) {
+            val node=dag.node(id)
+            chain[id]=if(node is UnaryNode) 1+(if(dag.node(node.child) is UnaryNode) chain.getValue(node.child) else 0) else 0
+        }
+        return mapOf("learnedDagNodes" to dag.size(),
+            "learnedUnaryNodes" to dag.nodes.values.count { it is UnaryNode },
+            "learnedBinaryNodes" to dag.nodes.values.count { it is BinaryNode },
+            "learnedUnaryDepth" to (chain.values.maxOrNull() ?: 0),
+            "learnedHasSharing" to dag.nodes.keys.any { dag.indegree(it)>1 })
     }
 
     private fun coverage(root:File,b:Int,directory:File) {

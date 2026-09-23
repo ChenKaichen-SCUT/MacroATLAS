@@ -15,6 +15,7 @@ FIELDS += "searchNodeUniverse primaryVars semanticTypeCount selectedFiberCount m
 FIELDS += "costStrategy unquotientedFiberCount encodedFiberCount costScope parseSec translationAndSolveSec totalInternalSec".split()
 FIELDS += "inputTraceCount reducedTraceCount".split()
 FIELDS += "smallFormulaSec smallFormulaBound".split()
+FIELDS += "learnedDagNodes learnedUnaryNodes learnedBinaryNodes learnedUnaryDepth learnedHasSharing".split()
 
 
 def sha256(path):

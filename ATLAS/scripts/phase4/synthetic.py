@@ -66,7 +66,7 @@ def evaluate(formula, states, loop):
 
 
 def write_task(directory, name, formula, seed, B, b, ap, traces, length, profile="none", protected=0, alphabet=None,
-               positive_count=None, negative_count=None):
+               positive_count=None, negative_count=None, required_propositions=()):
     if min(traces,length,ap,B)<1 or b<0 or B<ap:
         raise ValueError("Invalid synthetic parameters")
     node=parse_formula(formula)
@@ -96,6 +96,10 @@ def write_task(directory, name, formula, seed, B, b, ap, traces, length, profile
     if profile=="nnf":constraints.append("fact { all n: Neg | n.l in Literal }")
     elif profile=="required":constraints.append("fact { x0 in childrenAndSelfOf[root] }")
     elif profile!="none":raise ValueError("Unknown safe profile")
+    for proposition in required_propositions:
+        if not proposition.startswith("x") or not proposition[1:].isdigit() or int(proposition[1:])>=ap:
+            raise ValueError("Required proposition outside AP range")
+        constraints.append("fact { %s in childrenAndSelfOf[root] }"%proposition)
     if protected:
         # Protect a literal plus the first k-1 X nodes of an X-chain; exact root/direct-edge constraints.
         word=[];current=node
@@ -119,7 +123,8 @@ def write_task(directory, name, formula, seed, B, b, ap, traces, length, profile
     if path.exists():raise ValueError("Refusing to overwrite generated task")
     path.write_text(text)
     record=dict(task=name+".trace",seed=seed,target=formula,B=B,b=b,AP=ap,positive=len(positive),negative=len(negative),
-                requestedPositive=positive_goal,requestedNegative=negative_goal,length=length,profile=profile,protectedRequested=protected,alphabet=operators)
+                requestedPositive=positive_goal,requestedNegative=negative_goal,length=length,profile=profile,protectedRequested=protected,
+                requiredPropositions=list(required_propositions),alphabet=operators)
     save_json(path.with_suffix(".json"),record)
     return record
 
