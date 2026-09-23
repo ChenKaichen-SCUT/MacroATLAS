@@ -1,0 +1,562 @@
+### RQ1 — Correctness
+
+> Does MacroATLAS preserve feasibility and optimality?
+
+指标：
+
+$$
+\text{SAT/UNSAT agreement},
+$$
+
+$$
+OPT_{\rm size},
+$$
+
+$$
+OPT_{\rm repair},
+$$
+
+$$
+\text{verification rate}.
+$$
+
+---
+
+### RQ2 — Compression
+
+> How much does constraint-aware semantic quotienting reduce the search encoding?
+
+指标：
+
+$$
+B/K,
+$$
+
+$$
+Vars_{\rm old}/Vars_{\rm macro},
+$$
+
+$$
+Clauses_{\rm old}/Clauses_{\rm macro},
+$$
+
+$$
+\#fibers.
+$$
+
+---
+
+### RQ3 — Performance
+
+> Does this reduction translate into faster and more memory-efficient learning?
+
+指标：
+
+$$
+runtime,\quad PAR2,\quad RSS,\quad\#Solved.
+$$
+
+---
+
+### RQ4 — Scalability
+
+> Does MacroATLAS extend the range of exact constrained LTL learning beyond the sizes practical for ATLAS?
+
+横轴分别做：
+
+$$
+B,
+$$
+
+$$
+d_{\rm unary},
+$$
+
+$$
+b,
+$$
+
+$$
+q.
+$$
+
+纵轴：
+
+$$
+runtime,
+\quad encoding\ size,
+\quad solved\ rate.
+$$
+
+这里尤其应该重点画两组：
+
+$$
+\boxed{
+\text{small }b+\text{long unary chains}
+}
+$$
+
+以及控制组：
+
+$$
+\boxed{
+\text{large }b+\text{short unary chains}.
+}
+$$
+
+如果第一组 MacroATLAS 可以从：
+
+$$
+B=15
+$$
+
+继续跑到：
+
+$$
+B=21,31,\ldots
+$$
+
+而 Original ATLAS 已经大量 timeout，这会是整篇论文非常有力量的一张 scalability 图。
+
+
+----如何开展
+
+| RQ              | 数据集                                   | 对比对象                        | 最主要产出                                  |
+| --------------- | ------------------------------------- | --------------------------- | -------------------------------------- |
+| RQ1 Correctness | tiny exhaustive + 官方 supported subset | Matched ATLAS vs MacroATLAS | SAT/UNSAT、OPT 一致率                      |
+| RQ2 Compression | 与 RQ1/RQ3 完全相同实例                      | 两种 encoding                 | variables / clauses / anchors / fibers |
+| RQ3 Performance | 官方 supported matched subset           | Matched ATLAS vs MacroATLAS | runtime、PAR-2、RSS、#Solved              |
+| RQ4 Scalability | 专门生成的 synthetic grid                  | Matched ATLAS vs MacroATLAS | 随 \(B,d_{\rm unary},b,q\) 的增长曲线        |
+
+## RQ1：Correctness 应该怎么做
+
+这个实验不要首先追求大规模，而要追求**强 oracle**。
+
+第一部分用你已经有的 `TinyReferenceEnumerator`。生成很多小实例，比如
+
+$$
+B\le 5\text{ 或 }6,\qquad
+b\le 2,\qquad
+|AP|\le2,
+$$
+
+同时随机改变 positive/negative traces、NNF/CNF/DNF、RequiredProp 等约束。对每个实例分别运行：
+
+$$
+\text{Reference Enumerator},
+\quad
+\text{Matched ATLAS},
+\quad
+\text{MacroATLAS}.
+$$
+
+比较：
+
+$$
+SAT/UNSAT,
+$$
+
+普通 learning 的
+
+$$
+OPT_{\rm size},
+$$
+
+以及 repair 的完整字典序目标：
+
+$$
+(OPT_{\rm kept},OPT_{\rm size}).
+$$
+
+Macro 输出还必须全部通过 Phase 3 的 independent verifier。
+
+你现在已有 243 个普通任务和 50 个 repair differential tasks 全通过，这是很好的基础。 正式实验建议把这一组扩大到例如 1,000–5,000 个小实例，因为它们便宜，而且这是最强的 correctness evidence。
+
+第二部分再跑官方 benchmark 中 Macro 支持的实例。此时不再有 exhaustive oracle，就比较 Matched ATLAS 和 MacroATLAS：
+
+$$
+status_{\rm A}=status_{\rm M}
+$$
+
+以及双方都 SAT 时：
+
+$$
+OPT_{\rm A}=OPT_{\rm M}.
+$$
+
+注意不要要求两个最终公式字符串一样，也不要要求两个独立最优解全局语义等价；学习问题可以存在多个不同但同样最优的公式。
+
+最终 RQ1 最漂亮的结果应该类似：
+
+> Across 3,000 exhaustive small instances and \(N\) supported benchmark instances, MacroATLAS produced zero SAT/UNSAT disagreements, zero objective mismatches, and zero verification failures.
+
+这就非常强。
+
+---
+
+# RQ2：Compression 应该怎么做
+
+这一组**不要重新选实例**，最好直接使用 RQ3 的 matched-domain benchmark，这样你能把：
+
+$$
+\text{compression}
+$$
+
+和
+
+$$
+\text{speedup}
+$$
+
+一一配对。
+
+对 Original/Matched ATLAS 记录：
+
+$$
+B,
+\quad
+Vars_{\rm old},
+\quad
+Clauses_{\rm old},
+$$
+
+以及能够取得的话：
+
+$$
+Atoms,\ Relations,\ GeneratedModelBytes.
+$$
+
+对 MacroATLAS 记录：
+
+$$
+K=\min(B,p+3b+2),
+$$
+
+$$
+\#activeAnchors,
+$$
+
+$$
+\#macroEdges,
+$$
+
+$$
+q,
+$$
+
+$$
+\#FiberCatalog,
+$$
+
+$$
+\#SelectedFibers,
+$$
+
+以及：
+
+$$
+Vars_{\rm macro},
+\quad
+Clauses_{\rm macro}.
+$$
+
+然后每个实例计算三个最重要的 compression ratios：
+
+$$
+C_K=\frac{B}{K},
+$$
+
+$$
+C_V=
+\frac{Vars_{\rm old}}
+{Vars_{\rm macro}},
+$$
+
+$$
+C_C=
+\frac{Clauses_{\rm old}}
+{Clauses_{\rm macro}}.
+$$
+
+论文不能只报平均值。建议给出 distribution：
+
+* median；
+* 25/75 percentile；
+* 最大/最小；
+* 箱线图或 violin plot。
+
+尤其建议画一张：
+
+$$
+x=\frac{B}{K},
+\qquad
+y=\frac{Vars_{\rm old}}{Vars_{\rm macro}}.
+$$
+
+如果两者明显相关，就很好地验证了你的理论机制：
+
+$$
+O(B)\text{ syntax search}
+\rightarrow
+O(b+p)\text{ identity kernel}.
+$$
+
+Fiber 还应该单独报告：
+
+$$
+F_{\rm catalog}
+$$
+
+和
+
+$$
+F_{\rm used}.
+$$
+
+因为 catalog 有 500 个 state，但最终解只用 4 个，和“最终使用了 500 个 fiber”完全不是一回事。
+
+---
+
+# RQ3：Performance 应该怎么做
+
+这是最标准的一组，但公平性最容易出问题。
+
+你的主实验必须是：
+
+$$
+\boxed{
+\text{Matched ATLAS}_{B,b,\Sigma}
+\quad\text{vs}\quad
+\text{MacroATLAS}_{B,b,\Sigma}
+}
+$$
+
+即完全相同的：
+
+$$
+B,\quad b,\quad
+\Sigma,\quad
+traces,\quad
+constraints,\quad
+objective.
+$$
+
+如果 Macro 是 \(U\)-free，那 baseline 也必须禁 \(U\)。
+
+如果 Macro 设置：
+
+$$
+b=2,
+$$
+
+baseline 也必须加
+
+$$
+\#BinaryNodes\le2.
+$$
+
+否则 runtime 比较没有算法意义。
+
+实验环境固定，比如：
+
+$$
+180s
+$$
+
+timeout、同一个 OpenWBOWeighted、同一 JVM、同一机器。
+
+每个实例记录：
+
+$$
+T_{\rm total},
+\quad
+T_{\rm solver},
+\quad
+RSS_{\rm peak},
+\quad
+status.
+$$
+
+Macro 再拆：
+
+$$
+T_{\rm analysis},
+T_{\rm fiber},
+T_{\rm encoding},
+T_{\rm solver},
+T_{\rm decode},
+T_{\rm verify}.
+$$
+
+主结果报告：
+
+$$
+\#Solved,
+$$
+
+$$
+PAR\text{-}2,
+$$
+
+$$
+Median\ Runtime,
+$$
+
+$$
+GeoMean\ Speedup,
+$$
+
+$$
+Peak\ RSS.
+$$
+
+对于双方都 solved 的实例计算：
+
+$$
+S_i=
+\frac{T_{\rm ATLAS,i}}
+{T_{\rm Macro,i}}.
+$$
+
+最重要的两张图应该是：
+
+$$
+\text{cactus plot}
+$$
+
+和
+
+$$
+\log T_{\rm ATLAS}
+\text{ vs }
+\log T_{\rm Macro}
+$$
+
+scatter。
+
+还应该有一张 overhead breakdown，因为 reviewer 很可能问：
+
+> Macro solver 本身变快了，但是 fiber construction 和 encoding generation 会不会把收益吃掉？
+
+所以把：
+
+$$
+T_{\rm total}
+$$
+
+拆成六部分非常有价值。
+
+另外单独再跑：
+
+$$
+\text{Original ATLAS}
+\quad\text{vs}\quad
+\text{MacroATLAS AUTO}.
+$$
+
+这不是算法公平 comparison，而是 deployment experiment：
+
+> 用户直接使用增强版工具，总体 workload 表现如何？
+
+---
+
+# RQ4：Scalability 应该怎么做
+
+这一组不能只依赖原 benchmark，因为原 benchmark 的规模分布不是为了回答你的理论参数而设计的。
+
+需要专门生成 synthetic benchmark。
+
+我建议构造二维甚至三维的参数网格，但一次只重点改变一个参数。
+
+第一条主线：
+
+$$
+B\in
+\{7,11,15,21,31,41,\ldots\}
+$$
+
+同时固定：
+
+$$
+b=1\text{ 或 }2.
+$$
+
+目标公式专门包含长 unary chains，例如：
+
+$$
+X^kp,
+$$
+
+$$
+FX^kGp,
+$$
+
+$$
+X^{k_1}p\land FX^{k_2}q.
+$$
+
+这就是你的**favorable regime**：
+
+$$
+\boxed{
+small\ b + long\ unary
+}
+$$
+
+预期是：
+
+$$
+B\uparrow
+$$
+
+但：
+
+$$
+K=p+3b+2
+$$
+
+基本不增长。
+
+这正是 MacroATLAS 应该优于 ATLAS 的区域。
+
+你最想看到的一张图是：
+
+$$
+x=B,
+\qquad
+y=runtime.
+$$
+
+如果 Original ATLAS 在：
+
+$$
+B\approx15
+$$
+
+开始大量 timeout，而 MacroATLAS 还能继续到：
+
+$$
+21,31,41,
+$$
+
+这是非常有力的 scalability evidence。
+
+同时必须设置 control：
+
+$$
+\boxed{
+large\ b + short\ unary
+}
+$$
+
+例如 balanced Boolean trees。
+
+这时：
+
+$$
+K\approx B.
+$$
+
+理论上 Macro 的结构优势应该下降。若实验也显示 speedup 变小甚至略有 overhead，反而能证明：
+
+> 性能变化与我们提出的结构机制一致，而不是某个偶然的 implementation trick。

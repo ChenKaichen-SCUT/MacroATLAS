@@ -1,0 +1,309 @@
+
+| 类别                | 每个实例建议记录的数据                                                                                               | 主要服务于          |
+| ----------------- | --------------------------------------------------------------------------------------------------------- | -------------- |
+| **实例身份**          | `instance_id`,                                                             | 全部 RQ          |
+| **运行配置**          | `algorithm` = ATLAS / MacroATLAS；                                  | 可复现性           |
+| **搜索规模参数**        | \(B\), \(b\), \(p\), \(K=\min(B,p+3b+2)\), #AP, #positive traces, #negative traces, trace length          | RQ2/RQ4        |
+| **constraint 参数** | constraint 类型，\(q\)=constraint-state count，是否 repair，是否 NNF/CNF/DNF/template/NoDAGReuse 等                 | RQ2/RQ4        |
+| **最终状态**          | SAT / UNSAT / TIMEOUT / ERROR                                                                   | RQ1/RQ3        |
+| **正确性**           | verifier PASS/FAIL；positive/negative 是否全正确；constraint 是否满足                                                | RQ1            |
+| **最优目标**          | minimum size；repair kept-edge score；repair final size；完整 objective tuple                                  | RQ1            |
+| **输出公式结构**        | final formula size；binary nodes；unary nodes；unary depth；DAG nodes；是否有 sharing                             | RQ1/RQ4        |
+| **Macro 结构**      | active anchors；\(K\)；active macro edges；fiber catalog size；最终使用 fiber 数；平均/最大 fiber representative length | RQ2/RQ4        |
+| **编码规模**          | Boolean variables；hard clauses；soft clauses；Alloy atoms/tuples 或 generated model size                     | RQ2            |
+| **总时间**           | end-to-end wall-clock                                                                                     | RQ3/RQ4        |
+| **分阶段时间**         | analysis、fiber build、encoding、solver、decode、verification                                                  | RQ3            |
+| **内存**            | peak RSS                                                                                                  | RQ3            |
+
+
+
+### 1. RQ1：不要只记公式字符串
+
+真正应该比较的是：
+
+$$
+\boxed{
+(status,\ objective)
+}
+$$
+
+例如普通 learning：
+
+$$
+(\text{SAT},\ OPT_{\rm size}=7)
+$$
+
+repair：
+
+$$
+(\text{SAT},\ OPT_{\rm keep}=5,\ OPT_{\rm size}=9).
+$$
+
+所以每个实例至少要保存：
+
+```text
+status
+verification
+optimal_size
+repair_kept_edges
+repair_size
+```
+
+Original ATLAS 与 MacroATLAS 最后学出的公式**不需要字符串完全相同**。
+
+只要：
+
+$$
+SAT/UNSAT
+$$
+
+一致，而且 optimal objective 一致，就是你真正需要的 correctness 证据。
+
+---
+
+## 2. RQ2：压缩到底要记录两层
+
+你不能只记录：
+
+$$
+B/K.
+$$
+
+这只是理论结构压缩。
+
+还应该记录真实 backend encoding：
+
+$$
+\boxed{
+Vars,\ Clauses
+}
+$$
+
+因此一条实例最好同时有：
+
+```text
+atlas_node_budget
+macro_anchor_budget
+macro_active_anchors
+
+atlas_boolean_vars
+macro_boolean_vars
+
+atlas_hard_clauses
+macro_hard_clauses
+
+atlas_soft_clauses
+macro_soft_clauses
+```
+
+后处理直接算：
+
+$$
+CR_K=\frac{B}{K},
+$$
+
+$$
+CR_V=
+\frac{Vars_{\rm ATLAS}}
+{Vars_{\rm Macro}},
+$$
+
+$$
+CR_C=
+\frac{Clauses_{\rm ATLAS}}
+{Clauses_{\rm Macro}}.
+$$
+
+如果 AlloyMax 暂时拿不到最终 clauses，至少记录：
+
+```text
+generated Alloy model size
+atom count
+relation tuple count
+```
+
+但如果能拿到 WCNF vars/clauses，最好一定拿。
+
+---
+
+## 3. Fiber 本身的数据非常值得保存
+
+因为这是你方法独有的机制。
+
+建议每个 MacroATLAS instance 保存：
+
+```text
+constraint_state_count q
+fiber_catalog_size
+number_of_selected_fibers
+mean_selected_fiber_length
+max_selected_fiber_length
+mean_original_unary_chain_length（若可得）
+max_original_unary_chain_length
+```
+
+尤其：
+
+$$
+\boxed{\#fibers}
+$$
+
+不能单独解释压缩好坏。
+
+因为 fiber catalog 可能很大，但最终只用了几个。
+
+所以最好同时记录：
+
+$$
+F_{\rm catalog},
+\qquad
+F_{\rm used}.
+$$
+
+---
+
+## 4. RQ3：时间最好拆开
+
+不要只记录：
+
+```text
+total_time
+```
+
+建议：
+
+$$
+T_{\rm total}
+=
+T_{\rm analysis}
++
+T_{\rm fiber}
++
+T_{\rm encoding}
++
+T_{\rm solver}
++
+T_{\rm decode}
++
+T_{\rm verify}.
+$$
+
+对应字段：
+
+```text
+analysis_ms
+fiber_build_ms
+encoding_ms
+solver_ms
+decode_ms
+verification_ms
+total_ms
+```
+
+为什么很重要？
+
+假设结果是：
+
+```text
+ATLAS solver = 60s
+
+MacroATLAS:
+fiber = 8s
+encoding = 5s
+solver = 10s
+verify = 1s
+total = 24s
+```
+
+你就可以真正解释：
+
+> 搜索器快了 6 倍，但预处理吃掉了一部分收益，端到端最终快了 2.5 倍。
+
+这比只报：
+
+> 24s vs 60s
+
+有解释力得多。
+
+---
+
+## 5. 内存只需要一个核心字段
+
+至少：
+
+```text
+peak_rss_kb
+```
+
+或 MB。
+
+如果方便还可以有：
+
+```text
+solver_peak_rss
+whole_process_peak_rss
+```
+
+但第一版只记录端到端 process peak RSS 就足够。
+
+---
+
+# 6. RQ4 最重要的是把每个实例的“结构难度”记录下来
+
+你之后想画：
+
+$$
+runtime\text{ vs }B
+$$
+
+$$
+runtime\text{ vs }d_{\rm unary}
+$$
+
+$$
+runtime\text{ vs }b
+$$
+
+$$
+runtime\text{ vs }q
+$$
+
+那么现在每一行就必须有：
+
+```text
+B
+b
+q
+unary_depth
+```
+
+我还建议额外记录：
+
+$$
+\boxed{
+\rho = \frac{K}{B}
+}
+$$
+
+或者：
+
+$$
+\boxed{
+compressionPotential=1-\frac KB.
+}
+$$
+
+虽然这是 derived metric，可以后算，但 \(K\) 和 \(B\) 必须保存。
+
+因为一张非常重要的图可能是：
+
+$$
+x=1-\frac KB,
+\qquad
+y=\log
+\frac{T_{\rm ATLAS}}{T_{\rm Macro}}.
+$$
+
+如果这张图呈现明显趋势，你就有很直接的机制证据：
+
+> MacroATLAS 之所以更快，确实与 macro structural compression 有关。
