@@ -85,3 +85,11 @@ PAR-2 在每次原始 run 上计算：solved 为实际 wall time，其余罚 2T�
 Alloy reporter 暴露 primary/total Boolean vars 与 total clauses。保存每轮最大值与 translation count；没有可靠 hard/soft split，不编造。modelBytes 是完整模型 UTF-8 字节的单轮最大值。时间分为 analysis/registry/fiber/encoding/backend parse+translate+solve/decode/verify；JVM、IO 和非测量段属于 end-to-end residual，不将不完整 component sum 当作 total。
 
 任何 verifier failure 或 matched SAT/UNSAT/objective tuple mismatch，runner 立即停止；validator 再检查重复/缺失/commit/域/状态/验证标记。正式实验若出现 correctness bug，修复并全回归、新 tag、旧性能结果作废重跑。
+
+## Selective reruns
+
+Campaign plans record an explicit ordered algorithm list for each phase. When
+the frozen Original artifact has not changed, omit `e3-original` and use
+`--auto-variants auto` to reuse its prior result instead of timing it again.
+Run both `--matched-variants atlas-b macro` whenever either matched encoding
+changed so their comparison uses the same code revision and environment.

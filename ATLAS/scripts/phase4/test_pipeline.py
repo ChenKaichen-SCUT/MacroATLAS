@@ -6,13 +6,20 @@ import unittest
 import sys
 from common import FIELDS, is_solved
 from prepare import atlas_format
-from run import check_pair, row_from_metadata, execute
+from run import check_pair, row_from_metadata, execute, choose_variants
 from synthetic import parse_formula, render, evaluate, write_task
 from analyze import aggregate, par2
 from validate_results import validate
 
 
 class PipelineTests(unittest.TestCase):
+    def test_selective_variants_are_ordered_and_suite_safe(self):
+        self.assertEqual(['atlas-b', 'macro'], choose_variants('matched'))
+        self.assertEqual(['auto'], choose_variants('auto', ['auto']))
+        for values in [[], ['original'], ['auto', 'auto']]:
+            with self.assertRaises(ValueError):
+                choose_variants('matched', values)
+
     def test_timeout_reaps_the_whole_process_group(self):
         with tempfile.TemporaryDirectory() as temp:
             directory=pathlib.Path(temp)

@@ -16,6 +16,22 @@ import time
 from common import ATLAS, FIELDS, digest, environment, java_command, save_json, save_csv, sha256, task_record
 from isolation import check_worker, snapshot, oom_kills, reset_child_oom_score
 
+SUITE_VARIANTS = {
+    "original": ["original"],
+    "matched": ["atlas-b", "macro"],
+    "auto": ["original", "auto"],
+}
+
+
+def choose_variants(suite, requested=None):
+    """Return an ordered, nonempty subset of the algorithms valid for a suite."""
+    allowed = SUITE_VARIANTS[suite]
+    selected = list(requested) if requested is not None else list(allowed)
+    if not selected or len(selected) != len(set(selected)) or any(v not in allowed for v in selected):
+        raise ValueError("Invalid variants for %s suite: %s (allowed: %s)" %
+                         (suite, ",".join(selected), ",".join(allowed)))
+    return selected
+
 
 def process_group_rss(group):
     """Sample aggregate live RSS of the JVM and native solver process group (KiB)."""
@@ -146,7 +162,7 @@ def run(a):
         if not a.pilot:
             raise ValueError("Formal subsets require a separate preregistered preparation root; --limit is pilot-only")
         records = records[:a.limit]
-    variants = {"original": ["original"], "matched": ["atlas-b", "macro"], "auto": ["original", "auto"]}[a.suite]
+    variants = choose_variants(a.suite, a.variants)
     jobs = [dict(r, variant=v, repeat=i) for i in range(1, a.repeats + 1) for r in records for v in variants]
     if worker and worker["taskListHash"] != digest(records):
         raise ValueError("Task shard changed after campaign registration")
@@ -156,6 +172,10 @@ def run(a):
                   cpuAffinity=a.cpu, repeats=a.repeats, seed=a.seed, pilot=a.pilot, javaExecutable=a.java,
                   binaryBudget=a.b, nodeBudget=a.B, perTaskBudgets=a.task_budgets,
                   keepSolverTemp=a.keep_solver_temp, commandTemplate=java_command(a.java, a.heap))
+    # Keep manifests made before selective execution resume-compatible. New
+    # campaigns pass --variants explicitly and record the exact algorithms.
+    if a.variants is not None:
+        config["variants"] = variants
     if worker:
         config.update(isolation=worker, memoryLimitMethod="cgroup v2 MemoryMax; swap disabled",
                       parallelProtocol="User-authorized isolated workers; shared cache/memory bandwidth may remain")
@@ -253,6 +273,8 @@ def main():
     p.add_argument("--root", type=pathlib.Path, required=True)
     p.add_argument("--tasks", type=pathlib.Path, required=True)
     p.add_argument("--suite", choices=["original", "matched", "auto"], required=True)
+    p.add_argument("--variants", nargs="+", choices=["original", "atlas-b", "macro", "auto"],
+                   help="Run only these suite-compatible algorithms; omitted means the complete suite")
     p.add_argument("--output", type=pathlib.Path)
     p.add_argument("--repeats", type=int, choices=[1], default=1,
                    help="Current exploratory protocol runs each task/algorithm once")

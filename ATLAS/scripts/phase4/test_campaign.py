@@ -4,12 +4,33 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from campaign import partition, load_plan, merge_phase
+from campaign import partition, load_plan, merge_phase, phase_variants, progress, worker_command
 from common import FIELDS, save_json, save_csv, sha256
 from isolation import allocate, cpu_set, oom_kills
 
 
 class CampaignTests(unittest.TestCase):
+    def test_phase_variants_support_selective_and_legacy_plans(self):
+        self.assertEqual(['auto'], phase_variants(dict(suite='auto', variants=['auto'])))
+        self.assertEqual(['original', 'auto'], phase_variants(dict(suite='auto')))
+
+    def test_selective_phase_controls_worker_command_and_expected_count(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = pathlib.Path(temp)
+            worker = dict(
+                config=dict(id='w00', cpus='2,3', memoryMb=4096, unit='test-worker'),
+                configFile=str(root/'worker.json'), tasks=str(root/'supported_tasks.txt'),
+                output=str(root/'output'), log=str(root/'worker.log'),
+                records=[dict(task='a.trace'), dict(task='b.trace')])
+            phase = dict(id='e5-auto', suite='auto', variants=['auto'], root='/inputs',
+                         repeats=1, perTaskBudgets=False, workers=[worker])
+            plan = dict(python='/venv/python', timeoutSec=180, b=2, seed=1, heap='4g', java='/jdk/java',
+                        gate='/gate.json', pilot=False, controllerUnit='controller', phases=[phase])
+            command = worker_command(plan, phase, worker)
+            index = command.index('--variants')
+            self.assertEqual(['--variants', 'auto'], command[index:index+2])
+            self.assertEqual(2, progress(plan)[0]['expected'])
+
     def test_cpu_groups_never_split_smt_or_oversubscribe(self):
         groups = [(0, 6), (1, 7), (2, 8), (3, 9), (4, 10), (5, 11)]
         workers, reserved = allocate(groups, 2)

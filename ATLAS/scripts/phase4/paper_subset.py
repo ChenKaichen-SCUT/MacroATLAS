@@ -84,7 +84,8 @@ def report(plan):
             left, right = ('atlas-b', 'macro') if phase['suite'] == 'matched' else ('original', 'auto')
             common = [(l, data[(t, right)]) for (t, v), l in data.items()
                       if v == left and (t, right) in data and l['solved'] and data[(t, right)]['solved']]
-            for variant in {'original': ['original'], 'matched': ['atlas-b', 'macro'], 'auto': ['original', 'auto']}[phase['suite']]:
+            variants = phase.get('variants', {'original': ['original'], 'matched': ['atlas-b', 'macro'], 'auto': ['original', 'auto']}[phase['suite']])
+            for variant in variants:
                 runs = [r for r in part if r['variant'] == variant]
                 tasks = [r for (t, v), r in data.items() if v == variant]
                 summaries.append(dict(phase=phase['id'], table=group['table'], variant=variant,

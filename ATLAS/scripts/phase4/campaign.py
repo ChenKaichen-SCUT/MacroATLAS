@@ -18,6 +18,7 @@ import time
 
 from common import ATLAS, FIELDS, digest, environment, save_csv, save_json, sha256, task_record
 from isolation import allocate, cpu_set, topology
+from run import SUITE_VARIANTS, choose_variants
 from validate_results import validate
 
 
@@ -27,6 +28,11 @@ def read_json(path):
 
 def timestamp():
     return datetime.datetime.now(datetime.timezone.utc).isoformat()
+
+
+def phase_variants(phase):
+    """Read explicit algorithms while preserving compatibility with old plans."""
+    return choose_variants(phase['suite'], phase.get('variants'))
 
 
 def partition(records, count, seed):
@@ -74,19 +80,21 @@ def make_plan(a):
             raise ValueError("A paper subset excludes synthetic tasks; select e3-original e4-matched e5-auto")
         from paper_subset import selection_manifest
         selection = selection_manifest(official, a.paper_fraction, a.seed)
+    matched_variants = choose_variants('matched', a.matched_variants)
+    auto_variants = choose_variants('auto', a.auto_variants)
     source_phases = [
-        ('e3-original', 'original', ATLAS/'benchmark', official/'paper_tasks.txt', 1, False),
-        ('e4-matched', 'matched', official/'matched_u_free', official/'matched/supported_tasks.txt', a.repeats, False),
-        ('e5-auto', 'auto', ATLAS/'benchmark', official/'original_tasks.txt', 1, False),
+        ('e3-original', 'original', ATLAS/'benchmark', official/'paper_tasks.txt', 1, False, ['original']),
+        ('e4-matched', 'matched', official/'matched_u_free', official/'matched/supported_tasks.txt', a.repeats, False, matched_variants),
+        ('e5-auto', 'auto', ATLAS/'benchmark', official/'original_tasks.txt', 1, False, auto_variants),
     ]
     if synthetic:
-        source_phases.append(('e8-synthetic', 'matched', synthetic/'matched_u_free', synthetic/'matched/supported_tasks.txt', a.repeats, True))
+        source_phases.append(('e8-synthetic', 'matched', synthetic/'matched_u_free', synthetic/'matched/supported_tasks.txt', a.repeats, True, matched_variants))
     source_phases = [p for p in source_phases if p[0] in selected_phases]
     if a.smoke_root:
         if not a.pilot:
             raise ValueError("Smoke workload must be labelled pilot")
         smoke = a.smoke_root.resolve()
-        source_phases = [('smoke-matched', 'matched', smoke/'matched_u_free', smoke/'matched/supported_tasks.txt', 1, False)]
+        source_phases = [('smoke-matched', 'matched', smoke/'matched_u_free', smoke/'matched/supported_tasks.txt', 1, False, matched_variants)]
     plan = dict(version=1, createdUtc=timestamp(), environment=env, output=str(output),
                 controllerUnit=a.controller_unit, cpuGroups=groups, reservedCpus=reserved,
                 workers=a.workers, workerCpus=cpus, workerMemoryMb=a.memory_mb, reserveMemoryMb=a.reserve_memory_mb,
@@ -105,7 +113,7 @@ def make_plan(a):
         shutil.copy2(a.gate, output/'correctness-gate.json')
         if a.gate.with_suffix('.log').exists():
             shutil.copy2(a.gate.with_suffix('.log'), output/'logs/correctness-gate.log')
-    for name, suite, root, tasks, repeats, per_task in source_phases:
+    for name, suite, root, tasks, repeats, per_task, variants in source_phases:
         names = tasks.read_text().splitlines()
         if not names or len(names) != len(set(names)):
             raise ValueError("Empty/duplicate task list: " + str(tasks))
@@ -130,7 +138,7 @@ def make_plan(a):
                 sidecar = read_json(file.with_suffix('.json'))
                 record.update(B=int(sidecar['B']), b=int(sidecar['b']))
             records.append(record)
-        phase = dict(id=name, suite=suite, root=str(root.resolve()), tasks=records, taskListHash=digest(records),
+        phase = dict(id=name, suite=suite, variants=variants, root=str(root.resolve()), tasks=records, taskListHash=digest(records),
                      sourceTaskList=str(tasks), sourceTaskListSha256=sha256(tasks), repeats=repeats, perTaskBudgets=per_task, workers=[])
         for i, shard in enumerate(partition(records, a.workers, a.seed)):
             if not shard:
@@ -166,7 +174,9 @@ def make_plan(a):
     subprocess.run(['git', 'bundle', 'create', str(output/'source.bundle'), 'HEAD', 'macroatlas-phase3-frozen'], cwd=ATLAS, check=True)
     save_json(output/'input-source-checksums.json', {name:sha256(output/name) for name in ['inputs.tar.gz', 'source.bundle', 'plan.json']})
     print(json.dumps(dict(campaign=str(output), workerCpus=cpus, reservedCpus=reserved,
-                          memoryMb=a.memory_mb, phases=[(p['id'], len(p['tasks']), p['repeats']) for p in plan['phases']]), indent=2))
+                          memoryMb=a.memory_mb,
+                          phases=[dict(id=p['id'], tasks=len(p['tasks']), repeats=p['repeats'], variants=phase_variants(p),
+                                       runs=len(p['tasks'])*p['repeats']*len(phase_variants(p))) for p in plan['phases']]), indent=2))
 
 
 def load_plan(directory):
@@ -201,6 +211,8 @@ def worker_command(plan, phase, worker):
                '--timeout', str(plan['timeoutSec']), '--b', str(plan['b']), '--seed', str(plan['seed']),
                '--heap', plan['heap'], '--java', plan['java'], '--gate', plan['gate'], '--cpu', config['cpus'],
                '--memory-mb', str(config['memoryMb']), '--worker-config', worker['configFile'], '--resume']
+    if 'variants' in phase:
+        command += ['--variants'] + phase_variants(phase)
     if plan['pilot']:
         command.append('--pilot')
     if phase['perTaskBudgets']:
@@ -219,7 +231,7 @@ def worker_command(plan, phase, worker):
 def progress(plan):
     summary = []
     for phase in plan['phases']:
-        variants = 1 if phase['suite'] == 'original' else 2
+        variants = len(phase_variants(phase))
         for worker in phase['workers']:
             raw = pathlib.Path(worker['output'])/'raw.csv'
             rows = list(csv.DictReader(raw.open())) if raw.exists() else []
@@ -246,7 +258,7 @@ def merge_phase(plan, phase):
         manifests.append(manifest)
         artifacts.extend((worker['config']['id']+'-'+path.parent.name, path.parent) for path in directory.glob('*/command.json'))
     expected = {(r['task'], v, repeat) for r in phase['tasks']
-                for v in {'original':['original'], 'matched':['atlas-b','macro'], 'auto':['original','auto']}[phase['suite']]
+                for v in phase_variants(phase)
                 for repeat in range(1, phase['repeats']+1)}
     actual = [(r['task'], r['variant'], int(r['repeat'])) for r in rows]
     if len(actual) != len(set(actual)) or set(actual) != expected:
@@ -424,6 +436,12 @@ def main():
     create.add_argument('--synthetic', type=pathlib.Path)
     create.add_argument('--phases', nargs='+', choices=['e3-original', 'e4-matched', 'e5-auto', 'e8-synthetic'],
                         default=['e3-original', 'e4-matched', 'e5-auto', 'e8-synthetic'])
+    create.add_argument('--matched-variants', nargs='+', choices=SUITE_VARIANTS['matched'],
+                        default=SUITE_VARIANTS['matched'],
+                        help='Algorithms to run in e4/e8; use both after either implementation changes')
+    create.add_argument('--auto-variants', nargs='+', choices=SUITE_VARIANTS['auto'],
+                        default=SUITE_VARIANTS['auto'],
+                        help='Algorithms to run in e5; use auto alone when reusing frozen Original results')
     create.add_argument('--paper-fraction', type=float, help='Outcome-independent stratified subset of paper tasks')
     create.add_argument('--workers', type=int, required=True)
     create.add_argument('--memory-mb', type=int, default=16384)
