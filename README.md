@@ -23,12 +23,11 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 支持范围与复现说明见 [Phase 3 实现报告](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md)。
 
 第四阶段增加 Original ATLAS 复现实验入口、同域 ATLAS-B baseline、覆盖清单生成、
-串行实验运行器、正确性门禁、合成数据与结果图表脚本。
-实验代码与本地预检已完成；完整 180 秒同机实验等待服务器，尚无正式加速结论。
-见 [Phase 4 实验协议](ATLAS/docs/phase4/EXPERIMENT_PROTOCOL.md) 和
-[服务器资源建议](ATLAS/docs/phase4/ENVIRONMENT.md)。
-服务器的隔离并行、systemd 后台运行、实时监控、断点恢复和归档命令见
-[部署操作说明](ATLAS/docs/phase4/SERVER_DEPLOYMENT.md)。
+隔离并行运行器、正确性门禁、合成数据与结果图表脚本。当前 v4 MacroATLAS
+包含小公式最优界与 constrained 搜索约束优化；原论文 Original 路径继续保留。
+实验协议见 [Phase 4 实验协议](ATLAS/docs/phase4/EXPERIMENT_PROTOCOL.md)，
+换服务器开展全量实验所需的代码、数据与任务划分见
+[全量实验交接说明](ATLAS/docs/phase4/FULL_RUN_HANDOFF.md)。
 
 ## 仓库内容
 

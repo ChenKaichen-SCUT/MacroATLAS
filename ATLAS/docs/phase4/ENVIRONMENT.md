@@ -1,5 +1,8 @@
 # 实验环境与服务器资源建议
 
+> 本页是 Phase 4 早期预检时的资源估计。完成的 v4 运行与新服务器的配置入口见
+> [全量实验交接说明](FULL_RUN_HANDOFF.md)。
+
 ## 原论文与 artifact 条件
 
 本地论文第 VIII 节（PDF 页 9–10）说明：Linux、4-core 3.8 GHz CPU、8 GB RAM、OpenWBO/AlloyMax、每题 180 秒。具体 CPU 型号、是否启用超线程、JVM heap 和完整 OS/kernel 未在该段给出，不自行补造。

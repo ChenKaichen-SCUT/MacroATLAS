@@ -16,6 +16,8 @@ Use the same JVM, solver, heap, CPU affinity and timeout for both methods.
 | `select_runs.py` | Explicitly select common-solved or stratified follow-up tasks, preserving selection provenance |
 | `campaign.py` | Plan isolated parallel workers, install a systemd controller, resume, monitor, merge and archive |
 | `isolation.py` | Verify CPU sibling allocations, cgroup memory/swap limits and kernel OOM evidence |
+| `full_paper_split.py` | Verify identical matched paper inputs and split the full E4 workload into b=2 and b=3 campaigns |
+| `resource_monitor.py` | Persist sampled cgroup memory, OOM and disk use and summarize observed peaks |
 
 Start with:
 
@@ -37,6 +39,8 @@ are resource/functional evidence, not performance claims.
 
 For the user's parallel server deployment, follow
 [SERVER_DEPLOYMENT.md](../../docs/phase4/SERVER_DEPLOYMENT.md).
+For the replacement server and complete paper workload, use
+[FULL_RUN_HANDOFF.md](../../docs/phase4/FULL_RUN_HANDOFF.md).
 This explicitly amends the original serial protocol; CPU/memory isolation cannot
 eliminate shared cache, memory-bandwidth or cloud-host interference.
 `run.py --resume` retains completed results, checks the frozen configuration and

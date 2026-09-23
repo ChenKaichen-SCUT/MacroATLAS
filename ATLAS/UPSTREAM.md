@@ -26,6 +26,10 @@ Original ATLAS 路径继续调用未经修改的原求解器；ATLAS-B 是明确
 trace successor 编码的实验基线，详见 [实验协议](docs/phase4/EXPERIMENT_PROTOCOL.md)。
 Phase 3 宏求解器仅添加统计和验证失败分类，不增加支持范围。
 
+当前 v4 MacroATLAS 在 `macro/search/` 中加入小公式最优界和已识别 constrained
+模板的根形状约束；默认 Original 路径继续保留。换机后复现完整论文任务所需的
+源代码、原始数据和脚本见 [全量实验交接说明](docs/phase4/FULL_RUN_HANDOFF.md)。
+
 ## Git 收录方式
 
 `ATLAS/` 作为普通目录直接收录于
