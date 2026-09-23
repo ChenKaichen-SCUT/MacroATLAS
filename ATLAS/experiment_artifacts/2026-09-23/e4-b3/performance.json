@@ -1,0 +1,35 @@
+[
+  {
+    "PAR2": 120.0993339509486,
+    "fallbackCount": 0,
+    "fallbackReasons": {},
+    "macroUsed": 0,
+    "medianCommonRuntime": 9.414470356001402,
+    "peakRssMiB": 8879.01171875,
+    "solved": 27,
+    "solvedRuns": 27,
+    "statuses": {
+      "SAT": 27,
+      "TIMEOUT": 12
+    },
+    "tasks": 39,
+    "totalWallSec": 2527.813536946989,
+    "variant": "atlas-b"
+  },
+  {
+    "PAR2": 23.97089978176901,
+    "fallbackCount": 0,
+    "fallbackReasons": {},
+    "macroUsed": 39,
+    "medianCommonRuntime": 19.116371871998126,
+    "peakRssMiB": 2617.7421875,
+    "solved": 39,
+    "solvedRuns": 39,
+    "statuses": {
+      "SAT": 39
+    },
+    "tasks": 39,
+    "totalWallSec": 934.8650914889913,
+    "variant": "macro"
+  }
+]

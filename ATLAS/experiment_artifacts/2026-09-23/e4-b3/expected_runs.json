@@ -1,0 +1,548 @@
+[
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "44afafa1a03d980f2c15c8d4c93f7621bf95406f52a9042ca772c34765f942c6",
+    "task": "weakening/weaken_consequent/weaken_consequent_40_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "527d1c79dca0a4dfc73bccd7b8a09eb27181ee9733827cfded8b0331bb0c5b73",
+    "task": "weakening/weaken_consequent/weaken_consequent_15_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "44afafa1a03d980f2c15c8d4c93f7621bf95406f52a9042ca772c34765f942c6",
+    "task": "weakening/weaken_consequent/weaken_consequent_40_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "527d1c79dca0a4dfc73bccd7b8a09eb27181ee9733827cfded8b0331bb0c5b73",
+    "task": "weakening/weaken_consequent/weaken_consequent_15_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "a9264ba7a63670b26389af1d2d5346b75f955126e0f2a05351f4e6f17d6dd630",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_75_75.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "a9264ba7a63670b26389af1d2d5346b75f955126e0f2a05351f4e6f17d6dd630",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_75_75.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "6a07d631793c4224cc96e090f2769ad87740f424509ca192252e8910835f199d",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_40_40.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "ba34617e41e5dbf54dc15ae33f459d5f700fd252488ef59b16ec6f0bd85702b2",
+    "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "ba34617e41e5dbf54dc15ae33f459d5f700fd252488ef59b16ec6f0bd85702b2",
+    "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "6a07d631793c4224cc96e090f2769ad87740f424509ca192252e8910835f199d",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_40_40.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "a9161f65fc07d3f0e546a24f44292bdd7c943b3bd19fdd3621de69aa37541611",
+    "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "a9161f65fc07d3f0e546a24f44292bdd7c943b3bd19fdd3621de69aa37541611",
+    "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "3a7d0c05499cd67a8edc145a6d66d33cc7194a5b0170cc7d373b25fa0b593763",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_45_45.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "026c828bf9d504c33bdbd1d72ccbba0d1e2201c795082e0db1ba8ec94684d9bc",
+    "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "3a7d0c05499cd67a8edc145a6d66d33cc7194a5b0170cc7d373b25fa0b593763",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_45_45.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "026c828bf9d504c33bdbd1d72ccbba0d1e2201c795082e0db1ba8ec94684d9bc",
+    "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d276a89c6608dbd30e6fb5b241728d1a2e23b71121d4ad65746269627435b746",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_100_100.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d276a89c6608dbd30e6fb5b241728d1a2e23b71121d4ad65746269627435b746",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_100_100.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "1e4062af74a13ec6fddd4cd9c1263fbc3ca115bd568beb465aa4e1685ccd0278",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_15_15.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "52d26e1412eba83ddfdf227ad67da73e01d9d18d82b70dbbdc36e2f384ff384e",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_35_35.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "52d26e1412eba83ddfdf227ad67da73e01d9d18d82b70dbbdc36e2f384ff384e",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_35_35.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "1e4062af74a13ec6fddd4cd9c1263fbc3ca115bd568beb465aa4e1685ccd0278",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_15_15.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "8682219a1e88107e3a694a1aef6111f979939a7ffd7c513d7d6b151d0c746d23",
+    "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "8682219a1e88107e3a694a1aef6111f979939a7ffd7c513d7d6b151d0c746d23",
+    "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "7aa55051300d2220c06e0b5b806ca04beff81417c670fa2ad42df15843f0bdc1",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_85_85.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "1c2fdebb5c282beeda362b1dd2f771fcbade6cef47e011bc64f3934df3065609",
+    "task": "weakening/weaken_consequent/weaken_consequent_5_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "7aa55051300d2220c06e0b5b806ca04beff81417c670fa2ad42df15843f0bdc1",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_85_85.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "1c2fdebb5c282beeda362b1dd2f771fcbade6cef47e011bc64f3934df3065609",
+    "task": "weakening/weaken_consequent/weaken_consequent_5_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "a6828e17467ccfba3c4892b13af14eae77c56764981c5c6fedae665fc99b4eb0",
+    "task": "weakening/weaken_consequent/weaken_consequent_20_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "a6828e17467ccfba3c4892b13af14eae77c56764981c5c6fedae665fc99b4eb0",
+    "task": "weakening/weaken_consequent/weaken_consequent_20_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "c4c5301393e2f6cdc29a26b4b0d4191eda1928bc582fbecce0e36d5b5c5f8e97",
+    "task": "weakening/weaken_consequent/weaken_consequent_35_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "cae4b190edc26e2bad260aedcad905f2010a597930f11ca875051ddf727937bf",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_25_25.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "cae4b190edc26e2bad260aedcad905f2010a597930f11ca875051ddf727937bf",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_25_25.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "c4c5301393e2f6cdc29a26b4b0d4191eda1928bc582fbecce0e36d5b5c5f8e97",
+    "task": "weakening/weaken_consequent/weaken_consequent_35_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "4808b046eeb02bb1b7fd9be54e86b347206e24bf97e54133397b7226629fce6f",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_30_30.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "4808b046eeb02bb1b7fd9be54e86b347206e24bf97e54133397b7226629fce6f",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_30_30.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "b23d468c7148ff8f9bf206a19980408f5ee2e7afb5fd4f3aa68f01919400cd1e",
+    "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "536daeb88c0f01df49ee57825ce8c3b7f7ece712e80bb47e2afb76944bee6e2a",
+    "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "b23d468c7148ff8f9bf206a19980408f5ee2e7afb5fd4f3aa68f01919400cd1e",
+    "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "536daeb88c0f01df49ee57825ce8c3b7f7ece712e80bb47e2afb76944bee6e2a",
+    "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "f2cbe5aaae743b9dc6063338f8505b6545de5c0000d10ebabd273d843d973980",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_60_60.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "f2cbe5aaae743b9dc6063338f8505b6545de5c0000d10ebabd273d843d973980",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_60_60.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "c4b165b1a621a8218ee3e297acebadafb3d4459ecf2e5640ae7664f32ded2a06",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_80_80.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d88fd4b5ed2d82aaf60b31716077c1d0e271472606f1f6bcfb105b018d85f1b8",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_55_55.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d88fd4b5ed2d82aaf60b31716077c1d0e271472606f1f6bcfb105b018d85f1b8",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_55_55.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "c4b165b1a621a8218ee3e297acebadafb3d4459ecf2e5640ae7664f32ded2a06",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_80_80.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "86f99f65fdbbca16ebbbae53d1d26468647cf5f845acb40fc6064f556896194e",
+    "task": "weakening/weaken_consequent/weaken_consequent_25_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "86f99f65fdbbca16ebbbae53d1d26468647cf5f845acb40fc6064f556896194e",
+    "task": "weakening/weaken_consequent/weaken_consequent_25_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "cacc2bd3797939ea41759b9e20f7e0d8af2da0e2537c8f1b39e7f86a3b79f661",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_95_95.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "c565be745038a988786ff690a5a008e3ee068ee7eea790f7bbf0d4da7e87a052",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "cacc2bd3797939ea41759b9e20f7e0d8af2da0e2537c8f1b39e7f86a3b79f661",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_95_95.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "c565be745038a988786ff690a5a008e3ee068ee7eea790f7bbf0d4da7e87a052",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "2e2c6fc839f779bbb264f7bada7c1af649e566c9ddbd4489e955b4bd8e844bc1",
+    "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "2e2c6fc839f779bbb264f7bada7c1af649e566c9ddbd4489e955b4bd8e844bc1",
+    "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d6fabd3c8467e4a7e0e8ab65f1917f172c44f6874abdc1425a5eaca124d2fada",
+    "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "3d42d88c0941627c380e2af47f0038693423aaab6c4080fef168dee15df86405",
+    "task": "weakening/weaken_consequent/weaken_consequent_30_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "3d42d88c0941627c380e2af47f0038693423aaab6c4080fef168dee15df86405",
+    "task": "weakening/weaken_consequent/weaken_consequent_30_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d6fabd3c8467e4a7e0e8ab65f1917f172c44f6874abdc1425a5eaca124d2fada",
+    "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "dd6e63ef5679bfd0de937eff3cb920c4fac41509f0693889f0eff39fe2b358ba",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_70_70.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "05c37633a408b0a663047c20cb7d7b4c4bc7cf60fe7f58db41a18794a69c978b",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_20_20.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "dd6e63ef5679bfd0de937eff3cb920c4fac41509f0693889f0eff39fe2b358ba",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_70_70.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "05c37633a408b0a663047c20cb7d7b4c4bc7cf60fe7f58db41a18794a69c978b",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_20_20.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "4d96ec9dc3acce7d8f85ca0c3686ed222e2362b73020e3e8a8752aab50ba1772",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_65_65.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "4d96ec9dc3acce7d8f85ca0c3686ed222e2362b73020e3e8a8752aab50ba1772",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_65_65.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "65b09948e3207b84c13eb53712052464e9bf28e5593098ccbeb8c87af0b12ea2",
+    "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "648a67066d404d92c9eb11b63d458b078bfe009a0723e396377e306912622544",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_5_5.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "648a67066d404d92c9eb11b63d458b078bfe009a0723e396377e306912622544",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_5_5.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "65b09948e3207b84c13eb53712052464e9bf28e5593098ccbeb8c87af0b12ea2",
+    "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "afbf8784ce29f36c4e7dae808b5867c11864c6c4a051f10024413f436d244db0",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_50_50.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "33aead5ade5e6fd9fb39f43dfedbce107e7ffbbac3937df21110b74ca96ff57a",
+    "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "afbf8784ce29f36c4e7dae808b5867c11864c6c4a051f10024413f436d244db0",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_50_50.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "33aead5ade5e6fd9fb39f43dfedbce107e7ffbbac3937df21110b74ca96ff57a",
+    "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "b54e8d4aceb6c9279c42c8d005db04296075ab90203596024b08cb32fc2724ee",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_90_90.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "b54e8d4aceb6c9279c42c8d005db04296075ab90203596024b08cb32fc2724ee",
+    "task": "weakening/weaken_consequent/weaken_consequent_10_90_90.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d737901d8f018a1c08e002e91886ae5698fca92b4b6bf0f269cdd7802de407da",
+    "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "4e6d871d660393a5167cb3095b33b23d36e45370bbad1a6c79c058438aa312e5",
+    "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace",
+    "variant": "atlas-b"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "4e6d871d660393a5167cb3095b33b23d36e45370bbad1a6c79c058438aa312e5",
+    "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace",
+    "variant": "macro"
+  },
+  {
+    "family": "weakening",
+    "repeat": 1,
+    "sha256": "d737901d8f018a1c08e002e91886ae5698fca92b4b6bf0f269cdd7802de407da",
+    "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace",
+    "variant": "macro"
+  }
+]

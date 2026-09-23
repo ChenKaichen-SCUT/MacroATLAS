@@ -1,0 +1,667 @@
+{
+  "b": 3,
+  "controllerUnit": "macroatlas-full-e4-b3",
+  "cpuGroups": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      14,
+      15
+    ]
+  ],
+  "createdUtc": "2026-09-23T10:00:35.256980+00:00",
+  "environment": {
+    "alloySha256": "724cd5ed894e8ea2df773654db143fbe13144acd42bda2ed0cf833af72c7ec22",
+    "applicationSha256": "bb5d9e4cb1ac413d6a283d614f11675adc784c498762a8a919ab8fb2319ecf7e",
+    "commit": "0ef52dddff9ea1c4f1d65b34f23e7b528a2f8e9e",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           52 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               AuthenticAMD\nModel name:                              General Purpose Processor\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4799.99\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core invpcid_single ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr wbnoinvd arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               256 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                8 MiB (8 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; safe RET, no microcode\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: Clear CPU buffers attempted, no microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+    "dirty": false,
+    "java": "openjdk version \"1.8.0_462\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_462-b08)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.462-b08, mixed mode)",
+    "machine": "ecs-8623",
+    "os": "Linux-5.15.0-173-generic-x86_64-with-glibc2.35",
+    "phase3Frozen": "03d2ed26d3060277b505eedf24bf9edf76fc1600",
+    "python": "3.10.12",
+    "ram": "MemTotal:       95572248 kB\nMemFree:        92617976 kB\nMemAvailable:   94256716 kB\nBuffers:           59116 kB\nCached:          2316696 kB\nSwapCached:            0 kB\nActive:          1039640 kB\nInactive:        1442688 kB\nActive(anon):       1068 kB\nInactive(anon):   117220 kB\nActive(file):    1038572 kB\nInactive(file):  1325468 kB\nUnevictable:       29152 kB\nMlocked:           27616 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:             29176 kB\nWriteback:             0 kB\nAnonPages:        135748 kB\nMapped:           144392 kB\nShmem:              2664 kB\nKReclaimable:     148640 kB\nSlab:             235240 kB\nSReclaimable:     148640 kB\nSUnreclaim:        86600 kB\nKernelStack:        6064 kB\nPageTables:         3904 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    47786124 kB\nCommitted_AS:    1181984 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       38992 kB\nVmallocChunk:          0 kB\nPercpu:            11328 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:         0 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      266092 kB\nDirectMap2M:     4122624 kB\nDirectMap1G:    94371840 kB\n",
+    "solver": "OpenWBOWeighted",
+    "solverSha256": "857c3ef8b626b439ac6f07d497f028de3f29683f9e7777f19afd90bcca461eb1"
+  },
+  "gate": "/srv/macroatlas/repo/ATLAS/generated/full-gate.json",
+  "heap": "4g",
+  "java": "/srv/macroatlas/jdks/jdk8u462-b08/bin/java",
+  "minFreeDiskGb": 8.0,
+  "output": "/srv/macroatlas/experiments/full-e4-b3",
+  "phases": [
+    {
+      "id": "e4-matched",
+      "perTaskBudgets": false,
+      "repeats": 1,
+      "root": "/srv/macroatlas/repo/ATLAS/generated/full-b3/matched_u_free",
+      "sourceTaskList": "/srv/macroatlas/repo/ATLAS/generated/full-b3/matched/supported_tasks.txt",
+      "sourceTaskListSha256": "1f0d9ea7a2d8ce1a0ae4eefb4d98de21a9c1ddf6156f94df71fc1f45b2c7745a",
+      "suite": "matched",
+      "taskListHash": "49bcb66df9fd16b65cff740cb7f5b4077121f7732294cf7635167de0a58cd099",
+      "tasks": [
+        {
+          "family": "weakening",
+          "sha256": "a9161f65fc07d3f0e546a24f44292bdd7c943b3bd19fdd3621de69aa37541611",
+          "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "d276a89c6608dbd30e6fb5b241728d1a2e23b71121d4ad65746269627435b746",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_100_100.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "c565be745038a988786ff690a5a008e3ee068ee7eea790f7bbf0d4da7e87a052",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "1e4062af74a13ec6fddd4cd9c1263fbc3ca115bd568beb465aa4e1685ccd0278",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_15_15.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "05c37633a408b0a663047c20cb7d7b4c4bc7cf60fe7f58db41a18794a69c978b",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_20_20.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "cae4b190edc26e2bad260aedcad905f2010a597930f11ca875051ddf727937bf",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_25_25.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "4808b046eeb02bb1b7fd9be54e86b347206e24bf97e54133397b7226629fce6f",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_30_30.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "52d26e1412eba83ddfdf227ad67da73e01d9d18d82b70dbbdc36e2f384ff384e",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_35_35.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "6a07d631793c4224cc96e090f2769ad87740f424509ca192252e8910835f199d",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_40_40.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "3a7d0c05499cd67a8edc145a6d66d33cc7194a5b0170cc7d373b25fa0b593763",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_45_45.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "afbf8784ce29f36c4e7dae808b5867c11864c6c4a051f10024413f436d244db0",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_50_50.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "d88fd4b5ed2d82aaf60b31716077c1d0e271472606f1f6bcfb105b018d85f1b8",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_55_55.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "648a67066d404d92c9eb11b63d458b078bfe009a0723e396377e306912622544",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_5_5.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "f2cbe5aaae743b9dc6063338f8505b6545de5c0000d10ebabd273d843d973980",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_60_60.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "4d96ec9dc3acce7d8f85ca0c3686ed222e2362b73020e3e8a8752aab50ba1772",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_65_65.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "dd6e63ef5679bfd0de937eff3cb920c4fac41509f0693889f0eff39fe2b358ba",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_70_70.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "a9264ba7a63670b26389af1d2d5346b75f955126e0f2a05351f4e6f17d6dd630",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_75_75.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "c4b165b1a621a8218ee3e297acebadafb3d4459ecf2e5640ae7664f32ded2a06",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_80_80.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "7aa55051300d2220c06e0b5b806ca04beff81417c670fa2ad42df15843f0bdc1",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_85_85.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "b54e8d4aceb6c9279c42c8d005db04296075ab90203596024b08cb32fc2724ee",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_90_90.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "cacc2bd3797939ea41759b9e20f7e0d8af2da0e2537c8f1b39e7f86a3b79f661",
+          "task": "weakening/weaken_consequent/weaken_consequent_10_95_95.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "527d1c79dca0a4dfc73bccd7b8a09eb27181ee9733827cfded8b0331bb0c5b73",
+          "task": "weakening/weaken_consequent/weaken_consequent_15_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "a6828e17467ccfba3c4892b13af14eae77c56764981c5c6fedae665fc99b4eb0",
+          "task": "weakening/weaken_consequent/weaken_consequent_20_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "86f99f65fdbbca16ebbbae53d1d26468647cf5f845acb40fc6064f556896194e",
+          "task": "weakening/weaken_consequent/weaken_consequent_25_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "3d42d88c0941627c380e2af47f0038693423aaab6c4080fef168dee15df86405",
+          "task": "weakening/weaken_consequent/weaken_consequent_30_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "c4c5301393e2f6cdc29a26b4b0d4191eda1928bc582fbecce0e36d5b5c5f8e97",
+          "task": "weakening/weaken_consequent/weaken_consequent_35_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "44afafa1a03d980f2c15c8d4c93f7621bf95406f52a9042ca772c34765f942c6",
+          "task": "weakening/weaken_consequent/weaken_consequent_40_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "d737901d8f018a1c08e002e91886ae5698fca92b4b6bf0f269cdd7802de407da",
+          "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "2e2c6fc839f779bbb264f7bada7c1af649e566c9ddbd4489e955b4bd8e844bc1",
+          "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "ba34617e41e5dbf54dc15ae33f459d5f700fd252488ef59b16ec6f0bd85702b2",
+          "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "1c2fdebb5c282beeda362b1dd2f771fcbade6cef47e011bc64f3934df3065609",
+          "task": "weakening/weaken_consequent/weaken_consequent_5_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "d6fabd3c8467e4a7e0e8ab65f1917f172c44f6874abdc1425a5eaca124d2fada",
+          "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "8682219a1e88107e3a694a1aef6111f979939a7ffd7c513d7d6b151d0c746d23",
+          "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "536daeb88c0f01df49ee57825ce8c3b7f7ece712e80bb47e2afb76944bee6e2a",
+          "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "b23d468c7148ff8f9bf206a19980408f5ee2e7afb5fd4f3aa68f01919400cd1e",
+          "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "4e6d871d660393a5167cb3095b33b23d36e45370bbad1a6c79c058438aa312e5",
+          "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "33aead5ade5e6fd9fb39f43dfedbce107e7ffbbac3937df21110b74ca96ff57a",
+          "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "65b09948e3207b84c13eb53712052464e9bf28e5593098ccbeb8c87af0b12ea2",
+          "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace"
+        },
+        {
+          "family": "weakening",
+          "sha256": "026c828bf9d504c33bdbd1d72ccbba0d1e2201c795082e0db1ba8ec94684d9bc",
+          "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace"
+        }
+      ],
+      "variants": [
+        "atlas-b",
+        "macro"
+      ],
+      "workers": [
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "2,3",
+            "id": "w00",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w00/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "310bcb3b6899a874ace3629c731bf237f8623d2d27805dd83994f7325dd13b7d",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w00"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w00/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w00.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w00",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "ba34617e41e5dbf54dc15ae33f459d5f700fd252488ef59b16ec6f0bd85702b2",
+              "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "44afafa1a03d980f2c15c8d4c93f7621bf95406f52a9042ca772c34765f942c6",
+              "task": "weakening/weaken_consequent/weaken_consequent_40_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "6a07d631793c4224cc96e090f2769ad87740f424509ca192252e8910835f199d",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_40_40.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "a9264ba7a63670b26389af1d2d5346b75f955126e0f2a05351f4e6f17d6dd630",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_75_75.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "527d1c79dca0a4dfc73bccd7b8a09eb27181ee9733827cfded8b0331bb0c5b73",
+              "task": "weakening/weaken_consequent/weaken_consequent_15_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "a9161f65fc07d3f0e546a24f44292bdd7c943b3bd19fdd3621de69aa37541611",
+              "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w00/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "4,5",
+            "id": "w01",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w01/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "2f5d71fab453f676c0aed4b1fdc204a463fa9548981a5f9f849656c319e8505f",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w01"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w01/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w01.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w01",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "52d26e1412eba83ddfdf227ad67da73e01d9d18d82b70dbbdc36e2f384ff384e",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_35_35.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "3a7d0c05499cd67a8edc145a6d66d33cc7194a5b0170cc7d373b25fa0b593763",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_45_45.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "1e4062af74a13ec6fddd4cd9c1263fbc3ca115bd568beb465aa4e1685ccd0278",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_15_15.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "d276a89c6608dbd30e6fb5b241728d1a2e23b71121d4ad65746269627435b746",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_100_100.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "026c828bf9d504c33bdbd1d72ccbba0d1e2201c795082e0db1ba8ec94684d9bc",
+              "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "8682219a1e88107e3a694a1aef6111f979939a7ffd7c513d7d6b151d0c746d23",
+              "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w01/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "6,7",
+            "id": "w02",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w02/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "af77a9ef21b62a69b42699c91a33391ccba1915bc8c61465bdcb2319bc08ebe0",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w02"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w02/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w02.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w02",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "cae4b190edc26e2bad260aedcad905f2010a597930f11ca875051ddf727937bf",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_25_25.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "7aa55051300d2220c06e0b5b806ca04beff81417c670fa2ad42df15843f0bdc1",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_85_85.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "c4c5301393e2f6cdc29a26b4b0d4191eda1928bc582fbecce0e36d5b5c5f8e97",
+              "task": "weakening/weaken_consequent/weaken_consequent_35_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "a6828e17467ccfba3c4892b13af14eae77c56764981c5c6fedae665fc99b4eb0",
+              "task": "weakening/weaken_consequent/weaken_consequent_20_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "1c2fdebb5c282beeda362b1dd2f771fcbade6cef47e011bc64f3934df3065609",
+              "task": "weakening/weaken_consequent/weaken_consequent_5_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "4808b046eeb02bb1b7fd9be54e86b347206e24bf97e54133397b7226629fce6f",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_30_30.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w02/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "8,9",
+            "id": "w03",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w03/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "6fc67270de42cefe955ce53e12687df1539f8baba948449ef04b14e783c832e5",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w03"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w03/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w03.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w03",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "d88fd4b5ed2d82aaf60b31716077c1d0e271472606f1f6bcfb105b018d85f1b8",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_55_55.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "b23d468c7148ff8f9bf206a19980408f5ee2e7afb5fd4f3aa68f01919400cd1e",
+              "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "c4b165b1a621a8218ee3e297acebadafb3d4459ecf2e5640ae7664f32ded2a06",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_80_80.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "f2cbe5aaae743b9dc6063338f8505b6545de5c0000d10ebabd273d843d973980",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_60_60.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "536daeb88c0f01df49ee57825ce8c3b7f7ece712e80bb47e2afb76944bee6e2a",
+              "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "86f99f65fdbbca16ebbbae53d1d26468647cf5f845acb40fc6064f556896194e",
+              "task": "weakening/weaken_consequent/weaken_consequent_25_10_10.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w03/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "10,11",
+            "id": "w04",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w04/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "55cafaad450a0f9daecdb7dc32fe3ff3742916df975c90d19b0748b1f3c4748c",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w04"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w04/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w04.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w04",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "3d42d88c0941627c380e2af47f0038693423aaab6c4080fef168dee15df86405",
+              "task": "weakening/weaken_consequent/weaken_consequent_30_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "cacc2bd3797939ea41759b9e20f7e0d8af2da0e2537c8f1b39e7f86a3b79f661",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_95_95.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "d6fabd3c8467e4a7e0e8ab65f1917f172c44f6874abdc1425a5eaca124d2fada",
+              "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "2e2c6fc839f779bbb264f7bada7c1af649e566c9ddbd4489e955b4bd8e844bc1",
+              "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "c565be745038a988786ff690a5a008e3ee068ee7eea790f7bbf0d4da7e87a052",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_10_10.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w04/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "12,13",
+            "id": "w05",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w05/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "766a44156c2d1f1dff8e8fade617ece4fb1f40343aad3d3d249b7a5b1f2805f2",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w05"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w05/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w05.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w05",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "648a67066d404d92c9eb11b63d458b078bfe009a0723e396377e306912622544",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_5_5.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "dd6e63ef5679bfd0de937eff3cb920c4fac41509f0693889f0eff39fe2b358ba",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_70_70.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "65b09948e3207b84c13eb53712052464e9bf28e5593098ccbeb8c87af0b12ea2",
+              "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "4d96ec9dc3acce7d8f85ca0c3686ed222e2362b73020e3e8a8752aab50ba1772",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_65_65.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "05c37633a408b0a663047c20cb7d7b4c4bc7cf60fe7f58db41a18794a69c978b",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_20_20.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w05/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/full-e4-b3",
+            "campaignId": "c238fa4eb8",
+            "cpus": "14,15",
+            "id": "w06",
+            "lockFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w06/worker.lock",
+            "memoryMb": 12288,
+            "phase": "e4-matched",
+            "taskListHash": "81ad3994608a6d6afdb1fce694f298ea0404e0d7cacf32d5b35c6f807e7f147c",
+            "unit": "macroatlas-c238fa4eb8-e4-matched-w06"
+          },
+          "configFile": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w06/worker.json",
+          "log": "/srv/macroatlas/experiments/full-e4-b3/logs/e4-matched-w06.log",
+          "output": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/workers/w06",
+          "records": [
+            {
+              "family": "weakening",
+              "sha256": "4e6d871d660393a5167cb3095b33b23d36e45370bbad1a6c79c058438aa312e5",
+              "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "afbf8784ce29f36c4e7dae808b5867c11864c6c4a051f10024413f436d244db0",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_50_50.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "d737901d8f018a1c08e002e91886ae5698fca92b4b6bf0f269cdd7802de407da",
+              "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "b54e8d4aceb6c9279c42c8d005db04296075ab90203596024b08cb32fc2724ee",
+              "task": "weakening/weaken_consequent/weaken_consequent_10_90_90.trace"
+            },
+            {
+              "family": "weakening",
+              "sha256": "33aead5ade5e6fd9fb39f43dfedbce107e7ffbbac3937df21110b74ca96ff57a",
+              "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/full-e4-b3/e4-matched/inputs/w06/supported_tasks.txt"
+        }
+      ]
+    }
+  ],
+  "pilot": false,
+  "protocolAmendment": "User requested parallel execution. Disjoint visible CPU sibling groups and hard memory limits; shared hardware interference cannot be eliminated.",
+  "python": "/srv/macroatlas/venv/bin/python",
+  "reserveMemoryMb": 6144,
+  "reservedCpus": "0,1",
+  "seed": 20260922,
+  "targetTaskList": {
+    "reason": "Explicit follow-up; only listed paper tasks are rerun",
+    "source": "/srv/macroatlas/repo/ATLAS/generated/full-paper-split/e4-b3-consequent-tasks.txt",
+    "sourceSha256": "ca5244ac5bf83b4c44bd2be7e85f5db91c6cbadbe93213c1a6bf088003e2d6ee",
+    "tasks": [
+      "weakening/weaken_consequent/weaken_consequent_100_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_100_100.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_15_15.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_20_20.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_25_25.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_30_30.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_35_35.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_40_40.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_45_45.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_50_50.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_55_55.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_5_5.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_60_60.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_65_65.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_70_70.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_75_75.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_80_80.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_85_85.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_90_90.trace",
+      "weakening/weaken_consequent/weaken_consequent_10_95_95.trace",
+      "weakening/weaken_consequent/weaken_consequent_15_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_20_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_25_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_30_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_35_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_40_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_45_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_50_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_55_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_5_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_60_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_65_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_70_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_75_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_80_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_85_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_90_10_10.trace",
+      "weakening/weaken_consequent/weaken_consequent_95_10_10.trace"
+    ]
+  },
+  "timeoutSec": 180.0,
+  "version": 1,
+  "workerCpus": [
+    "2,3",
+    "4,5",
+    "6,7",
+    "8,9",
+    "10,11",
+    "12,13",
+    "14,15"
+  ],
+  "workerMemoryMb": 12288,
+  "workers": 7
+}

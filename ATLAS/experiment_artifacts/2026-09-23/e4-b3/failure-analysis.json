@@ -1,0 +1,160 @@
+[
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4594086466375685,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_100_100.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.1572149760528594,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_10_10.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.21323813082067913,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_15_15.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.20038588141364183,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_20_20.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.24946604915788145,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_25_25.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.25275301437929204,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_30_30.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.30357604825551626,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_35_35.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3091364081674998,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_40_40.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.21573157497456869,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_45_45.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3160177437104419,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_50_50.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.38156887531742967,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_55_55.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.1585738665901099,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_5_5.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.29385053390767035,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_60_60.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2762166949316651,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_65_65.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3103291384068924,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_70_70.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3552972621365671,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_75_75.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3393307039381477,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_80_80.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3896941229359758,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_85_85.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.32585135033014617,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_90_90.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3573747236544406,
+    "task": "weakening/weaken_consequent/weaken_consequent_10_95_95.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2848777320871328,
+    "task": "weakening/weaken_consequent/weaken_consequent_15_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.13475740355042415,
+    "task": "weakening/weaken_consequent/weaken_consequent_5_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace"
+  }
+]

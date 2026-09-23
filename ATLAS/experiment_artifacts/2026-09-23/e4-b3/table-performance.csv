@@ -1,0 +1,3 @@
+variant,tasks,solved,PAR2,solvedRuns,totalWallSec,peakRssMiB,statuses,macroUsed,fallbackReasons,fallbackCount,medianCommonRuntime
+atlas-b,39,27,120.0993339509486,27,2527.813536946989,8879.01171875,"{'SAT': 27, 'TIMEOUT': 12}",0,{},0,9.414470356001402
+macro,39,39,23.97089978176901,39,934.8650914889913,2617.7421875,{'SAT': 39},39,{},0,19.116371871998126

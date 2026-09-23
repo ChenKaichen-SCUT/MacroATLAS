@@ -28,6 +28,8 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 实验协议见 [Phase 4 实验协议](ATLAS/docs/phase4/EXPERIMENT_PROTOCOL.md)，
 换服务器开展全量实验所需的代码、数据与任务划分见
 [全量实验交接说明](ATLAS/docs/phase4/FULL_RUN_HANDOFF.md)。
+已完成的 RQ1 tiny exhaustive 与全量 E4 matched 单次运行，其原始数据、
+可复算汇总和结论见 [2026-09-23 实验结果](ATLAS/experiment_artifacts/2026-09-23/README.zh-CN.md)。
 
 ## 仓库内容
 

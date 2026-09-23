@@ -1,0 +1,26 @@
+{
+  "bothDecisive": 331,
+  "disagreements": 0,
+  "note": "Official inputs are matched U-free derivatives; TIMEOUT/ERROR are unresolved, not agreements",
+  "source": {
+    "b2": {
+      "b": 2,
+      "campaign": "/srv/macroatlas/imports/full-e4-b2",
+      "cases": 584,
+      "commit": "0ef52dddff9ea1c4f1d65b34f23e7b528a2f8e9e",
+      "planSha256": "849260c75fbcca5e74e535b37c61988025614ba3acff268dfd24bea79d5f58ee",
+      "rawSha256": "fc72d78c774b2263ef244cbd10b2a6e43d051745feb856ea1578f56e93a7f6d7"
+    },
+    "b3": {
+      "b": 3,
+      "campaign": "/srv/macroatlas/imports/full-e4-b3",
+      "cases": 39,
+      "commit": "0ef52dddff9ea1c4f1d65b34f23e7b528a2f8e9e",
+      "planSha256": "e5879c6d314bc33094e6ec4dcb358bede47f3993a6b6d271790d6f9b1dd30c83",
+      "rawSha256": "972149e92b76be198be46e4812ff487a7095480eb3dfd035a213c409c5755503"
+    }
+  },
+  "totalCases": 623,
+  "unresolved": 292,
+  "verifiedSatRuns": 727
+}

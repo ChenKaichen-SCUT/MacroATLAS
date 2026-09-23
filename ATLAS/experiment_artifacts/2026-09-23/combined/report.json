@@ -1,0 +1,105 @@
+{
+  "batches": {
+    "b2": {
+      "cases": 584,
+      "commonSolvedSpeedupMedian": 1.369762059990614,
+      "outcomes": {
+        "atlas_only": 15,
+        "both": 304,
+        "macro_only": 50,
+        "neither": 215
+      },
+      "par2Sec": {
+        "atlas-b": 177.59184129084758,
+        "macro": 158.64290738073117
+      },
+      "statuses": {
+        "atlas-b": {
+          "ERROR": 14,
+          "SAT": 316,
+          "TIMEOUT": 251,
+          "UNSAT": 3
+        },
+        "macro": {
+          "SAT": 345,
+          "TIMEOUT": 230,
+          "UNSAT": 9
+        }
+      }
+    },
+    "b3": {
+      "cases": 39,
+      "commonSolvedSpeedupMedian": 0.3103291384068924,
+      "outcomes": {
+        "both": 27,
+        "macro_only": 12
+      },
+      "par2Sec": {
+        "atlas-b": 120.0993339509486,
+        "macro": 23.97089978176901
+      },
+      "statuses": {
+        "atlas-b": {
+          "SAT": 27,
+          "TIMEOUT": 12
+        },
+        "macro": {
+          "SAT": 39
+        }
+      }
+    }
+  },
+  "official": {
+    "bothDecisive": 331,
+    "cases": 623,
+    "commonSolvedSpeedup": {
+      "count": 331,
+      "definition": "ATLAS-B wall time / MacroATLAS wall time",
+      "geometricMean": 1.2198028425441099,
+      "median": 1.2478962074429891
+    },
+    "disagreements": 0,
+    "outcomes": {
+      "atlas_only": 15,
+      "both": 331,
+      "macro_only": 62,
+      "neither": 215
+    },
+    "pairedRuns": 1246,
+    "par2Sec": {
+      "atlas-b": 173.99279187470626,
+      "macro": 150.21239647164688
+    },
+    "statuses": {
+      "atlas-b": {
+        "ERROR": 14,
+        "SAT": 343,
+        "TIMEOUT": 263,
+        "UNSAT": 3
+      },
+      "macro": {
+        "SAT": 384,
+        "TIMEOUT": 230,
+        "UNSAT": 9
+      }
+    },
+    "unresolved": 292,
+    "verifiedSatRuns": 727
+  },
+  "protocol": {
+    "par2PenaltySec": 360,
+    "repeatsPerCaseMethod": 1,
+    "timeoutSec": 180,
+    "unresolvedStatusesAreNotAgreements": true
+  },
+  "tiny": {
+    "cases": 1000,
+    "disagreements": 0,
+    "runs": 3000,
+    "statusesPerMethod": {
+      "SAT": 819,
+      "UNSAT": 181
+    },
+    "unresolved": 0
+  }
+}

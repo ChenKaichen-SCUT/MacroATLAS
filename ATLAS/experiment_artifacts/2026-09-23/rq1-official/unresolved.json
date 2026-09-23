@@ -1,0 +1,1462 @@
+[
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0024.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0025.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0026.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0027.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0028.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0029.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0030.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0031.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0032.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0033.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0034.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0035.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0036.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0037.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0038.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0039.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0040.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0041.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0042.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0043.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0050.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0051.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0052.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0053.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0054.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0055.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0056.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0057.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0058.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0059.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0060.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0061.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0062.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0063.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0064.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0065.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0068.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0070.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0072.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0074.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0076.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0077.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0078.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0079.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0080.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0081.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0082.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0083.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0084.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0085.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0086.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0087.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0114.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0116.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0117.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0118.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0122.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0124.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0126.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0128.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0130.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0131.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "UNSAT",
+    "task": "5to10Traces/0157.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "UNSAT",
+    "task": "5to10Traces/0158.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0159.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "UNSAT",
+    "task": "5to10Traces/0160.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0161.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0162.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0163.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0164.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0165.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0166.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0167.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0168.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0169.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0170.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0171.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0172.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0173.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0174.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0175.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "5to10Traces/0183.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0187.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0189.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0191.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0193.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0194.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0195.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0196.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "5to10Traces/0197.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0001.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0003.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0004.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0005.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0006.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "SAT",
+    "task": "baseTest/0010.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "SAT",
+    "task": "baseTest/0011.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0012.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0015.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0017.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0018.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0019.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0020.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0022.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0024.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0025.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0026.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "UNSAT",
+    "task": "baseTest/0027.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "SAT",
+    "task": "baseTest/0031.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "SAT",
+    "task": "baseTest/0032.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "SAT",
+    "task": "baseTest/0033.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0036.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0038.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0039.trace"
+  },
+  {
+    "atlasB": "ERROR",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0040.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "baseTest/0041.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "baseTest/0042.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0000.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0003.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0006.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0009.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0010.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0012.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0015.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0018.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0021.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "disjunctedExistence/0042.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0048.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0051.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0054.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0055.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0057.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0060.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0061.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0063.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0064.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0066.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0067.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0069.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "disjunctedExistence/0070.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0001.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0002.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0003.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0004.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0005.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0006.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "equal/0015.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0018.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0019.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "equal/0020.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0022.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0024.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0025.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "equal/0026.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "UNSAT",
+    "task": "equal/0027.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "equal/0040.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0000.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0002.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0008.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0009.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0010.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0011.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0012.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0013.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0014.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0015.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "increasingNumVariables/0016.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0017.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0018.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0019.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0020.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0021.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0022.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0023.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0024.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0025.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0026.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0027.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0028.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0029.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0030.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0031.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0032.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0033.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0034.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0035.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0036.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0037.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0038.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0039.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0040.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0041.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0042.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0043.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0044.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0045.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0046.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0047.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0048.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0049.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0050.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0051.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0052.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0053.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0054.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "increasingNumVariables/0055.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0001.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0002.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0003.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0004.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0005.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0006.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0007.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0008.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0009.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0010.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0011.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0012.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0014.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0031.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "moreDetailedTest/0032.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0033.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0034.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0035.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0036.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0037.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0038.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0039.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "moreDetailedTest/0042.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0057.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0059.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0060.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0061.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0062.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0063.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0064.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0065.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0066.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0067.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0068.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0070.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0071.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0073.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0074.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0075.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0076.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0077.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0078.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0079.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0080.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0081.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0084.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0085.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0087.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0088.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0089.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0090.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0091.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0092.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0093.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0094.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0095.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "UNSAT",
+    "task": "moreDetailedTest/0098.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "moreDetailedTest/0117.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0120.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0121.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0122.trace"
+  },
+  {
+    "atlasB": "SAT",
+    "macro": "TIMEOUT",
+    "task": "moreDetailedTest/0123.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_100_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_45_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_50_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_55_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_60_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_65_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_70_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_75_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_80_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_85_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_90_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_95_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_100_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_45_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_50_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_55_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_60_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_65_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_70_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_75_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_80_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_85_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_90_10_10.trace"
+  },
+  {
+    "atlasB": "TIMEOUT",
+    "macro": "SAT",
+    "task": "weakening/weaken_consequent/weaken_consequent_95_10_10.trace"
+  }
+]

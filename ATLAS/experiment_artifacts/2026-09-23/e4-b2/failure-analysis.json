@@ -1,0 +1,572 @@
+[
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4491685934525944,
+    "task": "5to10Traces/0008.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.49959767892130963,
+    "task": "5to10Traces/0012.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4998702018446952,
+    "task": "5to10Traces/0020.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3981784842521275,
+    "task": "5to10Traces/0044.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0050.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0051.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0052.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0054.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0068.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0070.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0077.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0081.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0085.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0117.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0157.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0158.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0160.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.45703957411822366,
+    "task": "5to10Traces/0176.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.33118901652559196,
+    "task": "5to10Traces/0180.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3138836189001586,
+    "task": "5to10Traces/0181.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.29206972213282145,
+    "task": "5to10Traces/0182.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "5to10Traces/0183.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.35197339430982993,
+    "task": "5to10Traces/0184.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4085746703368208,
+    "task": "5to10Traces/0185.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.18718431080298423,
+    "task": "5to10Traces/0186.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0187.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2437050129578126,
+    "task": "5to10Traces/0188.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0189.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.41418853373880843,
+    "task": "5to10Traces/0190.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0191.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.25838561268620974,
+    "task": "5to10Traces/0192.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0193.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0194.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0195.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0196.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "5to10Traces/0197.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3866330064356332,
+    "task": "baseTest/0008.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0010.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0011.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0027.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0031.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0032.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0033.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "baseTest/0036.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.20696974919049466,
+    "task": "baseTest/0037.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "baseTest/0041.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "baseTest/0042.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.42159295995347496,
+    "task": "disjunctedExistence/0030.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.20665606091742822,
+    "task": "disjunctedExistence/0033.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.25454766152427116,
+    "task": "disjunctedExistence/0036.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "disjunctedExistence/0042.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2664767141361585,
+    "task": "disjunctedExistence/0045.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.23128690292837295,
+    "task": "disjunctedExistence/0049.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4669743676455294,
+    "task": "equal/0007.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "equal/0015.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.47893425329582323,
+    "task": "equal/0016.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "equal/0020.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "equal/0027.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.35276102744718063,
+    "task": "equal/0036.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3194817257457329,
+    "task": "equal/0037.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.19919489243872246,
+    "task": "equal/0038.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.36883384385655327,
+    "task": "equal/0039.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "equal/0040.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.24286596106717373,
+    "task": "equal/0041.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.47348429553069316,
+    "task": "equal/0042.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0000.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0002.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2977078504034726,
+    "task": "increasingNumVariables/0005.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.21264660767957874,
+    "task": "increasingNumVariables/0006.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.29913401799149814,
+    "task": "increasingNumVariables/0007.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0008.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0009.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0010.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0011.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0012.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0013.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0014.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "increasingNumVariables/0016.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4989827066060398,
+    "task": "moreDetailedTest/0017.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "moreDetailedTest/0032.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "moreDetailedTest/0042.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "moreDetailedTest/0098.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.23024228981845327,
+    "task": "moreDetailedTest/0113.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.32788978820072406,
+    "task": "moreDetailedTest/0114.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2404282623778415,
+    "task": "moreDetailedTest/0115.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.1663099132338289,
+    "task": "moreDetailedTest/0116.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "moreDetailedTest/0117.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.285482522660376,
+    "task": "moreDetailedTest/0118.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3519304098077608,
+    "task": "moreDetailedTest/0119.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "moreDetailedTest/0120.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "moreDetailedTest/0121.trace"
+  },
+  {
+    "reason": "Only baseline solved",
+    "task": "moreDetailedTest/0123.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.40797512886538445,
+    "task": "moreDetailedTest/0124.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.21902515198115813,
+    "task": "moreDetailedTest/0126.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_100_10_10.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.17127010805089093,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_10_10.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2098277270446087,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_15_15.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2411195291517304,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_20_20.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.2715358496750114,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_25_25.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.28122267258069106,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_30_30.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.31694594222297573,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_35_35.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.41732388007315835,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_40_40.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3912315994018039,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_45_45.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.40079000556471106,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_50_50.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4207473131849453,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_55_55.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.13695912454648757,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_5_5.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4261558873053465,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_60_60.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4555393014392663,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_65_65.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.40641606660203805,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_70_70.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.46363688806239767,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_75_75.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4964331267075811,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_80_80.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4617345908305838,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_85_85.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.4215051507974795,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_90_90.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.48031123312132734,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_10_95_95.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.3186143687582078,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_15_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_45_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_50_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_55_10_10.trace"
+  },
+  {
+    "reason": "Macro >2x slower",
+    "speedup": 0.10650058438139723,
+    "task": "weakening/weaken_antecedent/weaken_antecedent_5_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_60_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_65_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_70_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_75_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_80_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_85_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_90_10_10.trace"
+  },
+  {
+    "reason": "Only macro solved",
+    "task": "weakening/weaken_antecedent/weaken_antecedent_95_10_10.trace"
+  }
+]

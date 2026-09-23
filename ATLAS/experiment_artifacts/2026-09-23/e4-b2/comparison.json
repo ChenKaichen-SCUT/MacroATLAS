@@ -1,0 +1,16 @@
+{
+  "commonSolved": 304,
+  "geometricMeanSpeedup": 1.3504306010713727,
+  "medianSpeedup": 1.369762059990614,
+  "outcomes": {
+    "both": 304,
+    "neither": 215,
+    "only_baseline": 15,
+    "only_macro": 50
+  },
+  "p25": 0.5837815693301343,
+  "p75": 2.663478476688193,
+  "pilot": false,
+  "repeats": 1,
+  "timingStatistic": "median of available planned repeats; unsolved repeat gets PAR-2 penalty"
+}
