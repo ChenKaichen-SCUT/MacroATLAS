@@ -3,7 +3,8 @@ import pathlib
 import tempfile
 import unittest
 
-from rq1 import MODES, case_input, run_job, sha256
+from rq1 import MODES, case_input, prepare, run_job, sha256
+from types import SimpleNamespace
 
 
 class Rq1Tests(unittest.TestCase):
@@ -18,6 +19,16 @@ class Rq1Tests(unittest.TestCase):
             self.assertIn("---", contents)
             self.assertNotIn("U,", contents)
             self.assertGreaterEqual(info["B"], info["numAP"])
+
+    def test_prepared_inputs_are_unique_and_have_no_solver_attempts(self):
+        with tempfile.TemporaryDirectory() as temp:
+            output = pathlib.Path(temp) / "unique"
+            prepare(SimpleNamespace(output=output, count=100, offset=1000, seed=20260923))
+            manifest = json.loads((output / "dataset.json").read_text())
+            hashes = [case["inputSha256"] for case in manifest["cases"]]
+            self.assertEqual(100, len(set(hashes)))
+            self.assertEqual(100, len(list((output / "inputs").rglob("*.trace"))))
+            self.assertFalse((output / "jobs").exists())
 
     def test_interrupted_attempt_is_recorded_without_second_solver_launch(self):
         with tempfile.TemporaryDirectory() as temp:

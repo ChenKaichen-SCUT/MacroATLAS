@@ -10,6 +10,7 @@ import json
 import os
 import pathlib
 import random
+import re
 import shutil
 import signal
 import subprocess
@@ -72,15 +73,17 @@ def case_input(index, seed):
     b = 1 if kind in {"and", "or", "global_and", "global_or"} else 0
 
     def constant(bits):
-        n = 1 + rng.randrange(3)
+        n = 1 + rng.randrange(8)
         states = [list(bits) for _ in range(n)]
         return states, rng.randrange(n)
 
-    def temporal(bits):
-        return [[int(value)] for value in bits], rng.randrange(1, len(bits))
+    def temporal(bits, zero_tail=False):
+        tail = [0 if zero_tail else rng.randrange(2) for _ in range(rng.randrange(6))]
+        states = [[int(value)] for value in list(bits) + tail]
+        return states, rng.randrange(len(states))
 
     if kind == "conflict":
-        positive = [constant([1])]
+        positive = [constant([1]), constant([rng.randrange(2)])]
         negative = [positive[0]]
     elif kind in {"literal", "repair_kept", "global_literal"}:
         positive = [constant([1])]
@@ -96,7 +99,7 @@ def case_input(index, seed):
         negative = [constant([0, 0])]
     elif kind == "eventually":
         positive = [temporal([0, 1, 0])]
-        negative = [temporal([0, 0, 0])]
+        negative = [temporal([0, 0, 0], zero_tail=True)]
     elif kind == "next":
         positive = [temporal([0, 1, 0])]
         negative = [temporal([0, 0, 1])]
@@ -125,13 +128,23 @@ def prepare(args):
         raise ValueError("Invalid count/offset")
     output.mkdir(parents=True)
     records = []
+    seen_inputs = set()
     for index in range(args.offset, args.offset + args.count):
-        content, record = case_input(index, args.seed)
+        for salt in range(10000):
+            content, record = case_input(index, args.seed + salt * 10000019)
+            content_hash = hashlib.sha256(content.encode()).hexdigest()
+            if content_hash not in seen_inputs:
+                break
+        else:
+            raise RuntimeError("Unable to generate a unique input for case " + str(index))
+        seen_inputs.add(content_hash)
+        record["collisionSalt"] = salt
         path = output / "inputs" / record["family"] / (record["id"] + ".trace")
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_text(content)
         record["task"] = path.relative_to(output / "inputs").as_posix()
         record["inputSha256"] = sha256(path)
+        assert record["inputSha256"] == content_hash
         records.append(record)
     manifest = dict(schemaVersion=1, seed=args.seed, offset=args.offset, count=args.count,
                     generatorSha256=sha256(pathlib.Path(__file__)), cases=records)
@@ -504,7 +517,9 @@ def official(args):
 def install(args):
     directory = args.directory.resolve()
     load_plan(directory)
-    unit = pathlib.Path("/etc/systemd/system") / (SERVICE + ".service")
+    if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.-]*", args.unit):
+        raise ValueError("Invalid systemd unit name")
+    unit = pathlib.Path("/etc/systemd/system") / (args.unit + ".service")
     content = "\n".join(("[Unit]", "Description=MacroATLAS RQ1 tiny exhaustive experiment", "After=network.target", "",
         "[Service]", "Type=simple", "WorkingDirectory=" + str(ATLAS),
         "ExecStart=" + PYTHON + " " + str(pathlib.Path(__file__).resolve()) + " run " + str(directory),
@@ -537,6 +552,7 @@ def main():
     for name in ("run", "status", "summary", "install-service"):
         sub = commands.add_parser(name)
         sub.add_argument("directory", type=pathlib.Path)
+    commands.choices["install-service"].add_argument("--unit", default=SERVICE)
     import_cmd = commands.add_parser("official")
     import_cmd.add_argument("--b2", type=pathlib.Path, required=True)
     import_cmd.add_argument("--b3", type=pathlib.Path, required=True)
