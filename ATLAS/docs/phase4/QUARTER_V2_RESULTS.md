@@ -1,5 +1,7 @@
 # Phase 4 1/4 实验：Original、v1 与 v2
 
+> 后续 AUTO 语义修复与 `b=3` 定向复跑已完成，结果见 [AUTO_FALLBACK_B3_FOLLOWUP.md](AUTO_FALLBACK_B3_FOLLOWUP.md)。本页保留旧批次的原始结论与问题证据。
+
 统计截止 2026-09-23。v1 结果来自服务器 `/srv/macroatlas/experiments/phase4-quarter-once`，提交 `e3654b4`；v2 来自 `/srv/macroatlas/experiments/phase4-quarter-v2-changed-once`，提交 `d8a56ed`。两批均已完整结束。两批使用相同的 156 个分层抽样论文任务、同一台 `ecs-564a`、Java 8u462、OpenWBOWeighted、180 秒限时、5 个绑定 CPU 的 worker、每 worker 16 GiB 内存与 4 GiB JVM 堆，每个任务/算法运行一次。v1/v2 共同的 121 个 matched 输入以及 Original 与 v2 AUTO 的 156 个原样输入，文件 SHA-256 均相同。
 
 `solved` 指 SAT 或 UNSAT；AUTO 的 `FALLBACK` 在原算法求得 SAT/UNSAT 时也计入。PAR-2 将未解任务按 360 秒计。以下值来自经 `validate_results.py` 校验的 `merged/raw.csv`，未把不同行为域的耗时直接相除。
