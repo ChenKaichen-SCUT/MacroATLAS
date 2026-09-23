@@ -47,7 +47,7 @@ class MacroCliTest {
         File("target/phase3-smoke-results.txt").writeText(summary.toString())
     }
 
-    @Test fun autoFallbackAndForceRejectionAreDifferentFromSupportedUnsat() {
+    @Test fun autoFallbackAndForceRejectionPreserveOriginalDomain() {
         val u="src/test/resources/samples2ltl/example0000.trace"
         val auto=cli("--_run",u,"--macro","auto","--macro-max-binary","1")
         assertEquals(0,auto.first); assertTrue(auto.second.contains("BINARY_TEMPORAL_UNTIL_REQUIRED"))
@@ -60,8 +60,10 @@ class MacroCliTest {
         val fallback=cli("--_run",unknown.path,"--macro","auto","--macro-max-binary","1")
         assertEquals(0,fallback.first,fallback.second); assertTrue(fallback.second.contains("UNKNOWN_CUSTOM_ALLOY_CONSTRAINT"))
         val unsat=cli("--_run","src/test/resources/macro/next.trace","--macro","auto","--macro-max-binary","0","--macro-max-nodes","1")
-        assertEquals(0,unsat.first); assertTrue(unsat.second.contains("\"solverStatus\":\"UNSAT\""))
-        assertFalse(unsat.second.contains("ORIGINAL"))
+        assertEquals(0,unsat.first,unsat.second)
+        assertTrue(unsat.second.contains("\"fallbackReason\":\"BOUNDED_MACRO_UNSAT\""),unsat.second)
+        assertTrue(unsat.second.contains("\"solverMode\":\"ORIGINAL\""),unsat.second)
+        assertTrue(unsat.second.contains("\"X(x0)\""),unsat.second)
     }
 
     @Test fun dispatchNeverCatchesInternalBugsAndOffDoesNotAnalyze() {

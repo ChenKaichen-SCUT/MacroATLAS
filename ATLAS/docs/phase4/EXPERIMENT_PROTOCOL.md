@@ -93,3 +93,11 @@ the frozen Original artifact has not changed, omit `e3-original` and use
 `--auto-variants auto` to reuse its prior result instead of timing it again.
 Run both `--matched-variants atlas-b macro` whenever either matched encoding
 changed so their comparison uses the same code revision and environment.
+
+AUTO must not return a bounded Macro UNSAT as the answer to the unrestricted
+Original task. A recognized template whose minimum binary-node count exceeds
+`b` is sent directly to Original. Any other bounded Macro UNSAT also triggers
+Original fallback; only a verified Macro SAT may be returned directly.
+Targeted follow-ups use `campaign.py plan --target-tasks FILE` to record the
+exact paper task list and rerun only affected algorithm/task combinations in
+new campaign directories.

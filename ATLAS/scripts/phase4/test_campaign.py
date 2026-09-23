@@ -4,12 +4,17 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
-from campaign import partition, load_plan, merge_phase, phase_variants, progress, worker_command
+from campaign import partition, load_plan, merge_phase, phase_variants, progress, worker_command, restrict_tasks
 from common import FIELDS, save_json, save_csv, sha256
 from isolation import allocate, cpu_set, oom_kills
 
 
 class CampaignTests(unittest.TestCase):
+    def test_explicit_followup_restricts_tasks_and_rejects_missing_names(self):
+        self.assertEqual(['b', 'c'], restrict_tasks(['a', 'b', 'c'], {'c', 'b'}))
+        with self.assertRaisesRegex(ValueError, 'absent'):
+            restrict_tasks(['a', 'b'], {'c'})
+
     def test_phase_variants_support_selective_and_legacy_plans(self):
         self.assertEqual(['auto'], phase_variants(dict(suite='auto', variants=['auto'])))
         self.assertEqual(['original', 'auto'], phase_variants(dict(suite='auto')))

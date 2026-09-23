@@ -60,19 +60,43 @@ class CLI : CliktCommand(
                             MacroTaskAnalysis.Unsupported(listOf(MacroUnsupportedReason.UNSUPPORTED_BACKEND), "Macro optimization requires an AlloyMax backend")
                         else RecognizedConstraintAnalyzer.analyze(task, macroBinaryBudget,
                             macroNodeBudget ?: (task.maxNumOfOP + task.literals.size), !findAny && !expected)
-                        MacroTaskDispatcher.run(MacroSolverMode.valueOf(macroMode.uppercase()), { analysis }, { Unit }, { supported ->
-                            val startTime = System.currentTimeMillis()
-                            val result = solveMacro(supported.plan, task, options)
-                            val seconds = (System.currentTimeMillis() - startTime).toDouble() / 1000
-                            System.err.println(metadataJson(result.metadata))
-                            println("$_run,${task.toCSVString()},$seconds,\"${result.formula}\"")
-                        }, { unsupported ->
-                            val metadata = metadataJson(mapOf("solverMode" to if (macroMode == "force") "UNSUPPORTED" else "ORIGINAL",
-                                "fallbackReason" to unsupported.reasons.joinToString(","), "detail" to unsupported.detail))
+                        fun reportFallback(reason:String, detail:String, boundedMetadata:Map<String,Any>?=null) {
+                            val metadata = metadataJson(mapOf("solverMode" to "ORIGINAL",
+                                "fallbackReason" to reason, "detail" to detail))
                             System.err.println(metadata)
-                            macroDebug?.let { File(it).mkdirs(); File(it, "analysis.json").writeText(metadata + "\n") }
-                        })
-                        if (analysis is MacroTaskAnalysis.Supported) return
+                            macroDebug?.let {
+                                File(it).mkdirs()
+                                File(it, "analysis.json").writeText(metadata + "\n")
+                                if(boundedMetadata!=null) File(it,"bounded-attempt.json").writeText(metadataJson(boundedMetadata)+"\n")
+                            }
+                        }
+                        val structuralFallback = if(macroMode=="auto" && analysis is MacroTaskAnalysis.Supported)
+                            AutoDomainSafety.precheck(analysis) else null
+                        if(structuralFallback!=null) {
+                            reportFallback(structuralFallback,"Recognized template needs at least three binary nodes")
+                        } else {
+                            val handled=MacroTaskDispatcher.run(MacroSolverMode.valueOf(macroMode.uppercase()), { analysis }, { false }, { supported ->
+                                val startTime = System.currentTimeMillis()
+                                val result = solveMacro(supported.plan, task, options)
+                                val seconds = (System.currentTimeMillis() - startTime).toDouble() / 1000
+                                if(macroMode=="auto" && result.dag==null) {
+                                    reportFallback(AutoDomainSafety.BOUNDED_UNSAT,
+                                        "The b-bounded macro domain is UNSAT; Original determines the unrestricted result",
+                                        result.metadata)
+                                    false
+                                } else {
+                                    System.err.println(metadataJson(result.metadata))
+                                    println("$_run,${task.toCSVString()},$seconds,\"${result.formula}\"")
+                                    true
+                                }
+                            }, { unsupported ->
+                                val metadata = metadataJson(mapOf("solverMode" to if (macroMode == "force") "UNSUPPORTED" else "ORIGINAL",
+                                    "fallbackReason" to unsupported.reasons.joinToString(","), "detail" to unsupported.detail))
+                                System.err.println(metadata)
+                                macroDebug?.let { File(it).mkdirs(); File(it, "analysis.json").writeText(metadata + "\n") }
+                            })
+                            if (handled) return
+                        }
                     }
                     val learner = task.buildLearner(options, !findAny)
                     if (model)
@@ -81,6 +105,7 @@ class CLI : CliktCommand(
                     val solution = learner.learn()
                     val solvingTime = (System.currentTimeMillis() - startTime).toDouble() / 1000
                     val formula = if (!expected) solution?.getLTL2() ?: "UNSAT" else findExpected(task, solution)
+                    if(macroMode=="auto") macroDebug?.let { File(it).mkdirs();File(it,"reconstructed_formula.txt").writeText(formula+"\n") }
                     println("$_run,${task.toCSVString()},$solvingTime,\"$formula\"")
                 } catch (e: Exception) {
                     if (macroMode != "off") throw CliktError("${e.javaClass.simpleName}: ${e.message}")

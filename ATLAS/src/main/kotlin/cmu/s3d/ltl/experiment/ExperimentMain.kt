@@ -30,20 +30,18 @@ object ExperimentMain {
             val analyzeStart=System.nanoTime()
             val analysis=if(mode=="original") null else RecognizedConstraintAnalyzer.analyze(task,b,a["B"]?.toInt() ?: task.maxNumOfOP+task.literals.size)
             data["analysisSec"]=(System.nanoTime()-analyzeStart)/1e9
-            var fallback=false
-            when(analysis) {
-                is MacroTaskAnalysis.Unsupported -> {
-                    data["fallbackReason"]=analysis.reasons.joinToString(",");data["detail"]=analysis.detail
-                    if(mode!="auto") {data["status"]="UNSUPPORTED";write("analysis.json",data);return}
-                    fallback=true
-                }
-                else -> Unit
-            }
-            if(mode=="original"||fallback) {
-                data["solverMode"]="ORIGINAL"
+            fun runOriginal(reason:String?, detail:String?=null, boundedAttempt:Map<String,Any>?=null) {
+                val analysisSec=data["analysisSec"] ?: 0.0
+                if(boundedAttempt!=null) write("bounded-attempt.json",boundedAttempt)
+                data.clear()
+                data.putAll(linkedMapOf("variant" to mode,"status" to "ERROR","solverMode" to "ORIGINAL",
+                    "analysisSec" to analysisSec))
+                if(reason!=null) data["fallbackReason"]=reason
+                if(detail!=null) data["detail"]=detail
+                if(boundedAttempt!=null) data["boundedAttemptSec"]=boundedAttempt["solverSec"] ?: 0.0
                 data["nodeBudget"]=task.maxNumOfOP+task.literals.size
                 data["binaryBudget"]="UNRESTRICTED"
-                data["fallbackUsed"]=fallback
+                data["fallbackUsed"]=reason!=null
                 write("metadata.json",data);write("analysis.json",data)
                 write("input-diagnostics.json",ArtifactVerifier.inputDiagnostics(task))
                 val learner=task.buildLearner(options)
@@ -51,7 +49,7 @@ object ExperimentMain {
                 val solveStart=System.nanoTime();val solution=learner.learn();data["solverSec"]=(System.nanoTime()-solveStart)/1e9
                 val formula=solution?.getLTL2() ?: "UNSAT"
                 data["outcome"]=if(solution==null) "UNSAT" else "SAT"
-                data["status"]=if(fallback) "FALLBACK" else data.getValue("outcome")
+                data["status"]=if(reason!=null) "FALLBACK" else data.getValue("outcome")
                 directory.resolve("reconstructed_formula.txt").writeText(formula+"\n")
                 if(solution!=null) {
                     val verifyStart=System.nanoTime();val dag=AlloySolutionDagExtractor().extract(solution)
@@ -68,8 +66,19 @@ object ExperimentMain {
                     "scope" to "Trace classification under Original input semantics (missing values false); original raw constraints/objective remain enforced by original Alloy backend"))
                 directory.resolve("reconstructed_formula.txt").writeText(formula+"\n")
                 println("${a.getValue("file")},${task.toCSVString()},${data["solverSec"]},\"$formula\"")
+            }
+            val unsupported=analysis as? MacroTaskAnalysis.Unsupported
+            if(unsupported!=null && mode!="auto") {
+                data["fallbackReason"]=unsupported.reasons.joinToString(",")
+                data["detail"]=unsupported.detail
+                data["status"]="UNSUPPORTED";write("analysis.json",data);return
+            }
+            val supported=analysis as? MacroTaskAnalysis.Supported
+            val structuralFallback=if(mode=="auto" && supported!=null) AutoDomainSafety.precheck(supported) else null
+            if(mode=="original" || unsupported!=null || structuralFallback!=null) {
+                runOriginal(unsupported?.reasons?.joinToString(",") ?: structuralFallback, unsupported?.detail)
             } else {
-                val plan=(analysis as MacroTaskAnalysis.Supported).plan
+                val plan=checkNotNull(supported).plan
                 val reporter=BackendMetrics()
                 data["solverMode"]=if(mode=="atlas-b") "ATLAS_B" else "MACRO"
                 data["nodeBudget"]=plan.nodeBudget;data["binaryBudget"]=plan.binaryBudget
@@ -89,18 +98,23 @@ object ExperimentMain {
                 val result=solve(plan)
                 data.putAll(result.metadata);data.putAll(reporter.metadata())
                 data["status"]=if(result.dag==null) "UNSAT" else "SAT"
-                if(mode!="atlas-b") {
-                    data["objectivePrimary"]=result.assignment?.keptEdges ?: 0
-                    data["objectiveSecondary"]=result.assignment?.expandedSize ?: 0
+                if(mode=="auto" && result.dag==null) {
+                    runOriginal(AutoDomainSafety.BOUNDED_UNSAT,
+                        "The b-bounded macro domain is UNSAT; Original determines the unrestricted result",data.toMap())
+                } else {
+                    if(mode!="atlas-b") {
+                        data["objectivePrimary"]=result.assignment?.keptEdges ?: 0
+                        data["objectiveSecondary"]=result.assignment?.expandedSize ?: 0
+                    }
+                    data["objectiveKind"]=if(plan.objective is MacroObjective.Repair) "REPAIR" else "MIN_EXPANDED_SIZE"
+                    data["searchNodeUniverse"]=result.metadata["searchNodeUniverse"] ?:
+                        if(mode=="atlas-b") plan.nodeBudget+task.literals.size else plan.anchorSlotBudget
+                    data["anchorSlotBudget"]=plan.anchorSlotBudget
+                    data["nodeBudget"]=plan.nodeBudget;data["binaryBudget"]=plan.binaryBudget
+                    data["protectedCount"]=plan.protectedIdentities.size
+                    directory.resolve("reconstructed_formula.txt").writeText(result.formula+"\n")
+                    println("${a.getValue("file")},${task.toCSVString()},${data["solverSec"]},\"${result.formula}\"")
                 }
-                data["objectiveKind"]=if(plan.objective is MacroObjective.Repair) "REPAIR" else "MIN_EXPANDED_SIZE"
-                data["searchNodeUniverse"]=result.metadata["searchNodeUniverse"] ?:
-                    if(mode=="atlas-b") plan.nodeBudget+task.literals.size else plan.anchorSlotBudget
-                data["anchorSlotBudget"]=plan.anchorSlotBudget
-                data["nodeBudget"]=plan.nodeBudget;data["binaryBudget"]=plan.binaryBudget
-                data["protectedCount"]=plan.protectedIdentities.size
-                directory.resolve("reconstructed_formula.txt").writeText(result.formula+"\n")
-                println("${a.getValue("file")},${task.toCSVString()},${data["solverSec"]},\"${result.formula}\"")
             }
         } catch(e:Exception) {
             data["status"]=if(e is MacroVerificationException) "VERIFICATION_FAILED" else "ERROR"

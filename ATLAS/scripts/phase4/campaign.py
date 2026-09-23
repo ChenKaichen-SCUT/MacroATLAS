@@ -35,6 +35,16 @@ def phase_variants(phase):
     return choose_variants(phase['suite'], phase.get('variants'))
 
 
+def restrict_tasks(names, requested):
+    """Keep an explicit, preregistered subset without replacing failures."""
+    if requested is None:
+        return names
+    missing = set(requested) - set(names)
+    if missing:
+        raise ValueError("Target tasks absent from this phase: " + ", ".join(sorted(missing)))
+    return [name for name in names if name in requested]
+
+
 def partition(records, count, seed):
     """Balance each family, keeping all variants/repeats of a task on one worker."""
     groups = collections.defaultdict(list)
@@ -80,6 +90,19 @@ def make_plan(a):
             raise ValueError("A paper subset excludes synthetic tasks; select e3-original e4-matched e5-auto")
         from paper_subset import selection_manifest
         selection = selection_manifest(official, a.paper_fraction, a.seed)
+    target = None
+    if a.target_tasks:
+        if 'e8-synthetic' in selected_phases or a.smoke_root:
+            raise ValueError("Target task lists apply only to official paper phases")
+        lines = a.target_tasks.read_text().splitlines()
+        if not lines or any(not line or line != line.strip() for line in lines) or len(lines) != len(set(lines)):
+            raise ValueError("Target task list must contain unique, nonblank paper task names")
+        paper = set((official/'paper_tasks.txt').read_text().splitlines())
+        if not set(lines) <= paper:
+            raise ValueError("Target task list contains non-paper tasks")
+        if selection and not set(lines) <= {r['task'] for r in selection['tasks']}:
+            raise ValueError("Target task list must be within the selected paper subset")
+        target = set(lines)
     matched_variants = choose_variants('matched', a.matched_variants)
     auto_variants = choose_variants('auto', a.auto_variants)
     source_phases = [
@@ -109,6 +132,10 @@ def make_plan(a):
         plan['paperSubset'] = selection
         save_json(output/'selection.json', selection)
         save_csv(output/'selection-counts.csv', selection['counts'], list(selection['counts'][0]))
+    if target is not None:
+        plan['targetTaskList'] = dict(source=str(a.target_tasks.resolve()), sourceSha256=sha256(a.target_tasks),
+                                      tasks=sorted(target), reason='Explicit follow-up; only listed paper tasks are rerun')
+        (output/'target-tasks.txt').write_text(''.join(name+'\n' for name in sorted(target)))
     if a.gate.exists():
         shutil.copy2(a.gate, output/'correctness-gate.json')
         if a.gate.with_suffix('.log').exists():
@@ -129,6 +156,9 @@ def make_plan(a):
             names = [n for n in names if n in selected_names]
             if not names:
                 raise ValueError("Selected phase has no eligible tasks: " + name)
+        names = restrict_tasks(names, target)
+        if not names:
+            raise ValueError("Target selection has no tasks in phase: " + name)
         records = []
         for task in names:
             file = (root/task).resolve()
@@ -172,7 +202,10 @@ def make_plan(a):
                 if phase['perTaskBudgets']:
                     archive.add(file.with_suffix('.json'), arcname=phase['id']+'/'+str(pathlib.Path(record['task']).with_suffix('.json')))
     subprocess.run(['git', 'bundle', 'create', str(output/'source.bundle'), 'HEAD', 'macroatlas-phase3-frozen'], cwd=ATLAS, check=True)
-    save_json(output/'input-source-checksums.json', {name:sha256(output/name) for name in ['inputs.tar.gz', 'source.bundle', 'plan.json']})
+    sources = ['inputs.tar.gz', 'source.bundle', 'plan.json']
+    if target is not None:
+        sources.append('target-tasks.txt')
+    save_json(output/'input-source-checksums.json', {name:sha256(output/name) for name in sources})
     print(json.dumps(dict(campaign=str(output), workerCpus=cpus, reservedCpus=reserved,
                           memoryMb=a.memory_mb,
                           phases=[dict(id=p['id'], tasks=len(p['tasks']), repeats=p['repeats'], variants=phase_variants(p),
@@ -186,6 +219,9 @@ def load_plan(directory):
         raise ValueError("Campaign plan changed after registration")
     if pathlib.Path(plan['output']) != directory:
         raise ValueError("Run the plan in its registered directory")
+    if 'targetTaskList' in plan:
+        if (directory/'target-tasks.txt').read_text().splitlines() != plan['targetTaskList']['tasks']:
+            raise ValueError("Target task list changed after registration")
     for phase in plan['phases']:
         collected = []
         for worker in phase['workers']:
@@ -443,6 +479,8 @@ def main():
                         default=SUITE_VARIANTS['auto'],
                         help='Algorithms to run in e5; use auto alone when reusing frozen Original results')
     create.add_argument('--paper-fraction', type=float, help='Outcome-independent stratified subset of paper tasks')
+    create.add_argument('--target-tasks', type=pathlib.Path,
+                        help='Explicit official paper task list for an isolated follow-up campaign')
     create.add_argument('--workers', type=int, required=True)
     create.add_argument('--memory-mb', type=int, default=16384)
     create.add_argument('--reserve-memory-mb', type=int, default=4096)
