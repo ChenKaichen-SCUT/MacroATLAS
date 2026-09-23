@@ -1,0 +1,652 @@
+{
+  "b": 2,
+  "controllerUnit": "macroatlas-rq4",
+  "cpuGroups": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      7
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      10,
+      11
+    ],
+    [
+      12,
+      13
+    ],
+    [
+      14,
+      15
+    ]
+  ],
+  "createdUtc": "2026-09-23T16:04:02.699916+00:00",
+  "environment": {
+    "alloySha256": "724cd5ed894e8ea2df773654db143fbe13144acd42bda2ed0cf833af72c7ec22",
+    "applicationSha256": "3e28b7b295dbdbc873c56ae50cc4c9871fa2fb13bef830feb03c4a23e1810e8c",
+    "commit": "76a1e1d8aec87e22d8df0632e95bfd2813e73363",
+    "cpu": "Architecture:                            x86_64\nCPU op-mode(s):                          32-bit, 64-bit\nAddress sizes:                           52 bits physical, 48 bits virtual\nByte Order:                              Little Endian\nCPU(s):                                  16\nOn-line CPU(s) list:                     0-15\nVendor ID:                               AuthenticAMD\nModel name:                              General Purpose Processor\nCPU family:                              25\nModel:                                   17\nThread(s) per core:                      2\nCore(s) per socket:                      8\nSocket(s):                               1\nStepping:                                1\nBogoMIPS:                                4799.99\nFlags:                                   fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid tsc_known_freq pni pclmulqdq ssse3 fma cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm cmp_legacy cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw topoext perfctr_core invpcid_single ssbd ibrs ibpb stibp vmmcall fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid avx512f avx512dq rdseed adx smap avx512ifma clflushopt clwb avx512cd sha_ni avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves avx512_bf16 clzero xsaveerptr wbnoinvd arat avx512vbmi umip avx512_vbmi2 gfni vaes vpclmulqdq avx512_vnni avx512_bitalg avx512_vpopcntdq rdpid fsrm\nHypervisor vendor:                       KVM\nVirtualization type:                     full\nL1d cache:                               256 KiB (8 instances)\nL1i cache:                               256 KiB (8 instances)\nL2 cache:                                8 MiB (8 instances)\nL3 cache:                                32 MiB (1 instance)\nNUMA node(s):                            1\nNUMA node0 CPU(s):                       0-15\nVulnerability Gather data sampling:      Not affected\nVulnerability Indirect target selection: Not affected\nVulnerability Itlb multihit:             Not affected\nVulnerability L1tf:                      Not affected\nVulnerability Mds:                       Not affected\nVulnerability Meltdown:                  Not affected\nVulnerability Mmio stale data:           Not affected\nVulnerability Reg file data sampling:    Not affected\nVulnerability Retbleed:                  Not affected\nVulnerability Spec rstack overflow:      Mitigation; safe RET, no microcode\nVulnerability Spec store bypass:         Mitigation; Speculative Store Bypass disabled via prctl and seccomp\nVulnerability Spectre v1:                Mitigation; usercopy/swapgs barriers and __user pointer sanitization\nVulnerability Spectre v2:                Mitigation; Retpolines; IBPB conditional; IBRS_FW; STIBP conditional; RSB filling; PBRSB-eIBRS Not affected; BHI Not affected\nVulnerability Srbds:                     Not affected\nVulnerability Tsa:                       Vulnerable: Clear CPU buffers attempted, no microcode\nVulnerability Tsx async abort:           Not affected\nVulnerability Vmscape:                   Not affected",
+    "dirty": false,
+    "java": "openjdk version \"1.8.0_462\"\nOpenJDK Runtime Environment (Temurin)(build 1.8.0_462-b08)\nOpenJDK 64-Bit Server VM (Temurin)(build 25.462-b08, mixed mode)",
+    "machine": "ecs-8623",
+    "os": "Linux-5.15.0-173-generic-x86_64-with-glibc2.35",
+    "phase3Frozen": "03d2ed26d3060277b505eedf24bf9edf76fc1600",
+    "python": "3.10.12",
+    "ram": "MemTotal:       95572248 kB\nMemFree:        91521248 kB\nMemAvailable:   94184652 kB\nBuffers:          122768 kB\nCached:          3238040 kB\nSwapCached:            0 kB\nActive:          1373064 kB\nInactive:        2109524 kB\nActive(anon):       1068 kB\nInactive(anon):   132428 kB\nActive(file):    1371996 kB\nInactive(file):  1977096 kB\nUnevictable:       29152 kB\nMlocked:           27616 kB\nSwapTotal:             0 kB\nSwapFree:              0 kB\nDirty:               788 kB\nWriteback:             0 kB\nAnonPages:        150944 kB\nMapped:           180148 kB\nShmem:              2656 kB\nKReclaimable:     227864 kB\nSlab:             332308 kB\nSReclaimable:     227864 kB\nSUnreclaim:       104444 kB\nKernelStack:        5568 kB\nPageTables:         4296 kB\nNFS_Unstable:          0 kB\nBounce:                0 kB\nWritebackTmp:          0 kB\nCommitLimit:    47786124 kB\nCommitted_AS:    1243308 kB\nVmallocTotal:   34359738367 kB\nVmallocUsed:       39796 kB\nVmallocChunk:          0 kB\nPercpu:            14080 kB\nHardwareCorrupted:     0 kB\nAnonHugePages:         0 kB\nShmemHugePages:        0 kB\nShmemPmdMapped:        0 kB\nFileHugePages:         0 kB\nFilePmdMapped:         0 kB\nHugePages_Total:       0\nHugePages_Free:        0\nHugePages_Rsvd:        0\nHugePages_Surp:        0\nHugepagesize:       2048 kB\nHugetlb:               0 kB\nDirectMap4k:      348012 kB\nDirectMap2M:    15575040 kB\nDirectMap1G:    82837504 kB\n",
+    "solver": "OpenWBOWeighted",
+    "solverSha256": "857c3ef8b626b439ac6f07d497f028de3f29683f9e7777f19afd90bcca461eb1"
+  },
+  "gate": "/srv/macroatlas/rq4-code/ATLAS/generated/rq4-gate.json",
+  "heap": "4g",
+  "java": "/srv/macroatlas/jdks/jdk8u462-b08/bin/java",
+  "minFreeDiskGb": 8.0,
+  "output": "/srv/macroatlas/experiments/rq4-scale-once",
+  "phases": [
+    {
+      "id": "e8-synthetic",
+      "perTaskBudgets": true,
+      "repeats": 1,
+      "root": "/srv/macroatlas/rq4-data/ready/matched_u_free",
+      "sourceTaskList": "/srv/macroatlas/rq4-data/ready/matched/supported_tasks.txt",
+      "sourceTaskListSha256": "53201279ba314ed082a8a66a96174058ac9c561ce98220b35b695b89d60798f3",
+      "suite": "matched",
+      "taskListHash": "5ab6e45de1c8db452bf1f30d0a97f2a7d1638f2198065cf5d40cd2f79128f23d",
+      "tasks": [
+        {
+          "B": 15,
+          "b": 3,
+          "family": "binary_budget",
+          "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+          "task": "binary_budget/b03.trace"
+        },
+        {
+          "B": 15,
+          "b": 4,
+          "family": "binary_budget",
+          "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+          "task": "binary_budget/b04.trace"
+        },
+        {
+          "B": 15,
+          "b": 5,
+          "family": "binary_budget",
+          "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+          "task": "binary_budget/b05.trace"
+        },
+        {
+          "B": 15,
+          "b": 6,
+          "family": "binary_budget",
+          "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+          "task": "binary_budget/b06.trace"
+        },
+        {
+          "B": 15,
+          "b": 7,
+          "family": "binary_budget",
+          "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+          "task": "binary_budget/b07.trace"
+        },
+        {
+          "B": 11,
+          "b": 2,
+          "family": "constraint_states",
+          "sha256": "ab8b2bedd4a8e1c7a487ea0f2f4de12b547060ca86c836473e68dfa9e0ed0ca3",
+          "task": "constraint_states/r00.trace"
+        },
+        {
+          "B": 11,
+          "b": 2,
+          "family": "constraint_states",
+          "sha256": "dde03337f4a3f90f227d7d5938c4111e5655f99abf88478aed19cd918ba0cd72",
+          "task": "constraint_states/r01.trace"
+        },
+        {
+          "B": 11,
+          "b": 2,
+          "family": "constraint_states",
+          "sha256": "8373aa31f25379fd682b3ef67a8af93029d9e7b246c326303f1b2cdf27d2cae8",
+          "task": "constraint_states/r02.trace"
+        },
+        {
+          "B": 11,
+          "b": 2,
+          "family": "constraint_states",
+          "sha256": "9ed98cae82244c05aa215401864ae0ea2aa4102b50ed4ef2667a30cf1b1387c5",
+          "task": "constraint_states/r03.trace"
+        },
+        {
+          "B": 7,
+          "b": 3,
+          "family": "control_B",
+          "sha256": "202617ddeb9b5529ed017153678791728507036bb595d7de727af0148350fc7c",
+          "task": "control_B/B07.trace"
+        },
+        {
+          "B": 11,
+          "b": 3,
+          "family": "control_B",
+          "sha256": "58d4603478363e4c8d78e183b5eba2d5dc44cd7d7bd43b7b02429234bec4a5d2",
+          "task": "control_B/B11.trace"
+        },
+        {
+          "B": 15,
+          "b": 5,
+          "family": "control_B",
+          "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+          "task": "control_B/B15.trace"
+        },
+        {
+          "B": 21,
+          "b": 7,
+          "family": "control_B",
+          "sha256": "894728e589ac01e9bb46cdbe9f1c0695bda2bed91d118d03d69d4a0f0ae9407a",
+          "task": "control_B/B21.trace"
+        },
+        {
+          "B": 31,
+          "b": 10,
+          "family": "control_B",
+          "sha256": "7575c61df469242b48a959ca284b73c67930750715d0632a31546504da118763",
+          "task": "control_B/B31.trace"
+        },
+        {
+          "B": 7,
+          "b": 1,
+          "family": "favorable_B",
+          "sha256": "8621e8472545dbfa82a0cce807b836670ae7f7af443927a4dcf11c0e1a2de9ce",
+          "task": "favorable_B/B07.trace"
+        },
+        {
+          "B": 11,
+          "b": 1,
+          "family": "favorable_B",
+          "sha256": "eaa2c2a49a68d580002cebd226bbfc3193aa92d54940e5f7a51be6714e28a207",
+          "task": "favorable_B/B11.trace"
+        },
+        {
+          "B": 15,
+          "b": 1,
+          "family": "favorable_B",
+          "sha256": "9670156c02d3e1d873837b51f08b99d3f9766d34293eabd92f7b7ab02404e6d8",
+          "task": "favorable_B/B15.trace"
+        },
+        {
+          "B": 21,
+          "b": 1,
+          "family": "favorable_B",
+          "sha256": "5702f999ac3d16b99f6eed01244a53f21652de3afbb54105a0aa1faee332a688",
+          "task": "favorable_B/B21.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "favorable_B",
+          "sha256": "cbc60ca8c8b28affaa51301cc8497b2a3f765a459c61614e652430c1ca48119b",
+          "task": "favorable_B/B31.trace"
+        },
+        {
+          "B": 41,
+          "b": 1,
+          "family": "favorable_B",
+          "sha256": "cddd749a76077e341db64c3d9ecf3ec54fca0363c63f5b4e72e3798802b8fcc8",
+          "task": "favorable_B/B41.trace"
+        },
+        {
+          "B": 21,
+          "b": 1,
+          "family": "shape",
+          "sha256": "bf561ce0368b5d5a6fe673320dcf791ef657557cd68fd36048f91d378ba7f277",
+          "task": "shape/branches.trace"
+        },
+        {
+          "B": 15,
+          "b": 1,
+          "family": "shape",
+          "sha256": "ca396e354529cdd89e7dcaabc6a7db536b15dee0295ed85cc3cd8cf039340b79",
+          "task": "shape/fxg.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "d6dee7550c13669c0242b6cb1d10728bcd730f40170ed27f5935b509ad08ee85",
+          "task": "unary_depth/d02.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "1aae3eff4df22edd34ad46984f3b2ecf327ddc614f70c38ea4bd5c92fcff207a",
+          "task": "unary_depth/d04.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "e1cb71c63e21cd2a9fa75f25968d26a3fad8827659face257a4ee1c0fd180667",
+          "task": "unary_depth/d06.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "fd8005356b244825354028ca4c49a09509b02500c5e85b15034dca98b8850d54",
+          "task": "unary_depth/d08.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "184888f81ae5487b29923164ef00a35c782fc6598fce2477033b9a690bd2bca6",
+          "task": "unary_depth/d12.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "8231595f3484c54232cc385f142d8bf941cd36e2ada53285ba56331a48382648",
+          "task": "unary_depth/d16.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "af58931744f0317195c10cd07695fc63ef8c2aded3ca62b5602cd400fd47670a",
+          "task": "unary_depth/d20.trace"
+        },
+        {
+          "B": 31,
+          "b": 1,
+          "family": "unary_depth",
+          "sha256": "bf9afd022f1e6455580b74c721e7e717df409e22f737ca0e2a1295c24d4aabb0",
+          "task": "unary_depth/d30.trace"
+        }
+      ],
+      "variants": [
+        "atlas-b",
+        "macro"
+      ],
+      "workers": [
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "2,3",
+            "id": "w00",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w00/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "ac1da9b3d3a98288c1b784c114a3e81959b59b87f051d97e1018fdf3f71ebc50",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w00"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w00/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w00.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w00",
+          "records": [
+            {
+              "B": 15,
+              "b": 6,
+              "family": "binary_budget",
+              "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+              "task": "binary_budget/b06.trace"
+            },
+            {
+              "B": 11,
+              "b": 2,
+              "family": "constraint_states",
+              "sha256": "dde03337f4a3f90f227d7d5938c4111e5655f99abf88478aed19cd918ba0cd72",
+              "task": "constraint_states/r01.trace"
+            },
+            {
+              "B": 15,
+              "b": 1,
+              "family": "favorable_B",
+              "sha256": "9670156c02d3e1d873837b51f08b99d3f9766d34293eabd92f7b7ab02404e6d8",
+              "task": "favorable_B/B15.trace"
+            },
+            {
+              "B": 15,
+              "b": 1,
+              "family": "shape",
+              "sha256": "ca396e354529cdd89e7dcaabc6a7db536b15dee0295ed85cc3cd8cf039340b79",
+              "task": "shape/fxg.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "bf9afd022f1e6455580b74c721e7e717df409e22f737ca0e2a1295c24d4aabb0",
+              "task": "unary_depth/d30.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w00/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "4,5",
+            "id": "w01",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w01/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "92afe6237d5402c4035582bc427b6afdf20ac106ace60bbc74f4e914671f4134",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w01"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w01/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w01.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w01",
+          "records": [
+            {
+              "B": 15,
+              "b": 7,
+              "family": "binary_budget",
+              "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+              "task": "binary_budget/b07.trace"
+            },
+            {
+              "B": 11,
+              "b": 2,
+              "family": "constraint_states",
+              "sha256": "9ed98cae82244c05aa215401864ae0ea2aa4102b50ed4ef2667a30cf1b1387c5",
+              "task": "constraint_states/r03.trace"
+            },
+            {
+              "B": 21,
+              "b": 1,
+              "family": "favorable_B",
+              "sha256": "5702f999ac3d16b99f6eed01244a53f21652de3afbb54105a0aa1faee332a688",
+              "task": "favorable_B/B21.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "8231595f3484c54232cc385f142d8bf941cd36e2ada53285ba56331a48382648",
+              "task": "unary_depth/d16.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "d6dee7550c13669c0242b6cb1d10728bcd730f40170ed27f5935b509ad08ee85",
+              "task": "unary_depth/d02.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w01/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "6,7",
+            "id": "w02",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w02/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "7816acae9cbf079a9d470b1146422b873b9eef67916917f11d1d09a06aa1180e",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w02"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w02/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w02.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w02",
+          "records": [
+            {
+              "B": 15,
+              "b": 5,
+              "family": "binary_budget",
+              "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+              "task": "binary_budget/b05.trace"
+            },
+            {
+              "B": 7,
+              "b": 3,
+              "family": "control_B",
+              "sha256": "202617ddeb9b5529ed017153678791728507036bb595d7de727af0148350fc7c",
+              "task": "control_B/B07.trace"
+            },
+            {
+              "B": 41,
+              "b": 1,
+              "family": "favorable_B",
+              "sha256": "cddd749a76077e341db64c3d9ecf3ec54fca0363c63f5b4e72e3798802b8fcc8",
+              "task": "favorable_B/B41.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "af58931744f0317195c10cd07695fc63ef8c2aded3ca62b5602cd400fd47670a",
+              "task": "unary_depth/d20.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w02/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "8,9",
+            "id": "w03",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w03/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "19d408d9232fa60f213ea8fbabb872d5fb3948e2d434b4daa6719caa71c20365",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w03"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w03/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w03.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w03",
+          "records": [
+            {
+              "B": 15,
+              "b": 4,
+              "family": "binary_budget",
+              "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+              "task": "binary_budget/b04.trace"
+            },
+            {
+              "B": 31,
+              "b": 10,
+              "family": "control_B",
+              "sha256": "7575c61df469242b48a959ca284b73c67930750715d0632a31546504da118763",
+              "task": "control_B/B31.trace"
+            },
+            {
+              "B": 7,
+              "b": 1,
+              "family": "favorable_B",
+              "sha256": "8621e8472545dbfa82a0cce807b836670ae7f7af443927a4dcf11c0e1a2de9ce",
+              "task": "favorable_B/B07.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "1aae3eff4df22edd34ad46984f3b2ecf327ddc614f70c38ea4bd5c92fcff207a",
+              "task": "unary_depth/d04.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w03/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "10,11",
+            "id": "w04",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w04/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "70757ed03c8c5360f7025053be009cd2b92c743bc02384277cec7a3ce442b52b",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w04"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w04/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w04.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w04",
+          "records": [
+            {
+              "B": 15,
+              "b": 3,
+              "family": "binary_budget",
+              "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+              "task": "binary_budget/b03.trace"
+            },
+            {
+              "B": 11,
+              "b": 3,
+              "family": "control_B",
+              "sha256": "58d4603478363e4c8d78e183b5eba2d5dc44cd7d7bd43b7b02429234bec4a5d2",
+              "task": "control_B/B11.trace"
+            },
+            {
+              "B": 11,
+              "b": 1,
+              "family": "favorable_B",
+              "sha256": "eaa2c2a49a68d580002cebd226bbfc3193aa92d54940e5f7a51be6714e28a207",
+              "task": "favorable_B/B11.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "fd8005356b244825354028ca4c49a09509b02500c5e85b15034dca98b8850d54",
+              "task": "unary_depth/d08.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w04/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "12,13",
+            "id": "w05",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w05/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "256fe1416b4d2d2bbeda483788ac379baaef99ba6dbad4a437da00c2348c4bc1",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w05"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w05/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w05.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w05",
+          "records": [
+            {
+              "B": 11,
+              "b": 2,
+              "family": "constraint_states",
+              "sha256": "ab8b2bedd4a8e1c7a487ea0f2f4de12b547060ca86c836473e68dfa9e0ed0ca3",
+              "task": "constraint_states/r00.trace"
+            },
+            {
+              "B": 15,
+              "b": 5,
+              "family": "control_B",
+              "sha256": "817ab13ad7656a2fef61aa900f1d770029ad94a09ac2374537380aa1f894ed74",
+              "task": "control_B/B15.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "favorable_B",
+              "sha256": "cbc60ca8c8b28affaa51301cc8497b2a3f765a459c61614e652430c1ca48119b",
+              "task": "favorable_B/B31.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "e1cb71c63e21cd2a9fa75f25968d26a3fad8827659face257a4ee1c0fd180667",
+              "task": "unary_depth/d06.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w05/supported_tasks.txt"
+        },
+        {
+          "config": {
+            "campaign": "/srv/macroatlas/experiments/rq4-scale-once",
+            "campaignId": "c1e3378fb9",
+            "cpus": "14,15",
+            "id": "w06",
+            "lockFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w06/worker.lock",
+            "memoryMb": 10240,
+            "phase": "e8-synthetic",
+            "taskListHash": "562445e921086d0d097603f24a975b962445abb4840cbc829e4cbefd1ecc325d",
+            "unit": "macroatlas-c1e3378fb9-e8-synthetic-w06"
+          },
+          "configFile": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w06/worker.json",
+          "log": "/srv/macroatlas/experiments/rq4-scale-once/logs/e8-synthetic-w06.log",
+          "output": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/workers/w06",
+          "records": [
+            {
+              "B": 11,
+              "b": 2,
+              "family": "constraint_states",
+              "sha256": "8373aa31f25379fd682b3ef67a8af93029d9e7b246c326303f1b2cdf27d2cae8",
+              "task": "constraint_states/r02.trace"
+            },
+            {
+              "B": 21,
+              "b": 7,
+              "family": "control_B",
+              "sha256": "894728e589ac01e9bb46cdbe9f1c0695bda2bed91d118d03d69d4a0f0ae9407a",
+              "task": "control_B/B21.trace"
+            },
+            {
+              "B": 21,
+              "b": 1,
+              "family": "shape",
+              "sha256": "bf561ce0368b5d5a6fe673320dcf791ef657557cd68fd36048f91d378ba7f277",
+              "task": "shape/branches.trace"
+            },
+            {
+              "B": 31,
+              "b": 1,
+              "family": "unary_depth",
+              "sha256": "184888f81ae5487b29923164ef00a35c782fc6598fce2477033b9a690bd2bca6",
+              "task": "unary_depth/d12.trace"
+            }
+          ],
+          "tasks": "/srv/macroatlas/experiments/rq4-scale-once/e8-synthetic/inputs/w06/supported_tasks.txt"
+        }
+      ]
+    }
+  ],
+  "pilot": false,
+  "protocolAmendment": "User requested parallel execution. Disjoint visible CPU sibling groups and hard memory limits; shared hardware interference cannot be eliminated.",
+  "python": "/srv/macroatlas/venv/bin/python",
+  "reserveMemoryMb": 8192,
+  "reservedCpus": "0,1",
+  "seed": 20260924,
+  "strictOnce": true,
+  "timeoutSec": 180.0,
+  "version": 1,
+  "workerCpus": [
+    "2,3",
+    "4,5",
+    "6,7",
+    "8,9",
+    "10,11",
+    "12,13",
+    "14,15"
+  ],
+  "workerMemoryMb": 10240,
+  "workers": 7
+}

@@ -30,6 +30,8 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 [全量实验交接说明](ATLAS/docs/phase4/FULL_RUN_HANDOFF.md)。
 已完成的 RQ1 tiny exhaustive 与全量 E4 matched 单次运行，其原始数据、
 可复算汇总和结论见 [2026-09-23 实验结果](ATLAS/experiment_artifacts/2026-09-23/README.zh-CN.md)。
+RQ4 synthetic scalability 的逐运行数据与适用范围见
+[2026-09-24 RQ4 结果](ATLAS/docs/phase4/RQ4_RESULTS_2026-09-24.md)。
 
 ## 仓库内容
 

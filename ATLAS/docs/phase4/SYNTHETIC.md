@@ -17,4 +17,6 @@ python3 scripts/phase4/run.py --suite matched --root generated/synthetic-ready/m
 
 默认停止规则：执行所有预注册任务；不根据某方法输赢裁剪规模。若正式预算需要更早停止，应在运行前新增明确协议和任务列表，而非运行后删除 timeout。
 
-当前仅验证生成与管线，正式 scaling 图等待服务器实验。`analyze.py` 对 unary 系列生成 scaling PDF，对其他系列保留完整 per-task 表和 metadata。
+上述通用 synthetic suite 的生成与管线已验证。另行预注册并完成的 RQ4
+scalability suite 及其结果、限制见 [RQ4 实验结果](RQ4_RESULTS_2026-09-24.md)；
+它与此处的通用 suite 是两个不同的数据集。

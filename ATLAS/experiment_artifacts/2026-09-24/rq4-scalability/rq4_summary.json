@@ -1,0 +1,743 @@
+{
+  "bothSolved": 25,
+  "cases": 30,
+  "manifestSha256": "0695f5f55144d4422299cf0c4d43f315932c787be15bf708393d8c74773e351a",
+  "note": "One attempt per algorithm/case; timeout/error included, speedup only where both solved. Target depth is a construction parameter, not necessarily the learned formula depth.",
+  "objectiveDisagreements": [],
+  "paperCsvSha256": "ecfe8a5deb7438cd712df5bdbd72866075de1dc8f9b5e35af5e8d0cbc138be39",
+  "perAxis": [
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "11",
+      "cases": 1,
+      "medianSolvedSec": 2.8351463500002865,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "11",
+      "cases": 1,
+      "medianSolvedSec": 1.0536797679997107,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "15",
+      "cases": 1,
+      "medianSolvedSec": 2.5372857020010997,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "15",
+      "cases": 1,
+      "medianSolvedSec": 0.9970297459985886,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "21",
+      "cases": 1,
+      "medianSolvedSec": 2.4851042039990716,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "21",
+      "cases": 1,
+      "medianSolvedSec": 1.1165831170001184,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "31",
+      "cases": 1,
+      "medianSolvedSec": 2.596971200000553,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "31",
+      "cases": 1,
+      "medianSolvedSec": 1.0758865419993526,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "7",
+      "cases": 1,
+      "medianSolvedSec": 2.368515516998741,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "7",
+      "cases": 1,
+      "medianSolvedSec": 0.9973547539993888,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "b",
+      "axisValue": "3",
+      "cases": 1,
+      "medianSolvedSec": 2.5457429770031013,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "b",
+      "axisValue": "3",
+      "cases": 1,
+      "medianSolvedSec": 1.0277262760027952,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "b",
+      "axisValue": "4",
+      "cases": 1,
+      "medianSolvedSec": 2.7267037399979017,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "b",
+      "axisValue": "4",
+      "cases": 1,
+      "medianSolvedSec": 1.1168998449975334,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "b",
+      "axisValue": "5",
+      "cases": 1,
+      "medianSolvedSec": 2.5163996159972157,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "b",
+      "axisValue": "5",
+      "cases": 1,
+      "medianSolvedSec": 1.024881553999876,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "b",
+      "axisValue": "6",
+      "cases": 1,
+      "medianSolvedSec": 2.489866517000337,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "b",
+      "axisValue": "6",
+      "cases": 1,
+      "medianSolvedSec": 1.0646105150008225,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "b",
+      "axisValue": "7",
+      "cases": 1,
+      "medianSolvedSec": 2.439125409000553,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "b",
+      "axisValue": "7",
+      "cases": 1,
+      "medianSolvedSec": 1.0017079429999285,
+      "regime": "large_b_short_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "required_count",
+      "axisValue": "0",
+      "cases": 1,
+      "medianSolvedSec": 2.6614825510005176,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "required_count",
+      "axisValue": "0",
+      "cases": 1,
+      "medianSolvedSec": 1.002938315999927,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "required_count",
+      "axisValue": "1",
+      "cases": 1,
+      "medianSolvedSec": 2.5637299819973123,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "required_count",
+      "axisValue": "1",
+      "cases": 1,
+      "medianSolvedSec": 5.346002187998238,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "required_count",
+      "axisValue": "2",
+      "cases": 1,
+      "medianSolvedSec": 2.980107429000782,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "required_count",
+      "axisValue": "2",
+      "cases": 1,
+      "medianSolvedSec": 6.780407510999794,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "required_count",
+      "axisValue": "3",
+      "cases": 1,
+      "medianSolvedSec": 2.5281048420001753,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "required_count",
+      "axisValue": "3",
+      "cases": 1,
+      "medianSolvedSec": 12.323741516000155,
+      "regime": "q_axis",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "11",
+      "cases": 1,
+      "medianSolvedSec": 70.93005077199996,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "11",
+      "cases": 1,
+      "medianSolvedSec": 4.291330976000609,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "15",
+      "cases": 1,
+      "medianSolvedSec": 70.32626222000181,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "15",
+      "cases": 1,
+      "medianSolvedSec": 4.464368908000324,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "21",
+      "cases": 1,
+      "medianSolvedSec": 47.18917357199825,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "21",
+      "cases": 1,
+      "medianSolvedSec": 3.9759455029998207,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "31",
+      "cases": 1,
+      "medianSolvedSec": 66.53318648200002,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "31",
+      "cases": 1,
+      "medianSolvedSec": 4.463359343000775,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "41",
+      "cases": 1,
+      "medianSolvedSec": 69.43911617100093,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "41",
+      "cases": 1,
+      "medianSolvedSec": 4.289329125997028,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "B",
+      "axisValue": "7",
+      "cases": 1,
+      "medianSolvedSec": 15.589765122000244,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "B",
+      "axisValue": "7",
+      "cases": 1,
+      "medianSolvedSec": 3.5034849930016208,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "shape",
+      "axisValue": "FX8G",
+      "cases": 1,
+      "medianSolvedSec": 4.134978153000702,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "shape",
+      "axisValue": "FX8G",
+      "cases": 1,
+      "medianSolvedSec": 4.138233650999609,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "shape",
+      "axisValue": "two_branches",
+      "cases": 1,
+      "medianSolvedSec": 73.05369487699863,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "shape",
+      "axisValue": "two_branches",
+      "cases": 1,
+      "medianSolvedSec": 7.827092447998439,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "12",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "12",
+      "cases": 1,
+      "medianSolvedSec": 87.82268853999994,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "16",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "16",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "2",
+      "cases": 1,
+      "medianSolvedSec": 20.006233226002223,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "2",
+      "cases": 1,
+      "medianSolvedSec": 5.892189710997627,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "20",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "20",
+      "cases": 1,
+      "medianSolvedSec": 29.067383937999693,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "30",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "30",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "4",
+      "cases": 1,
+      "medianSolvedSec": 26.349271356000827,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "4",
+      "cases": 1,
+      "medianSolvedSec": 7.0337534159989445,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "6",
+      "cases": 1,
+      "medianSolvedSec": 179.3047893769981,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "6",
+      "cases": 1,
+      "medianSolvedSec": 8.115091317002225,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    },
+    {
+      "algorithm": "atlas-b",
+      "axis": "unary_depth",
+      "axisValue": "8",
+      "cases": 1,
+      "medianSolvedSec": null,
+      "regime": "small_b_long_unary",
+      "solved": 0,
+      "statuses": {
+        "TIMEOUT": 1
+      }
+    },
+    {
+      "algorithm": "macro",
+      "axis": "unary_depth",
+      "axisValue": "8",
+      "cases": 1,
+      "medianSolvedSec": 27.71854586200061,
+      "regime": "small_b_long_unary",
+      "solved": 1,
+      "statuses": {
+        "SAT": 1
+      }
+    }
+  ],
+  "rawSha256": "e7389f0a5778c18bed0bb40b503cc0636117441f6c1a4b288bb5f778c94c37d2",
+  "runs": 60,
+  "statusCounts": {
+    "atlas-b": {
+      "SAT": 25,
+      "TIMEOUT": 5
+    },
+    "macro": {
+      "SAT": 28,
+      "TIMEOUT": 2
+    }
+  },
+  "statusDisagreements": []
+}
