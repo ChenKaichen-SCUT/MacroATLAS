@@ -44,7 +44,8 @@ class MacroConstraintPlan<Q : Any>(
     identityConstraints: Collection<MacroIdentityConstraint> = emptyList(),
     val objective: MacroObjective = MacroObjective.MinExpandedSize,
     val uniqueLiteralIdentities: Boolean = false,
-    requiredProtectedIdentities: Collection<NodeId> = protectedIdentities.map { it.id }
+    requiredProtectedIdentities: Collection<NodeId> = protectedIdentities.map { it.id },
+    val requiredRootUnary: UnaryOperator? = null
 ) {
     val propositions = immutableList(propositions.distinct().sorted())
     val allowedUnaryOperators = immutableList(allowedUnaryOperators.distinct().sortedBy { it.lexicalRank })
@@ -59,6 +60,8 @@ class MacroConstraintPlan<Q : Any>(
         require(nodeBudget >= 1 && binaryBudget >= 0)
         require(this.propositions.isNotEmpty())
         require(BinaryOperator.UNTIL !in this.allowedBinaryOperators)
+        require(requiredRootUnary == null || requiredRootUnary in this.allowedUnaryOperators)
+        require(requiredRootUnary == null || (this.protectedIdentities.isEmpty() && objective is MacroObjective.MinExpandedSize))
         require(this.protectedIdentities.map { it.id }.distinct().size == this.protectedIdentities.size)
         require(this.requiredProtectedIdentities.all { required -> this.protectedIdentities.any { it.id == required } })
         require(this.protectedIdentities.all { it.label in labels })

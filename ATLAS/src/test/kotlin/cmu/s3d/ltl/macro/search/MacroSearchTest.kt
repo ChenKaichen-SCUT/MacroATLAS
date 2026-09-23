@@ -10,6 +10,49 @@ import kotlin.test.*
 
 class MacroSearchTest {
     private fun trace(vararg values: Boolean) = LassoTrace(loop = values.map { State(mapOf("p" to it)) })
+    @Test fun certifiedSmallFormulaBoundPreservesTheOptimalDagAndRejectsLargerOptima() {
+        val plain = MacroConstraintPlan(ProductConstraintAutomaton(emptyList()),listOf("p"),4,1,
+            listOf(UnaryOperator.NOT),listOf(BinaryOperator.AND))
+        val literal = MacroLearner(plain,listOf(trace(true)),listOf(trace(false))).solve()
+        assertEquals(1,literal.dag!!.size())
+        assertEquals(1,literal.metadata["smallFormulaBound"])
+        assertEquals(1,literal.assignment!!.expandedSize)
+
+        val negated = MacroLearner(plain,listOf(trace(false)),listOf(trace(true))).solve()
+        assertEquals(2,negated.dag!!.size())
+        assertEquals(2,negated.metadata["smallFormulaBound"])
+        assertEquals(2,negated.assignment!!.expandedSize)
+
+        val andRoot = MacroConstraintPlan(RootOperatorAutomaton("And"),listOf("p"),3,1,
+            emptyList(),listOf(BinaryOperator.AND))
+        val shared = MacroLearner(andRoot,listOf(trace(true)),listOf(trace(false))).solve()
+        assertEquals(2,shared.dag!!.size())
+        assertEquals(2,shared.metadata["smallFormulaBound"])
+
+        fun pq(p:Boolean,q:Boolean) = LassoTrace(loop=listOf(State(mapOf("p" to p,"q" to q))))
+        val conjunction = MacroConstraintPlan(ProductConstraintAutomaton(emptyList()),listOf("p","q"),3,1,
+            emptyList(),listOf(BinaryOperator.AND))
+        val larger = MacroLearner(conjunction,listOf(pq(true,true)),listOf(pq(false,true),pq(true,false))).solve()
+        assertEquals(3,larger.dag!!.size())
+        assertEquals(0,larger.metadata["smallFormulaBound"])
+    }
+
+    @Test fun requiredGlobalRootHasAnEquivalentAnchoredRepresentation() {
+        fun plan(fixed: Boolean) = MacroConstraintPlan(RootOperatorAutomaton("G"),listOf("p"),4,0,
+            listOf(UnaryOperator.F,UnaryOperator.G),emptyList(),
+            requiredRootUnary = if (fixed) UnaryOperator.G else null)
+        for ((positives,negatives,size) in listOf(
+            Triple(listOf(trace(true)),listOf(trace(false)),2),
+            Triple(listOf(trace(false,true)),listOf(trace(false,false)),3)
+        )) {
+            val original = MacroLearner(plan(false),positives,negatives).solve()
+            val anchored = MacroLearner(plan(true),positives,negatives).solve()
+            assertEquals(size,original.dag!!.size())
+            assertEquals(size,anchored.dag!!.size())
+            assertIs<UnaryNode>(anchored.dag!!.node(anchored.dag!!.root))
+        }
+    }
+
     @Test fun directSearchLearnsLiteralAndNegationAndReportsUnsat() {
         for (neg in listOf(false, true)) {
             val plan = MacroConstraintPlan(ProductConstraintAutomaton(emptyList()), listOf("p"), 2, 0,

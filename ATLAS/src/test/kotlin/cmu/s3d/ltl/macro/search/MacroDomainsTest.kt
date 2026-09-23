@@ -113,7 +113,9 @@ class MacroDomainsTest {
             assertEquals(count,parsed.size,family)
             for ((file,original) in parsed) {
                 val matched = original.copy(excludedOperators = (original.excludedOperators + "Until").distinct())
-                assertIs<MacroTaskAnalysis.Supported>(RecognizedConstraintAnalyzer.analyze(matched,2),file.path)
+                val analysis = assertIs<MacroTaskAnalysis.Supported>(RecognizedConstraintAnalyzer.analyze(matched,2),file.path)
+                assertEquals(if (family == "robot") null else UnaryOperator.G,
+                    analysis.plan.requiredRootUnary,file.path)
             }
         }
         val finite = LassoTrace(prefix=listOf(State(mapOf("x0" to true)),State(emptyMap())))

@@ -14,6 +14,7 @@ FIELDS = "task family variant repeat status outcome solverMode fallbackReason B 
 FIELDS += "searchNodeUniverse primaryVars semanticTypeCount selectedFiberCount meanRepresentativeLength maxRepresentativeLength optimizationPasses fallbackUsed backendTranslationCount".split()
 FIELDS += "costStrategy unquotientedFiberCount encodedFiberCount costScope parseSec translationAndSolveSec totalInternalSec".split()
 FIELDS += "inputTraceCount reducedTraceCount".split()
+FIELDS += "smallFormulaSec smallFormulaBound".split()
 
 
 def sha256(path):

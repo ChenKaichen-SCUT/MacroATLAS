@@ -94,10 +94,23 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         val start = System.nanoTime()
         val objective = context.plan.objective as? MacroObjective.Repair
         val repair = objective != null
+        val smallStart = System.nanoTime()
+        val smallOptimum = if (costStrategy == MacroCostStrategy.WEIGHTED_MAXSAT)
+            SmallFormulaBound.optimum(context) else null
+        val smallNanos = System.nanoTime() - smallStart
         var finalSource: String
         var assignment: MacroAssignment?
         var passes = 0
-        if (costStrategy == MacroCostStrategy.WEIGHTED_MAXSAT) {
+        if (smallOptimum != null) {
+            // An independently checked witness and exhaustive smaller-domain
+            // enumeration prove this hard bound is the global minimum.  A SAT
+            // solve retains the usual assignment, decoder and final verifier.
+            builder = MacroAlloyModelBuilder(context, smallOptimum)
+            finalSource = build(maximumCost = smallOptimum, optimizeCost = false)
+            assignment = execute(finalSource, "macro_small_$smallOptimum.als"); passes++
+            checkNotNull(assignment) { "Small-formula witness was not representable by the macro encoding" }
+            check(assignment.expandedSize == smallOptimum)
+        } else if (costStrategy == MacroCostStrategy.WEIGHTED_MAXSAT) {
             var scope = minOf(context.plan.nodeBudget, 8)
             finalSource = ""
             assignment = null
@@ -219,6 +232,7 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
             "meanRepresentativeLength" to (assignment?.ports?.values?.map { context.catalog.entries[it.fiber].length }?.average()?.takeUnless { it.isNaN() } ?: 0.0),
             "maxRepresentativeLength" to (assignment?.ports?.values?.maxOfOrNull { context.catalog.entries[it.fiber].length } ?: 0),
             "registrySec" to context.registryNanoseconds/1e9, "fiberSec" to context.fiberNanoseconds/1e9,
+            "smallFormulaSec" to smallNanos/1e9, "smallFormulaBound" to (smallOptimum ?: 0),
             "encodingSec" to encodingNanos/1e9, "solverSec" to backendNanos/1e9,
             "parseSec" to parseNanos/1e9, "translationAndSolveSec" to (backendNanos-parseNanos)/1e9,
             "decodeSec" to decodeNanos/1e9, "verifySec" to verifyNanos/1e9

@@ -128,7 +128,8 @@ object RecognizedConstraintAnalyzer {
                 if (response) automata.add(ResponseOuterShapeAutomaton())
                 required.forEach { automata.add(RequiredPropositionAutomaton(it)) }
                 val plan = MacroConstraintPlan(minimized(ProductConstraintAutomaton(automata)), task.literals, nodeBudget, binaryBudget,
-                    unary, binary, identityConstraints = listOf(MacroIdentityConstraint.NoSharedLiteralBranches), uniqueLiteralIdentities = true)
+                    unary, binary, identityConstraints = listOf(MacroIdentityConstraint.NoSharedLiteralBranches),
+                    uniqueLiteralIdentities = true, requiredRootUnary = UnaryOperator.G)
                 return MacroTaskAnalysis.Supported(plan, listOf("OfficialPeterson", "NoSharedLiteralBranches") +
                     required.map { "RequiredProposition($it)" })
             }
@@ -136,14 +137,15 @@ object RecognizedConstraintAnalyzer {
                 val automata = arrayListOf<ConstraintAutomaton<*>>(RootOperatorAutomaton("G"))
                 if (nnf) automata.add(NnfAutomaton())
                 val plan = MacroConstraintPlan(minimized(ProductConstraintAutomaton(automata)), task.literals, nodeBudget, binaryBudget,
-                    unary, binary, uniqueLiteralIdentities = true)
+                    unary, binary, uniqueLiteralIdentities = true, requiredRootUnary = UnaryOperator.G)
                 return MacroTaskAnalysis.Supported(plan, listOf("OfficialVoting") + if (nnf) listOf("NNF") else emptyList())
             }
             if (text == WEAKEN_ANTECEDENT || text == WEAKEN_CONSEQUENT) {
                 val consequent = text == WEAKEN_CONSEQUENT
                 val automaton = minimized(WeakeningTemplateAutomaton(consequent))
                 val plan = MacroConstraintPlan(automaton,
-                    task.literals, nodeBudget, binaryBudget, unary, binary, uniqueLiteralIdentities = true)
+                    task.literals, nodeBudget, binaryBudget, unary, binary, uniqueLiteralIdentities = true,
+                    requiredRootUnary = UnaryOperator.G)
                 return MacroTaskAnalysis.Supported(plan, listOf(if (consequent) "OfficialWeakeningConsequent" else "OfficialWeakeningAntecedent"))
             }
             if (text == ROBOT_RA || text == ROBOT_RR) {

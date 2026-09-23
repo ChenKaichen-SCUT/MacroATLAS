@@ -101,6 +101,15 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>, v
         }
         line("no iden & ^graph")
         line("active = R.target.*graph")
+        // The official constrained profiles below require a concrete G at the
+        // root.  The root has no parent, so moving that G from the root fiber to
+        // an anchor changes neither sharing nor expanded size.  Pick this one
+        // representation and leave every possible child formula available.
+        if (p.requiredRootUnary != null) {
+            val label = p.labels.indexOf(MacroLabel.Unary(p.requiredRootUnary))
+            line("R.fiber not in nonempty")
+            line("R.target.lab = T$label")
+        }
         val firstAnonymous = p.protectedIdentities.size
         if (firstAnonymous == 0) {
             // Every unprotected rooted DAG has a topological numbering with its root first.
@@ -122,7 +131,7 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>, v
             else line("some A$i.lab implies A$i.lab = T${p.labels.indexOf(protected.label)}")
         }
         for (i in minOf(p.protectedIdentities.size, k) until k) {
-            line("some A$i.lab and A$i.lab in un implies #(target.A$i) > 1")
+            line("some A$i.lab and A$i.lab in un${if (p.requiredRootUnary != null) " and R.target != A$i" else ""} implies #(target.A$i) > 1")
             if (i > p.protectedIdentities.size) line("some A$i.lab implies some A${i-1}.lab")
         }
         line("all disj c, d: Carrier | no c.cost & d.cost")

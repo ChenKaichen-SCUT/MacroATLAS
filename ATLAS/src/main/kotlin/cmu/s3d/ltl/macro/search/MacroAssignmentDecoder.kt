@@ -47,7 +47,11 @@ object MacroAssignmentDecoder {
             }
         }.values.associateBy { it.id }
         val rootState = edges.getValue(MacroPort.ROOT).fiberKey.qOut
-        val activeProtected = ids.filterKeys { it < plan.protectedIdentities.size }.values
+        // A certified root-unary profile deliberately keeps its otherwise
+        // unshared outer operator as an anchor.  Mark it protected for the
+        // canonical round-trip check; its identity is internal to this solve.
+        val activeProtected = (ids.filterKeys { it < plan.protectedIdentities.size }.values +
+            listOfNotNull(if (plan.requiredRootUnary != null) ids.getValue(assignment.ports.getValue("R").target) else null)).distinct()
         val macro = MacroDag(anchors, edges, activeProtected, assignment.expandedSize,
             rootState, plan.allowedUnaryOperators, plan.automaton)
         return DecodedMacro(macro, MacroDagExpander.expandOriginal(macro), ids)
