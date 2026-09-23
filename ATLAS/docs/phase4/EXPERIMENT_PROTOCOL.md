@@ -6,15 +6,15 @@
 
 - `macroatlas-phase3-frozen` 指向 `03d2ed26d3060277b505eedf24bf9edf76fc1600`。
 - 冻结前重新通过原 89 项测试、243 普通任务、50 repair 任务及默认 CLI 回归。
-- Phase 4 不扩展 analyzer/solver 支持范围。对 Phase 3 仅增加计时、编码统计和验证失败分类。
+- 初次正式 pilot 暴露 correctness/coverage 和 scalability 问题后已停止旧实验；修复版本扩展了论文四个 constrained family 的精确 analyzer，并要求使用新 commit 重跑，旧性能数据不混用。
 - 新增 `experiment/` 是实验入口与 matched baseline，原 CLI、LTLLearner、TaskParser 均不修改。
 - [Zenodo artifact](https://zenodo.org/records/14578202) 的 1,252 个 benchmark 文件与本地逐字节一致；下载 checksum 见 [artifact-provenance.json](artifact-provenance.json)。不把历史 CSV 的时间作为当前 baseline。
 
 ## 三种问题必须分开
 
 1. **论文 artifact 复现**：Original ATLAS 原样输入、原求解及原目标。`paper_tasks.txt` 从原论文 notebook 使用的五个历史 CSV 自动反向定位输入，当前 623 个任务。记录原 `solvingTime` 和另测端到端耗时；记录 expected string 是否匹配，但等价公式不按字符串自动认错。
-2. **Matched 主实验**：ATLAS-B 与 MacroATLAS-B 在相同 U-free `.trace`、B、b、约束、目标下比较。当前自动支持 521 个（含 artifact 扩展 ltlsketch 的 36 个）；若只限定原论文 623 例，须对双方共同取该列表交集并报告分母。
-3. **AUTO deployment**：Original 与 AUTO 对原样工作负载。当前原样支持数为 0，AUTO 将全部回退，不能称作宏求解或作为宏加速证据。公开此覆盖局限。
+2. **Matched 主实验**：ATLAS-B 与 MacroATLAS-B 在相同 U-free `.trace`、B、b、约束、目标下比较。当前自动支持 659 个（含论文 485 个 unconstrained、138 个 constrained，以及 artifact 扩展 ltlsketch 的 36 个）；双方共同使用同一支持列表。
+3. **AUTO deployment**：Original 与 AUTO 对原样工作负载。当前原样支持 Robot/Weakening 98 个，其余 1,011 个 ATLAS-format 任务回退；必须分别报告 macro-used 与 fallback。
 
 ## ATLAS-B 的必要变化
 
@@ -24,6 +24,7 @@
 - 用一个受硬约束等于 `childrenAndSelfOf[root]` 的独立 relation `ExperimentCost.used`，再 `minsome ExperimentCost.used`，代替原边集合目标。bundled AlloyMax 对直接闭包表达式的 soft 目标未正确优化；明确 relation 经 SAT4JMax/OpenWBOWeighted 对照验证。
 - 原 ATLAS 给每个 AP 分配固定 literal；未使用 AP 不计根公式大小，因此总 atom scope 为 `B+#AP`，根可达节点仍受 B 限制。metadata 同时记录两个数，不能将原子总数伪称 B。
 - repair 移除唯一受支持的 soft fact，用与 Macro 相同的精确 kept 基数搜索，再最小化节点数。硬 raw 约束保持。
+- B 很大时双方从 cost scope 8 渐进扩大；第一次可行的最小尺寸解即为全局最小。repair 必须先按 scope 搜索理论最大 kept，不能在小 scope 过早接受较少旧边。
 - 原 generator 的单位置 `next =` 空表达式仅在 ATLAS-B 适配成 `ordering/next = none->none`。Original 路径保留 artifact 行为。
 - 原 generator 的 X successor 使用全局 ordering；当同任务 traces 长度不同时，较短 trace 可读到范围外的 valuation。ATLAS-B 将 successor 限定到当前 trace 的 `seqRange`，保证与 Macro 和独立具体 lasso 语义一致。Original 保留原样，若其结果验证失败则停止并报告。
 

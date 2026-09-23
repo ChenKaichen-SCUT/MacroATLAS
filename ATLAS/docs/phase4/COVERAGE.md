@@ -15,14 +15,14 @@
 | increasingNumVariables | 56 | 0 | 56 |
 | moreDetailedTest | 126 | 0 | 126 |
 | ltlsketch（ATLAS 格式扩展） | 486 | 0 | 36 |
-| peterson | 30 | 0 | 0 |
-| voting_machine | 10 | 0 | 0 |
-| robot | 20 | 0 | 0 |
-| weakening | 78 | 0 | 0 |
-| 总计 | 1109 | 0（0%） | 521（46.98%） |
+| peterson | 30 | 0 | 30 |
+| voting_machine | 10 | 0 | 10 |
+| robot | 20 | 20 | 20 |
+| weakening | 78 | 78 | 78 |
+| 总计 | 1109 | 98（8.84%） | 659（59.42%） |
 
-原样：1,011 个候选字母表含 U，98 个未知 raw constraint。U-free 变体：580 个 raw constraint 未识别，8 个输入 loop 为空而不满足宏 lasso 约定。U-free 支持任务的原始总节点界限范围 B=2–264；不可统一假定 B≤15。
+原样：1,011 个任务的候选字母表含 U；Robot 20 与 Weakening 78 本来就是 U-free，因此 AUTO 在这 98 个任务使用 Macro，其余回退。U-free 变体完整识别论文四个 constrained family 的固定模板；其余 450 个未知 raw constraint 继续 fail closed。有限 trace 按原 ATLAS 的末状态 stutter 语义处理。U-free 支持任务的原始总节点界限可超过 264，Robot 的 depth 输入会展开成 B=2050；求解器使用渐进 cost scope，不一次展开完整 B。
 
-在原论文 623 个任务内，U-free 支持 485 个（77.85%）；约束 case studies 原样仍未进入宏路径。Phase 4 不为改善 coverage 悄悄放松约束或扩展识别器。AUTO 原样结果预计全部为 original fallback，必须报告这一事实。
+在原论文 623 个任务内，U-free matched 支持全部 623 个：485 个 unconstrained 与 138 个 constrained。原样 AUTO 支持 Robot/Weakening 98 个（15.73%），其余 525 个回退。约束识别按完整 canonical block 精确匹配，未知或残余 Alloy 文本仍拒绝；没有把任意 raw Alloy 当作已支持。AUTO 与 matched 仍须分开报告。
 
 机器数据：[official coverage](preflight/official-coverage.csv)、[matched coverage](preflight/matched-coverage.csv)、[supported list](preflight/matched-supported_tasks.txt)、[paper provenance](preflight/paper-provenance.json)。正式服务器应重新运行 prepare，记录新环境与列表 hash。

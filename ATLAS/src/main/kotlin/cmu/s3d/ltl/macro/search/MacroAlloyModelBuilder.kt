@@ -5,17 +5,45 @@ import cmu.s3d.ltl.macro.kernel.PortKind
 import cmu.s3d.ltl.macro.unary.*
 
 /** Direct macro encoding. Units count size; they are not syntax nodes and have no labels or valuations. */
-class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
+class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>, val costScope: Int = context.plan.nodeBudget,
+                                     guaranteedKeptEdges: Int = 0) {
     private val p = context.plan
-    val k = p.anchorSlotBudget
+    init { require(costScope in 1..p.nodeBudget) }
+    // A formula contains at least one anchor, so a single unary fiber can use at
+    // most costScope-1 nodes. IDs remain the global catalog IDs for decoding.
+    val fibers = context.catalog.entries.filter { it.length < costScope }
+    private val repairEdges = (p.objective as? MacroObjective.Repair)?.oldEdges.orEmpty()
+    private val guaranteedActiveProtected = when {
+        guaranteedKeptEdges == repairEdges.size && repairEdges.isNotEmpty() ->
+            (repairEdges.flatMap { listOf(it.source, it.target) } + p.requiredProtectedIdentities).distinct().size
+        guaranteedKeptEdges > 0 -> maxOf(p.requiredProtectedIdentities.size, 2)
+        else -> p.requiredProtectedIdentities.size
+    }
+    // Protected identities need stable slots even when optional.  Every other active
+    // anchor costs one Unit, so after the guaranteed active protected anchors there
+    // can be at most costScope-guaranteedActiveProtected anonymous anchors.
+    val k = minOf(p.anchorSlotBudget,
+        maxOf(p.protectedIdentities.size, p.protectedIdentities.size + costScope - guaranteedActiveProtected))
     val portNames = listOf("R") + (0 until k).flatMap { listOf("C$it", "L$it", "D$it") }
     val offsets = context.positions.runningFold(0) { n, pos -> n + pos.successor.size }.dropLast(1)
     val positionCount = context.positions.sumOf { it.successor.size }
     // Positions are local to a trace. Separate valuation fields avoid adding one Alloy atom
     // per sample position (and the resulting cubic-universe translation capacity failure).
     val localPositionCount = context.positions.maxOfOrNull { it.successor.size } ?: 0
-    val traceShapes = context.positions.map { it.successor.size to it.trace.prefix.size }.distinct()
-    private fun union(values: Iterable<String>) = values.joinToString(" + ").ifEmpty { "none" }
+    val traceShapes = context.positions.map { it.successor.size to it.loopStart }.distinct()
+    /** Alloy builds left-associative `a + b + ...`; balance large unions to bound parser recursion. */
+    private fun union(values: Iterable<String>): String {
+        val terms = values.toList()
+        fun balanced(from: Int, until: Int): String = when (until - from) {
+            0 -> "none"
+            1 -> terms[from]
+            else -> {
+                val middle = from + (until - from) / 2
+                "(${balanced(from, middle)} + ${balanced(middle, until)})"
+            }
+        }
+        return balanced(0, terms.size)
+    }
     private fun labelSet(test: (MacroLabel) -> Boolean) = union(p.labels.indices.filter { test(p.labels[it]) }.map { "T$it" })
     private fun slot(id: cmu.s3d.ltl.macro.dag.NodeId) = "A${p.protectedIdentities.indexOfFirst { it.id == id }.also { require(it >= 0) }}"
     private fun port(source: cmu.s3d.ltl.macro.dag.NodeId, kind: PortKind): String {
@@ -24,36 +52,38 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
     }
 
     /** Monotone hard repair bound plus exact expanded-size optimization, on the existing backend. */
-    fun build(minimumKept: Int = 0): String = buildString {
+    fun build(minimumKept: Int = 0, maximumCost: Int? = null,
+              optimizeCost: Boolean = maximumCost == null, optimizeKept: Boolean = false): String = buildString {
         fun line(s: String) { append(s).append('\n') }
         fun atoms(base: String, names: List<String>) {
             if (names.isEmpty()) line("fact { no $base }") else line("one sig ${names.joinToString(", ")} extends $base {}")
         }
         line("abstract sig Unit {}")
-        atoms("Unit", (0 until p.nodeBudget).map { "U$it" })
+        atoms("Unit", (0 until costScope).map { "U$it" })
         line("abstract sig Label {}")
         atoms("Label", p.labels.indices.map { "T$it" })
         line("abstract sig Q {}")
         atoms("Q", context.registry.states.indices.map { "Q$it" })
         line("abstract sig Fiber { qi: one Q, qo: one Q }")
-        atoms("Fiber", context.catalog.entries.map { "E${it.id}" })
+        atoms("Fiber", fibers.map { "E${it.id}" })
         line("abstract sig Pos {}")
         atoms("Pos", (0 until localPositionCount).map { "P$it" })
         line("abstract sig Carrier { cost: set Unit }")
-        line("abstract sig Anchor extends Carrier { lab: lone Label, state: lone Q }")
+        val anchorValues = context.positions.indices.joinToString(", ") { "av$it: set Pos" }
+        val edgeValues = context.positions.indices.joinToString(", ") { "ev$it: set Pos" }
+        line("abstract sig Anchor extends Carrier { lab: lone Label, state: lone Q${if (anchorValues.isEmpty()) "" else ", $anchorValues"} }")
         atoms("Anchor", (0 until k).map { "A$it" })
-        line("abstract sig Port extends Carrier { src: lone Anchor, target: lone Anchor, fiber: lone Fiber }")
+        line("abstract sig Port extends Carrier { src: lone Anchor, target: lone Anchor, fiber: lone Fiber${if (edgeValues.isEmpty()) "" else ", $edgeValues"} }")
         atoms("Port", portNames)
-        line("one sig V { ${context.positions.indices.flatMap { listOf("av$it: Anchor -> Pos", "ev$it: Port -> Pos") }.joinToString(",\n")} }")
         line("fun active: set Anchor { lab.Label }")
         line("fun used: set Port { target.Anchor }")
         line("fun lit: set Label { ${labelSet { it is MacroLabel.Literal }} }")
         line("fun un: set Label { ${labelSet { it is MacroLabel.Unary }} }")
         line("fun bin: set Label { ${labelSet { it is MacroLabel.Binary }} }")
-        line("fun nonempty: set Fiber { ${union(context.catalog.entries.filter { it.key.nonEmpty }.map { "E${it.id}" })} }")
+        line("fun nonempty: set Fiber { ${union(fibers.filter { it.key.nonEmpty }.map { "E${it.id}" })} }")
         line("fun graph: Anchor -> Anchor { ~src.target }")
         val carriers = (0 until k).map { "A$it" } + portNames
-        line("fun unitNext: Unit -> Unit { ${if (p.nodeBudget < 2) "none->none" else union((0 until p.nodeBudget-1).map { "U$it->U${it+1}" })} }")
+        line("fun unitNext: Unit -> Unit { ${if (costScope < 2) "none->none" else union((0 until costScope-1).map { "U$it->U${it+1}" })} }")
         line("fun carrierNext: Carrier -> Carrier { ${union(carriers.zipWithNext().map { (a,b) -> "$a->$b" })} }")
         for ((fn, prefix) in listOf("child" to "C", "left" to "L", "right" to "D"))
             line("fun $fn[a: Anchor]: set Port { a.(${union((0 until k).map { "A$it->$prefix$it" })}) }")
@@ -71,12 +101,25 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
         }
         line("no iden & ^graph")
         line("active = R.target.*graph")
+        val firstAnonymous = p.protectedIdentities.size
+        if (firstAnonymous == 0) {
+            // Every unprotected rooted DAG has a topological numbering with its root first.
+            line("R.target = A0")
+        } else if (firstAnonymous < k) {
+            // Protected slots keep their external names.  Anonymous slots can still be
+            // renamed in topological order, and an anonymous root can be the first slot.
+            line("R.target in (${union((firstAnonymous until k).map { "A$it" })}) implies R.target = A$firstAnonymous")
+        }
+        for (i in firstAnonymous until k)
+            line("no A$i.graph & (${union((firstAnonymous..i).map { "A$it" })})")
         line("#(lab.bin) <= ${minOf(p.binaryBudget, k)}")
         if (p.uniqueLiteralIdentities) for ((i, label) in p.labels.withIndex())
             if (label is MacroLabel.Literal) line("lone lab.T$i")
         for ((i, protected) in p.protectedIdentities.withIndex()) {
             if (i >= k) line("no R.target") // Contradictory protected count is a supported UNSAT task.
-            else line("A$i.lab = T${p.labels.indexOf(protected.label)}")
+            else if (protected.id in p.requiredProtectedIdentities)
+                line("A$i.lab = T${p.labels.indexOf(protected.label)}")
+            else line("some A$i.lab implies A$i.lab = T${p.labels.indexOf(protected.label)}")
         }
         for (i in minOf(p.protectedIdentities.size, k) until k) {
             line("some A$i.lab and A$i.lab in un implies #(target.A$i) > 1")
@@ -88,10 +131,10 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
         // of indistinguishable cost units without restricting the represented formula.
         line("all u: Unit - U0 | some cost.u implies some cost.(u.~unitNext)")
         line("all u: Unit | some cost.u implies cost.(u.~unitNext) in (cost.u).*~carrierNext")
-        for (entry in context.catalog.entries) {
+        for (entry in fibers) {
             line("E${entry.id}.qi = Q${entry.qIn}\nE${entry.id}.qo = Q${entry.qOut}")
         }
-        for ((len, entries) in context.catalog.entries.groupBy { it.length })
+        for ((len, entries) in fibers.groupBy { it.length })
             line("all e: used | e.fiber in (${union(entries.map { "E${it.id}" })}) implies #e.cost = $len")
         line("all e: used | e.fiber.qi = e.target.state")
         val accept = union(context.registry.states.indices.filter { p.automaton.isAccepting(context.registry.states[it]) }.map { "Q$it" })
@@ -111,6 +154,8 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
                 line("all a: $domain | lone ({e: used - R | e.target = a and e.fiber not in nonempty}.src)")
                 line("all a: $domain | (some e: used | e.target = a and e.fiber in nonempty) implies no {e: used - R | e.target = a and e.fiber not in nonempty}")
             }
+            MacroIdentityConstraint.NoSharedLiteralBranches ->
+                line("all a: lab.bin | no left[a].target.*graph & right[a].target.*graph & lab.lit")
             is MacroIdentityConstraint.NamedRoot -> if (p.protectedIdentities.size <= k) line("R.target = ${slot(c.target)} and R.fiber not in nonempty")
             is MacroIdentityConstraint.NamedDirectChild -> if (p.protectedIdentities.size <= k) line("${port(c.source,c.port)}.target = ${slot(c.target)} and ${port(c.source,c.port)}.fiber not in nonempty")
             is MacroIdentityConstraint.NamedReachability -> if (p.protectedIdentities.size <= k) line("${slot(c.target)} in ${slot(c.source)}.^graph")
@@ -119,19 +164,19 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
         // One predicate per (length, loop start), reused across all samples of that shape.
         // No constraints, fiber identities, costs or words are discarded.
         for ((shapeIndex, shape) in traceShapes.withIndex()) {
-            val pos = context.positions.first { it.successor.size == shape.first && it.trace.prefix.size == shape.second }
+            val pos = context.positions.first { it.successor.size == shape.first && it.loopStart == shape.second }
             val range = "range$shapeIndex"; val next = "next$shapeIndex"; val future = "future$shapeIndex"; val loop = "loop$shapeIndex"
             line("fun $range: set Pos { ${union(pos.successor.indices.map { "P$it" })} }")
             line("fun $loop: set Pos { ${union((shape.second until shape.first).map { "P$it" })} }")
             line("fun $next: Pos -> Pos { ${union(pos.successor.mapIndexed { i, j -> "P$i->P$j" })} }")
             line("fun $future: Pos -> Pos { (*$next) & ($range->$range) }")
-            val shifts = context.catalog.entries.map { pos.succPow[it.key.semanticType.xCount] }.distinct()
+            val shifts = fibers.map { pos.succPow[it.key.semanticType.xCount] }.distinct()
             for ((i, shift) in shifts.withIndex())
                 line("fun shift${shapeIndex}_$i: Pos -> Pos { ${union(shift.mapIndexed { a, b -> "P$a->P$b" })} }")
             line("pred semantics$shapeIndex[av: Anchor -> Pos, ev: Port -> Pos] {")
             line("av in active->$range\nev in used->$range")
             // Shifts with the same action on this finite lasso share a clause; distinct fibers remain selectable.
-            val groups = context.catalog.entries.groupBy {
+            val groups = fibers.groupBy {
                 val type = it.key.semanticType
                 Triple(type.tail, type.negated, if (type.tail in listOf(TemporalTail.FG, TemporalTail.GF)) -1 else shifts.indexOf(pos.succPow[type.xCount]))
             }
@@ -171,22 +216,25 @@ class MacroAlloyModelBuilder<Q : Any>(val context: MacroCompilationContext<Q>) {
         }
         line("fact Semantics {")
         for ((traceIndex, pos) in context.positions.withIndex()) {
-            val shapeIndex = traceShapes.indexOf(pos.successor.size to pos.trace.prefix.size)
-            line("semantics$shapeIndex[V.av$traceIndex, V.ev$traceIndex]")
+            val shapeIndex = traceShapes.indexOf(pos.successor.size to pos.loopStart)
+            line("semantics$shapeIndex[av$traceIndex, ev$traceIndex]")
             for ((i, label) in p.labels.withIndex()) if (label is MacroLabel.Literal) {
-                val truth = union(pos.successor.indices.filter { pos.trace.getStateAt(it).values.getValue(label.proposition) }.map { "P$it" })
-                line("all a: lab.T$i | a.(V.av$traceIndex) = ($truth)")
+                val truth = union(pos.successor.indices.filter { pos.trace.getStateAt(it).values[label.proposition] == true }.map { "P$it" })
+                line("all a: lab.T$i | a.av$traceIndex = ($truth)")
             }
-            line("${if (traceIndex >= context.positives.size) "not " else ""}(R->P0 in V.ev$traceIndex)")
+            line("${if (traceIndex >= context.positives.size) "not " else ""}(R->P0 in ev$traceIndex)")
         }
         line("}")
         val repair = p.objective as? MacroObjective.Repair
         val pairs = if (repair == null || p.protectedIdentities.size > k) emptyList() else repair.oldEdges.sortedWith(compareBy({it.source},{it.target})).map { "${slot(it.source)}->${slot(it.target)}" }
         line("fun kept: Anchor -> Anchor { (${if (pairs.isEmpty()) "none->none" else union(pairs)}) & ~src.( {e: used | e.fiber not in nonempty} <: target ) }")
-        if (minimumKept > 0) line("fact { #kept >= $minimumKept }")
-        line("fact Objective { minsome Carrier.cost }")
+        if (minimumKept > 0) line(if (minimumKept == pairs.size)
+            "fact { (${union(pairs)}) in kept }" else "fact { #kept >= $minimumKept }")
+        if (maximumCost != null) line("fact CostBound { #Carrier.cost <= $maximumCost }")
+        if (optimizeKept) line("fact RepairObjective { maxsome[2] kept }")
+        if (optimizeCost) line("fact Objective { minsome Carrier.cost }")
         // All counted domains have at most max(B,K,oldEdges) elements; no signed cardinality overflow.
-        val maxCount = maxOf(p.nodeBudget, portNames.size, repair?.oldEdges?.size ?: 0)
+        val maxCount = maxOf(costScope, portNames.size, repair?.oldEdges?.size ?: 0)
         val bits = 2 + (31 - Integer.numberOfLeadingZeros(maxCount.coerceAtLeast(1)))
         line("run {} for $bits Int")
     }

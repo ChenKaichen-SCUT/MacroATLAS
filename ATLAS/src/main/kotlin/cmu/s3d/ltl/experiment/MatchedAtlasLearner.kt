@@ -19,12 +19,14 @@ class MatchedAtlasLearner<Q : Any>(private val task: Task, private val plan: Mac
     private val repair = plan.objective as? MacroObjective.Repair
     private val source = task.buildLearner(options, minimized = false)
     private fun union(xs: List<String>, empty: String = "none") = xs.joinToString(" + ").ifEmpty { empty }
-    private fun template(): String {
+    private fun template(costScope: Int): String {
         // The analyzer has accepted the entire input. Remove exactly its one supported soft objective.
         val raw = (task.customConstraints ?: "").replace(Regex("/\\*[\\s\\S]*?\\*/|//[^\\n]*|--[^\\n]*"), " ")
-        val objective = Regex("fact\\s*\\{\\s*maxsome\\s*\\[\\s*2\\s*]\\s*subDAG\\s*\\[\\s*root\\s*]\\s*&\\s*\\([^{}]*\\)\\s*}")
+        val objective = Regex("maxsome\\s*\\[\\s*2\\s*]\\s*subDAG\\s*\\[\\s*root\\s*]\\s*&\\s*\\([^(){}]*\\)")
         check(objective.findAll(raw).count() == if (repair == null) 0 else 1)
-        val hard = objective.replace(raw, "")
+        // Keep a surrounding fact block intact when the objective shares it with hard
+        // clauses, as in the official Robot tasks.
+        val hard = objective.replace(raw, "none = none")
         val learner = task.copy(customConstraints = hard).buildLearner(options, minimized = false)
         var model = learner.generateAlloyModel()
         // Original generator emits `next =` for a one-position task. This experimental
@@ -35,20 +37,21 @@ class MatchedAtlasLearner<Q : Any>(private val task: Task, private val plan: Mac
         model = model.replace("i.(next+lasso)", "i.((next :> seqRange) + lasso)")
         val binaries = union(plan.allowedBinaryOperators.map { it.atlasName })
         val pairs = union(repair?.oldEdges?.map { "${it.source.value}->${it.target.value}" } ?: emptyList(),"none->none")
+        val namedNonLiterals = union(plan.protectedIdentities.filter { it.label !is MacroLabel.Literal }.map { it.id.value })
         val extra = """
             fun experimentReach: set DAGNode { childrenAndSelfOf[root] }
             fun experimentKept: DAGNode -> DAGNode { ($pairs) & subDAG[root] }
             one sig ExperimentCost { used: set DAGNode }
             fact { ExperimentCost.used = experimentReach }
             fact ExperimentBounds {
-              DAGNode = experimentReach + Literal
-              #experimentReach <= ${plan.nodeBudget}
+              DAGNode = experimentReach + Literal + ($namedNonLiterals)
+              #experimentReach <= $costScope
               #(experimentReach & ($binaries)) <= ${plan.binaryBudget}
               minsome ExperimentCost.used
             }
         """.trimIndent()
         // Irrelevant APs exist in original ATLAS as one sig literals, but do not consume rooted size B.
-        val scope = plan.nodeBudget + task.literals.size
+        val scope = costScope + task.literals.size + plan.protectedIdentities.count { it.label !is MacroLabel.Literal }
         val maxCardinality = maxOf(scope,repair?.oldEdges?.size ?: 0)
         val bits = 2 + (31 - Integer.numberOfLeadingZeros(maxCardinality))
         return model.replace("run {",extra+"\nrun {").replace("for %d DAGNode","for $scope DAGNode, $bits Int")
@@ -57,12 +60,12 @@ class MatchedAtlasLearner<Q : Any>(private val task: Task, private val plan: Mac
     fun solve(directory: File): MacroSolveResult {
         directory.mkdirs()
         var encodingNanos = 0L; var solverNanos = 0L; var decodeNanos = 0L; var verifyNanos = 0L
-        val begin = System.nanoTime(); val base = template(); encodingNanos += System.nanoTime()-begin
-        var modelBytes = base.toByteArray().size
-        fun execute(bound: Int): Pair<FormulaDag,Int>? {
+        var modelBytes = 0
+        fun execute(bound: Int, costScope: Int): Pair<FormulaDag,Int>? {
+            val begin = System.nanoTime(); val base = template(costScope); encodingNanos += System.nanoTime()-begin
             val model = if (bound == 0) base else base + "\nfact { #experimentKept >= $bound }\n"
             modelBytes=maxOf(modelBytes,model.toByteArray().size)
-            directory.resolve("baseline_bound_$bound.als").writeText(model)
+            directory.resolve("baseline_scope_${costScope}_bound_$bound.als").writeText(model)
             val start = System.nanoTime()
             val world=CompUtil.parseEverything_fromString(reporter,model)
             val solution=TranslateAlloyToKodkod.execute_command(reporter,world.allReachableSigs,world.allCommands.first(),options)
@@ -87,17 +90,34 @@ class MatchedAtlasLearner<Q : Any>(private val task: Task, private val plan: Mac
             val verify=System.nanoTime(); verify(dag,kept); verifyNanos+=System.nanoTime()-verify
             return dag to kept
         }
-        var best=execute(0); var passes=1
-        if(best!=null && repair!=null) {
+        var scope=minOf(plan.nodeBudget,8)
+        var best:Pair<FormulaDag,Int>?=null
+        var passes=0
+        if(repair==null) {
+            while(true) {
+                best=execute(0,scope);passes++
+                if(best!=null||scope==plan.nodeBudget) break
+                scope=minOf(plan.nodeBudget,scope*2)
+            }
+        } else {
+            while(true) {
+                best=execute(repair.oldEdges.size,scope);passes++
+                if(best!=null||scope==plan.nodeBudget) break
+                scope=minOf(plan.nodeBudget,scope*2)
+            }
+            if(best==null) { best=execute(0,scope);passes++ }
+        }
+        if(best!=null && repair!=null && best.second<repair.oldEdges.size) {
             var low=best.second; var high=repair.oldEdges.size
             while(low<high) {
-                val mid=low+(high-low+1)/2; val candidate=execute(mid);passes++
+                val mid=low+(high-low+1)/2; val candidate=execute(mid,scope);passes++
                 if(candidate==null) high=mid-1 else { check(candidate.second>=mid);low=candidate.second;best=candidate }
             }
         }
         val metadata=linkedMapOf<String,Any>("solverMode" to "ATLAS_B", "solverStatus" to if(best==null) "UNSAT" else "OPTIMAL",
             "nodeBudget" to plan.nodeBudget,"binaryBudget" to plan.binaryBudget,"protectedCount" to plan.protectedIdentities.size,
-            "searchNodeUniverse" to plan.nodeBudget+task.literals.size,"expandedNodeCount" to (best?.first?.size() ?: 0),
+            "searchNodeUniverse" to scope+task.literals.size+plan.protectedIdentities.count { it.label !is MacroLabel.Literal },
+            "costScope" to scope,"expandedNodeCount" to (best?.first?.size() ?: 0),
             "objectivePrimary" to (best?.second ?: 0),"objectiveSecondary" to (best?.first?.size() ?: 0),
             "modelBytes" to modelBytes,"optimizationPasses" to passes,"encodingSec" to encodingNanos/1e9,"solverSec" to solverNanos/1e9,
             "decodeSec" to decodeNanos/1e9,"verifySec" to verifyNanos/1e9)
@@ -121,9 +141,16 @@ class MatchedAtlasLearner<Q : Any>(private val task: Task, private val plan: Mac
                     walk(c.source);c.target in seen
                 }
                 is MacroIdentityConstraint.NoDAGReuse -> dag.nodes.values.all { (c.excludeLiterals && it is LiteralNode)||dag.parents(it.id).size<=1 }
+                MacroIdentityConstraint.NoSharedLiteralBranches -> {
+                    fun literalsBelow(start:NodeId):Set<NodeId> {
+                        val seen=hashSetOf<NodeId>();fun walk(id:NodeId) { if(seen.add(id))dag.children(id).forEach(::walk) }
+                        walk(start);return seen.filter { dag.node(it) is LiteralNode }.toSet()
+                    }
+                    dag.nodes.values.filterIsInstance<BinaryNode>().all { literalsBelow(it.left).intersect(literalsBelow(it.right)).isEmpty() }
+                }
                 MacroIdentityConstraint.LeftNotEqualRight -> dag.nodes.values.filterIsInstance<BinaryNode>().all { it.left!=it.right }
             })
-            check(kept==(repair?.oldEdges?.count { it.target in dag.children(it.source) } ?: 0))
+            check(kept==(repair?.oldEdges?.count { it.source in dag.nodes && it.target in dag.children(it.source) } ?: 0))
             for((positive,traces) in listOf(true to task.positiveExamples,false to task.negativeExamples))
                 for(t in traces) check(ConcreteLassoEvaluator.values(dag,t).getValue(dag.root)[0]==positive) {
                     "Trace classification failed: ${FormulaDagRenderer.render(dag)}, expected=$positive, trace=$t"

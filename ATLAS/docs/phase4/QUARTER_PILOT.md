@@ -1,5 +1,7 @@
 # 原论文 1/4 分层探索实验
 
+> **归档说明（2026-09-23）：** 本页记录旧 commit 的已完成 pilot。其 constrained coverage=0 和 710 次计划已被精确模板支持与求解修复取代；旧结果不得与新版本合并。新 commit 必须重新生成 selection/plan，预计 E4 会包含被抽中的全部 35 个 constrained task。当前实现状态见 [OPTIMIZATION_V2.md](OPTIMIZATION_V2.md)。
+
 当前协议：每个任务、每种算法只运行一次。旧三次重复计划及结果保持原样，
 新脚本拒绝 `--repeats 3`，避免误启动重复运行。E3 与 E5 的 Original 属于两个
 独立比较阶段，各运行一次；不复用跨阶段的测量。

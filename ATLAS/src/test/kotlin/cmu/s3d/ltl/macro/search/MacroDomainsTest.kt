@@ -7,6 +7,8 @@ import cmu.s3d.ltl.macro.fiber.FiberTable
 import cmu.s3d.ltl.macro.kernel.UFreeLassoOracle
 import cmu.s3d.ltl.macro.unary.*
 import cmu.s3d.ltl.samples2ltl.Task
+import cmu.s3d.ltl.samples2ltl.TaskParser
+import java.io.File
 import org.junit.jupiter.api.Test
 import kotlin.test.*
 
@@ -60,6 +62,17 @@ class MacroDomainsTest {
         assertEquals(listOf(0,1),p.future[0])
     }
 
+    @Test fun equivalentLassoWordsAreConstrainedOnceButOriginalSamplesAreRetained() {
+        fun state(value:Boolean,explicit:Boolean=true)=State(if(explicit) mapOf("p" to value) else emptyMap())
+        val first=LassoTrace(prefix=listOf(state(false,false)),loop=listOf(state(true),state(false)))
+        val same=LassoTrace(loop=listOf(state(false),state(true)))
+        val plan=MacroConstraintPlan(ProductConstraintAutomaton(emptyList()),listOf("p"),5,0)
+        val context=MacroCompilationContext(plan,listOf(first,same),emptyList())
+        assertEquals(2,context.originalPositives.size)
+        assertEquals(1,context.positives.size)
+        assertEquals(2,context.positions.single().successor.size)
+    }
+
     @Test fun fixedTemplatesObserveSyntaxIndependentlyOfTruth() {
         fun state(a: FixedTemplateAutomaton, word: List<UnaryOperator>): FixedTemplateAutomaton.State {
             var q = a.literalState("p"); for(op in word.asReversed()) q=a.unaryState(op,q); return q
@@ -90,5 +103,22 @@ class MacroDomainsTest {
         assertEquals(listOf(MacroUnsupportedReason.BINARY_BUDGET_MISSING),reason(task(),null))
         assertEquals(listOf(MacroUnsupportedReason.UNSUPPORTED_OBJECTIVE),reason(task(),1,false))
         assertIs<MacroTaskAnalysis.Unsupported>(RecognizedConstraintAnalyzer.analyze(task("fact { root in G }",listOf("Until","G")),1))
+    }
+
+    @Test fun everyPaperConstrainedTaskHasAnExactMatchedPlan() {
+        val expected = mapOf("peterson" to 30, "robot" to 20, "voting_machine" to 10, "weakening" to 78)
+        for ((family,count) in expected) {
+            val files = File("benchmark/$family").walkTopDown().filter { it.isFile && it.extension == "trace" }.toList()
+            val parsed = files.mapNotNull { file -> runCatching { file to TaskParser.parseTask(file.readText()) }.getOrNull() }
+            assertEquals(count,parsed.size,family)
+            for ((file,original) in parsed) {
+                val matched = original.copy(excludedOperators = (original.excludedOperators + "Until").distinct())
+                assertIs<MacroTaskAnalysis.Supported>(RecognizedConstraintAnalyzer.analyze(matched,2),file.path)
+            }
+        }
+        val finite = LassoTrace(prefix=listOf(State(mapOf("x0" to true)),State(emptyMap())))
+        val positions = LassoPositions(finite,4)
+        assertEquals(finite.length()-1,positions.loopStart)
+        assertEquals(finite.length()-1,positions.successor.last())
     }
 }

@@ -12,6 +12,8 @@ REPO = ATLAS.parent
 STATUSES = {"SAT", "UNSAT", "TIMEOUT", "UNSUPPORTED", "FALLBACK", "ERROR", "VERIFICATION_FAILED"}
 FIELDS = "task family variant repeat status outcome solverMode fallbackReason B b p K qStates fiberCount activeAnchors activeMacroEdges expandedSize objectiveKind objectivePrimary objectiveSecondary analysisSec registrySec fiberSec encodingSec solverSec decodeSec verifySec totalSec peakRssKb verification modelBytes vars backendTotalClauses error".split()
 FIELDS += "searchNodeUniverse primaryVars semanticTypeCount selectedFiberCount meanRepresentativeLength maxRepresentativeLength optimizationPasses fallbackUsed backendTranslationCount".split()
+FIELDS += "costStrategy unquotientedFiberCount encodedFiberCount costScope parseSec translationAndSolveSec totalInternalSec".split()
+FIELDS += "inputTraceCount reducedTraceCount".split()
 
 
 def sha256(path):

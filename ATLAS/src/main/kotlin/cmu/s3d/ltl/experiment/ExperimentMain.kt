@@ -78,7 +78,14 @@ object ExperimentMain {
                 write("metadata.json",data);write("analysis.json",data)
                 fun <Q:Any> solve(p:MacroConstraintPlan<Q>):MacroSolveResult = if(mode=="atlas-b")
                     MatchedAtlasLearner(task,p,options,reporter).solve(directory)
-                else MacroLearner(MacroCompilationContext(p,task.positiveExamples,task.negativeExamples),options,reporter).solve(directory)
+                else {
+                    val strategy = when(a["cost-strategy"] ?: "weighted") {
+                        "bounded" -> MacroCostStrategy.BOUNDED_SAT
+                        "weighted" -> MacroCostStrategy.WEIGHTED_MAXSAT
+                        else -> error("Expected --cost-strategy bounded|weighted")
+                    }
+                    MacroLearner(MacroCompilationContext(p,task.positiveExamples,task.negativeExamples),options,reporter,strategy).solve(directory)
+                }
                 val result=solve(plan)
                 data.putAll(result.metadata);data.putAll(reporter.metadata())
                 data["status"]=if(result.dag==null) "UNSAT" else "SAT"
@@ -87,7 +94,8 @@ object ExperimentMain {
                     data["objectiveSecondary"]=result.assignment?.expandedSize ?: 0
                 }
                 data["objectiveKind"]=if(plan.objective is MacroObjective.Repair) "REPAIR" else "MIN_EXPANDED_SIZE"
-                data["searchNodeUniverse"]=if(mode=="atlas-b") plan.nodeBudget+task.literals.size else plan.anchorSlotBudget
+                data["searchNodeUniverse"]=result.metadata["searchNodeUniverse"] ?:
+                    if(mode=="atlas-b") plan.nodeBudget+task.literals.size else plan.anchorSlotBudget
                 data["anchorSlotBudget"]=plan.anchorSlotBudget
                 data["nodeBudget"]=plan.nodeBudget;data["binaryBudget"]=plan.binaryBudget
                 data["protectedCount"]=plan.protectedIdentities.size

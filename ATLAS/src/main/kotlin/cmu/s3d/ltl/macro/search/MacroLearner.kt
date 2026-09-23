@@ -13,16 +13,20 @@ data class MacroSolveResult(val dag: FormulaDag?, val assignment: MacroAssignmen
     val formula: String get() = dag?.let { FormulaDagRenderer.render(it) } ?: "UNSAT"
 }
 
+enum class MacroCostStrategy { BOUNDED_SAT, WEIGHTED_MAXSAT }
+
 /** Uses the existing AlloyMax backend; no invocation of LTLLearner or post-hoc compression. */
 class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val options: A4Options = AlloyMaxBase.defaultAlloyOptions(),
-                          private val reporter: A4Reporter = A4Reporter.NOP) {
-    constructor(plan: MacroConstraintPlan<Q>, positives: List<LassoTrace>, negatives: List<LassoTrace>, options: A4Options = AlloyMaxBase.defaultAlloyOptions()) :
-        this(MacroCompilationContext(plan, positives, negatives), options)
+                          private val reporter: A4Reporter = A4Reporter.NOP,
+                          private val costStrategy: MacroCostStrategy = MacroCostStrategy.WEIGHTED_MAXSAT) {
+    constructor(plan: MacroConstraintPlan<Q>, positives: List<LassoTrace>, negatives: List<LassoTrace>, options: A4Options = AlloyMaxBase.defaultAlloyOptions(),
+                costStrategy: MacroCostStrategy = MacroCostStrategy.WEIGHTED_MAXSAT) :
+        this(MacroCompilationContext(plan, positives, negatives), options, A4Reporter.NOP, costStrategy)
 
     fun solve(debugDirectory: File? = null, printModel: Boolean = false): MacroSolveResult {
         require(options.solver in listOf(A4Options.SatSolver.SAT4JMax, A4Options.SatSolver.OpenWBO, A4Options.SatSolver.OpenWBOWeighted,
             A4Options.SatSolver.POpenWBO, A4Options.SatSolver.POpenWBOAuto)) { "Macro optimization requires an AlloyMax backend" }
-        val builder = MacroAlloyModelBuilder(context)
+        var builder = MacroAlloyModelBuilder(context)
         debugDirectory?.mkdirs()
         fun dump(name: String, text: String) { debugDirectory?.resolve(name)?.writeText(text + "\n") }
         dump("verification.json", metadataJson(mapOf("status" to "IN_PROGRESS")))
@@ -40,13 +44,18 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
                 "encodingSec" to encodingNanos/1e9, "parseSec" to parseNanos/1e9,
                 "backendSec" to backendNanos/1e9, "modelBytes" to modelBytes,
                 "heapUsedBytes" to runtime.totalMemory()-runtime.freeMemory(), "heapMaxBytes" to runtime.maxMemory(),
-                "fiberCount" to context.catalog.entries.size, "positionCount" to builder.positionCount,
+                "fiberCount" to context.catalog.entries.size, "unquotientedFiberCount" to context.catalog.unquotientedSize,
+                "encodedFiberCount" to builder.fibers.size, "costScope" to builder.costScope,
+                "inputTraceCount" to context.originalPositives.size + context.originalNegatives.size,
+                "reducedTraceCount" to context.positives.size + context.negatives.size,
+                "positionCount" to builder.positionCount,
                 "localPositionAtoms" to builder.localPositionCount, "traceShapeCount" to builder.traceShapes.size)))
         }
-        fun build(minimumKept: Int = 0): String {
+        fun build(minimumKept: Int = 0, maximumCost: Int? = null,
+                  optimizeCost: Boolean = maximumCost == null, optimizeKept: Boolean = false): String {
             checkpoint("ENCODING")
             val start = System.nanoTime()
-            val source = builder.build(minimumKept)
+            val source = builder.build(minimumKept, maximumCost, optimizeCost, optimizeKept)
             encodingNanos += System.nanoTime() - start
             modelBytes = maxOf(modelBytes, source.toByteArray(Charsets.UTF_8).size.toLong())
             return source
@@ -75,33 +84,105 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
                 name to PortAssignment(it.substring(1).toInt(), single("$name.fiber")!!.substring(1).toInt())
             } }.toMap()
             return MacroAssignment(anchors, ports, eval("#(Carrier.cost)").toString().toInt(), eval("#kept").toString().toInt(),
-                context.positions.indices.flatMap { i -> tuples("V.av$i").map {
+                context.positions.indices.flatMap { i -> tuples("av$i").map {
                     it[0].substring(1).toInt() to builder.offsets[i] + it[1].substring(1).toInt()
                 } }.toSet(),
-                context.positions.indices.flatMap { i -> tuples("V.ev$i").map {
+                context.positions.indices.flatMap { i -> tuples("ev$i").map {
                     it[0] to builder.offsets[i] + it[1].substring(1).toInt()
                 } }.toSet())
         }
         val start = System.nanoTime()
         val objective = context.plan.objective as? MacroObjective.Repair
         val repair = objective != null
-        var finalSource = build()
-        var assignment = execute(finalSource, "macro_model.als")
-        var passes = 1
-        // AlloyMax 1.0.3 can simplify `maxsome none` to hard false. A monotone cardinality
-        // search avoids this backend corner case without changing its code or solver.
-        // Each feasible pass minimizes size. Once max kept is proved, its size optimum is exact.
-        if (assignment != null && objective != null) {
-            var low = assignment.keptEdges
-            var high = objective.oldEdges.size
-            while (low < high) {
-                val middle = low + (high-low+1)/2
-                val source = build(minimumKept = middle)
-                val candidate = execute(source,"repair_bound_$middle.als"); passes++
-                if (candidate == null) high = middle-1 else {
-                    check(candidate.keptEdges >= middle)
-                    low = candidate.keptEdges; assignment = candidate; finalSource = source
+        var finalSource: String
+        var assignment: MacroAssignment?
+        var passes = 0
+        if (costStrategy == MacroCostStrategy.WEIGHTED_MAXSAT) {
+            var scope = minOf(context.plan.nodeBudget, 8)
+            finalSource = ""
+            assignment = null
+            while (true) {
+                builder = MacroAlloyModelBuilder(context, scope)
+                if (objective == null) {
+                    finalSource = build()
+                    assignment = execute(finalSource, "macro_scope_$scope.als"); passes++
+                } else {
+                    // The theoretical upper bound is cheap to encode tightly: if every
+                    // old edge is kept, every endpoint is active and the remaining slot
+                    // count follows directly from the size scope.  This removes optional
+                    // protected/anonymous slot permutations from the common repair case.
+                    builder = MacroAlloyModelBuilder(context, scope, objective.oldEdges.size)
+                    finalSource = build(minimumKept = objective.oldEdges.size, optimizeCost = true)
+                    assignment = execute(finalSource, "repair_scope_${scope}_all_kept.als"); passes++
+                    if (assignment != null) {
+                        check(assignment.keptEdges == objective.oldEdges.size)
+                        break
+                    }
+                    // Repair is lexicographic: no solution that drops an old edge can
+                    // beat a larger solution retaining all of them.  Grow the cost
+                    // scope before considering a weaker primary objective.
+                    if (scope < context.plan.nodeBudget) {
+                        scope = minOf(context.plan.nodeBudget, scope * 2)
+                        continue
+                    }
+                    // AlloyMax 1.0.3 mishandles maxsome when its expression simplifies to
+                    // constant false.  Prove that at least one old edge is feasible before
+                    // using its native prioritized MaxSAT objective.  When it is feasible,
+                    // maxsome[2] kept + minsome cost is the exact repair lexicographic goal
+                    // used by the artifact, without a sequence of hard UNSAT upper bounds.
+                    builder = MacroAlloyModelBuilder(context, scope, 1)
+                    val hasKeptSource = build(minimumKept = 1, maximumCost = scope, optimizeCost = false)
+                    val hasKept = execute(hasKeptSource, "repair_scope_${scope}_has_kept.als"); passes++
+                    if (hasKept != null) {
+                        finalSource = build(maximumCost = scope, optimizeCost = true, optimizeKept = true)
+                        assignment = execute(finalSource, "repair_scope_${scope}_optimal.als"); passes++
+                        checkNotNull(assignment)
+                    } else {
+                        builder = MacroAlloyModelBuilder(context, scope)
+                        finalSource = build()
+                        assignment = execute(finalSource, "repair_scope_${scope}_zero_kept.als"); passes++
+                        check(assignment == null || assignment.keptEdges == 0)
+                    }
                 }
+                if (assignment != null && (objective == null || assignment.keptEdges == objective.oldEdges.size || scope == context.plan.nodeBudget)) {
+                    break
+                }
+                if (scope == context.plan.nodeBudget) break
+                scope = minOf(context.plan.nodeBudget, scope * 2)
+            }
+        } else {
+            builder = MacroAlloyModelBuilder(context)
+            // Monotone hard bounds preserve the exact lexicographic objectives while
+            // avoiding one monolithic optimization of the auxiliary cost relation.
+            finalSource = build(maximumCost = context.plan.nodeBudget, optimizeCost = false)
+            assignment = execute(finalSource, "macro_model.als"); passes++
+            if (assignment != null && objective != null) {
+                var low = assignment.keptEdges
+                var high = objective.oldEdges.size
+                while (low < high) {
+                    val middle = low + (high-low+1)/2
+                    val source = build(minimumKept = middle, maximumCost = context.plan.nodeBudget, optimizeCost = false)
+                    val candidate = execute(source,"repair_bound_$middle.als"); passes++
+                    if (candidate == null) high = middle-1 else {
+                        check(candidate.keptEdges >= middle)
+                        low = candidate.keptEdges; assignment = candidate; finalSource = source
+                    }
+                }
+            }
+            if (assignment != null) {
+                val kept = assignment.keptEdges
+                var low = 1
+                var high = assignment.expandedSize
+                while (low < high) {
+                    val middle = low + (high-low)/2
+                    val source = build(minimumKept = kept, maximumCost = middle, optimizeCost = false)
+                    val candidate = execute(source,"size_bound_$middle.als"); passes++
+                    if (candidate == null) low = middle+1 else {
+                        check(candidate.expandedSize <= middle && candidate.keptEdges >= kept)
+                        high = candidate.expandedSize; assignment = candidate; finalSource = source
+                    }
+                }
+                check(checkNotNull(assignment).expandedSize == low)
             }
         }
         dump("macro_model.als", finalSource)
@@ -119,8 +200,13 @@ class MacroLearner<Q : Any>(val context: MacroCompilationContext<Q>, private val
         val verifyNanos = System.nanoTime() - verifyStart
         val metadata = linkedMapOf<String, Any>(
             "solverMode" to "MACRO", "nodeBudget" to context.plan.nodeBudget, "binaryBudget" to context.plan.binaryBudget,
+            "costStrategy" to costStrategy.name,
             "protectedCount" to context.plan.protectedIdentities.size, "anchorSlotBudget" to builder.k,
+            "inputTraceCount" to context.originalPositives.size + context.originalNegatives.size,
+            "reducedTraceCount" to context.positives.size + context.negatives.size,
             "constraintStateCount" to context.registry.states.size, "fiberCount" to context.catalog.entries.size,
+            "unquotientedFiberCount" to context.catalog.unquotientedSize,
+            "encodedFiberCount" to builder.fibers.size, "costScope" to builder.costScope,
             "portSlotCount" to builder.portNames.size, "semanticValuationCount" to (builder.k + builder.portNames.size) * builder.positionCount,
             "localPositionAtoms" to builder.localPositionCount, "traceShapeCount" to builder.traceShapes.size,
             "activeAnchorCount" to (assignment?.anchors?.size ?: 0), "activeMacroEdgeCount" to (assignment?.ports?.size ?: 0),

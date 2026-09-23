@@ -10,12 +10,13 @@ import cmu.s3d.ltl.macro.unary.UnaryOperator
 /** Concrete syntax semantics with fixed points, independent of SemanticType and the search equations. */
 object ConcreteLassoEvaluator {
     fun values(dag: FormulaDag, trace: LassoTrace): Map<NodeId, BooleanArray> {
-        require(trace.loop.isNotEmpty())
         val n = trace.length()
-        fun next(i: Int) = if (i + 1 == n) trace.prefix.size else i + 1
+        require(n > 0)
+        val loopStart = if (trace.loop.isEmpty()) n - 1 else trace.prefix.size
+        fun next(i: Int) = if (i + 1 == n) loopStart else i + 1
         val values = linkedMapOf<NodeId, BooleanArray>()
         for (id in dag.postOrder()) values[id] = when (val node = dag.node(id)) {
-            is LiteralNode -> BooleanArray(n) { trace.getStateAt(it).values.getValue(node.proposition) }
+            is LiteralNode -> BooleanArray(n) { trace.getStateAt(it).values[node.proposition] == true }
             is UnaryNode -> {
                 val c = values.getValue(node.child)
                 when (node.operator) {
@@ -60,10 +61,16 @@ object FinalSolutionVerifier {
             dag.nodes.values.count { it is LiteralNode })
         val evaluation = DagConstraintEvaluator(plan.automaton).evaluate(dag)
         check(plan.automaton.isAccepting(evaluation.rootState))
+        check(context.originalPositives.all { ConcreteLassoEvaluator.values(dag,it).getValue(dag.root)[0] })
+        check(context.originalNegatives.none { ConcreteLassoEvaluator.values(dag,it).getValue(dag.root)[0] })
         for ((i, id) in decoded.slotIds) {
             check(evaluation.stateByNode.getValue(id) == context.registry.states[assignment.anchors.getValue(i).state])
         }
-        for (protected in plan.protectedIdentities) {
+        for ((i, protected) in plan.protectedIdentities.withIndex()) {
+            if (i !in decoded.slotIds) {
+                check(protected.id !in plan.requiredProtectedIdentities)
+                continue
+            }
             val n = dag.node(protected.id)
             check(when (val label = protected.label) {
                 is MacroLabel.Literal -> n is LiteralNode && n.proposition == label.proposition
@@ -73,6 +80,14 @@ object FinalSolutionVerifier {
         }
         for (c in plan.identityConstraints) check(when (c) {
             is MacroIdentityConstraint.NoDAGReuse -> dag.nodes.values.all { (c.excludeLiterals && it is LiteralNode) || dag.parents(it.id).size <= 1 }
+            MacroIdentityConstraint.NoSharedLiteralBranches -> {
+                fun literalsBelow(start:NodeId):Set<NodeId> {
+                    val seen=hashSetOf<NodeId>();val queue=java.util.ArrayDeque<NodeId>();queue.add(start)
+                    while(queue.isNotEmpty()) { val id=queue.remove();if(seen.add(id))dag.children(id).forEach(queue::add) }
+                    return seen.filter { dag.node(it) is LiteralNode }.toSet()
+                }
+                dag.nodes.values.filterIsInstance<BinaryNode>().all { literalsBelow(it.left).intersect(literalsBelow(it.right)).isEmpty() }
+            }
             is MacroIdentityConstraint.LeftNotEqualRight -> dag.nodes.values.filterIsInstance<BinaryNode>().all { it.left != it.right }
             is MacroIdentityConstraint.NamedRoot -> dag.root == c.target
             is MacroIdentityConstraint.NamedDirectChild -> when (val n = dag.node(c.source)) {
@@ -88,7 +103,7 @@ object FinalSolutionVerifier {
             }
         }) { "Identity constraint failed: $c" }
         val old = (plan.objective as? MacroObjective.Repair)?.oldEdges ?: emptySet()
-        check(old.count { it.target in dag.children(it.source) } == assignment.keptEdges)
+        check(old.count { it.source in dag.nodes && it.target in dag.children(it.source) } == assignment.keptEdges)
         var offset = 0
         for ((traceIndex, pos) in context.positions.withIndex()) {
             val vals = ConcreteLassoEvaluator.values(dag, pos.trace)

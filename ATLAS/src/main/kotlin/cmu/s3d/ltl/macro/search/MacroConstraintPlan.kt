@@ -21,6 +21,7 @@ data class ProtectedIdentity(val id: NodeId, val label: MacroLabel)
 data class ProtectedEdge(val source: NodeId, val target: NodeId)
 sealed class MacroIdentityConstraint {
     data class NoDAGReuse(val excludeLiterals: Boolean = false) : MacroIdentityConstraint()
+    object NoSharedLiteralBranches : MacroIdentityConstraint()
     object LeftNotEqualRight : MacroIdentityConstraint()
     data class NamedDirectChild(val source: NodeId, val port: PortKind, val target: NodeId) : MacroIdentityConstraint()
     data class NamedReachability(val source: NodeId, val target: NodeId) : MacroIdentityConstraint()
@@ -42,12 +43,14 @@ class MacroConstraintPlan<Q : Any>(
     protectedIdentities: Collection<ProtectedIdentity> = emptyList(),
     identityConstraints: Collection<MacroIdentityConstraint> = emptyList(),
     val objective: MacroObjective = MacroObjective.MinExpandedSize,
-    val uniqueLiteralIdentities: Boolean = false
+    val uniqueLiteralIdentities: Boolean = false,
+    requiredProtectedIdentities: Collection<NodeId> = protectedIdentities.map { it.id }
 ) {
     val propositions = immutableList(propositions.distinct().sorted())
     val allowedUnaryOperators = immutableList(allowedUnaryOperators.distinct().sortedBy { it.lexicalRank })
     val allowedBinaryOperators = immutableList(allowedBinaryOperators.distinct().sortedBy { it.ordinal })
     val protectedIdentities = immutableList(protectedIdentities.sortedBy { it.id })
+    val requiredProtectedIdentities = immutableSet(requiredProtectedIdentities.sorted())
     val identityConstraints = immutableList(identityConstraints)
     val anchorSlotBudget: Int = minOf(nodeBudget.toLong(), protectedIdentities.size + 3L * binaryBudget + 2).toInt()
     val labels: List<MacroLabel> = immutableList(this.propositions.map { MacroLabel.Literal(it) } +
@@ -57,6 +60,7 @@ class MacroConstraintPlan<Q : Any>(
         require(this.propositions.isNotEmpty())
         require(BinaryOperator.UNTIL !in this.allowedBinaryOperators)
         require(this.protectedIdentities.map { it.id }.distinct().size == this.protectedIdentities.size)
+        require(this.requiredProtectedIdentities.all { required -> this.protectedIdentities.any { it.id == required } })
         require(this.protectedIdentities.all { it.label in labels })
         val ids = this.protectedIdentities.map { it.id }.toSet()
         for (c in this.identityConstraints) when (c) {

@@ -172,6 +172,27 @@ class ConstraintAutomataTests {
     }
 
     @Test
+    fun minimizedAutomatonPreservesEveryGeneratedContextAndShrinksWeakening() {
+        val unary = listOf(UnaryOperator.NOT, UnaryOperator.G)
+        val binary = listOf(BinaryOperator.AND, BinaryOperator.OR, BinaryOperator.IMPLIES)
+        val raw = WeakeningTemplateAutomaton(false)
+        val minimized = MinimizedConstraintAutomaton(raw,listOf("x0","x1","x2"),unary,binary)
+        assertEquals(35,minimized.rawStateCount)
+        assertEquals(15,minimized.stateCount)
+        val atoms = listOf("x0","x1","x2").map { Formula.Atom(it) }
+        val random = Random(923)
+        fun generate(depth:Int):Formula = when(if(depth==0) 0 else random.nextInt(3)) {
+            0 -> atoms.random(random)
+            1 -> Formula.Unary(unary.random(random),generate(depth-1))
+            else -> Formula.Binary(binary.random(random),generate(depth-1),generate(depth-1))
+        }
+        repeat(3000) {
+            val formula=generate(5)
+            assertEquals(raw.isAccepting(run(raw,formula)),minimized.isAccepting(run(minimized,formula)),formula.toString())
+        }
+    }
+
+    @Test
     fun automataAgreeWithIndependentStructuralPredicatesOnGeneratedFormulas() {
         val nnf = NnfAutomaton()
         val cnf = CnfAutomaton()

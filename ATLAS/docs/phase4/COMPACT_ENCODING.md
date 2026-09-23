@@ -20,8 +20,9 @@ F/G/FG/GF 布尔表达式。相同的轨迹形状被重复展开，FG/GF 还嵌�
    不是公式或受保护节点的身份。实际模型 136,737 bytes（含该顺序约束）。
 
 B、b、共享 DAG 与受保护节点约束、repair 字典序目标均不变。
-Original ATLAS 和 ATLAS-B 的求解实现未修改。原始 artifact 的 Alloy 翻译容量限制
-仍作为 Original 的失败结果记录，不通过偷偷修改 baseline 消除。
+Original ATLAS 的求解实现未修改。ATLAS-B 仅在 matched 实验中同步采用渐进 cost scope，
+避免把任务的最大 B 一次性变成 Alloy atom scope；它仍使用原 concrete DAG/trace 编码。
+原始 artifact 的 Alloy 翻译容量限制仍作为 Original 的失败结果记录。
 
 ## 检查与记录
 

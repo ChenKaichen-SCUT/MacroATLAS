@@ -47,7 +47,8 @@ object MacroAssignmentDecoder {
             }
         }.values.associateBy { it.id }
         val rootState = edges.getValue(MacroPort.ROOT).fiberKey.qOut
-        val macro = MacroDag(anchors, edges, plan.protectedIdentities.map { it.id }, assignment.expandedSize,
+        val activeProtected = ids.filterKeys { it < plan.protectedIdentities.size }.values
+        val macro = MacroDag(anchors, edges, activeProtected, assignment.expandedSize,
             rootState, plan.allowedUnaryOperators, plan.automaton)
         return DecodedMacro(macro, MacroDagExpander.expandOriginal(macro), ids)
     }

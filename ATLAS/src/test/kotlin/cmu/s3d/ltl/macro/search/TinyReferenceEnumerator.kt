@@ -67,6 +67,13 @@ internal object TinyReferenceEnumerator {
                 for (c in plan.identityConstraints) {
                     val valid = when (c) {
                         is MacroIdentityConstraint.NoDAGReuse -> dag.nodes.values.all { (c.excludeLiterals && it is LiteralNode) || dag.parents(it.id).size <= 1 }
+                        MacroIdentityConstraint.NoSharedLiteralBranches -> {
+                            fun literalsBelow(start:NodeId):Set<NodeId> {
+                                val seen=hashSetOf<NodeId>();fun walk(id:NodeId) { if(seen.add(id))dag.children(id).forEach(::walk) }
+                                walk(start);return seen.filter { dag.node(it) is LiteralNode }.toSet()
+                            }
+                            dag.nodes.values.filterIsInstance<BinaryNode>().all { literalsBelow(it.left).intersect(literalsBelow(it.right)).isEmpty() }
+                        }
                         is MacroIdentityConstraint.LeftNotEqualRight -> dag.nodes.values.filterIsInstance<BinaryNode>().all { it.left != it.right }
                         is MacroIdentityConstraint.NamedRoot -> dag.root == map.getValue(c.target)
                         is MacroIdentityConstraint.NamedDirectChild -> {
