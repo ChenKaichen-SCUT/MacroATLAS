@@ -1,0 +1,98 @@
+{
+  "atlasOnlySolved": 0,
+  "bothSolved": 27,
+  "campaigns": {
+    "followup": {
+      "atlasOnlySolved": 0,
+      "bothSolved": 2,
+      "cases": 13,
+      "counts": {
+        "ATLAS-B": {
+          "par2Sec": 313.0026187493077,
+          "solved": 2,
+          "statuses": {
+            "SAT": 1,
+            "TIMEOUT": 11,
+            "UNSAT": 1
+          }
+        },
+        "MacroATLAS": {
+          "par2Sec": 194.85874219200002,
+          "solved": 7,
+          "statuses": {
+            "SAT": 5,
+            "TIMEOUT": 6,
+            "UNSAT": 2
+          }
+        }
+      },
+      "macroOnlySolved": 5,
+      "pairCsvSha256": "ab1f79c91eb500a549e5a085eab79cf2db29898476fa59b0ccc29ef0d3d23a19",
+      "pairedMedianSpeedup": 6.741849216958475,
+      "paperCsvSha256": "6687db8dbc7004f31f754bf27ce4f3f9943324fad1a3f75ec2f0b155b9e110d2",
+      "runCommit": "75d5f18883a86b40681e0514f48499fb1f9f3500",
+      "runs": 26,
+      "server": "110.41.76.57",
+      "strictOnce": true,
+      "summarySha256": "d0db91dd20f4d0552d141446daa1c66314efbeecf917674f217b9735b8d270ea",
+      "timeoutSec": 180.0
+    },
+    "primary": {
+      "atlasOnlySolved": 0,
+      "bothSolved": 25,
+      "cases": 30,
+      "counts": {
+        "ATLAS-B": {
+          "par2Sec": 82.63769357879998,
+          "solved": 25,
+          "statuses": {
+            "SAT": 25,
+            "TIMEOUT": 5
+          }
+        },
+        "MacroATLAS": {
+          "par2Sec": 31.95107491076645,
+          "solved": 28,
+          "statuses": {
+            "SAT": 28,
+            "TIMEOUT": 2
+          }
+        }
+      },
+      "macroOnlySolved": 3,
+      "pairCsvSha256": "e92c3302be04b3abdde7f73ddfd9176c99e83f26630d655a68c14484b6969c71",
+      "pairedMedianSpeedup": 2.544844536669111,
+      "paperCsvSha256": "ecfe8a5deb7438cd712df5bdbd72866075de1dc8f9b5e35af5e8d0cbc138be39",
+      "runCommit": "76a1e1d8aec87e22d8df0632e95bfd2813e73363",
+      "runs": 60,
+      "server": "139.159.185.102",
+      "strictOnce": true,
+      "summarySha256": "32cf5c3c4229ed560ff0f2935c79f8ef684b1b95c4a6ba974726e908e8b86660",
+      "timeoutSec": 180.0
+    }
+  },
+  "cases": 43,
+  "combinedCoverage": {
+    "ATLAS-B": {
+      "solved": 27,
+      "statuses": {
+        "SAT": 26,
+        "TIMEOUT": 16,
+        "UNSAT": 1
+      }
+    },
+    "MacroATLAS": {
+      "solved": 35,
+      "statuses": {
+        "SAT": 33,
+        "TIMEOUT": 8,
+        "UNSAT": 2
+      }
+    }
+  },
+  "macroOnlySolved": 8,
+  "note": "Campaigns differ in case design and server; report runtime and PAR-2 per campaign, not as a pooled speedup.",
+  "pairCsvSha256": "5a659d51ef43c62d41313803aea536c0a1a418a71c3a3aba863891cae32adccc",
+  "paperCsvSha256": "753425b4ed58e4f7e4664d4a17e3f955d6f979f2e1b61e6e1755c5a13f85f5a4",
+  "runs": 86
+}

@@ -1,0 +1,14 @@
+task,axis,axisValue,regime,B,b,p,K,q,compressionPotential,targetUnaryDepth,atlasStatus,macroStatus,atlasSec,macroSec,speedup,bothSolved,statusAgreement,objectiveAgreement
+rq4f_binary_budget/b05.trace,b,5,large_b_short_unary,21,5,0,17,1,0.19047619047619047,0,TIMEOUT,TIMEOUT,180.02583774799996,180.08238865399994,,False,,
+rq4f_binary_budget/b06.trace,b,6,large_b_short_unary,21,6,0,20,1,0.04761904761904767,0,TIMEOUT,TIMEOUT,180.02808613600018,180.03696090400013,,False,,
+rq4f_binary_budget/b07.trace,b,7,large_b_short_unary,21,7,0,21,1,0.0,0,TIMEOUT,TIMEOUT,180.07187423100004,180.07459834600013,,False,,
+rq4f_binary_budget/b08.trace,b,8,large_b_short_unary,21,8,0,21,1,0.0,0,TIMEOUT,TIMEOUT,180.068266559,180.04032363700003,,False,,
+rq4f_boolean_B/B07.trace,B,7,large_b_short_unary,7,3,0,7,1,0.0,0,SAT,SAT,10.496066769000208,5.673136016000171,1.8501348706249476,True,True,True
+rq4f_boolean_B/B09.trace,B,9,large_b_short_unary,9,4,0,9,1,0.0,0,TIMEOUT,SAT,180.059904405,77.80129031599995,,False,,
+rq4f_boolean_B/B11.trace,B,11,large_b_short_unary,11,5,0,11,1,0.0,0,TIMEOUT,TIMEOUT,180.0360763419999,180.07444715299994,,False,,
+rq4f_fixed_B/B07.trace,B_fixed_target,7,large_b_short_unary,7,5,0,7,1,0.0,0,UNSAT,UNSAT,98.53797697200002,8.470145578000029,11.633563563292004,True,True,True
+rq4f_fixed_B/B09.trace,B_fixed_target,9,large_b_short_unary,9,5,0,9,1,0.0,0,TIMEOUT,UNSAT,180.03986526699987,138.461773558,,False,,
+rq4f_fixed_B/B12.trace,B_fixed_target,12,large_b_short_unary,12,5,0,12,1,0.0,0,TIMEOUT,TIMEOUT,180.07429553500003,180.04228564699997,,False,,
+rq4f_unary_B/B07.trace,B,7,small_b_long_unary,7,1,0,5,1,0.2857142857142857,6,TIMEOUT,SAT,180.14566896700012,9.674757051000029,,False,,
+rq4f_unary_B/B09.trace,B,9,small_b_long_unary,9,1,0,5,1,0.4444444444444444,8,TIMEOUT,SAT,180.1450004259999,45.11052861600001,,False,,
+rq4f_unary_B/B11.trace,B,11,small_b_long_unary,11,1,0,5,1,0.5454545454545454,10,TIMEOUT,SAT,180.1672896319999,87.9720173610001,,False,,
