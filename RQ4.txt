@@ -1,0 +1,370 @@
+
+# RQ4 最重要的补充不是“再多随机生成几个点”
+
+做三组新的实验。
+
+---
+
+# 九、实验 A：真正的 Unary-Size Scaling Family
+
+这是最重要的。
+
+现在补充轮已有：
+
+$$
+OPT=7,9,11.
+$$
+
+继续把这条线延长：
+
+$$
+OPT
+\in
+\{5,7,9,11,13,15,17,21,\ldots\}.
+$$
+
+核心要求是：
+
+$$
+\boxed{
+\text{每一个实例的真实最优公式大小是已知/可证明的。}
+}
+$$
+
+不要再仅仅指定 target depth。
+
+---
+
+## 最干净的办法
+
+限制 operator alphabet 为：
+
+$$
+\{X\}
+$$
+
+加 literal。
+
+构造 traces 使唯一需求是：
+
+$$
+X^d p.
+$$
+
+并保证所有：
+
+$$
+X^i p,\qquad i<d
+$$
+
+都不能正确分类样本。
+
+这样：
+
+$$
+OPT=d+1
+$$
+
+有非常直接的 certificate。
+
+例如构造 positive/negative lassos，使 \(p\) 在第 \(d\) 个位置的取值是决定性的，而所有此前位置在正负样本间一致。
+
+那么随着：
+
+$$
+d=4,6,8,10,12,\ldots
+$$
+
+你可以非常明确地说：
+
+$$
+\boxed{
+OPT\text{ 本身真的在增长。}
+}
+$$
+
+---
+#  Unary scaling 至少跑到“交叉点”
+
+继续增长，直到出现：
+
+```text
+ATLAS：连续若干个 timeout
+Macro：仍然 solve
+```
+
+然后继续增长到：
+
+```text
+Macro 也 timeout
+```
+
+理想图例如：
+
+| OPT size | ATLAS | Macro |
+| -------: | ----: | ----: |
+|        7 |   25s |    3s |
+|        9 |   90s |    8s |
+|       11 |    TO |   20s |
+|       13 |    TO |   45s |
+|       15 |    TO |  100s |
+|       17 |    TO |    TO |
+
+这样你就真的有：
+
+$$
+\boxed{
+\text{exact solvability frontier 从 9 延伸到 15}
+}
+$$
+
+这样的非常强的 scalability claim。
+
+---
+
+# 十一、实验 B：真正的 Binary-Branching Control Family
+
+当前大 \(b\) 对照没有形成有效曲线。
+
+好消息是补充轮已经找到正确的构造方向：
+
+$$
+x_1\land x_2\land\cdots\land x_n.
+$$
+
+使用所有：
+
+$$
+2^n
+$$
+
+个单状态赋值。
+
+这样每个变量都 essential。
+
+如果 operator alphabet限制为：
+
+$$
+\{\land\}
+$$
+
+或至少能够证明别的 operators 不能更短表示 conjunction，则：
+
+$$
+OPT_{\rm binary}=n-1,
+$$
+
+$$
+OPT_{\rm size}=2n-1.
+$$
+
+文件本身已经对六变量 case 给出了这种理论证书思路。
+
+---
+
+## 不要从 \(n=4\) 才开始
+
+建议：
+
+$$
+n=2,3,4,5,6,7
+$$
+
+对应：
+
+$$
+b=1,2,3,4,5,6.
+$$
+
+这样即使：
+
+$$
+b=5,6
+$$
+
+开始 timeout，前面也有完整曲线。
+
+你现在只有：
+
+$$
+b=3,4
+$$
+
+两个真正解决的非平凡点，再往后全部 timeout。
+
+这不足以画趋势。
+
+补：
+
+$$
+b=1,2
+$$
+
+成本应该很低，却能显著增强图形。
+
+---
+
+# 十二、这个 Binary family 的意义不是证明 Macro 更快
+
+恰恰可能证明：
+
+$$
+b\uparrow
+\Rightarrow
+K=p+3b+2
+$$
+
+越来越接近：
+
+$$
+B.
+$$
+
+那么：
+
+$$
+\text{Macro advantage}\downarrow.
+$$
+
+如果最后得到：
+
+```text
+b=1  Macro 10x
+b=2  Macro 5x
+b=3  Macro 2x
+b=4  Macro 1.2x
+b>=5 both timeout
+```
+
+这其实是一张非常好的**机制验证图**。
+
+它说明你的算法不是“神奇地总比 ATLAS 快”，而是：
+
+$$
+\boxed{
+\text{优势正好来自 bounded binary branching。}
+}
+$$
+
+这比“所有点都快”更可信。
+
+---
+
+# 十三、实验 C：真正隔离 \(q\) 的 Profile-Complexity 实验
+
+当前 \(q\) 轴实验是 confounded 的。
+
+因为：
+
+$$
+q
+$$
+
+变大时，你同时添加了更多 RequiredProposition constraints，所以：
+
+$$
+OPT
+$$
+
+也从：
+
+$$
+1\to3\to5.
+$$
+
+文件自己已经指出不能把时间增长纯归因于 \(q\)。
+
+这个需要重新设计。
+
+---
+
+# 十四、怎么只增加 \(q\)，而不改变问题？
+
+构造一个**semantics-neutral auxiliary automaton**：
+
+$$
+A_m
+$$
+
+有：
+
+$$
+m
+$$
+
+个 reachable states，但：
+
+$$
+\boxed{\text{所有 states 都 accepting}.}
+$$
+
+例如它仅追踪 unary/operator parity / residue：
+
+$$
+state'
+=
+(state + code(op))\bmod m,
+$$
+
+但所有 state 都接受。
+
+然后：
+
+$$
+A_{\rm real}\times A_m.
+$$
+
+这样：
+
+* feasible formulas 完全不变；
+* traces 完全不变；
+* optimum 完全不变；
+* 只有 constraint-profile state count：
+
+  $$
+  q
+  $$
+
+  增大。
+
+取：
+
+$$
+m=1,2,4,8,16.
+$$
+
+这就是**真正隔离 \(q\)**的 experiment。
+
+然后测：
+
+$$
+q
+$$
+
+vs.
+
+$$
+FiberCatalogSize,
+$$
+
+$$
+Vars,
+$$
+
+$$
+Clauses,
+$$
+
+$$
+EncodingTime,
+$$
+
+$$
+SolverTime.
+$$
+
+这样就能真正回答：
+
+> constraint-aware quotient 对 profile complexity 的敏感性到底怎样？
+
+当前的 q experiment 只能作为自然 constraints 的 case study，不能作为纯 \(q\) scalability curve。

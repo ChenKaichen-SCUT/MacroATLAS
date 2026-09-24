@@ -62,7 +62,9 @@ def generate(output, seed=SEED):
     print(json.dumps(dict(cases=len(records), runs=2*len(records), output=str(output))))
 
 
-def inspect(ready, java, allow_no_q_axis=False):
+def inspect(ready, java, allow_no_q_axis=False, run_variants=2):
+    if run_variants < 1:
+        raise ValueError('run_variants must be positive')
     root=ready/'matched_u_free'
     names=(ready/'matched/supported_tasks.txt').read_text().splitlines()
     all_names=sorted(p.relative_to(root).as_posix() for p in root.rglob('*.trace'))
@@ -94,10 +96,10 @@ def inspect(ready, java, allow_no_q_axis=False):
         raise ValueError('RQ4 primary grid requires a constraint-state axis')
     if qs and (len(set(qs))<3 or qs!=sorted(qs)):
         raise ValueError('Constraint-state axis did not create at least three increasing q levels: '+str(qs))
-    save_json(ready/'rq4-inspected-manifest.json',dict(cases=len(rows),runs=2*len(rows),
+    save_json(ready/'rq4-inspected-manifest.json',dict(cases=len(rows),runs=run_variants*len(rows),
         tasks=rows,suiteHash=digest(rows),qLevels=qs,
         note='q is the actual reachable minimized constraint automaton state count at each task B/b'))
-    print(json.dumps(dict(cases=len(rows),runs=2*len(rows),qLevels=qs)))
+    print(json.dumps(dict(cases=len(rows),runs=run_variants*len(rows),qLevels=qs)))
 
 
 def rows_so_far(campaign):
@@ -204,11 +206,12 @@ def main():
     g=sub.add_parser('generate');g.add_argument('--output',type=pathlib.Path,required=True);g.add_argument('--seed',type=int,default=SEED)
     i=sub.add_parser('inspect');i.add_argument('--ready',type=pathlib.Path,required=True);i.add_argument('--java',default='java')
     i.add_argument('--allow-no-q-axis',action='store_true',help='For preregistered follow-up grids without a q series')
+    i.add_argument('--run-variants',type=int,default=2,help='Number of algorithms planned per case (default: two)')
     s=sub.add_parser('status');s.add_argument('--campaign',type=pathlib.Path,required=True)
     r=sub.add_parser('report');r.add_argument('--campaign',type=pathlib.Path,required=True)
     a=p.parse_args()
     if a.command=='generate':generate(a.output.resolve(),a.seed)
-    elif a.command=='inspect':inspect(a.ready.resolve(),a.java,a.allow_no_q_axis)
+    elif a.command=='inspect':inspect(a.ready.resolve(),a.java,a.allow_no_q_axis,a.run_variants)
     elif a.command=='status':status(a.campaign.resolve())
     else:report(a.campaign.resolve())
 

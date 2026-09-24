@@ -10,6 +10,7 @@ import cmu.s3d.ltl.macro.unary.UnaryOperator
  * TaskParser exposes raw text, not an Alloy AST. We intentionally do not implement general Alloy.
  */
 object RecognizedConstraintAnalyzer {
+    private val RQ4_NEUTRAL_PROFILE = Regex("// RQ4_NEUTRAL_PROFILE_STATES=(1|2|4|8|16)")
     private fun tokens(s: String): String {
         val clean = s.replace(Regex("/\\*[\\s\\S]*?\\*/|//[^\\n]*|--[^\\n]*"), " ")
         val token = Regex("[A-Za-z_][A-Za-z_0-9]*|[0-9]+|->|[{}()\\[\\].:*+&|=~,-]")
@@ -116,6 +117,23 @@ object RecognizedConstraintAnalyzer {
             return NodeId(name)
         }
         try {
+            // A deliberately non-minimized, semantics-neutral profile used only for
+            // the controlled RQ4 q-axis. The exact comment is ignored by Alloy and
+            // by ATLAS-B; no ordinary input can enter this path accidentally.
+            val rq4Profile = RQ4_NEUTRAL_PROFILE.matchEntire(task.customConstraints?.trim() ?: "")
+            if (rq4Profile == null && task.customConstraints?.contains("RQ4_NEUTRAL_PROFILE_STATES") == true)
+                return unsupported(MacroUnsupportedReason.UNKNOWN_CUSTOM_ALLOY_CONSTRAINT,
+                    "Malformed RQ4 neutral profile marker")
+            if (rq4Profile != null) {
+                val count = rq4Profile.groupValues[1].toInt()
+                if (unary != listOf(UnaryOperator.X) || binary.isNotEmpty() || binaryBudget != 0 || nodeBudget < count)
+                    return unsupported(MacroUnsupportedReason.UNKNOWN_CUSTOM_ALLOY_CONSTRAINT,
+                        "RQ4 neutral profile requires X-only, b=0 and B >= q")
+                val automaton = ProductConstraintAutomaton(listOf(NeutralProfileAutomaton(count)))
+                return MacroTaskAnalysis.Supported(
+                    MacroConstraintPlan(automaton, task.literals, nodeBudget, binaryBudget, unary, binary),
+                    listOf("RQ4NeutralProfile($count)"))
+            }
             val text = tokens(task.customConstraints ?: "")
 
             // The paper artifact contains four constrained benchmark families with a

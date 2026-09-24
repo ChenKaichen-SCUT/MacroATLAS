@@ -32,6 +32,8 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 可复算汇总和结论见 [2026-09-23 实验结果](ATLAS/experiment_artifacts/2026-09-23/README.zh-CN.md)。
 RQ4 synthetic scalability 首轮与补充轮的逐运行数据、合并索引和证据边界见
 [2026-09-24 RQ4 完整结果](ATLAS/docs/phase4/RQ4_RESULTS_2026-09-24.md)。
+按 [RQ4.txt](RQ4.txt) 设计的可证明最优大小与隔离 profile 轴新增实验见
+[RQ4 certified 实验协议](ATLAS/docs/phase4/RQ4_CERTIFIED_PROTOCOL.md)。
 RQ2 E4 matched 编码规模的逐案例数据与分析见
 [2026-09-24 RQ2 结果](ATLAS/docs/phase4/RQ2_RESULTS_2026-09-24.md)。
 
