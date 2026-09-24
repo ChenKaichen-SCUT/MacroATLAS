@@ -1,0 +1,367 @@
+{
+  "completed": 28,
+  "note": "Timeout/error is unresolved, never counted as certificate agreement.",
+  "rows": [
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 1,
+      "certifiedOptimum": 3,
+      "learnedBinary": "1",
+      "learnedSize": "3",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n02.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 1,
+      "certifiedOptimum": 3,
+      "learnedBinary": "1",
+      "learnedSize": "3",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n02.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 2,
+      "certifiedOptimum": 5,
+      "learnedBinary": "2",
+      "learnedSize": "5",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n03.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 2,
+      "certifiedOptimum": 5,
+      "learnedBinary": "2",
+      "learnedSize": "5",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n03.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 3,
+      "certifiedOptimum": 7,
+      "learnedBinary": "3",
+      "learnedSize": "7",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n04.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 3,
+      "certifiedOptimum": 7,
+      "learnedBinary": "3",
+      "learnedSize": "7",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n04.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 4,
+      "certifiedOptimum": 9,
+      "learnedBinary": "4",
+      "learnedSize": "9",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n05.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 4,
+      "certifiedOptimum": 9,
+      "learnedBinary": "4",
+      "learnedSize": "9",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n05.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 5,
+      "certifiedOptimum": 11,
+      "learnedBinary": "5",
+      "learnedSize": "11",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n06.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 5,
+      "certifiedOptimum": 11,
+      "learnedBinary": "5",
+      "learnedSize": "11",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n06.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 6,
+      "certifiedOptimum": 13,
+      "learnedBinary": "6",
+      "learnedSize": "13",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_binary/n07.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 6,
+      "certifiedOptimum": 13,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_binary/n07.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 5,
+      "learnedBinary": "0",
+      "learnedSize": "5",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d04.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 5,
+      "learnedBinary": "0",
+      "learnedSize": "5",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d04.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 7,
+      "learnedBinary": "0",
+      "learnedSize": "7",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d06.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 7,
+      "learnedBinary": "0",
+      "learnedSize": "7",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d06.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 9,
+      "learnedBinary": "0",
+      "learnedSize": "9",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d08.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 9,
+      "learnedBinary": "0",
+      "learnedSize": "9",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d08.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 11,
+      "learnedBinary": "0",
+      "learnedSize": "11",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d10.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 11,
+      "learnedBinary": "0",
+      "learnedSize": "11",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d10.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 13,
+      "learnedBinary": "0",
+      "learnedSize": "13",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d12.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 13,
+      "learnedBinary": "0",
+      "learnedSize": "13",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d12.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 15,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d14.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 15,
+      "learnedBinary": "0",
+      "learnedSize": "15",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d14.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 17,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d16.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 17,
+      "learnedBinary": "0",
+      "learnedSize": "17",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d16.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 21,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d20.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 21,
+      "learnedBinary": "0",
+      "learnedSize": "21",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d20.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 25,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d24.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 25,
+      "learnedBinary": "0",
+      "learnedSize": "25",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d24.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 29,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d28.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 29,
+      "learnedBinary": "0",
+      "learnedSize": "29",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d28.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 33,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d32.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 33,
+      "learnedBinary": "0",
+      "learnedSize": "33",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d32.trace"
+    },
+    {
+      "algorithm": "ATLAS-B",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 41,
+      "learnedBinary": null,
+      "learnedSize": null,
+      "observedCertificate": null,
+      "status": "TIMEOUT",
+      "task": "rq4c_unary/d40.trace"
+    },
+    {
+      "algorithm": "MacroATLAS",
+      "certifiedBinary": 0,
+      "certifiedOptimum": 41,
+      "learnedBinary": "0",
+      "learnedSize": "41",
+      "observedCertificate": true,
+      "status": "SAT",
+      "task": "rq4c_unary/d40.trace"
+    }
+  ],
+  "unresolved": 8
+}

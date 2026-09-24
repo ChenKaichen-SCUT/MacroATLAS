@@ -1,0 +1,120 @@
+{
+  "binary": {
+    "bothSAT": 5,
+    "byMethod": {
+      "ATLAS-B": {
+        "PAR2_180s": 3.9240546193332193,
+        "SAT": 6,
+        "TIMEOUT": 0,
+        "largestCertifiedOptimumSolved": 13
+      },
+      "MacroATLAS": {
+        "PAR2_180s": 63.05413031549991,
+        "SAT": 5,
+        "TIMEOUT": 1,
+        "largestCertifiedOptimumSolved": 11
+      }
+    },
+    "cases": 6,
+    "geometricMeanAtlasOverMacroSec": 0.577036272683099,
+    "macroFasterAmongBothSAT": 0,
+    "medianAtlasOverMacroSec": 0.8490382230941506
+  },
+  "certifiedSat": 28,
+  "profile": [
+    {
+      "actualQ": "1",
+      "backendTotalClauses": "8758",
+      "encodingSec": "0.003074521",
+      "fiberCount": "4",
+      "learnedDagNodes": "3",
+      "requestedQ": "1",
+      "solverSec": "0.574482923",
+      "totalSec": "0.8202832900005887",
+      "vars": "4387"
+    },
+    {
+      "actualQ": "2",
+      "backendTotalClauses": "10082",
+      "encodingSec": "0.003351547",
+      "fiberCount": "10",
+      "learnedDagNodes": "3",
+      "requestedQ": "2",
+      "solverSec": "0.618403289",
+      "totalSec": "0.879243561000294",
+      "vars": "4918"
+    },
+    {
+      "actualQ": "4",
+      "backendTotalClauses": "15832",
+      "encodingSec": "0.003864738",
+      "fiberCount": "28",
+      "learnedDagNodes": "3",
+      "requestedQ": "4",
+      "solverSec": "0.731472178",
+      "totalSec": "0.9951081529998191",
+      "vars": "7024"
+    },
+    {
+      "actualQ": "8",
+      "backendTotalClauses": "37517",
+      "encodingSec": "0.005160358",
+      "fiberCount": "88",
+      "learnedDagNodes": "3",
+      "requestedQ": "8",
+      "solverSec": "0.90937059",
+      "totalSec": "1.2241337969999222",
+      "vars": "14545"
+    },
+    {
+      "actualQ": "16",
+      "backendTotalClauses": "115893",
+      "encodingSec": "0.00786156",
+      "fiberCount": "288",
+      "learnedDagNodes": "3",
+      "requestedQ": "16",
+      "solverSec": "1.320593095",
+      "totalSec": "1.5689240920000884",
+      "vars": "41379"
+    }
+  ],
+  "profileQ16OverQ1": {
+    "backendTotalClauses": 13.232815711349623,
+    "encodingSec": 2.557003188464154,
+    "fiberCount": 72.0,
+    "solverSec": 2.298750828142545,
+    "totalSec": 1.912661285589473,
+    "vars": 9.432186004103032
+  },
+  "profileSat": 5,
+  "rawArchiveSha256": "a7e064d381b5bcc90a41623286f4799f6e1d52f7bf59622767d6f3e93d58b369",
+  "runs": 41,
+  "sourceCommit": "1bc3be5c36f454f9448825296a9f1709d676106d",
+  "sourceSha256": {
+    "ab/rq4_paper_data.csv": "cb0a7bf73062996e06c1f113d72c505d89add8b9cf1e956a354517e7e977fadc",
+    "combined/rq4c_paper_data.csv": "d649bd7f3d7559c8f45ae47ded61095b3bfa5011c033c107690404fa00ff9c38",
+    "profile/rq4c_profile_data.csv": "33b1791652a3162a666185eda59e977f95424ebca052b28c9c536d6b2e3774b4"
+  },
+  "unary": {
+    "bothSAT": 5,
+    "byMethod": {
+      "ATLAS-B": {
+        "PAR2_180s": 219.9950362548334,
+        "SAT": 5,
+        "TIMEOUT": 7,
+        "largestCertifiedOptimumSolved": 13
+      },
+      "MacroATLAS": {
+        "PAR2_180s": 3.520084419583327,
+        "SAT": 12,
+        "TIMEOUT": 0,
+        "largestCertifiedOptimumSolved": 41
+      }
+    },
+    "cases": 12,
+    "geometricMeanAtlasOverMacroSec": 4.823471059115405,
+    "macroFasterAmongBothSAT": 5,
+    "medianAtlasOverMacroSec": 4.379955332198268
+  },
+  "unresolvedTimeout": 8
+}

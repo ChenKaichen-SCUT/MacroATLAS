@@ -1,0 +1,77 @@
+{
+  "cases": 5,
+  "design": "Fixed traces, target, X-only alphabet, B=17, b=0; only a non-minimized all-accepting auxiliary profile changes",
+  "inputSha256": "3d09e3f6b3c52eac3f4732e5776c9bd29942bca201396043dad9d7884c709143",
+  "paperCsvSha256": "33b1791652a3162a666185eda59e977f95424ebca052b28c9c536d6b2e3774b4",
+  "qRows": [
+    {
+      "actualQ": 1,
+      "backendTotalClauses": "8758",
+      "encodingSec": "0.003074521",
+      "fiberCount": "4",
+      "learnedDagNodes": "3",
+      "requestedQ": 1,
+      "solverSec": "0.574482923",
+      "status": "SAT",
+      "task": "rq4c_profile/q01.trace",
+      "totalSec": "0.8202832900005887",
+      "vars": "4387"
+    },
+    {
+      "actualQ": 2,
+      "backendTotalClauses": "10082",
+      "encodingSec": "0.003351547",
+      "fiberCount": "10",
+      "learnedDagNodes": "3",
+      "requestedQ": 2,
+      "solverSec": "0.618403289",
+      "status": "SAT",
+      "task": "rq4c_profile/q02.trace",
+      "totalSec": "0.879243561000294",
+      "vars": "4918"
+    },
+    {
+      "actualQ": 4,
+      "backendTotalClauses": "15832",
+      "encodingSec": "0.003864738",
+      "fiberCount": "28",
+      "learnedDagNodes": "3",
+      "requestedQ": 4,
+      "solverSec": "0.731472178",
+      "status": "SAT",
+      "task": "rq4c_profile/q04.trace",
+      "totalSec": "0.9951081529998191",
+      "vars": "7024"
+    },
+    {
+      "actualQ": 8,
+      "backendTotalClauses": "37517",
+      "encodingSec": "0.005160358",
+      "fiberCount": "88",
+      "learnedDagNodes": "3",
+      "requestedQ": 8,
+      "solverSec": "0.90937059",
+      "status": "SAT",
+      "task": "rq4c_profile/q08.trace",
+      "totalSec": "1.2241337969999222",
+      "vars": "14545"
+    },
+    {
+      "actualQ": 16,
+      "backendTotalClauses": "115893",
+      "encodingSec": "0.00786156",
+      "fiberCount": "288",
+      "learnedDagNodes": "3",
+      "requestedQ": 16,
+      "solverSec": "1.320593095",
+      "status": "SAT",
+      "task": "rq4c_profile/q16.trace",
+      "totalSec": "1.5689240920000884",
+      "vars": "41379"
+    }
+  ],
+  "runs": 5,
+  "statuses": {
+    "SAT": 5
+  }
+}

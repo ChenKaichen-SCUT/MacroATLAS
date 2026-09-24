@@ -1,0 +1,21 @@
+{
+  "abCsvSha256": "cb0a7bf73062996e06c1f113d72c505d89add8b9cf1e956a354517e7e977fadc",
+  "cases": 23,
+  "note": "A/B are paired; C is Macro-only because ATLAS-B ignores the auxiliary profile. Every run is one attempt.",
+  "paperCsvSha256": "d649bd7f3d7559c8f45ae47ded61095b3bfa5011c033c107690404fa00ff9c38",
+  "profileCsvSha256": "33b1791652a3162a666185eda59e977f95424ebca052b28c9c536d6b2e3774b4",
+  "runs": 41,
+  "statusByGroupAndVariant": {
+    "A+B_atlas-b": {
+      "SAT": 11,
+      "TIMEOUT": 7
+    },
+    "A+B_macro": {
+      "SAT": 17,
+      "TIMEOUT": 1
+    },
+    "C_macro": {
+      "SAT": 5
+    }
+  }
+}
