@@ -1,0 +1,159 @@
+{
+  "B_over_K": {
+    "max": 157.69230769230768,
+    "median": 1.6363636363636365,
+    "min": 1.0,
+    "n": 200
+  },
+  "C_C": {
+    "max": 29.40567710976109,
+    "median": 2.1747224952390267,
+    "min": 0.23937621935562434,
+    "n": 176
+  },
+  "C_V": {
+    "max": 19.529355151480416,
+    "median": 1.4209427127487788,
+    "min": 0.22424927113702625,
+    "n": 176
+  },
+  "activeAnchors_over_expandedSize": {
+    "max": 1.0,
+    "median": 0.8888888888888888,
+    "min": 0.3333333333333333,
+    "n": 150
+  },
+  "byCategory": {
+    "nnf_template": {
+      "C_C": {
+        "max": 5.575787488908607,
+        "median": 3.756132539188637,
+        "min": 2.313729789370942,
+        "n": 10
+      },
+      "C_V": {
+        "max": 3.9548214353056528,
+        "median": 2.8218668861847807,
+        "min": 1.8009378415541375,
+        "n": 10
+      },
+      "complete": 10,
+      "pairs": 10
+    },
+    "plain": {
+      "C_C": {
+        "max": 4.06040451274601,
+        "median": 1.4537899820778113,
+        "min": 1.045571882918388,
+        "n": 75
+      },
+      "C_V": {
+        "max": 2.5428825991969046,
+        "median": 0.9166780638014566,
+        "min": 0.6872556684910086,
+        "n": 75
+      },
+      "complete": 75,
+      "pairs": 80
+    },
+    "repair": {
+      "C_C": {
+        "max": 22.493434502749476,
+        "median": 13.516638890496523,
+        "min": 9.40320542761366,
+        "n": 20
+      },
+      "C_V": {
+        "max": 15.673427644578954,
+        "median": 9.517333921813098,
+        "min": 6.786069307102159,
+        "n": 20
+      },
+      "complete": 20,
+      "pairs": 20
+    },
+    "required": {
+      "C_C": {
+        "max": 19.27261290001637,
+        "median": 12.86389106348096,
+        "min": 8.190990478780838,
+        "n": 30
+      },
+      "C_V": {
+        "max": 16.373107853642804,
+        "median": 11.304944334586647,
+        "min": 7.304299856294494,
+        "n": 30
+      },
+      "complete": 30,
+      "pairs": 30
+    },
+    "weakening_b2": {
+      "C_C": {
+        "max": 14.810276054623975,
+        "median": 1.8275754303765332,
+        "min": 0.23937621935562434,
+        "n": 21
+      },
+      "C_V": {
+        "max": 10.284116641916677,
+        "median": 1.275109008063773,
+        "min": 0.22424927113702625,
+        "n": 21
+      },
+      "complete": 21,
+      "pairs": 30
+    },
+    "weakening_b3": {
+      "C_C": {
+        "max": 29.40567710976109,
+        "median": 1.6949337065489622,
+        "min": 0.2486545671721026,
+        "n": 20
+      },
+      "C_V": {
+        "max": 19.529355151480416,
+        "median": 1.1606658212469239,
+        "min": 0.23357054105952785,
+        "n": 20
+      },
+      "complete": 20,
+      "pairs": 30
+    }
+  },
+  "cases": 200,
+  "categoryCounts": {
+    "nnf_template": 10,
+    "plain": 80,
+    "repair": 20,
+    "required": 30,
+    "weakening_b2": 30,
+    "weakening_b3": 30
+  },
+  "completePairs": 176,
+  "notes": [
+    "Each algorithm/case/scope is attempted once; no MaxSAT solve.",
+    "Ratios use only fully translated pairs; incomplete statuses remain in per-run and pair files.",
+    "Scope is the same expanded formula-size upper bound, even if Alloy atom universes differ.",
+    "This is deterministic stratified sample evidence, not a claim about all 623 cases."
+  ],
+  "runs": 400,
+  "scopeCounts": {
+    "5": 100,
+    "7": 27,
+    "9": 33,
+    "11": 22,
+    "15": 18
+  },
+  "statuses": {
+    "atlas-b": {
+      "TRANSLATED_ONLY": 176,
+      "TRANSLATION_ERROR": 3,
+      "TRANSLATION_TIMEOUT": 21
+    },
+    "macro": {
+      "TRANSLATED_ONLY": 198,
+      "TRANSLATION_TIMEOUT": 2
+    }
+  }
+}

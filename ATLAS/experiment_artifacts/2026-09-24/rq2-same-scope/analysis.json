@@ -1,0 +1,302 @@
+{
+  "B_over_K": {
+    "max": 157.69230769230768,
+    "median": 1.6363636363636365,
+    "min": 1.0,
+    "n": 200
+  },
+  "KLessThanB": 185,
+  "activeAnchorsOverExpandedSize": {
+    "max": 1.0,
+    "median": 0.8888888888888888,
+    "min": 0.3333333333333333,
+    "n": 150
+  },
+  "archiveSha256": "47e4835cd4d89407011f4cf80491b35bddb576e429b20c7d2f44a3440d8addb1",
+  "attemptsPerMethodCaseScope": 1,
+  "byCategory": {
+    "nnf_template": {
+      "C_C": {
+        "max": 5.575787488908607,
+        "median": 3.756132539188637,
+        "min": 2.313729789370942,
+        "n": 10
+      },
+      "C_V": {
+        "max": 3.9548214353056528,
+        "median": 2.8218668861847807,
+        "min": 1.8009378415541375,
+        "n": 10
+      },
+      "atlasTranslated": 10,
+      "cases": 10,
+      "macroFewerClauses": 10,
+      "macroFewerVars": 10,
+      "macroTranslated": 10,
+      "pairedTranslated": 10
+    },
+    "plain": {
+      "C_C": {
+        "max": 4.06040451274601,
+        "median": 1.4537899820778113,
+        "min": 1.045571882918388,
+        "n": 75
+      },
+      "C_V": {
+        "max": 2.5428825991969046,
+        "median": 0.9166780638014566,
+        "min": 0.6872556684910086,
+        "n": 75
+      },
+      "atlasTranslated": 75,
+      "cases": 80,
+      "macroFewerClauses": 75,
+      "macroFewerVars": 29,
+      "macroTranslated": 78,
+      "pairedTranslated": 75
+    },
+    "repair": {
+      "C_C": {
+        "max": 22.493434502749476,
+        "median": 13.516638890496523,
+        "min": 9.40320542761366,
+        "n": 20
+      },
+      "C_V": {
+        "max": 15.673427644578954,
+        "median": 9.517333921813098,
+        "min": 6.786069307102159,
+        "n": 20
+      },
+      "atlasTranslated": 20,
+      "cases": 20,
+      "macroFewerClauses": 20,
+      "macroFewerVars": 20,
+      "macroTranslated": 20,
+      "pairedTranslated": 20
+    },
+    "required": {
+      "C_C": {
+        "max": 19.27261290001637,
+        "median": 12.86389106348096,
+        "min": 8.190990478780838,
+        "n": 30
+      },
+      "C_V": {
+        "max": 16.373107853642804,
+        "median": 11.304944334586647,
+        "min": 7.304299856294494,
+        "n": 30
+      },
+      "atlasTranslated": 30,
+      "cases": 30,
+      "macroFewerClauses": 30,
+      "macroFewerVars": 30,
+      "macroTranslated": 30,
+      "pairedTranslated": 30
+    },
+    "weakening_b2": {
+      "C_C": {
+        "max": 14.810276054623975,
+        "median": 1.8275754303765332,
+        "min": 0.23937621935562434,
+        "n": 21
+      },
+      "C_V": {
+        "max": 10.284116641916677,
+        "median": 1.275109008063773,
+        "min": 0.22424927113702625,
+        "n": 21
+      },
+      "atlasTranslated": 21,
+      "cases": 30,
+      "macroFewerClauses": 18,
+      "macroFewerVars": 17,
+      "macroTranslated": 30,
+      "pairedTranslated": 21
+    },
+    "weakening_b3": {
+      "C_C": {
+        "max": 29.40567710976109,
+        "median": 1.6949337065489622,
+        "min": 0.2486545671721026,
+        "n": 20
+      },
+      "C_V": {
+        "max": 19.529355151480416,
+        "median": 1.1606658212469239,
+        "min": 0.23357054105952785,
+        "n": 20
+      },
+      "atlasTranslated": 20,
+      "cases": 30,
+      "macroFewerClauses": 15,
+      "macroFewerVars": 11,
+      "macroTranslated": 30,
+      "pairedTranslated": 20
+    }
+  },
+  "byScope": {
+    "5": {
+      "C_C": {
+        "max": 29.40567710976109,
+        "median": 1.8508944504051505,
+        "min": 0.23937621935562434,
+        "n": 91
+      },
+      "C_V": {
+        "max": 19.529355151480416,
+        "median": 1.2777282545010857,
+        "min": 0.22424927113702625,
+        "n": 91
+      },
+      "atlasTranslated": 91,
+      "cases": 100,
+      "macroFewerClauses": 89,
+      "macroFewerVars": 58,
+      "macroTranslated": 98,
+      "pairedTranslated": 91
+    },
+    "7": {
+      "C_C": {
+        "max": 14.810276054623975,
+        "median": 1.3999640057974196,
+        "min": 1.045571882918388,
+        "n": 25
+      },
+      "C_V": {
+        "max": 11.072193834953078,
+        "median": 1.0175055932031525,
+        "min": 0.6968510024223058,
+        "n": 25
+      },
+      "atlasTranslated": 25,
+      "cases": 27,
+      "macroFewerClauses": 25,
+      "macroFewerVars": 13,
+      "macroTranslated": 27,
+      "pairedTranslated": 25
+    },
+    "9": {
+      "C_C": {
+        "max": 15.328941879045653,
+        "median": 1.7164313744247601,
+        "min": 0.2486545671721026,
+        "n": 24
+      },
+      "C_V": {
+        "max": 11.080716939633742,
+        "median": 1.1177728348537475,
+        "min": 0.23357054105952785,
+        "n": 24
+      },
+      "atlasTranslated": 24,
+      "cases": 33,
+      "macroFewerClauses": 22,
+      "macroFewerVars": 15,
+      "macroTranslated": 33,
+      "pairedTranslated": 24
+    },
+    "11": {
+      "C_C": {
+        "max": 16.956416823888887,
+        "median": 2.3728077134460213,
+        "min": 0.42783358207703787,
+        "n": 20
+      },
+      "C_V": {
+        "max": 12.260003380373202,
+        "median": 1.5331317414881844,
+        "min": 0.38748195080661224,
+        "n": 20
+      },
+      "atlasTranslated": 20,
+      "cases": 22,
+      "macroFewerClauses": 17,
+      "macroFewerVars": 17,
+      "macroTranslated": 22,
+      "pairedTranslated": 20
+    },
+    "15": {
+      "C_C": {
+        "max": 18.801216258585093,
+        "median": 3.84275301644246,
+        "min": 0.8575617900900689,
+        "n": 16
+      },
+      "C_V": {
+        "max": 13.59415859486461,
+        "median": 2.4170379320632778,
+        "min": 0.7328399406856877,
+        "n": 16
+      },
+      "atlasTranslated": 16,
+      "cases": 18,
+      "macroFewerClauses": 15,
+      "macroFewerVars": 14,
+      "macroTranslated": 18,
+      "pairedTranslated": 16
+    }
+  },
+  "methodRuns": 400,
+  "overall": {
+    "C_C": {
+      "max": 29.40567710976109,
+      "median": 2.1747224952390267,
+      "min": 0.23937621935562434,
+      "n": 176
+    },
+    "C_V": {
+      "max": 19.529355151480416,
+      "median": 1.4209427127487788,
+      "min": 0.22424927113702625,
+      "n": 176
+    },
+    "atlasTranslated": 176,
+    "cases": 200,
+    "macroFewerClauses": 168,
+    "macroFewerVars": 117,
+    "macroTranslated": 198,
+    "pairedTranslated": 176
+  },
+  "planSha256": "e18c6adc9991c1c67dc93ca71c6bb05273e72b9c70020b8e399bb1ff0dd9c39d",
+  "sampleCases": 200,
+  "sourceCases": 623,
+  "sourceCommit": "a834e398d2371acace198b4a16c84426a6eaa6da",
+  "statusByMethod": {
+    "atlas-b": {
+      "TRANSLATED_ONLY": 176,
+      "TRANSLATION_ERROR": 3,
+      "TRANSLATION_TIMEOUT": 21
+    },
+    "macro": {
+      "TRANSLATED_ONLY": 198,
+      "TRANSLATION_TIMEOUT": 2
+    }
+  },
+  "statusPairs": [
+    {
+      "atlas": "TRANSLATED_ONLY",
+      "cases": 176,
+      "macro": "TRANSLATED_ONLY"
+    },
+    {
+      "atlas": "TRANSLATION_ERROR",
+      "cases": 1,
+      "macro": "TRANSLATED_ONLY"
+    },
+    {
+      "atlas": "TRANSLATION_ERROR",
+      "cases": 2,
+      "macro": "TRANSLATION_TIMEOUT"
+    },
+    {
+      "atlas": "TRANSLATION_TIMEOUT",
+      "cases": 21,
+      "macro": "TRANSLATED_ONLY"
+    }
+  ],
+  "translationErrorKinds": {
+    "ATLAS_B_CAPACITY_EXCEEDED": 3
+  }
+}
