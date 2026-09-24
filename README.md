@@ -32,6 +32,8 @@ anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protect
 可复算汇总和结论见 [2026-09-23 实验结果](ATLAS/experiment_artifacts/2026-09-23/README.zh-CN.md)。
 RQ4 synthetic scalability 的逐运行数据与适用范围见
 [2026-09-24 RQ4 结果](ATLAS/docs/phase4/RQ4_RESULTS_2026-09-24.md)。
+RQ2 E4 matched 编码规模的逐案例数据与分析见
+[2026-09-24 RQ2 结果](ATLAS/docs/phase4/RQ2_RESULTS_2026-09-24.md)。
 
 ## 仓库内容
 

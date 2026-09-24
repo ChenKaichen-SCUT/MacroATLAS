@@ -1,0 +1,155 @@
+{
+  "byBatch": {
+    "b2": {
+      "C_C": {
+        "count": 549,
+        "max": 71.18464579215646,
+        "median": 1.4406510543338198,
+        "min": 0.25853958090619483,
+        "p25": 1.2583419420605313,
+        "p75": 3.823817043355262
+      },
+      "C_K": {
+        "count": 584,
+        "max": 157.69230769230768,
+        "median": 1.25,
+        "min": 1.0,
+        "p25": 1.0,
+        "p75": 2.25
+      },
+      "C_ModelBytes": {
+        "count": 584,
+        "max": 1.8068554487991828,
+        "median": 0.5433438804792878,
+        "min": 0.07590743786338051,
+        "p25": 0.3643443291537336,
+        "p75": 0.744681683307318
+      },
+      "C_V": {
+        "count": 549,
+        "max": 40.8683404776485,
+        "median": 0.9657356295029286,
+        "min": 0.24618508381187498,
+        "p25": 0.812309542639446,
+        "p75": 2.425461172032354
+      }
+    },
+    "b3": {
+      "C_C": {
+        "count": 27,
+        "max": 16.71506540538629,
+        "median": 1.2237614858611123,
+        "min": 0.24260341419807133,
+        "p25": 1.0752787530436692,
+        "p75": 1.2841674182446219
+      },
+      "C_K": {
+        "count": 39,
+        "max": 1.6363636363636365,
+        "median": 1.6363636363636365,
+        "min": 1.6363636363636365,
+        "p25": 1.6363636363636365,
+        "p75": 1.6363636363636365
+      },
+      "C_ModelBytes": {
+        "count": 39,
+        "max": 0.5737312911812191,
+        "median": 0.3734175350376649,
+        "min": 0.07692486139142135,
+        "p25": 0.24546586572781764,
+        "p75": 0.4834280828575238
+      },
+      "C_V": {
+        "count": 27,
+        "max": 11.698753252535935,
+        "median": 0.898779771146571,
+        "min": 0.22668754799685917,
+        "p25": 0.8143731384795136,
+        "p75": 0.9320483736955081
+      }
+    }
+  },
+  "cases": 623,
+  "distributions": {
+    "C_C": {
+      "count": 576,
+      "max": 71.18464579215646,
+      "median": 1.411353472066734,
+      "min": 0.24260341419807133,
+      "p25": 1.2549960797057997,
+      "p75": 3.7157449969333807
+    },
+    "C_K": {
+      "count": 623,
+      "max": 157.69230769230768,
+      "median": 1.25,
+      "min": 1.0,
+      "p25": 1.0,
+      "p75": 2.25
+    },
+    "C_ModelBytes": {
+      "count": 623,
+      "max": 1.8068554487991828,
+      "median": 0.5317025226602599,
+      "min": 0.07590743786338051,
+      "p25": 0.35423580495354656,
+      "p75": 0.7324799636699315
+    },
+    "C_V": {
+      "count": 576,
+      "max": 40.8683404776485,
+      "median": 0.9462458915469882,
+      "min": 0.22668754799685917,
+      "p25": 0.8122888911219303,
+      "p75": 2.3907648115593885
+    },
+    "fiberCatalogSize": {
+      "count": 623,
+      "max": 310.0,
+      "median": 58.0,
+      "min": 14.0,
+      "p25": 34.0,
+      "p75": 103.0
+    },
+    "selectedFiberCount": {
+      "count": 384,
+      "max": 7.0,
+      "median": 2.0,
+      "min": 1.0,
+      "p25": 1.0,
+      "p75": 4.0
+    }
+  },
+  "methodRuns": 1246,
+  "metricSource": {
+    "atlas-b": {
+      "E4_REUSED": 346,
+      "TRANSLATE_ONLY": 277
+    },
+    "macro": {
+      "E4_REUSED": 394,
+      "TRANSLATE_ONLY": 229
+    }
+  },
+  "metricStatuses": {
+    "atlas-b": {
+      "REUSED_E4": 346,
+      "TIMEOUT": 33,
+      "TRANSLATED_ONLY": 230,
+      "TRANSLATION_ERROR": 14
+    },
+    "macro": {
+      "REUSED_E4": 394,
+      "TIMEOUT": 8,
+      "TRANSLATED_ONLY": 221
+    }
+  },
+  "notes": [
+    "CNF translation callback stops before SAT solve; no E4 learning was rerun.",
+    "AlloyMax reporter exposes total variables/clauses, not reliable hard/soft splits.",
+    "Selected fibers and active structures require SAT assignments; blank for timeout/UNSAT.",
+    "C_V and C_C use the maximum backend counts across attempted models for each method.",
+    "Ratios omit pairs with unavailable CNF metrics; coverage is reported explicitly."
+  ],
+  "pairedVarClauses": 576
+}
