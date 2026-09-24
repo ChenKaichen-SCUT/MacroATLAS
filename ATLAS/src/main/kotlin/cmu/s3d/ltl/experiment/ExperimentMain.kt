@@ -35,6 +35,28 @@ object ExperimentMain {
             directory.resolve("inspect.json").writeText(metadataJson(result)+"\n")
             return
         }
+        if(a["mode"]=="emit-scope") {
+            val task=TaskParser.parseTask(File(a.getValue("file")).readText())
+            val budget=a["B"]?.toInt() ?: task.maxNumOfOP+task.literals.size
+            val scope=a.getValue("scope").toInt()
+            require(scope in 1..budget)
+            val analysis=RecognizedConstraintAnalyzer.analyze(task,b,budget)
+            val plan=(analysis as? MacroTaskAnalysis.Supported)?.plan
+                ?: error("Same-scope input is unsupported: $analysis")
+            val variant=a.getValue("variant")
+            val model=when(variant) {
+                "atlas-b" -> MatchedAtlasLearner(task,plan,AlloyMaxBase.defaultAlloyOptions()).modelAtScope(scope)
+                "macro" -> MacroAlloyModelBuilder(MacroCompilationContext(plan,task.positiveExamples,task.negativeExamples),scope).build()
+                else -> error("Expected --variant atlas-b|macro")
+            }
+            directory.resolve("model.als").writeText(model)
+            directory.resolve("model-info.json").writeText(metadataJson(mapOf(
+                "variant" to variant,"nodeBudget" to budget,"binaryBudget" to b,
+                "costScope" to scope,"scopeMeaning" to "expanded_formula_size_upper_bound",
+                "objective" to "minimum_expanded_size","solverInvoked" to false,
+                "modelBytes" to model.toByteArray().size)) + "\n")
+            return
+        }
         val data=linkedMapOf<String,Any>("variant" to a.getValue("mode"),"status" to "ERROR","solverMode" to "NONE")
         val start=System.nanoTime()
         fun write(name:String,values:Map<String,Any>)=directory.resolve(name).writeText(metadataJson(values)+"\n")

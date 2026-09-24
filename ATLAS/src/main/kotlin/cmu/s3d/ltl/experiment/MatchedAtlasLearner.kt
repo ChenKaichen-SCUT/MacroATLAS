@@ -57,6 +57,12 @@ class MatchedAtlasLearner<Q : Any>(private val task: Task, private val plan: Mac
         return model.replace("run {",extra+"\nrun {").replace("for %d DAGNode","for $scope DAGNode, $bits Int")
     }
 
+    /** The same bound-zero model used by the learner, without invoking the solver. */
+    fun modelAtScope(costScope: Int): String {
+        require(costScope in 1..plan.nodeBudget)
+        return template(costScope)
+    }
+
     fun solve(directory: File): MacroSolveResult {
         directory.mkdirs()
         var encodingNanos = 0L; var solverNanos = 0L; var decodeNanos = 0L; var verifyNanos = 0L

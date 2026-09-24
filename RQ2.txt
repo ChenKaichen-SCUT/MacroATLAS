@@ -1,0 +1,165 @@
+RQ2 建议补一个专门的“Same-Scope Encoding Experiment”
+
+这应该成为真正回答 RQ2 的核心实验。
+
+对于同一个实例，固定：
+
+$$
+B,\quad b,\quad
+\Sigma,\quad
+constraints,\quad traces,
+$$
+
+然后固定完全相同的实际搜索 scope：
+
+$$
+s.
+$$
+
+最好是 expanded formula-size scope。如果当前两边 `costScope` 的语义完全相同，就直接使用 `costScope=s`；如果不完全相同，就显式加入：
+
+$$
+\text{expanded formula size}\le s.
+$$
+
+然后：
+
+$$
+\boxed{
+\text{只 translation 到 CNF，不运行 MaxSAT solver。}
+}
+$$
+
+分别记录：
+
+$$
+Vars_A(s),\quad Clauses_A(s)
+$$
+
+以及：
+
+$$
+Vars_M(s),\quad Clauses_M(s).
+$$
+
+于是得到真正纯净的：
+
+$$
+C_V(s)
+=
+\frac{Vars_A(s)}{Vars_M(s)}
+$$
+
+和：
+
+$$
+C_C(s)
+=
+\frac{Clauses_A(s)}{Clauses_M(s)}.
+$$
+
+---
+
+## Scope 取哪些点？
+
+例如：
+
+$$
+s\in\{5,7,9,11,15\}.
+$$
+
+不必所有实例所有 scope 都跑。
+
+可以挑一个 stratified subset，例如 150–250 个：
+
+* unconstrained；
+* NNF/template；
+* repair；
+* weakening；
+* small \(b\)；
+* larger \(b\)；
+* small \(q\)；
+* large \(q\)。
+
+每个实例两边**严格同 scope**。
+
+这一个实验能把 RQ2 从：
+
+> “实际运行中 Macro 经常 clause 更少”
+
+升级成：
+
+$$
+\boxed{
+\text{在相同搜索空间边界下，Macro representation 使后端 CNF 如何变化。}
+}
+$$
+
+这会明显增强论文。
+
+---
+
+# 四、RQ2 还应该把“translation timeout”本身当结果
+
+目前 623 个实例只有 576 个有完整 variable/clause 配对，剩余 47 个中 ATLAS translation 有 33 次 timeout、14 次 translation error，而 Macro 也有 8 次 timeout；这些缺失集中于难实例，所以 576 个实例不是无偏样本。
+
+不要为了得到一个完整平均值而删除这些点。
+
+Same-Scope experiment 应同时报告：
+
+$$
+\boxed{
+\#Translated_{\rm ATLAS}
+\quad vs\quad
+\#Translated_{\rm Macro}.
+}
+$$
+
+如果同一 scope 下：
+
+```text
+ATLAS translation timeout
+Macro translation succeeds
+```
+
+这本身就是 encoding scalability 的证据。
+
+对于双方都完成翻译的实例，再计算 \(C_V,C_C\)。
+
+---
+
+# 五、所以 RQ2 最终最好拆成两个层次
+
+### RQ2a — Structural compression
+
+$$
+B
+\longrightarrow
+K=p+3b+2.
+$$
+
+报告：
+
+$$
+B/K,
+\quad
+activeAnchors/expandedSize.
+$$
+
+这是理论机制。
+
+### RQ2b — Backend encoding compression
+
+Same-scope 下：
+
+$$
+Vars,\quad Clauses,\quad TranslationSuccess.
+$$
+
+这是实际 MaxSAT encoding consequence。
+
+这样就不会再出现：
+
+> \(B/K\) 看起来压得很好，但是 backend variables 反而增加。
+
+因为它们回答的是两个不同的问题。
