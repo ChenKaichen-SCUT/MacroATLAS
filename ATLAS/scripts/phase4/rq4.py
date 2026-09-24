@@ -62,7 +62,7 @@ def generate(output, seed=SEED):
     print(json.dumps(dict(cases=len(records), runs=2*len(records), output=str(output))))
 
 
-def inspect(ready, java):
+def inspect(ready, java, allow_no_q_axis=False):
     root=ready/'matched_u_free'
     names=(ready/'matched/supported_tasks.txt').read_text().splitlines()
     all_names=sorted(p.relative_to(root).as_posix() for p in root.rglob('*.trace'))
@@ -90,7 +90,9 @@ def inspect(ready, java):
         save_json(task.with_suffix('.json'),data)
         rows.append(data)
     qs=[r['q'] for r in rows if r['axis']=='required_count']
-    if len(set(qs))<3 or qs!=sorted(qs):
+    if not qs and not allow_no_q_axis:
+        raise ValueError('RQ4 primary grid requires a constraint-state axis')
+    if qs and (len(set(qs))<3 or qs!=sorted(qs)):
         raise ValueError('Constraint-state axis did not create at least three increasing q levels: '+str(qs))
     save_json(ready/'rq4-inspected-manifest.json',dict(cases=len(rows),runs=2*len(rows),
         tasks=rows,suiteHash=digest(rows),qLevels=qs,
@@ -144,7 +146,8 @@ def report(campaign):
     data=[]
     plan=json.loads((campaign/'plan.json').read_text())
     extra=['axis','axisValue','regime','target','targetUnaryDepth','targetBinaryNodes','AP','positive','negative',
-           'length','profile','requiredPropositions','q','compressionPotential','recognizedFeatures','seed']
+           'length','profile','requiredPropositions','q','compressionPotential','recognizedFeatures','seed',
+           'traceSetHash','certifiedMinNodes','certifiedMinBinary','construction']
     for r in sorted(rows,key=lambda x:(x['task'],x['variant'])):
         task=tasks[r['task']]
         enriched=dict(r)
@@ -200,11 +203,12 @@ def main():
     sub=p.add_subparsers(dest='command',required=True)
     g=sub.add_parser('generate');g.add_argument('--output',type=pathlib.Path,required=True);g.add_argument('--seed',type=int,default=SEED)
     i=sub.add_parser('inspect');i.add_argument('--ready',type=pathlib.Path,required=True);i.add_argument('--java',default='java')
+    i.add_argument('--allow-no-q-axis',action='store_true',help='For preregistered follow-up grids without a q series')
     s=sub.add_parser('status');s.add_argument('--campaign',type=pathlib.Path,required=True)
     r=sub.add_parser('report');r.add_argument('--campaign',type=pathlib.Path,required=True)
     a=p.parse_args()
     if a.command=='generate':generate(a.output.resolve(),a.seed)
-    elif a.command=='inspect':inspect(a.ready.resolve(),a.java)
+    elif a.command=='inspect':inspect(a.ready.resolve(),a.java,a.allow_no_q_axis)
     elif a.command=='status':status(a.campaign.resolve())
     else:report(a.campaign.resolve())
 
