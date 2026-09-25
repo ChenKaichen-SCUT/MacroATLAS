@@ -7,6 +7,7 @@ import json
 import math
 import pathlib
 import statistics
+import subprocess
 import tarfile
 
 ROOT = pathlib.Path(__file__).resolve().parent
@@ -27,6 +28,10 @@ def sha_bytes(raw):
 
 def sha(path):
     return sha_bytes(pathlib.Path(path).read_bytes())
+
+
+def frozen_source(commit, path):
+    return subprocess.check_output(['git', 'show', f'{commit}:{path}'], cwd=ATLAS.parent)
 
 
 def load(path):
@@ -71,8 +76,10 @@ def main():
     check(plan['attemptsPerMethodCaseScope'] == 1 and len(plan['jobs']) == 200 and
           plan['translateTimeoutSec'] == 180 and plan['emitTimeoutSec'] == 120,
           'Run protocol differs')
-    check(sha(ATLAS / 'scripts/phase4/rq2_same_scope.py') == plan['collectorSha256'] and
-          sha(ATLAS / 'scripts/phase4/Rq2Translate.java') == plan['translatorSourceSha256'] and
+    check(sha_bytes(frozen_source(plan['commit'], 'ATLAS/scripts/phase4/rq2_same_scope.py')) ==
+          plan['collectorSha256'] and
+          sha_bytes(frozen_source(plan['commit'], 'ATLAS/scripts/phase4/Rq2Translate.java')) ==
+          plan['translatorSourceSha256'] and
           sha(ATLAS / 'lib/AlloyMax-1.0.3.jar') == plan['alloySha256'],
           'Collector/translator/backend differs from frozen plan')
     source_rows = table(ARTIFACTS / 'rq2-encoding/rq2_paper_data.csv')
