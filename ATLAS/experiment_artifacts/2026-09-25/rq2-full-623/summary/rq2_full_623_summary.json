@@ -1,0 +1,482 @@
+{
+  "B_over_K": {
+    "max": 157.69230769230768,
+    "median": 1.25,
+    "min": 1.0,
+    "n": 623
+  },
+  "KLessThanB": 440,
+  "attemptsPerCaseMethodScope": 1,
+  "byBinaryBudget": {
+    "2": {
+      "C_C": {
+        "max": 29.547498167655164,
+        "median": 1.6398705310014066,
+        "min": 0.23937621935562434,
+        "n": 546
+      },
+      "C_V": {
+        "max": 19.63810035585489,
+        "median": 1.0456121959544231,
+        "min": 0.22424927113702625,
+        "n": 546
+      },
+      "atlasTranslated": 546,
+      "cases": 584,
+      "completePairs": 546,
+      "macroFewerClauses": 541,
+      "macroFewerVars": 295,
+      "macroTranslated": 579
+    },
+    "3": {
+      "C_C": {
+        "max": 29.40567710976109,
+        "median": 1.41111684771783,
+        "min": 0.2486545671721026,
+        "n": 27
+      },
+      "C_V": {
+        "max": 19.529355151480416,
+        "median": 1.050414204107117,
+        "min": 0.23357054105952785,
+        "n": 27
+      },
+      "atlasTranslated": 27,
+      "cases": 39,
+      "completePairs": 27,
+      "macroFewerClauses": 22,
+      "macroFewerVars": 16,
+      "macroTranslated": 39
+    }
+  },
+  "byConstraint": {
+    "受约束 q>1": {
+      "C_C": {
+        "max": 29.547498167655164,
+        "median": 6.883388983844723,
+        "min": 0.23937621935562434,
+        "n": 114
+      },
+      "C_V": {
+        "max": 19.63810035585489,
+        "median": 4.919624124528797,
+        "min": 0.22424927113702625,
+        "n": 114
+      },
+      "atlasTranslated": 114,
+      "cases": 138,
+      "completePairs": 114,
+      "macroFewerClauses": 105,
+      "macroFewerVars": 98,
+      "macroTranslated": 138
+    },
+    "无约束 q=1": {
+      "C_C": {
+        "max": 4.344478308047549,
+        "median": 1.526953713983739,
+        "min": 0.9888933050697757,
+        "n": 459
+      },
+      "C_V": {
+        "max": 3.0376722866771533,
+        "median": 0.9753646827276873,
+        "min": 0.6581361962424318,
+        "n": 459
+      },
+      "atlasTranslated": 459,
+      "cases": 485,
+      "completePairs": 459,
+      "macroFewerClauses": 458,
+      "macroFewerVars": 213,
+      "macroTranslated": 480
+    }
+  },
+  "byFamily": {
+    "5to10Traces": {
+      "C_C": {
+        "max": 4.344478308047549,
+        "median": 1.9695637878433643,
+        "min": 0.9888933050697757,
+        "n": 185
+      },
+      "C_V": {
+        "max": 3.0376722866771533,
+        "median": 1.3252899994652245,
+        "min": 0.6581361962424318,
+        "n": 185
+      },
+      "atlasTranslated": 185,
+      "cases": 190,
+      "completePairs": 185,
+      "macroFewerClauses": 184,
+      "macroFewerVars": 117,
+      "macroTranslated": 190
+    },
+    "baseTest": {
+      "C_C": {
+        "max": 3.3438334153916607,
+        "median": 1.1876177488009374,
+        "min": 1.0678316908530705,
+        "n": 27
+      },
+      "C_V": {
+        "max": 2.100390436583452,
+        "median": 0.7603157779320932,
+        "min": 0.6872556684910086,
+        "n": 27
+      },
+      "atlasTranslated": 27,
+      "cases": 42,
+      "completePairs": 27,
+      "macroFewerClauses": 27,
+      "macroFewerVars": 1,
+      "macroTranslated": 37
+    },
+    "disjunctedExistence": {
+      "C_C": {
+        "max": 2.8773596349528225,
+        "median": 1.821614435903939,
+        "min": 1.1939886156946276,
+        "n": 26
+      },
+      "C_V": {
+        "max": 1.9650495568469688,
+        "median": 1.1540369893990627,
+        "min": 0.75839398763071,
+        "n": 26
+      },
+      "atlasTranslated": 26,
+      "cases": 29,
+      "completePairs": 26,
+      "macroFewerClauses": 26,
+      "macroFewerVars": 17,
+      "macroTranslated": 29
+    },
+    "equal": {
+      "C_C": {
+        "max": 2.927661678785326,
+        "median": 1.1700783438697477,
+        "min": 1.031057187586334,
+        "n": 42
+      },
+      "C_V": {
+        "max": 1.9098479421724408,
+        "median": 0.7410181608255488,
+        "min": 0.6793704998308662,
+        "n": 42
+      },
+      "atlasTranslated": 42,
+      "cases": 42,
+      "completePairs": 42,
+      "macroFewerClauses": 42,
+      "macroFewerVars": 9,
+      "macroTranslated": 42
+    },
+    "increasingNumVariables": {
+      "C_C": {
+        "max": 4.06040451274601,
+        "median": 1.5728175837002647,
+        "min": 1.106286655891784,
+        "n": 56
+      },
+      "C_V": {
+        "max": 2.5428825991969046,
+        "median": 0.9901299531732897,
+        "min": 0.7132263734442781,
+        "n": 56
+      },
+      "atlasTranslated": 56,
+      "cases": 56,
+      "completePairs": 56,
+      "macroFewerClauses": 56,
+      "macroFewerVars": 28,
+      "macroTranslated": 56
+    },
+    "moreDetailedTest": {
+      "C_C": {
+        "max": 3.6761421766358002,
+        "median": 1.269059741780292,
+        "min": 1.0140306122448979,
+        "n": 123
+      },
+      "C_V": {
+        "max": 2.2783575381752157,
+        "median": 0.804240312411448,
+        "min": 0.6704393717810135,
+        "n": 123
+      },
+      "atlasTranslated": 123,
+      "cases": 126,
+      "completePairs": 123,
+      "macroFewerClauses": 123,
+      "macroFewerVars": 41,
+      "macroTranslated": 126
+    },
+    "peterson": {
+      "C_C": {
+        "max": 19.27261290001637,
+        "median": 12.86389106348096,
+        "min": 8.190990478780838,
+        "n": 30
+      },
+      "C_V": {
+        "max": 16.373107853642804,
+        "median": 11.304944334586647,
+        "min": 7.304299856294494,
+        "n": 30
+      },
+      "atlasTranslated": 30,
+      "cases": 30,
+      "completePairs": 30,
+      "macroFewerClauses": 30,
+      "macroFewerVars": 30,
+      "macroTranslated": 30
+    },
+    "robot": {
+      "C_C": {
+        "max": 22.493434502749476,
+        "median": 13.516638890496523,
+        "min": 9.40320542761366,
+        "n": 20
+      },
+      "C_V": {
+        "max": 15.673427644578954,
+        "median": 9.517333921813098,
+        "min": 6.786069307102159,
+        "n": 20
+      },
+      "atlasTranslated": 20,
+      "cases": 20,
+      "completePairs": 20,
+      "macroFewerClauses": 20,
+      "macroFewerVars": 20,
+      "macroTranslated": 20
+    },
+    "voting_machine": {
+      "C_C": {
+        "max": 5.575787488908607,
+        "median": 3.756132539188637,
+        "min": 2.313729789370942,
+        "n": 10
+      },
+      "C_V": {
+        "max": 3.9548214353056528,
+        "median": 2.8218668861847807,
+        "min": 1.8009378415541375,
+        "n": 10
+      },
+      "atlasTranslated": 10,
+      "cases": 10,
+      "completePairs": 10,
+      "macroFewerClauses": 10,
+      "macroFewerVars": 10,
+      "macroTranslated": 10
+    },
+    "weakening": {
+      "C_C": {
+        "max": 29.547498167655164,
+        "median": 1.6262710129566553,
+        "min": 0.23937621935562434,
+        "n": 54
+      },
+      "C_V": {
+        "max": 19.63810035585489,
+        "median": 1.1479248922562986,
+        "min": 0.22424927113702625,
+        "n": 54
+      },
+      "atlasTranslated": 54,
+      "cases": 78,
+      "completePairs": 54,
+      "macroFewerClauses": 45,
+      "macroFewerVars": 38,
+      "macroTranslated": 78
+    }
+  },
+  "byScope": {
+    "11": {
+      "C_C": {
+        "max": 16.956416823888887,
+        "median": 2.2587437079323447,
+        "min": 0.42783358207703787,
+        "n": 41
+      },
+      "C_V": {
+        "max": 12.260003380373202,
+        "median": 1.4459527241520094,
+        "min": 0.38748195080661224,
+        "n": 41
+      },
+      "atlasTranslated": 41,
+      "cases": 43,
+      "completePairs": 41,
+      "macroFewerClauses": 38,
+      "macroFewerVars": 38,
+      "macroTranslated": 43
+    },
+    "15": {
+      "C_C": {
+        "max": 18.801216258585093,
+        "median": 3.5074156562901,
+        "min": 0.8575617900900689,
+        "n": 33
+      },
+      "C_V": {
+        "max": 13.59415859486461,
+        "median": 2.222697018061788,
+        "min": 0.7328399406856877,
+        "n": 33
+      },
+      "atlasTranslated": 33,
+      "cases": 41,
+      "completePairs": 33,
+      "macroFewerClauses": 32,
+      "macroFewerVars": 31,
+      "macroTranslated": 40
+    },
+    "3": {
+      "C_C": {
+        "max": 3.474050420571511,
+        "median": 1.936640322851858,
+        "min": 1.2675522190672528,
+        "n": 81
+      },
+      "C_V": {
+        "max": 2.324961749351545,
+        "median": 1.2227561468140737,
+        "min": 0.8211979428483044,
+        "n": 81
+      },
+      "atlasTranslated": 81,
+      "cases": 84,
+      "completePairs": 81,
+      "macroFewerClauses": 81,
+      "macroFewerVars": 68,
+      "macroTranslated": 84
+    },
+    "5": {
+      "C_C": {
+        "max": 29.547498167655164,
+        "median": 1.313389576875158,
+        "min": 0.23937621935562434,
+        "n": 297
+      },
+      "C_V": {
+        "max": 19.63810035585489,
+        "median": 0.8297894695967785,
+        "min": 0.22424927113702625,
+        "n": 297
+      },
+      "atlasTranslated": 297,
+      "cases": 312,
+      "completePairs": 297,
+      "macroFewerClauses": 294,
+      "macroFewerVars": 120,
+      "macroTranslated": 310
+    },
+    "7": {
+      "C_C": {
+        "max": 14.810276054623975,
+        "median": 1.2684650914028,
+        "min": 1.045571882918388,
+        "n": 49
+      },
+      "C_V": {
+        "max": 11.072193834953078,
+        "median": 0.8125875992791831,
+        "min": 0.6968510024223058,
+        "n": 49
+      },
+      "atlasTranslated": 49,
+      "cases": 55,
+      "completePairs": 49,
+      "macroFewerClauses": 49,
+      "macroFewerVars": 19,
+      "macroTranslated": 54
+    },
+    "9": {
+      "C_C": {
+        "max": 15.328941879045653,
+        "median": 1.5307036263013252,
+        "min": 0.2486545671721026,
+        "n": 72
+      },
+      "C_V": {
+        "max": 11.080716939633742,
+        "median": 0.9825219900655009,
+        "min": 0.23357054105952785,
+        "n": 72
+      },
+      "atlasTranslated": 72,
+      "cases": 88,
+      "completePairs": 72,
+      "macroFewerClauses": 69,
+      "macroFewerVars": 35,
+      "macroTranslated": 87
+    }
+  },
+  "cases": 623,
+  "overall": {
+    "C_C": {
+      "max": 29.547498167655164,
+      "median": 1.6307619396468667,
+      "min": 0.23937621935562434,
+      "n": 573
+    },
+    "C_V": {
+      "max": 19.63810035585489,
+      "median": 1.0463861015091005,
+      "min": 0.22424927113702625,
+      "n": 573
+    },
+    "atlasTranslated": 573,
+    "cases": 623,
+    "completePairs": 573,
+    "macroFewerClauses": 563,
+    "macroFewerVars": 311,
+    "macroTranslated": 618
+  },
+  "provenance": {
+    "newCases": 423,
+    "newCommit": "6b7a23c14c9ded908e6ad5069e07dd9f559e8e5d",
+    "newPlanSha256": "11118b8e7c33f74a0c61b50d7097a906614fbdf0215a21d93694987622516791",
+    "oldCases": 200,
+    "oldCommit": "a834e398d2371acace198b4a16c84426a6eaa6da",
+    "oldPlanSha256": "e18c6adc9991c1c67dc93ca71c6bb05273e72b9c70020b8e399bb1ff0dd9c39d",
+    "sourceSha256": "a183c6de52d89369bcd2feb6e1729c32edc2450c21c799dd4b2de531002c906a"
+  },
+  "runs": 1246,
+  "statusPairs": [
+    {
+      "atlas": "TRANSLATED_ONLY",
+      "cases": 573,
+      "macro": "TRANSLATED_ONLY"
+    },
+    {
+      "atlas": "TRANSLATION_ERROR",
+      "cases": 9,
+      "macro": "TRANSLATED_ONLY"
+    },
+    {
+      "atlas": "TRANSLATION_ERROR",
+      "cases": 5,
+      "macro": "TRANSLATION_TIMEOUT"
+    },
+    {
+      "atlas": "TRANSLATION_TIMEOUT",
+      "cases": 36,
+      "macro": "TRANSLATED_ONLY"
+    }
+  ],
+  "statuses": {
+    "atlas-b": {
+      "TRANSLATED_ONLY": 573,
+      "TRANSLATION_ERROR": 14,
+      "TRANSLATION_TIMEOUT": 36
+    },
+    "macro": {
+      "TRANSLATED_ONLY": 618,
+      "TRANSLATION_TIMEOUT": 5
+    }
+  }
+}

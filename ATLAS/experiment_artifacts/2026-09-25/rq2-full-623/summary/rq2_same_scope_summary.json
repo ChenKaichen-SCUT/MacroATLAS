@@ -1,0 +1,109 @@
+{
+  "B_over_K": {
+    "max": 33.0,
+    "median": 1.25,
+    "min": 1.0,
+    "n": 423
+  },
+  "C_C": {
+    "max": 29.547498167655164,
+    "median": 1.5340918295501984,
+    "min": 0.7982830269886467,
+    "n": 397
+  },
+  "C_V": {
+    "max": 19.63810035585489,
+    "median": 0.9794201942605739,
+    "min": 0.6581361962424318,
+    "n": 397
+  },
+  "activeAnchors_over_expandedSize": {
+    "max": 1.0,
+    "median": 0.5,
+    "min": 0.3333333333333333,
+    "n": 234
+  },
+  "byCategory": {
+    "plain": {
+      "C_C": {
+        "max": 4.344478308047549,
+        "median": 1.5362800458788648,
+        "min": 0.9888933050697757,
+        "n": 384
+      },
+      "C_V": {
+        "max": 3.0376722866771533,
+        "median": 0.9784047515067593,
+        "min": 0.6581361962424318,
+        "n": 384
+      },
+      "complete": 384,
+      "pairs": 405
+    },
+    "weakening_b2": {
+      "C_C": {
+        "max": 29.547498167655164,
+        "median": 1.6014344722749665,
+        "min": 0.7982830269886467,
+        "n": 6
+      },
+      "C_V": {
+        "max": 19.63810035585489,
+        "median": 1.147572017587873,
+        "min": 0.6660266829202222,
+        "n": 6
+      },
+      "complete": 6,
+      "pairs": 9
+    },
+    "weakening_b3": {
+      "C_C": {
+        "max": 5.1664607230181,
+        "median": 1.3639058319705601,
+        "min": 1.1214847670431964,
+        "n": 7
+      },
+      "C_V": {
+        "max": 3.8426739935236647,
+        "median": 1.0314067841462031,
+        "min": 0.8413075013982103,
+        "n": 7
+      },
+      "complete": 7,
+      "pairs": 9
+    }
+  },
+  "cases": 423,
+  "categoryCounts": {
+    "plain": 405,
+    "weakening_b2": 9,
+    "weakening_b3": 9
+  },
+  "completePairs": 397,
+  "notes": [
+    "Each algorithm/case/scope is attempted once; no MaxSAT solve.",
+    "Ratios use only fully translated pairs; incomplete statuses remain in per-run and pair files.",
+    "Scope is the same expanded formula-size upper bound, even if Alloy atom universes differ.",
+    "These are all 423 cases omitted by the frozen 200-case campaign."
+  ],
+  "runs": 846,
+  "scopeCounts": {
+    "3": 84,
+    "5": 212,
+    "7": 28,
+    "9": 55,
+    "11": 21,
+    "15": 23
+  },
+  "statuses": {
+    "atlas-b": {
+      "TRANSLATED_ONLY": 397,
+      "TRANSLATION_ERROR": 11,
+      "TRANSLATION_TIMEOUT": 15
+    },
+    "macro": {
+      "TRANSLATED_ONLY": 420,
+      "TRANSLATION_TIMEOUT": 3
+    }
+  }
+}

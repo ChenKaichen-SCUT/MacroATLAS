@@ -30,3 +30,5 @@ ls -lh /srv/macroatlas/experiments/rq2-same-scope-full-remaining-423/summary/rq2
 最终文件在 `/srv/macroatlas/experiments/rq2-same-scope-full-remaining-423/summary/`：`rq2_full_623_paper_data.csv` 有 623 条配对结果，`rq2_full_623_per_run.csv` 有 1246 条逐方法结果，`rq2_full_623_summary.json` 包含总体与分组统计，`RQ2_FULL_623_REPORT.zh-CN.md` 是可引用的中文报告。只有双方翻译成功的配对才计算 `C_V=Vars_ATLAS-B/Vars_Macro` 和 `C_C=Clauses_ATLAS-B/Clauses_Macro`，失败配对留空。报告给出完成数、翻译状态、无约束/受约束及家族分组，并明确完整配对的选择限制。
 
 旧 200 题仍在 `/srv/macroatlas/experiments/rq2-same-scope-200/`，新增 423 题在 `/srv/macroatlas/experiments/rq2-same-scope-full-remaining-423/`。所有原始 `started.json`、`record.json`、模型与 stdout/stderr 保留在各自活动目录。完成后应归档最终 CSV/JSON/报告与新 423 题原始记录、校验来源哈希，再同步回本地与 GitHub。
+
+实验已完成；实际数据与分析见[全量结果报告](RQ2_FULL_623_RESULTS_2026-09-25.md)。
