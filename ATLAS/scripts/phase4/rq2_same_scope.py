@@ -99,6 +99,38 @@ def selected(rows):
     return selection
 
 
+def remaining(rows, completed_plan, source_sha256):
+    """Cover every source case omitted by the frozen 200-case campaign."""
+    old_jobs = completed_plan['jobs']
+    if len(old_jobs) != 200 or completed_plan['attemptsPerMethodCaseScope'] != 1:
+        raise ValueError('Expected the frozen 200-case, one-attempt plan')
+    old = {(job['batch'], job['task']): job for job in old_jobs}
+    source = {(row['batch'], row['task']): row for row in rows}
+    if len(old) != 200 or len(source) != 623 or not set(old) <= set(source):
+        raise ValueError('Source and completed-plan task identities differ')
+    for key, job in old.items():
+        if job['inputSha256'] != source[key]['inputSha256']:
+            raise ValueError('Completed-plan input differs: ' + str(key))
+    if completed_plan['sourceSha256'] != source_sha256:
+        raise ValueError('Completed plan is not based on the frozen 623-case table')
+    omitted = sorted((row for row in rows if (row['batch'], row['task']) not in old),
+                     key=lambda row: digest((row['batch'] + '/' + row['task'] + '/RQ2B').encode()))
+    if len(omitted) != 423:
+        raise ValueError('Expected exactly 423 omitted cases')
+    # Retain the earlier weighted scope grid.  Original sampling excluded B<5;
+    # those cases use their actual bound rather than silently disappearing.
+    desired = (5, 7, 5, 9, 5, 11, 5, 15)
+    picks = []
+    for index, row in enumerate(omitted):
+        bound = int(row['B'])
+        if bound < 1: raise ValueError('Invalid B for ' + row['task'])
+        candidate = desired[index % len(desired)]
+        scope = max((s for s in SCOPES if s <= candidate and s <= bound), default=bound)
+        if scope > bound: raise ValueError('Scope exceeds B')
+        picks.append((row, group(row), scope))
+    return picks
+
+
 def plan(args):
     output = args.output.resolve()
     if output.exists(): raise ValueError('Output directory exists')
@@ -109,7 +141,15 @@ def plan(args):
         raise ValueError('Commit code before making formal plan')
     rows = table(args.source)
     if len(rows) != 623: raise ValueError('Expected 623 frozen E4 source rows')
-    picks = selected(rows)
+    completed = None
+    if args.exclude_plan:
+        completed_path = args.exclude_plan.resolve()
+        completed = read(completed_path)
+        if read(completed_path.parent / 'state.json')['status'] != 'COMPLETE':
+            raise ValueError('Frozen 200-case campaign is not complete')
+        picks = remaining(rows, completed, sha256(args.source))
+    else:
+        picks = selected(rows)
     cpus, reserved = allocate(topology(), args.workers)
     output.mkdir(parents=True)
     (output / 'inputs').mkdir()
@@ -170,8 +210,17 @@ def plan(args):
             'workerCpus': cpus, 'reservedCpus': reserved,
             'scopeMeaning': 'expanded formula size <= s for both encodings',
             'objective': 'minimum expanded size; repair primary objective omitted on both sides',
-            'selection': 'deterministic SHA-256 stratification; six quotas 80/10/20/30/30/30; one scope per unique case',
+            'selection': ('all 423 cases omitted by frozen 200-case plan; SHA-256 order; '
+                          'weighted scope grid 5/7/5/9/5/11/5/15 capped at B; B<5 uses B'
+                          if completed else
+                          'deterministic SHA-256 stratification; six quotas 80/10/20/30/30/30; one scope per unique case'),
+            'expectedCases': len(jobs),
             'attemptsPerMethodCaseScope': 1, 'jobs': jobs}
+    if completed:
+        data['completedPlan'] = {'path': str(completed_path), 'sha256': sha256(completed_path),
+                                 'statePath': str(completed_path.parent / 'state.json'),
+                                 'summaryPath': str(completed_path.parent / 'summary'),
+                                 'sourceCommit': completed['commit']}
     save(output / 'plan.json', data)
     (output / 'plan.sha256').write_text(sha256(output / 'plan.json') + '  plan.json\n')
     save(output / 'state.json', {'status': 'READY', 'updatedUtc': now()})
@@ -203,8 +252,19 @@ def load_plan(directory):
         raise ValueError('Collector changed')
     if {p.name: sha256(p) for p in (directory / 'classes').glob('*.class')} != data['translatorClassesSha256']:
         raise ValueError('Translator classes changed')
-    if len(data['jobs']) != 200 or data['attemptsPerMethodCaseScope'] != 1:
+    if len(data['jobs']) != data.get('expectedCases', 200) or data['attemptsPerMethodCaseScope'] != 1:
         raise ValueError('Plan protocol changed')
+    if data.get('completedPlan'):
+        old = data['completedPlan']
+        if sha256(old['path']) != old['sha256']:
+            raise ValueError('Completed 200-case plan changed')
+        if read(old['statePath'])['status'] != 'COMPLETE':
+            raise ValueError('Completed 200-case campaign is not complete')
+        rows = table(data['sourceCsv'])
+        expected = remaining(rows, read(old['path']), data['sourceSha256'])
+        actual = {(job['batch'], job['task']): job['scope'] for job in data['jobs']}
+        if actual != {(row['batch'], row['task']): scope for row, _, scope in expected}:
+            raise ValueError('423-case complement or scope assignments changed')
     if sha256(data['sourceCsv']) != data['sourceSha256']:
         raise ValueError('Frozen source CSV changed')
     for entry in data['sourceArchives'].values():
@@ -338,7 +398,7 @@ def run(args):
                 for future in concurrent.futures.as_completed([pool.submit(worker, i) for i in range(data['workers'])]):
                     future.result()
             paired = progress(directory)
-            if paired != 200: raise ValueError('Missing pairs')
+            if paired != len(data['jobs']): raise ValueError('Missing pairs')
             summarize(directory)
             save(directory / 'state.json', {'status': 'COMPLETE', 'completedPairs': paired, 'updatedUtc': now()})
         except BaseException as exc:
@@ -409,7 +469,9 @@ def summarize(directory):
               'notes': ['Each algorithm/case/scope is attempted once; no MaxSAT solve.',
                         'Ratios use only fully translated pairs; incomplete statuses remain in per-run and pair files.',
                         'Scope is the same expanded formula-size upper bound, even if Alloy atom universes differ.',
-                        'This is deterministic stratified sample evidence, not a claim about all 623 cases.']}
+                        ('These are all 423 cases omitted by the frozen 200-case campaign.'
+                         if data.get('completedPlan') else
+                         'This is deterministic stratified sample evidence, not a claim about all 623 cases.')]}
     save(output / 'rq2_same_scope_summary.json', report)
     print(json.dumps(report, indent=2))
 
@@ -426,6 +488,8 @@ def main():
     p.add_argument('--translate-timeout', type=float, default=180)
     p.add_argument('--heap', default='4g')
     p.add_argument('--java', type=pathlib.Path, default=JAVA)
+    p.add_argument('--exclude-plan', type=pathlib.Path,
+                   help='Frozen completed 200-case plan; plan only its 423-case complement')
     for name in ('run', 'status', 'summary'):
         subs.add_parser(name).add_argument('directory', type=pathlib.Path)
     args = parser.parse_args()

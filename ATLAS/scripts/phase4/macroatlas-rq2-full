@@ -1,0 +1,27 @@
+#!/bin/sh
+set -eu
+
+python=/srv/macroatlas/venv/bin/python
+code=/srv/macroatlas/rq2-full-code/ATLAS/scripts/phase4
+old=/srv/macroatlas/experiments/rq2-same-scope-200
+new=/srv/macroatlas/experiments/rq2-same-scope-full-remaining-423
+
+case "${1:-}" in
+    run)
+        "$python" "$code/rq2_same_scope.py" run "$new"
+        exec "$python" "$code/rq2_same_scope_combine.py" summary --old "$old" --new "$new"
+        ;;
+    status)
+        exec "$python" "$code/rq2_same_scope_combine.py" status --old "$old" --new "$new"
+        ;;
+    summary)
+        exec "$python" "$code/rq2_same_scope_combine.py" summary --old "$old" --new "$new"
+        ;;
+    report)
+        exec cat "$new/summary/RQ2_FULL_623_REPORT.zh-CN.md"
+        ;;
+    *)
+        echo 'Usage: macroatlas-rq2-full {run|status|summary|report}' >&2
+        exit 2
+        ;;
+esac
