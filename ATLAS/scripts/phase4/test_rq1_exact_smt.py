@@ -2,6 +2,7 @@
 """Cross-check the independent SMT semantics against the exhaustive tiny oracle."""
 
 import csv
+import dataclasses
 from pathlib import Path
 import sys
 import tarfile
@@ -47,6 +48,22 @@ class ExactSmtIntegration(unittest.TestCase):
             {'id':4,'label':'->','left':3,'right':1},
             {'id':5,'label':'G','left':4}]}
         self.assertFalse(evaluate_witness(task,nested_temporal))
+
+    def test_weakening_smt_rejects_temporal_strict_descendant_in_frozen_text(self):
+        path=ATLAS/'experiment_artifacts/2026-09-26/rq3-constraint-audit/inputs/weakening/weaken_antecedent/weaken_antecedent_10_10_10.trace'
+        task=dataclasses.replace(parse_task(path,10,2,'weakening_b2'),positive=(),negative=())
+        nodes=[{'id':0,'label':'x0'}, {'id':1,'label':'x1'},
+               {'id':2,'label':'G','left':1},
+               {'id':3,'label':'&','left':0,'right':2},
+               {'id':4,'label':'->','left':3,'right':1},
+               {'id':5,'label':'G','left':4}]
+        encoding=ExactEncoding(task,len(nodes))
+        for node in nodes:
+            i=node['id'];encoding.solver.add(encoding.kind_is(i,node['label']))
+            if 'left' in node:encoding.solver.add(encoding.left[i]==node['left'])
+            if 'right' in node:encoding.solver.add(encoding.right[i]==node['right'])
+        self.assertEqual(encoding.solver.check(),z3.unsat)
+        self.assertFalse(evaluate_witness(task,{'nodes':nodes,'root':5,'size':6,'binaryNodes':2}))
 
     def test_all_623_inputs_are_frozen_and_parsed(self):
         rows=read_rows(ART/'2026-09-25/rq2-full-623/summary/rq2_full_623_paper_data.csv')

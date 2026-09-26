@@ -1,0 +1,16 @@
+{
+  "benchmarkPath": "ATLAS/experiment_artifacts/2026-09-26/rq3-constraint-audit/inputs/weakening/weaken_antecedent/weaken_antecedent_10_10_10.trace",
+  "benchmarkSha256": "1d16ac8a55469f2c1f084b1a4f1f6ede012b08c6e25b9c2d5bcbc4b81e4301e2",
+  "constraintSha256": "6793473afd9b8a8ec3a6c146d3e2f3b76d3d7cedbb5603fd69c5a251adad7319",
+  "oldSource": "12bb7e0c60058e7278f06977c05330adc9fe1e1e:ATLAS/scripts/phase4/rq1_exact_smt.py",
+  "oldSourceSha256": "ed0ebf8e8e28db44761256a0075295ad1894a281ad2e7b4a1862f82fd5903ff0",
+  "newSourceSha256": "65a880afb3c0e32381092382324317f1e9f3a9be2a422c4e60ca3c8ca41871dc",
+  "removedExamplesForStructuralControl": true,
+  "formula": "G(->(&(x0,G(x1)),x1))",
+  "semanticReason": "G(x1) is a strict descendant of Imply0, although neither direct child of Imply0 is temporal",
+  "oldSmt": "sat",
+  "oldVerifier": true,
+  "newSmt": "unsat",
+  "newVerifier": false,
+  "frozenTinyWeakeningCases": 0
+}

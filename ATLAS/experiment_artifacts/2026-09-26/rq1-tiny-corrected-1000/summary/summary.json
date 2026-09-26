@@ -1,0 +1,119 @@
+{
+  "families": {
+    "plain": {
+      "cases": 125,
+      "SAT": 109,
+      "oracleSatVerified": 109,
+      "atlasBSatVerified": 109,
+      "macroSatVerified": 109,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "UNSAT": 16
+    },
+    "nnf": {
+      "cases": 125,
+      "SAT": 109,
+      "oracleSatVerified": 109,
+      "atlasBSatVerified": 109,
+      "macroSatVerified": 109,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "UNSAT": 16
+    },
+    "cnf": {
+      "cases": 125,
+      "UNSAT": 25,
+      "oracleSatVerified": 100,
+      "atlasBSatVerified": 100,
+      "macroSatVerified": 100,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "SAT": 100
+    },
+    "dnf": {
+      "cases": 125,
+      "UNSAT": 25,
+      "oracleSatVerified": 100,
+      "atlasBSatVerified": 100,
+      "macroSatVerified": 100,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "SAT": 100
+    },
+    "required": {
+      "cases": 125,
+      "SAT": 109,
+      "oracleSatVerified": 109,
+      "atlasBSatVerified": 109,
+      "macroSatVerified": 109,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "UNSAT": 16
+    },
+    "no_dag_reuse": {
+      "cases": 125,
+      "SAT": 109,
+      "oracleSatVerified": 109,
+      "atlasBSatVerified": 109,
+      "macroSatVerified": 109,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "UNSAT": 16
+    },
+    "global_prop": {
+      "cases": 125,
+      "UNSAT": 25,
+      "oracleSatVerified": 100,
+      "atlasBSatVerified": 100,
+      "macroSatVerified": 100,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "SAT": 100
+    },
+    "repair": {
+      "cases": 125,
+      "SAT": 83,
+      "oracleSatVerified": 83,
+      "atlasBSatVerified": 83,
+      "macroSatVerified": 83,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "UNSAT": 42
+    },
+    "TOTAL": {
+      "cases": 1000,
+      "SAT": 819,
+      "oracleSatVerified": 819,
+      "atlasBSatVerified": 819,
+      "macroSatVerified": 819,
+      "atlas-bStatusDiff": 0,
+      "atlas-bObjectiveDiff": 0,
+      "macroStatusDiff": 0,
+      "macroObjectiveDiff": 0,
+      "UNSAT": 181
+    }
+  },
+  "oldOracleChanges": 0,
+  "weakeningCases": 0,
+  "weakeningCorrectionImpact": "NOT_APPLICABLE: frozen eight-family dataset has no Weakening inputs",
+  "sourceArchiveSha256": "dbb72c4cf0c26c0bce146c7c5d76b0915993b46285f428aabdddf517b91f180a",
+  "encodingSha256": "65a880afb3c0e32381092382324317f1e9f3a9be2a422c4e60ca3c8ca41871dc",
+  "statusAgreementDenominator": 1000,
+  "optimalObjectiveDenominator": 819
+}

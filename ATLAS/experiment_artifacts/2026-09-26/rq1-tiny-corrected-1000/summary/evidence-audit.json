@@ -1,0 +1,14 @@
+{
+  "expectedCases": 1000,
+  "queries": 2589,
+  "unsatQueries": 1770,
+  "satQueries": 819,
+  "verifiedOracleSat": 819,
+  "atlas-bVerifiedSat": 819,
+  "macroVerifiedSat": 819,
+  "auditedCases": 1000,
+  "SAT": 819,
+  "UNSAT": 181,
+  "bad": [],
+  "note": "Every stored SMT-LIB query hash and result sequence checked; Z3 UNSAT replies are not re-solved by this audit."
+}

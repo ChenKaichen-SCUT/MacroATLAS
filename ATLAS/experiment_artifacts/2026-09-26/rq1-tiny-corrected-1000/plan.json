@@ -1,0 +1,22 @@
+{
+  "archive": "ATLAS/experiment_artifacts/2026-09-23/archives/rq1-tiny-primary-1000.tar.gz",
+  "archiveSha256": "dbb72c4cf0c26c0bce146c7c5d76b0915993b46285f428aabdddf517b91f180a",
+  "datasetSha256": "9051a089a90afdcdb750076941dcf87872d5ce07621ca0c8eb7a99a64ddc2601",
+  "encodingSha256": "65a880afb3c0e32381092382324317f1e9f3a9be2a422c4e60ca3c8ca41871dc",
+  "controllerSha256": "c545263e436a99deccc6583637fdd166d0b8d770a0dd53be94c71a91d359df96",
+  "z3Version": "4.14.2",
+  "expectedCases": 1000,
+  "families": {
+    "plain": 125,
+    "nnf": 125,
+    "cnf": 125,
+    "dnf": 125,
+    "required": 125,
+    "no_dag_reuse": 125,
+    "global_prop": 125,
+    "repair": 125
+  },
+  "weakeningCases": 0,
+  "childrenOfSemantics": "n.^(l+r), all strict descendants",
+  "objective": "maximize kept old edges, then minimize rooted DAG size for repair; otherwise minimum rooted DAG size"
+}

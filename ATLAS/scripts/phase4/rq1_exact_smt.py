@@ -32,6 +32,19 @@ CUSTOM_HASHES = {
     'weakening_b3': {'a20f604f9fd520d01e90555be5a5f8af73e8a77bc912cc2e9a0be57b84057f87'},
 }
 
+# Exact texts in the already-frozen 1,000-case RQ1 archive.  These are checked
+# against the input bytes; the tiny recheck never calls the dataset generator.
+TINY_CUSTOM_TEXT = {
+    'tiny_plain': '',
+    'tiny_nnf': 'fact { all n: Neg | n.l in Literal }',
+    'tiny_cnf': 'fact { all n: DAGNode | n in (Literal + Neg + And + Or) all n: Neg | n.l in Literal all n: Or | no childrenOf[n] & And }',
+    'tiny_dnf': 'fact { all n: DAGNode | n in (Literal + Neg + And + Or) all n: Neg | n.l in Literal all n: And | no childrenOf[n] & Or }',
+    'tiny_required': 'fact { x0 in childrenAndSelfOf[root] }',
+    'tiny_no_dag_reuse': 'fact { all n: DAGNode | lone n.~(l+r) }',
+    'tiny_global_prop': 'fact { root in G all n: childrenAndSelfOf[root.l] | n in (Literal + Neg + And + Or + Imply) }',
+    'tiny_repair': 'one sig F0 extends F {}\nfact { root = F0 }\nfact { x0 in childrenAndSelfOf[root] }\nfact { maxsome[2] subDAG[root] & (F0->x0) }',
+}
+
 
 @dataclass(frozen=True)
 class Trace:
@@ -107,7 +120,10 @@ def parse_task(path: Path, B: int, b: int, category: str) -> Task:
     if parsed_B != B:
         raise ValueError(f"Recorded B={B} differs from parsed B={parsed_B}")
     custom = parts[5].strip() if len(parts) > 5 else ""
-    if category == 'plain':
+    if category in TINY_CUSTOM_TEXT:
+        if custom != TINY_CUSTOM_TEXT[category]:
+            raise ValueError('Tiny RQ1 constraint differs from its frozen profile')
+    elif category == 'plain':
         if custom:
             raise ValueError('Plain case unexpectedly has a custom constraint')
     elif hashlib.sha256(custom.encode()).hexdigest() not in CUSTOM_HASHES.get(category, set()):
@@ -247,6 +263,9 @@ class ExactEncoding:
             if text.strip():
                 raise ValueError("Unexpected custom constraint in plain case")
             return
+        if t.category in TINY_CUSTOM_TEXT:
+            self._tiny_constraints(text)
+            return
         if t.category == "nnf_template":
             if "root in G" not in text:
                 raise ValueError("Unknown voting constraint")
@@ -281,6 +300,53 @@ class ExactEncoding:
             self._weakening_constraints(text)
             return
         raise ValueError("Unknown matched category: " + t.category)
+
+    def _tiny_constraints(self, text: str):
+        t,n,s=self.task,self.size,self.solver
+        if t.custom != TINY_CUSTOM_TEXT[t.category]:
+            raise ValueError('Tiny RQ1 custom text changed')
+        family=t.category.removeprefix('tiny_')
+        if family=='plain':return
+        if family in ('nnf','cnf','dnf'):
+            if family in ('cnf','dnf'):
+                for i in range(n):
+                    s.add(_or([self.kind_is(i,f'x{a}') for a in range(t.ap)]+
+                              [self.kind_is(i,op) for op in ('!','&','|')]))
+            for i in range(1,n):
+                s.add(z3.Implies(self.kind_is(i,'!'),
+                    self.choose(self.left,i,[self.kind[j]<t.ap for j in range(i)])))
+            if family in ('cnf','dnf'):
+                outer,inner=('|','&') if family=='cnf' else ('&','|')
+                desc=self._descendants()
+                for i in range(1,n):
+                    for j in range(i):
+                        s.add(z3.Implies(z3.And(self.kind_is(i,outer),desc[i][j]),
+                                         z3.Not(self.kind_is(j,inner))))
+            return
+        if family=='required':
+            s.add(_or(self.kind_is(i,'x0') for i in range(n)))
+            return
+        if family=='no_dag_reuse':
+            for i in range(n-1):
+                parents=[z3.Or(z3.And(self.is_unary(j),self.left[j]==i),
+                               z3.And(self.is_binary(j),z3.Or(self.left[j]==i,self.right[j]==i)))
+                         for j in range(i+1,n)]
+                s.add(z3.AtMost(*parents,1))
+            return
+        if family=='global_prop':
+            s.add(self.kind_is(n-1,'G'))
+            for i in range(n-1):
+                s.add(_or([self.kind_is(i,f'x{a}') for a in range(t.ap)]+
+                          [self.kind_is(i,op) for op in ('!','&','|','->')]))
+            return
+        if family=='repair':
+            s.add(self.kind_is(n-1,'F'))
+            s.add(_or(self.kind_is(i,'x0') for i in range(n)))
+            if self.kept_at_least>1: s.add(z3.BoolVal(False))
+            elif self.kept_at_least==1: s.add(self.child_kind(n-1,'left','x0'))
+            self.tiny_repair=True
+            return
+        raise ValueError('Unknown tiny RQ1 profile')
 
     def _repair_constraints(self, text: str):
         n, s = self.size, self.solver
@@ -385,6 +451,10 @@ class ExactEncoding:
                                     for a,b in self.repair_edges)
         if hasattr(self,'weak_and0'):
             result['namedNodes']={'And0':model.eval(self.weak_and0).as_long()}
+        if hasattr(self,'tiny_repair'):
+            x0=next(i for i,node in enumerate(nodes) if node['label']=='x0')
+            result['namedNodes']={'F0':self.size-1,'x0':x0}
+            result['keptEdges']=int(nodes[-1]['left']==x0)
         return result
 
 
@@ -409,7 +479,31 @@ def evaluate_witness(task: Task, witness: dict) -> bool:
     if len(descendants(len(nodes)-1))!=len(nodes):return False
     if len({x['label'] for x in nodes if x['label'].startswith('x')}) != sum(x['label'].startswith('x') for x in nodes):
         return False
-    if task.category=='plain':
+    if task.category in TINY_CUSTOM_TEXT:
+        family=task.category.removeprefix('tiny_')
+        if task.custom!=TINY_CUSTOM_TEXT[task.category]:return False
+        if family in ('nnf','cnf','dnf'):
+            if any(n['label']=='!' and not nodes[n['left']]['label'].startswith('x') for n in nodes):return False
+            if family in ('cnf','dnf'):
+                if any(n['label'] not in {'&','|','!'} and not n['label'].startswith('x') for n in nodes):return False
+                outer,inner=('|','&') if family=='cnf' else ('&','|')
+                if any(node['label']==outer and any(nodes[j]['label']==inner
+                       for j in descendants(node['id'])-{node['id']}) for node in nodes):return False
+        elif family=='required':
+            if not any(n['label']=='x0' for n in nodes):return False
+        elif family=='no_dag_reuse':
+            if any(sum(i in set(children(j)) for j in range(i+1,len(nodes)))>1 for i in range(len(nodes))):return False
+        elif family=='global_prop':
+            if nodes[-1]['label']!='G' or any(n['label'] not in {'&','|','!','->'} and
+                not n['label'].startswith('x') for n in nodes[:-1]):return False
+        elif family=='repair':
+            if nodes[-1]['label']!='F' or not any(n['label']=='x0' for n in nodes):return False
+            names=witness.get('namedNodes',{})
+            x0=next(i for i,node in enumerate(nodes) if node['label']=='x0')
+            if names!={'F0':len(nodes)-1,'x0':x0}:return False
+            if witness.get('keptEdges')!=int(nodes[-1]['left']==x0):return False
+        elif family!='plain':return False
+    elif task.category=='plain':
         pass
     elif task.category=='nnf_template':
         if nodes[-1]['label']!='G':return False
