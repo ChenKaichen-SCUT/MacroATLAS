@@ -1,5 +1,7 @@
 # RQ1 / 623 题独立最优值：三倍时限续跑
 
+**历史状态：**本轮于 2026-09-26 23:47:53 UTC 停止，状态为 `SUPERSEDED_BY_5X`，结果为 442 `OPTIMAL`、21 `UNSAT`、5 `TIMEOUT`、155 未完成。新增的 5 个超时仍全部是 `plain` 且原因为 `SMT_timeout`；本轮新认证的 5 个 `UNSAT` 已继承到[五倍时限续跑](../rq1-exact-623-5x/README.md)。停止时 10 个正在运行的实例被记录为中断，不当作已完成结果；其余 145 题尚未启动。封存状态见 [`state.json`](state.json)。
+
 上一轮 `/srv/macroatlas-rq1-exact/rq1-exact-623-20260926-long` 已完成 623/623：442 `OPTIMAL`、16 `UNSAT`、165 `TIMEOUT`。使用修正后的独立 verifier 对全部 623 条结果和已保存的 SMT 查询作只读审计，`bad=[]`；458 条已认证结果继承到新计划，仅重试 165 条超时实例。完整实例 ID、输入 SHA、旧耗时和停止位置见 [`initial-timeouts.csv`](initial-timeouts.csv)。
 
 | 超时实例的 benchmark family | 数量 |
