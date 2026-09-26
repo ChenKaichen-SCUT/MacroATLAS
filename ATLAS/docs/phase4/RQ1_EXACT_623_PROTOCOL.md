@@ -17,3 +17,5 @@ Repair 采用完整字典序目标。其第一目标是最大化保留的旧边�
 每案例墙钟上限 300 秒，每次 Z3 检查最多 120 秒，单进程地址空间上限 5 GiB。超时、内存耗尽、进程中断、编码范围未覆盖或求解器返回 unknown 均不算已证明。控制器为每个案例预先创建一次尝试记录；断点重启只读取既有结果，不重新运行已启动案例。并行 worker 固定到不同 vCPU。服务器重启可能留下 `INTERRUPTED_PREVIOUS_ATTEMPT`，此时须审计后明确决定是否进行**新的**尝试，不能暗中视为同一次完成。
 
 完成后运行 `rq1_exact_campaign.py summary --campaign <目录>`，得到 `summary/per-case.csv`、`summary/summary.json` 和 `summary/REPORT.md`。只有 `OPTIMAL` 或 `UNSAT` 才能与 E4 结果构成正确性对照；TIMEOUT、UNKNOWN、ERROR、缺失及 E4 原算法超时都列为未解决，不能以双方结果相同代替最优性证明。
+
+`rq1_exact_audit.py --campaign <目录>` 对冻结计划与代码哈希、输入哈希、每层查询哈希、状态连续性和 SAT 见证执行只读审计。它**不会**把记录中的 UNSAT 当作形式证明：要重放 UNSAT 查询，仍需用 Z3 或其他兼容的 SMT 求解器重新执行保存的 SMT-LIB。
