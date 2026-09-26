@@ -14,7 +14,9 @@ Repair 采用完整字典序目标。其第一目标是最大化保留的旧边�
 
 每个 `jobs/<case-id>/size_XXX/` 包含 `query.smt2.gz`、`record.json`，SAT 层还包含 `witness.json`。`record.json` 存储查询 SHA-256、Z3 版本、求解状态及耗时；`result.json` 汇集逐层记录、目标值、公式和总耗时。可用 `gzip -dc query.smt2.gz | z3 -in` 独立重放某层。SMT-LIB 与求解记录是**可重放的求解证据**，不是形式证明对象；UNSAT 的可信度仍依赖 Z3 及编码正确性。编码另外与已有 125 个无约束小案例的穷举 oracle 对照，并在主要约束类别的试点案例上逐层检查。
 
-每案例墙钟上限 300 秒，每次 Z3 检查最多 120 秒，单进程地址空间上限 5 GiB。超时、内存耗尽、进程中断、编码范围未覆盖或求解器返回 unknown 均不算已证明。控制器为每个案例预先创建一次尝试记录；断点重启只读取既有结果，不重新运行已启动案例。并行 worker 固定到不同 vCPU。服务器重启可能留下 `INTERRUPTED_PREVIOUS_ATTEMPT`，此时须审计后明确决定是否进行**新的**尝试，不能暗中视为同一次完成。
+第一批每案例墙钟上限 300 秒，每次 Z3 检查最多 120 秒。应用户要求，第二批分别放宽到 **900 秒**和 **300 秒**。单进程地址空间上限均为 5 GiB。超时、内存耗尽、进程中断、编码范围未覆盖或求解器返回 unknown 均不算已证明。并行 worker 固定到不同 vCPU。
+
+放宽时先停止第一批调度，对其已完成的 `OPTIMAL/UNSAT` 逐项审计并复制完整证据到新批次；`rq1_exact_continue.py` 同时生成继承来源和第一批尝试清单。第二批运行器自动跳过已证明案例，仅重试第一批超时或被中断的案例、并处理尚未启动的案例。第一批原始目录保留，因此重试是有明确来源的**第二次尝试**，绝不覆盖首次超时记录。第二批结束时 `per-case.csv` 会标记 `previousStatus` 和 `evidenceSource`。
 
 完成后运行 `rq1_exact_campaign.py summary --campaign <目录>`，得到 `summary/per-case.csv`、`summary/summary.json` 和 `summary/REPORT.md`。只有 `OPTIMAL` 或 `UNSAT` 才能与 E4 结果构成正确性对照；TIMEOUT、UNKNOWN、ERROR、缺失及 E4 原算法超时都列为未解决，不能以双方结果相同代替最优性证明。
 

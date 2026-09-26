@@ -241,6 +241,10 @@ def run(args):
 
 def summarize(campaign: Path,p=None):
     p=p or load(campaign/'plan.json')
+    prior={}
+    if (campaign/'previous-attempts.csv').exists():
+        with (campaign/'previous-attempts.csv').open(newline='') as handle:
+            prior={item['task']:item for item in csv.DictReader(handle)}
     records=[]
     for case in p['cases']:
         path=job_dir(campaign,case)/'result.json'
@@ -248,7 +252,10 @@ def summarize(campaign: Path,p=None):
         row={**case,**case['e4'],'oracleStatus':result['status'],'oraclePrimary':result.get('objectivePrimary',''),
              'oracleSecondary':result.get('objectiveSecondary',''),'wallSec':result.get('wallSec',''),
              'checkedSizes':result.get('checkedSizes',''),'reason':result.get('reason',''),
-             'formula':result.get('formula',''),'certificatePath':str(path.relative_to(campaign)) if path.exists() else ''}
+             'formula':result.get('formula',''),'certificatePath':str(path.relative_to(campaign)) if path.exists() else '',
+             'previousStatus':prior.get(case['task'],{}).get('previousStatus',''),
+             'previousReason':prior.get(case['task'],{}).get('previousReason',''),
+             'evidenceSource':'INHERITED' if (job_dir(campaign,case)/'inherited-from.json').exists() else 'CURRENT'}
         for prefix,method in (('atlasB','ATLAS-B'),('macro','MacroATLAS')):
             status=case['e4'][prefix+'Status']
             if result['status']=='OPTIMAL' and status=='SAT':
@@ -261,7 +268,8 @@ def summarize(campaign: Path,p=None):
             else:row[method+'Comparison']='UNRESOLVED'
         records.append(row)
     fields=['task','family','category','B','b','inputSha256','oracleStatus','oraclePrimary','oracleSecondary',
-            'wallSec','checkedSizes','reason','formula','certificatePath','ATLAS-BComparison','MacroATLASComparison']
+            'wallSec','checkedSizes','reason','formula','certificatePath','previousStatus','previousReason',
+            'evidenceSource','ATLAS-BComparison','MacroATLASComparison']
     fields += ['atlasBStatus','atlasBObjectivePrimary','atlasBObjectiveSecondary',
                'macroStatus','macroObjectivePrimary','macroObjectiveSecondary']
     summary_dir=campaign/'summary';summary_dir.mkdir(exist_ok=True)
@@ -277,6 +285,9 @@ def summarize(campaign: Path,p=None):
     data={'expectedCases':623,'recordedCases':623-statuses.get('MISSING',0),'certifiedCases':certified,
           'statuses':dict(statuses),'comparison':comparison,'bothAgreeWithOracle':both_agree,
           'mismatches':mismatches,'uncertified':uncertified,
+          'inheritedCertifiedCases':sum(r['evidenceSource']=='INHERITED' for r in records),
+          'retriedUnresolvedCases':sum(bool(r['previousStatus']) and r['evidenceSource']=='CURRENT' and
+                                        r['oracleStatus']!='MISSING' for r in records),
           'sumTaskWallSec':sum(float(r['wallSec']) for r in records if r['wallSec'] not in ('',None)),
           'campaignState':load(campaign/'state.json')}
     save(summary_dir/'summary.json',data)
