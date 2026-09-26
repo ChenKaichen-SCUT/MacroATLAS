@@ -124,6 +124,10 @@ def _and(items):
     return z3.And(*items) if items else z3.BoolVal(True)
 
 
+def _active_constraints(custom: str) -> str:
+    return re.sub(r"/\*[\s\S]*?\*/|//[^\n]*|--[^\n]*", " ", custom)
+
+
 class ExactEncoding:
     def __init__(self, task: Task, size: int, kept_at_least: int = 0):
         self.task, self.size, self.kept_at_least = task, size, kept_at_least
@@ -238,7 +242,7 @@ class ExactEncoding:
 
     def _custom(self):
         t, n, s = self.task, self.size, self.solver
-        text = re.sub(r"/\*[\s\S]*?\*/|//[^\n]*|--[^\n]*", " ", t.custom)
+        text = _active_constraints(t.custom)
         if t.category == "plain":
             if text.strip():
                 raise ValueError("Unexpected custom constraint in plain case")
@@ -387,6 +391,7 @@ class ExactEncoding:
 
 def evaluate_witness(task: Task, witness: dict) -> bool:
     nodes=witness['nodes']
+    custom=_active_constraints(task.custom)
     if not nodes or len(nodes)>task.B or sum(x['label'] in BINARY for x in nodes)>task.b:
         return False
     allowed={f'x{a}' for a in range(task.ap)} | set(task.operators)
@@ -409,11 +414,11 @@ def evaluate_witness(task: Task, witness: dict) -> bool:
         pass
     elif task.category=='nnf_template':
         if nodes[-1]['label']!='G':return False
-        if 'n.l in Literal' in task.custom and any(n['label']=='!' and
+        if 'n.l in Literal' in custom and any(n['label']=='!' and
                 not nodes[n['left']]['label'].startswith('x') for n in nodes):return False
     elif task.category=='required':
         if nodes[-1]['label']!='G':return False
-        for prop in re.findall(r'x(\d+)\s+in\s+root\.\*\(l\+r\)',task.custom):
+        for prop in re.findall(r'x(\d+)\s+in\s+root\.\*\(l\+r\)',custom):
             if not any(n['label']==f'x{prop}' for n in nodes):return False
         if 'root.l in Imply' in task.custom:
             implication=nodes[-1]['left']

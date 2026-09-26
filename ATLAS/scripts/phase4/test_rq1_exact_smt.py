@@ -11,7 +11,7 @@ import unittest
 import z3
 
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from rq1_exact_smt import ExactEncoding, evaluate_witness, parse_task
+from rq1_exact_smt import ExactEncoding, Task, evaluate_witness, parse_task
 
 
 ATLAS = Path(__file__).resolve().parents[2]
@@ -25,6 +25,19 @@ def read_rows(path):
 
 
 class ExactSmtIntegration(unittest.TestCase):
+    def test_concrete_verifier_ignores_commented_constraints(self):
+        nnf=Task((),(),('!','G'),1,4,0,'nnf_template',
+                 'fact { root in G\n // all n: Neg | n.l in Literal\n}', '')
+        nested={'nodes':[{'id':0,'label':'x0'},
+                         {'id':1,'label':'!','left':0},
+                         {'id':2,'label':'!','left':1},
+                         {'id':3,'label':'G','left':2}]}
+        self.assertTrue(evaluate_witness(nnf,nested))
+        required=Task((),(),('G',),2,2,0,'required',
+                      'fact { root in G\n x0 in root.*(l+r)\n // x1 in root.*(l+r)\n}', '')
+        minimal={'nodes':[{'id':0,'label':'x0'},{'id':1,'label':'G','left':0}]}
+        self.assertTrue(evaluate_witness(required,minimal))
+
     def test_all_623_inputs_are_frozen_and_parsed(self):
         rows=read_rows(ART/'2026-09-25/rq2-full-623/summary/rq2_full_623_paper_data.csv')
         self.assertEqual(len(rows),623)
