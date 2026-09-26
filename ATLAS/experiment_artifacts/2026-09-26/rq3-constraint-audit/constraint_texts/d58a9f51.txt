@@ -1,0 +1,8 @@
+fact {
+    root in G
+
+    x2 in root.*(l+r) // pc0_CS
+    x8 in root.*(l+r) // pc1_CS
+
+    all n: root.*(l+r) | (n.l.*(l+r) & n.r.*(l+r) & Literal) = none // literals appear once in a formula
+}

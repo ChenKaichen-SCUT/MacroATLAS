@@ -1,0 +1,60 @@
+{
+  "cases": 623,
+  "profiles": 10,
+  "statusCounts": {
+    "EXACT_MATCH": 623
+  },
+  "familyStatus": {
+    "5to10Traces": "EXACT_MATCH",
+    "baseTest": "EXACT_MATCH",
+    "disjunctedExistence": "EXACT_MATCH",
+    "equal": "EXACT_MATCH",
+    "increasingNumVariables": "EXACT_MATCH",
+    "moreDetailedTest": "EXACT_MATCH",
+    "peterson": "EXACT_MATCH",
+    "robot": "EXACT_MATCH",
+    "voting_machine": "EXACT_MATCH",
+    "weakening": "EXACT_MATCH"
+  },
+  "sourceCommit": "fe4245c9ee141313472ce88e86412c902d6dbcfe",
+  "sourceTableSha256": "87a69778d4d9deabdcaf24f4f168ef310a8e0330f0087586e1a44a4fe6c16fbd",
+  "inspectorClass": "cmu.s3d.ltl.experiment.ConstraintSemanticAuditMain",
+  "inspectorJsonlSha256": "23cd9a2451345131c5eb8fd7f67640d294474c01c9df88b31618327483d8be9b",
+  "testResults": {
+    "ConstraintSemanticAuditTest": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "ConstraintAutomataTests": {
+      "tests": 11,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "MacroSearchTest": {
+      "tests": 9,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "MacroDifferentialTest": {
+      "tests": 2,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "codeSha256": {
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/samples2ltl/TaskParser.kt": "62a80532e7ce6446c4e0ddeffccf52808657a5074ddcc9fab105afaabbf32b40",
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/experiment/ConstraintSemanticAuditMain.kt": "feeafacf319fa4b3a458a30c458a6c2f38b6925dad19414d16fddc56627a4086",
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/learning/LTLLearner.kt": "c79411b7ade33016ed9b6087d3115f58b593bb990ae4ac2cbb862752f48c4f40",
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/macro/search/RecognizedConstraintAnalyzer.kt": "9e41d8ec879a69cc149b1e4b434a4b22ad6277bc72c1c39ceffd33c038c720d5",
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/macro/search/MacroAlloyModelBuilder.kt": "4b16e86fc0c608332e3f6289eb130cdb3e390c0b709dd6edc00c16d9d806b3b1",
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/macro/search/FinalSolutionVerifier.kt": "3243845f92ee40e8544bda35ac0c83b7e89b22f31d967ffbd7dde1d7e6d9897d",
+    "ATLAS/src/main/kotlin/cmu/s3d/ltl/macro/constraint/OfficialArtifactAutomata.kt": "f753b96cb312d6770d77eb97ee9c22750ce80a9de2d1241756c914f69d71d9af"
+  },
+  "negativeControl": "9 Voting constraints contain no temporal-child/subtree ban; 1 additional Voting input comments out NNF",
+  "outOfScope": "CNF/DNF and generic NamedDirectChild/NamedReachability/NamedRoot are not present in these 623 E4 custom texts"
+}

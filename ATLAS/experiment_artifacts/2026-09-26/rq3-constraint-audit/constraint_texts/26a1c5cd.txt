@@ -1,0 +1,4 @@
+fact {
+    root in G
+    all n: Neg | n.l in Literal // negation normal form
+}
