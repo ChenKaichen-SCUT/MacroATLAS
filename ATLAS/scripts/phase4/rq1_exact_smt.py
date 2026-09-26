@@ -328,28 +328,27 @@ class ExactEncoding:
         child_literal=lambda i,port: self.choose(self.left if port=='left' else self.right,i,
                                                   [literal(j) for j in range(i)])
         child_ap=lambda i,port,a: self.child_kind(i,port,f'x{a}')
+        contains_and=[_or(z3.And(desc[i][j],self.kind_is(j,'&')) for j in range(i+1)) for i in range(n)]
+        contains_or=[_or(z3.And(desc[i][j],self.kind_is(j,'|')) for j in range(i+1)) for i in range(n)]
         for i in range(1,n):
             if i==n-1:continue
-            # The quantified restrictions apply to every Imply node.
-            permitted=lambda port: z3.Or(child_literal(i,port),
-                *[self.child_kind(i,port,op) for op in ('&','|','!')])
-            s.add(z3.Implies(self.kind_is(i,'->'),z3.And(permitted('left'),permitted('right'))))
-            for port in ('left','right'):
-                for neg in range(1,i):
-                    s.add(z3.Implies(z3.And(self.kind_is(i,'->'),
-                        (self.left[i] if port=='left' else self.right[i])==neg,
-                        self.kind_is(neg,'!')),child_literal(neg,'left')))
+            # In the source model childrenOf[imply] is transitive closure, not
+            # only the two immediate children. The same holds below Or/And.
             for sub in range(i):
                 left_sub=self.choose(self.left,i,
                     [desc[k][sub] if k>=sub else z3.BoolVal(False) for k in range(i)])
                 right_sub=self.choose(self.right,i,
                     [desc[k][sub] if k>=sub else z3.BoolVal(False) for k in range(i)])
+                permitted=z3.Or(literal(sub),self.kind_is(sub,'&'),
+                                self.kind_is(sub,'|'),self.kind_is(sub,'!'))
+                s.add(z3.Implies(z3.And(self.kind_is(i,'->'),desc[i][sub]),permitted))
+                if sub:
+                    s.add(z3.Implies(z3.And(self.kind_is(i,'->'),desc[i][sub],
+                        self.kind_is(sub,'!')),child_literal(sub,'left')))
                 s.add(z3.Implies(z3.And(self.kind_is(i,'->'),left_sub,self.kind_is(sub,'|')),
-                    z3.And(z3.Not(self.child_kind(sub,'left','&')),
-                           z3.Not(self.child_kind(sub,'right','&')))))
+                    z3.Not(contains_and[sub])))
                 s.add(z3.Implies(z3.And(self.kind_is(i,'->'),right_sub,self.kind_is(sub,'&')),
-                    z3.And(z3.Not(self.child_kind(sub,'left','|')),
-                           z3.Not(self.child_kind(sub,'right','|')))))
+                    z3.Not(contains_or[sub])))
         if consequent:
             and0=z3.Int('named_And0')
             s.add(and0>=0,and0<n)
@@ -451,14 +450,14 @@ def evaluate_witness(task: Task, witness: dict) -> bool:
         imp=nodes[nodes[-1]['left']]
         for node in nodes:
             if node['label']!='->':continue
-            for side in ('left','right'):
-                child=nodes[node[side]]
+            for i in descendants(node['id'])-{node['id']}:
+                child=nodes[i]
                 if child['label'] not in {'&','|','!'} and not child['label'].startswith('x'):return False
                 if child['label']=='!' and not nodes[child['left']]['label'].startswith('x'):return False
             for i in descendants(node['left']):
-                if nodes[i]['label']=='|' and any(nodes[c]['label']=='&' for c in children(i)):return False
+                if nodes[i]['label']=='|' and any(nodes[c]['label']=='&' for c in descendants(i)-{i}):return False
             for i in descendants(node['right']):
-                if nodes[i]['label']=='&' and any(nodes[c]['label']=='|' for c in children(i)):return False
+                if nodes[i]['label']=='&' and any(nodes[c]['label']=='|' for c in descendants(i)-{i}):return False
         left=nodes[imp['left']]
         if not (left['label']=='x0' or left['label']=='&' and nodes[left['left']]['label']=='x0'):return False
         right=nodes[imp['right']]

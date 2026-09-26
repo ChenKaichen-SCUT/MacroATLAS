@@ -21,3 +21,5 @@ Repair 采用完整字典序目标。其第一目标是最大化保留的旧边�
 完成后运行 `rq1_exact_campaign.py summary --campaign <目录>`，得到 `summary/per-case.csv`、`summary/summary.json` 和 `summary/REPORT.md`。只有 `OPTIMAL` 或 `UNSAT` 才能与 E4 结果构成正确性对照；TIMEOUT、UNKNOWN、ERROR、缺失及 E4 原算法超时都列为未解决，不能以双方结果相同代替最优性证明。
 
 `rq1_exact_audit.py --campaign <目录>` 对冻结计划与代码哈希、输入哈希、每层查询哈希、状态连续性和 SAT 见证执行只读审计。它**不会**把记录中的 UNSAT 当作形式证明：要重放 UNSAT 查询，仍需用 Z3 或其他兼容的 SMT 求解器重新执行保存的 SMT-LIB。
+
+2026-09-26 的 RQ3 约束审计确认原模型的 `childrenOf[n] = n.^(l+r)` 是**全部严格后代**。最初冻结的 SMT 编码在 Weakening 的若干量词处只检查直接孩子，故该编码对这部分约束较弱。较弱编码的 UNSAT 仍能推出原约束 UNSAT；但其 SAT 见证只有通过已修正的完整后代检查才可用于证明原问题可行。任何未通过新 verifier 的旧 `OPTIMAL` 必须标记无效并使用修正编码另行求解，不能算入独立证明。新源码已修正 SMT 编码和具体见证检查；冻结活动目录本身不改写，原始查询与代码哈希保留供追溯。

@@ -38,6 +38,16 @@ class ExactSmtIntegration(unittest.TestCase):
         minimal={'nodes':[{'id':0,'label':'x0'},{'id':1,'label':'G','left':0}]}
         self.assertTrue(evaluate_witness(required,minimal))
 
+    def test_weakening_checks_transitive_children_of_implication(self):
+        task=Task((),(),('G','&','->'),2,6,2,'weakening_b2','', '')
+        nested_temporal={'nodes':[
+            {'id':0,'label':'x0'}, {'id':1,'label':'x1'},
+            {'id':2,'label':'G','left':1},
+            {'id':3,'label':'&','left':0,'right':2},
+            {'id':4,'label':'->','left':3,'right':1},
+            {'id':5,'label':'G','left':4}]}
+        self.assertFalse(evaluate_witness(task,nested_temporal))
+
     def test_all_623_inputs_are_frozen_and_parsed(self):
         rows=read_rows(ART/'2026-09-25/rq2-full-623/summary/rq2_full_623_paper_data.csv')
         self.assertEqual(len(rows),623)
