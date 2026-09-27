@@ -34,10 +34,15 @@
 
 ## 数据与核验
 
+- [`summary/final-623-core.csv`](summary/final-623-core.csv)：推荐直接用于论文制表的 623 行宽表。每题列出 Oracle 状态、最优公式大小；repair 题另列最优保留旧边数；还包含公式、各算法状态/目标/耗时以及每题 Oracle 的实际尝试次数。
+- [`summary/timeout-134.csv`](summary/timeout-134.csv)：从上述宽表筛出的全部 134 道未认证超时题。
+- [`summary/final-size-checks.csv`](summary/final-size-checks.csv)：最终 623 题的 3285 条逐规模检查结果、耗时、原因和查询哈希。
+- [`summary/actual-attempts.csv`](summary/actual-attempts.csv) 与 [`summary/attempt-size-checks.csv`](summary/attempt-size-checks.csv)：五轮批次中 827 次实际尝试及其 4515 条逐规模检查；继承而未重新执行的整题不重复计作尝试。
+- [`summary/campaigns.csv`](summary/campaigns.csv)：五轮批次的时限、内存上限、实际尝试数、继承数和结束状态。
 - [`summary/per-case-623-comparison.csv`](summary/per-case-623-comparison.csv)：逐题输入标识、family、`B`、`b`、Oracle 状态与目标、公式、耗时、两算法状态与目标、比较结果及证据批次。134 道超时题也可从此表直接筛选。
 - [`summary/merged-623.csv`](summary/merged-623.csv) 与 [`summary/summary.json`](summary/summary.json)：补跑控制器生成的原始合并结果及汇总。
 - [`summary/baseTest-0019-result.json`](summary/baseTest-0019-result.json) 与 [`summary/baseTest-0040-result.json`](summary/baseTest-0040-result.json)：两题逐规模结果及查询 SHA-256。
 
 旧五倍时限批次的 623 个结果和本次补跑的 2 个结果均通过 `rq1_exact_audit.py` 结构审计，分别为 `623/623` 和 `2/2`，无坏记录；合并 CSV 经核对包含 623 个唯一实例，状态计数与 `summary.json` 一致。审计会重新检查输入、保存的 SMT-LIB 查询哈希以及 SAT 见证的独立轨迹语义；它**不重新求解**每个保存的 UNSAT 查询。因此 `OPTIMAL` 的支持是逐层保存的 Z3 UNSAT/SAT 求解记录和见证，而非另一个证明检查器验证的 UNSAT 证明对象。
 
-完整可重放 SMT-LIB 查询及见证仍在服务器 `/srv/macroatlas-rq1-exact/rq1-exact-623-20260926-5x/jobs` 与 `/srv/macroatlas-rq1-exact/rq1-exact-623-20260927-oom-20g/jobs`；仓库中的 CSV、JSON 和报告是索引与汇总，不包含约 2.7 GiB 的全部查询文件。
+完整可重放 SMT-LIB 查询及见证目前仍在服务器 `/srv/macroatlas-rq1-exact/rq1-exact-623-20260926-5x/jobs` 与 `/srv/macroatlas-rq1-exact/rq1-exact-623-20260927-oom-20g/jobs`。依照本次只保留表格的要求，仓库和本地备份没有包含这些大型查询文件；删除服务器后，上述求解记录与哈希仍可分析，但不能仅凭表格重放 UNSAT 求解或重新核验原始见证文件。
