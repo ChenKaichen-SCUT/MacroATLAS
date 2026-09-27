@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "createdUtc": "2026-09-27T12:11:50.516981+00:00",
+  "cases": [
+    {
+      "task": "baseTest/0019.trace",
+      "family": "baseTest",
+      "category": "plain",
+      "B": "18",
+      "b": "2",
+      "inputSha256": "27f4306dca1eb9c7167d1d78927b29ebea54f66d6ac703d1e64f727b7ce375c1",
+      "id": "cf9ed83597e24957fa66",
+      "e4": {
+        "atlasBStatus": "ERROR",
+        "macroStatus": "TIMEOUT",
+        "atlasBObjectivePrimary": "",
+        "atlasBObjectiveSecondary": "",
+        "macroObjectivePrimary": "",
+        "macroObjectiveSecondary": ""
+      }
+    },
+    {
+      "task": "baseTest/0040.trace",
+      "family": "baseTest",
+      "category": "plain",
+      "B": "10",
+      "b": "2",
+      "inputSha256": "2d01c4a45631c22085feb6cdf4ca13217795df8db1af8aadca86e2d48e488276",
+      "id": "0d70c12e22205f66796a",
+      "e4": {
+        "atlasBStatus": "ERROR",
+        "macroStatus": "TIMEOUT",
+        "atlasBObjectivePrimary": "",
+        "atlasBObjectiveSecondary": "",
+        "macroObjectivePrimary": "",
+        "macroObjectiveSecondary": ""
+      }
+    }
+  ],
+  "expectedCases": 2,
+  "inputTableSha256": "87a69778d4d9deabdcaf24f4f168ef310a8e0330f0087586e1a44a4fe6c16fbd",
+  "e4PairedSha256": "966f771573ddfaae8da2d9c35a8f84f69a6da8a6c8f4e57c6f4c38932780cba9",
+  "encodingSha256": "65a880afb3c0e32381092382324317f1e9f3a9be2a422c4e60ca3c8ca41871dc",
+  "controllerSha256": "f0ac8077a3707be392b1c05741fd8af2d170deef521db8f53bf2d14752a7cf08",
+  "sourceCommit": "e0afbb64b59b4fbe184af16b38dadf055285912e",
+  "python": "3.10.12 (main, Aug 31 2026, 10:18:17) [GCC 11.4.0]",
+  "z3Version": "4.14.1",
+  "method": "independent finite DAG + concrete lasso semantics + exact SAT/UNSAT at every smaller size",
+  "maxEncodedSize": 18,
+  "caseTimeoutSec": 4500,
+  "solverTimeoutSec": 1500,
+  "memoryLimitGiB": 20,
+  "repairPrimary": "Require all distinct retained old edges; this is the absolute cardinality maximum",
+  "oneAttemptPerCase": true,
+  "previousCampaign": "/srv/macroatlas-rq1-exact/rq1-exact-623-20260926-5x",
+  "previousPlanSha256": "d1f6bf28778b42d631f67f25929836d7a2c41ec804a5108ff1960092a986a444",
+  "retryControllerSha256": "c5e30199694e4903b2ddfeae27a3ccf807052b73e42125ace3cc988f171fc679",
+  "resumeAtSize": 5
+}
