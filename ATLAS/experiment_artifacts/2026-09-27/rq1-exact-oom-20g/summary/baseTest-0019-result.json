@@ -1,0 +1,104 @@
+{
+  "status": "OPTIMAL",
+  "objectiveKind": "MIN_EXPANDED_SIZE",
+  "objectivePrimary": 0,
+  "objectiveSecondary": 6,
+  "witness": {
+    "nodes": [
+      {
+        "id": 0,
+        "label": "x1"
+      },
+      {
+        "id": 1,
+        "label": "!",
+        "left": 0
+      },
+      {
+        "id": 2,
+        "label": "x0"
+      },
+      {
+        "id": 3,
+        "label": "F",
+        "left": 2
+      },
+      {
+        "id": 4,
+        "label": "->",
+        "left": 3,
+        "right": 1
+      },
+      {
+        "id": 5,
+        "label": "G",
+        "left": 4
+      }
+    ],
+    "root": 5,
+    "size": 6,
+    "binaryNodes": 1
+  },
+  "formula": "G(->(F(x0),!(x1)))",
+  "certificate": "Sizes 1–4 inherited as verified UNSAT queries; all later smaller sizes UNSAT; this size SAT with independently checked witness",
+  "task": "baseTest/0019.trace",
+  "caseId": "cf9ed83597e24957fa66",
+  "category": "plain",
+  "B": 18,
+  "b": 2,
+  "inputSha256": "27f4306dca1eb9c7167d1d78927b29ebea54f66d6ac703d1e64f727b7ce375c1",
+  "steps": [
+    {
+      "size": 1,
+      "status": "unsat",
+      "wallSec": 12.057614454999566,
+      "querySha256": "22d30b2e4f42c181ffc8f3e4749753c47e452078b1d37a74bd7d8d10d28a4c82",
+      "reasonUnknown": ""
+    },
+    {
+      "size": 2,
+      "status": "unsat",
+      "wallSec": 80.22537366599863,
+      "querySha256": "f7156b894793b080a13884ed3cb77bbc7a399c857675e8322dbc304fff44f6aa",
+      "reasonUnknown": ""
+    },
+    {
+      "size": 3,
+      "status": "unsat",
+      "wallSec": 196.49050207500113,
+      "querySha256": "b1e7c354113596b5cc2f8692d8d754982271ead7d8c4d0f75df2351fcadf93e6",
+      "reasonUnknown": ""
+    },
+    {
+      "size": 4,
+      "status": "unsat",
+      "wallSec": 689.4781034230036,
+      "querySha256": "69cf08fc572fcd3333e0336ae35186f2dbfed69dbbb944efa53b925f6625f675",
+      "reasonUnknown": ""
+    },
+    {
+      "size": 5,
+      "status": "unsat",
+      "wallSec": 1582.5686830689956,
+      "querySha256": "efd54bac685681b61ecb543947446a2af50af8151b0b73f07b3b21fdd5e9284b",
+      "reasonUnknown": ""
+    },
+    {
+      "size": 6,
+      "status": "sat",
+      "wallSec": 921.1122065200034,
+      "querySha256": "09ee717c8b8e7b9acb9f506d9c6f9363415c91b63a23625b3653b275f1d2d325",
+      "reasonUnknown": ""
+    }
+  ],
+  "checkedSizes": 6,
+  "inheritedUnsatSizes": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "wallSec": 2508.1472700049926,
+  "previousAttemptWallSec": 1402.4490330390036,
+  "finishedUtc": "2026-09-27T12:54:15.290201+00:00"
+}

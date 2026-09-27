@@ -11,4 +11,4 @@ watch -n 5 '/srv/macroatlas-rq1-exact/venv/bin/python /srv/macroatlas-rq1-exact/
 journalctl -u macroatlas-rq1-exact-oom-20g.service -f
 ```
 
-结束后，新批次的 `summary/summary.json` 汇总 623 题更新后的状态，`summary/merged-623.csv` 逐题标明所用证据批次；两题详细求解记录及公式见各自的 `jobs/<caseId>/result.json`。此前 621 题的证据继续引用旧批次，不重新运行。
+两题均已完成并获得 `OPTIMAL`：`baseTest/0019.trace` 最小大小 6，`baseTest/0040.trace` 最小大小 5。新批次的 `summary/summary.json` 汇总 623 题更新后的状态，`summary/merged-623.csv` 逐题标明所用证据批次；此前 621 题的证据继续引用旧批次，没有重新运行。完整统计与核验范围见 [REPORT.md](REPORT.md)。
