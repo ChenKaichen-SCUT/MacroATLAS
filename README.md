@@ -107,20 +107,4 @@ These entries summarize the stored evidence. Full-precision values and the
 comparison denominators are available in [results/](results/README.md).
 Earlier exploratory campaigns and obsolete result presentations are excluded.
 
-## Anonymous distribution and provenance
-
-The artifact files contain no author names, affiliations, personal contact links,
-machine names, or author-specific absolute paths. Third-party package names and
-attributions are retained in [THIRD_PARTY.md](THIRD_PARTY.md).
-
-For anonymous review, distribute the generated `macroatlas-anonymous.zip` through
-the venue's anonymous artifact channel. A named hosting account and Git commit
-history are outside the content-level anonymization boundary. The export command
-in [REPRODUCING.md](REPRODUCING.md) excludes `.git`, local runs, caches, and build
-products.
-
-The cleanup relocates source files and updates test/resource paths and build
-configuration; it does not modify the learning algorithms or reported measurements.
-Frozen source and data hashes are retained in
-[source_integrity.json](results/evidence/source_integrity.json). Environment and
 historical-record qualifications are documented in the reproduction guide.
