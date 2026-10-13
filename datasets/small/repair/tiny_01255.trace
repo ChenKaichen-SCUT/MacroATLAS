@@ -1,0 +1,15 @@
+1;1::1
+1;1;1;1::2
+---
+1;1::1
+---
+!,X,F,G,&,|,->
+---
+[1]
+---
+
+---
+one sig F0 extends F {}
+fact { root = F0 }
+fact { x0 in childrenAndSelfOf[root] }
+fact { maxsome[2] subDAG[root] & (F0->x0) }

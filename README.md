@@ -1,94 +1,126 @@
 # MacroATLAS
 
-MacroATLAS 在 [ATLAS](https://github.com/cmu-soda/ATLAS) v1.0.2 基础上实现
-保留语法约束状态的 unary semantic quotient 基础模块。
+**Anonymous research artifact** for *MacroATLAS: Constraint-Preserving Semantic
+Quotient Compilation for Constrained LTL Learning*.
 
-第一阶段包含：
+MacroATLAS learns constrained LTL formulas by compiling a macro skeleton and
+constraint-preserving unary fibers to the AlloyMax backend. This artifact provides
+the implementation, matched baselines, frozen inputs, and the evidence underlying
+the final manuscript. The experimental results are included; running the full
+experiments is optional.
 
-- `UnaryNormalizer`：对 `!, X, F, G` 的 unary word 计算规范语义类型。
-- `ConstraintAutomata`：propositional、NNF、CNF、DNF、required proposition 及惰性乘积自动机。
-- `FiberTable`：按 `(qIn, semanticType, nonEmpty, qOut)` 分组，通过 BFS 选择最短、字典序最小代表。
+## Start here
 
-第二阶段在真实 ATLAS 已求得的公式 DAG 上实现后处理闭环：
+| Review goal | Entry point |
+| :--- | :--- |
+| Inspect the paper's results | [Results and paper-to-file map](results/README.md) |
+| Understand the implementation | [Method and code walkthrough](method/README.md) |
+| Inspect the comparison methods | [Baselines](baselines/README.md) |
+| Inspect input selection and bounds | [Datasets](datasets/README.md) |
+| Recompute every reported statistic | `python3 scripts/check_results.py` |
+| Build and run a small example | [Quick start](#quick-start) |
+| Replay each experiment | [Reproduction guide](REPRODUCING.md) |
 
-- 从 `LTLLearningSolution` 提取保留完整 atom identity 和 sharing 的不可变 `FormulaDag`。
-- 执行约束求值、eligibility 检查及 anchor/port/unary path 分解。
-- 生成带完整 fiber 的 `MacroDag`，支持原始身份重建和最短代表重建。
-- 用生产侧 round-trip verifier 和独立 lasso 语义测试验证压缩正确性。
+## Repository structure
 
-第三阶段增加可选的直接 MacroDAG 搜索：有限约束状态域与 fiber catalog、
-anchor/port 搜索编码、精确 lasso 语义、展开大小最小化、protected identity 和 repair 优化。
-复用原 AlloyMax 后端，并通过 Phase 2 重建及独立语义检查验证输出。
-默认 CLI 保持原 ATLAS 行为；`--macro auto/force` 显式启用新路径。
-支持范围与复现说明见 [Phase 3 实现报告](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md)。
-
-第四阶段增加 Original ATLAS 复现实验入口、同域 ATLAS-B baseline、覆盖清单生成、
-隔离并行运行器、正确性门禁、合成数据与结果图表脚本。当前 v4 MacroATLAS
-包含小公式最优界与 constrained 搜索约束优化；原论文 Original 路径继续保留。
-实验协议见 [Phase 4 实验协议](ATLAS/docs/phase4/EXPERIMENT_PROTOCOL.md)，
-换服务器开展全量实验所需的代码、数据与任务划分见
-[全量实验交接说明](ATLAS/docs/phase4/FULL_RUN_HANDOFF.md)。
-已完成的 RQ1 tiny exhaustive 与全量 E4 matched 单次运行，其原始数据、
-可复算汇总和结论见 [2026-09-23 实验结果](ATLAS/experiment_artifacts/2026-09-23/README.zh-CN.md)。
-RQ4 synthetic scalability 首轮与补充轮的逐运行数据、合并索引和证据边界见
-[2026-09-24 RQ4 完整结果](ATLAS/docs/phase4/RQ4_RESULTS_2026-09-24.md)。
-按 [RQ4.txt](RQ4.txt) 设计的可证明最优大小与隔离 profile 轴新增实验见
-[RQ4 certified 实验协议](ATLAS/docs/phase4/RQ4_CERTIFIED_PROTOCOL.md)。
-RQ2 E4 matched 编码规模的逐案例数据与分析见
-[2026-09-24 RQ2 结果](ATLAS/docs/phase4/RQ2_RESULTS_2026-09-24.md)。
-
-## 仓库内容
-
-| 路径 | 内容 |
-| --- | --- |
-| [`ATLAS/`](ATLAS/) | 完整 ATLAS 源码、原始数据和依赖，以及 MacroATLAS Phase 1–4 代码 |
-| [`ATLAS/UPSTREAM.md`](ATLAS/UPSTREAM.md) | 上游来源、版本及本仓库的收录方式 |
-| [`MacroATLAS_Prototype_Phase1_Implementation_Guide.md`](MacroATLAS_Prototype_Phase1_Implementation_Guide.md) | 第一阶段实现规格 |
-| [`ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase1/IMPLEMENTATION_REPORT.md) | 文件职责、API、设计说明和复现命令 |
-| [`ATLAS/docs/phase1/validation/TEST_RESULTS.md`](ATLAS/docs/phase1/validation/TEST_RESULTS.md) | 全部测试与 baseline regression 结果 |
-| [`MacroATLAS_Prototype_Phase2_Implementation_Guide.md`](MacroATLAS_Prototype_Phase2_Implementation_Guide.md) | 第二阶段实现规格 |
-| [`ATLAS/docs/phase2/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase2/IMPLEMENTATION_REPORT.md) | DAG 适配、压缩重建 API、约束边界与实现说明 |
-| [`ATLAS/docs/phase2/validation/TEST_RESULTS.md`](ATLAS/docs/phase2/validation/TEST_RESULTS.md) | 第二阶段完整验证结果 |
-| [`MacroATLAS_Prototype_Phase3_Implementation_Guide.md`](MacroATLAS_Prototype_Phase3_Implementation_Guide.md) | 第三阶段实现规格 |
-| [`ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md`](ATLAS/docs/phase3/IMPLEMENTATION_REPORT.md) | 宏搜索实现、边界和运行方式 |
-| [`ATLAS/docs/phase3/validation/TEST_RESULTS.md`](ATLAS/docs/phase3/validation/TEST_RESULTS.md) | 第三阶段 Java 8/21、差分与 CLI 验证 |
-| [`MacroATLAS_Phase4_Experiment_Guide.md`](MacroATLAS_Phase4_Experiment_Guide.md) | 第四阶段实验规格 |
-| [`ATLAS/scripts/phase4/`](ATLAS/scripts/phase4/) | 数据准备、运行、验证和分析脚本 |
-| [`ATLAS/docs/phase4/COVERAGE.md`](ATLAS/docs/phase4/COVERAGE.md) | 原始 artifact 与 U-free 变体的真实支持范围 |
-| [`Constrained LTL Specification Learning from Examples.pdf`](Constrained%20LTL%20Specification%20Learning%20from%20Examples.pdf) | ATLAS 对应论文 |
-| [`The Complexity of Learning LTL, CTL and ATL.pdf`](The%20Complexity%20of%20Learning%20LTL%2C%20CTL%20and%20ATL.pdf) | 相关理论参考论文 |
-
-构建输出和本地缓存不纳入版本控制；原有 `ATLAS/lib` 依赖包含在仓库中。
-
-## 构建与测试
-
-安装 JDK 8 或更高版本及 Maven，然后执行：
-
-```bash
-git clone https://github.com/ChenKaichen-SCUT/MacroATLAS.git
-cd MacroATLAS/ATLAS
-mvn -B clean verify
+```text
+method/                    MacroATLAS, shared backend interfaces, and tests
+baselines/
+  atlas/                   Original ATLAS learner
+  atlas_b/                 Matched explicit-DAG baseline used in the paper
+  oracle/                  Independent finite-DAG SMT encoding and verifier
+datasets/
+  benchmark/               623 frozen U-free matched benchmark inputs + manifest
+  original/                Corresponding original benchmark inputs
+  small/                   1,000 frozen correctness inputs + manifest
+  unary/                   12 certified unary-growth inputs + manifest
+  discussion/              6 binary controls and 5 profile controls + manifests
+results/
+  raw/                     Final per-instance evidence for RQ1-RQ4
+  summary/                 Recomputed summary CSVs
+  figures/                 Final manuscript figure SVGs
+  discussion/              Evidence for the discussion controls
+  evidence/                Constraint audit, SMT checks, and source integrity
+scripts/                   Build, replay, consistency checks, and visualization
+lib/                       Shared AlloyMax JAR and Linux Open-WBO executable
+Dockerfile                 Linux build and runtime environment
+pom.xml                    One Maven module compiling both representations
+requirements.txt           Python dependencies, including Z3 4.14.1
 ```
 
-CLI 使用方式参见原始 [ATLAS README](ATLAS/README.md) 和
-[Phase 3 支持范围](ATLAS/docs/phase3/SUPPORTED_FRAGMENT.md)。
+## Quick start
 
-启用宏搜索时必须显式指定二元节点预算，例如 `--macro force --macro-max-binary 1`；
-仅对 U-free 且可完整识别的约束提供有界精确最优保证。
+### 1. Verify the published numbers (no solver required)
 
-## 后续开发与提交
+From the artifact root, with Python 3.10 or later:
 
-`ATLAS/` 是本仓库直接跟踪的普通源码目录，不是 Git submodule。
-克隆本仓库即可取得其全部内容，无需额外初始化子模块。
-
-在 MacroATLAS 根目录统一管理所有后续改动：
-
-```bash
-git status
-git add .
-git commit -m "Describe the change"
-git push origin main
+```sh
+python3 scripts/check_results.py
+python3 datasets/select_translation_scopes.py
 ```
 
-本仓库的 `origin` 为 `ChenKaichen-SCUT/MacroATLAS`。
-上游 ATLAS 的来源与原始说明保留在仓库内。
+The check reads the frozen inputs and CSVs, verifies input hashes, recomputes all
+table entries, and asserts the manuscript's values. Expected last line:
+`ALL MANUSCRIPT CONSISTENCY CHECKS PASSED`. It does not replace missing values
+with zero or treat TIMEOUT as a solved instance.
+
+### 2. Build on Linux, including tests
+
+Recommended: Docker on an x86-64 machine. Allow at least 8 GB of Docker memory
+for the build and smoke runs. Initial image construction requires network access
+for Ubuntu packages and public Maven/Python dependencies.
+
+```sh
+docker build -t macroatlas-artifact .
+docker run --rm --init macroatlas-artifact
+```
+
+The image contains OpenJDK 8, Maven, AlloyMax 1.0.3, Open-WBO, and Z3 4.14.1.
+The native solver is a Linux x86-64 executable. For native Linux installation and
+resource details, see [REPRODUCING.md](REPRODUCING.md).
+
+### 3. Run both learning methods on one input
+
+```sh
+docker run --rm --init macroatlas-artifact \
+  python3 scripts/run_experiments.py --suite benchmark --limit 1 \
+  --output /tmp/smoke
+```
+
+Both methods should return SAT on `5to10Traces/0000.trace`, with optimal expanded
+size 3 and successful output verification. Timing depends on the machine.
+The runner writes `observations.csv` and per-case formulas, verification records,
+and metadata. To retain output, mount an output directory as described in the
+reproduction guide. Every output directory must be new.
+
+## Experimental scope
+
+| Question | Inputs | Evidence |
+| :--- | ---: | :--- |
+| RQ1: correctness against the independent SMT oracle | 1,000 small; 623 benchmark | 1,000/1,000 and 393/393 jointly decisive status agreements |
+| RQ2: CNF encoding size and translation success | 623 benchmark; 573 complete pairs | Unique-task variable/clause ratios and method-level success counts |
+| RQ3: solving performance | 623 benchmark | 346 solved by ATLAS-B; 393 by MacroATLAS |
+| RQ4: unary structural growth | 12 certified inputs | 5 solved by ATLAS-B; 12 by MacroATLAS |
+| Discussion: binary growth and profile overhead | 6 + 5 certified controls | Separate from the RQ4 unary series |
+
+These entries summarize the stored evidence. Full-precision values and the
+comparison denominators are available in [results/](results/README.md).
+Earlier exploratory campaigns and obsolete result presentations are excluded.
+
+## Anonymous distribution and provenance
+
+The artifact files contain no author names, affiliations, personal contact links,
+machine names, or author-specific absolute paths. Third-party package names and
+attributions are retained in [THIRD_PARTY.md](THIRD_PARTY.md).
+
+For anonymous review, distribute the generated `macroatlas-anonymous.zip` through
+the venue's anonymous artifact channel. A named hosting account and Git commit
+history are outside the content-level anonymization boundary. The export command
+in [REPRODUCING.md](REPRODUCING.md) excludes `.git`, local runs, caches, and build
+products.
+
+The cleanup relocates source files and updates test/resource paths and build
+configuration; it does not modify the learning algorithms or reported measurements.
+Frozen source and data hashes are retained in
+[source_integrity.json](results/evidence/source_integrity.json). Environment and
+historical-record qualifications are documented in the reproduction guide.
