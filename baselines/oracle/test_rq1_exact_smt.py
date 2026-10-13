@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Cross-check the independent SMT semantics against the exhaustive tiny oracle."""
+"""Test independent SMT semantics against frozen reference outcomes and profiles."""
 
 import csv
 import dataclasses
 from pathlib import Path
 import sys
-import tarfile
-import tempfile
 import unittest
 
 import z3
