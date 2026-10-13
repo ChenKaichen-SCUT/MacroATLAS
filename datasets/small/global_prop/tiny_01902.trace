@@ -1,0 +1,11 @@
+0;0;0;0;0;0;0::2
+---
+1;1;1;1::1
+---
+!,X,F,G,&,|,->
+---
+[3]
+---
+
+---
+fact { root in G all n: childrenAndSelfOf[root.l] | n in (Literal + Neg + And + Or + Imply) }

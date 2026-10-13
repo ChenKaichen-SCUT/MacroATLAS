@@ -1,0 +1,7 @@
+task,B,b,binary_nodes,input_sha256,certificate
+rq4c_binary/n02.trace,3,1,1,55933666eb25e39fcff9c73a98900b2d315ee38f409bb7053b0c273d298c5ad7,Complete 2^n one-state truth table: each variable is essential; n leaves and n-1 binary nodes are necessary and sufficient.
+rq4c_binary/n03.trace,5,2,2,a18082b291aeac2445c87794bd35d4365c9c92b9b6a310da99f1020f5d4c3ce8,Complete 2^n one-state truth table: each variable is essential; n leaves and n-1 binary nodes are necessary and sufficient.
+rq4c_binary/n04.trace,7,3,3,2098a28cd7f078335d05cf4b6fe51a0bb8f8603fd2cc5b2c58cb4f0935a9e1d1,Complete 2^n one-state truth table: each variable is essential; n leaves and n-1 binary nodes are necessary and sufficient.
+rq4c_binary/n05.trace,9,4,4,2315aa9a8c0e133aa0b33d47d0201f1858ef41a3815b1dbbea8c6854b8936753,Complete 2^n one-state truth table: each variable is essential; n leaves and n-1 binary nodes are necessary and sufficient.
+rq4c_binary/n06.trace,11,5,5,324f6b56f8453534f73c05a32bca6de78d0ed793f19273cd8788e2d82d8fe086,Complete 2^n one-state truth table: each variable is essential; n leaves and n-1 binary nodes are necessary and sufficient.
+rq4c_binary/n07.trace,13,6,6,7e5d76d791b5ddae7c073b2fa562404a536b507159f3eb173aaa3a9460819d24,Complete 2^n one-state truth table: each variable is essential; n leaves and n-1 binary nodes are necessary and sufficient.

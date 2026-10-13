@@ -1,0 +1,6 @@
+task,B,b,q,input_sha256,certificate
+rq4c_profile/q01.trace,17,0,1,68ae74530f757f97c80d3f95dc6d8774b19e9a5b21f0bc5e9afec156f02e0cf4,All auxiliary states accept; only profile state count changes
+rq4c_profile/q02.trace,17,0,2,e22e456926cea07aa5f76eb4a1c16a40d261bdd4c2ec2adedcfc0278d527096c,All auxiliary states accept; only profile state count changes
+rq4c_profile/q04.trace,17,0,4,ce5fbd3ee23c02d7194d164ee852dabeddde53735f9ebe5653d20238ddd37019,All auxiliary states accept; only profile state count changes
+rq4c_profile/q08.trace,17,0,8,47a695cb5197c80c744bb74559ee73f92cc9d67d54bde30fd1977e086a891365,All auxiliary states accept; only profile state count changes
+rq4c_profile/q16.trace,17,0,16,1ed3ea392a9f2c5d5989e786042fe4dfe7f9694ef8dfd903aba0e942f0ee7652,All auxiliary states accept; only profile state count changes

@@ -1,23 +1,8 @@
-# Build output and local caches; ATLAS also retains its upstream .gitignore.
-**/target/
-**/build/
-**/out/
-**/__pycache__/
-**/.pytest_cache/
+/target/
+/runs/
+/output/
+__pycache__/
+*.pyc
 .venv/
-venv/
-
-# Local editor and operating-system metadata.
-.idea/
-.vscode/
+*.log
 .DS_Store
-Thumbs.db
-
-# Local configuration containing credentials.
-.env
-.env.*
-!.env.example
-
-# Phase 4 generated inputs and full per-process experiment logs (archive separately).
-ATLAS/generated/
-ATLAS/results/

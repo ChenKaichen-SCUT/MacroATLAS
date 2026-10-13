@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.jar binary
+*.pdf binary
+*.png binary
+*.gz binary
+lib/open-wbo binary
+# Frozen inputs and evidence retain exact bytes, including line endings.
+*.trace -text -whitespace
+datasets/** -text
+results/raw/** -text
+results/evidence/** -text -whitespace
+results/discussion/*.csv -text -whitespace

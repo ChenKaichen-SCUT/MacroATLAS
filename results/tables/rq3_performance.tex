@@ -1,0 +1,23 @@
+\begin{table}[!htbp]
+\caption{Solving performance of MacroATLAS and ATLAS-B on the 623 benchmark instances. Higher Total Solved is better; lower TIMEOUT, ERROR, and PAR-2 are better.}
+\label{tab:performance}
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}llcccccc@{}}
+\toprule
+\raisebox{-1.6ex}[0pt][0pt]{Subset} & \raisebox{-1.6ex}[0pt][0pt]{Method} & \multicolumn{3}{c}{Solved} & \raisebox{-1.6ex}[0pt][0pt]{Timeout} & \raisebox{-1.6ex}[0pt][0pt]{Error} & \raisebox{-1.6ex}[0pt][0pt]{PAR-2 (s)} \\
+\cmidrule(lr){3-5}
+& & SAT & UNSAT & Total & & & \\
+\midrule
+\raisebox{-1.2ex}[0pt][0pt]{$b=2$} & ATLAS-B & 316 & 3 & 319 & 251 & 14 & 177.59 \\
+& MacroATLAS & 345 & 9 & \textbf{354} & \textbf{230} & \textbf{0} & \textbf{158.64} \\
+\midrule
+\raisebox{-1.2ex}[0pt][0pt]{$b=3$} & ATLAS-B & 27 & 0 & 27 & 12 & \textbf{0} & 120.10 \\
+& MacroATLAS & 39 & 0 & \textbf{39} & \textbf{0} & \textbf{0} & \textbf{23.97} \\
+\midrule
+\raisebox{-1.2ex}[0pt][0pt]{Overall} & ATLAS-B & 343 & 3 & 346 & 263 & 14 & 173.99 \\
+& MacroATLAS & 384 & 9 & \textbf{393} & \textbf{230} & \textbf{0} & \textbf{150.21} \\
+\bottomrule
+\end{tabular}
+\end{table}

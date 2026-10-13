@@ -1,0 +1,100 @@
+profile,families,cases,representativePath,constraintSha256,rawText,normalizedText,sourceSemantics,analyzerRecognition,macroEncoding,finalVerifier,codeLocations,status,issues
+Unconstrained,5to10Traces;baseTest;disjunctedExistence;equal;increasingNumVariables;moreDetailedTest,485,datasets/benchmark/5to10Traces/0000.trace,e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855,,,"Matched alphabet, B and b budgets, and trace semantics; no custom Alloy constraints.",,"No product constraint state; general DAG, size, and binary budgets.","Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Robot RR: four old edges and NNF,robot,10,datasets/benchmark/robot/RRtrace/order.trace,1a473c559fe6857a0353880925b32cc2275b8a1e9d70b904606e811afb5a9a19,"one sig F0 extends F {}
+one sig F1 extends F {}
+one sig And0 extends And {}
+fact{
+ maxsome[2] subDAG[root] & (And0->F0 + F0->x0 + And0->F1 + F1->x1)
+ all n: DAGNode - Literal | lone n.~(l+r)
+ no l & r
+ root in And
+ all n: Neg | n.l in Literal
+}",one sig F0 extends F { } one sig F1 extends F { } one sig And0 extends And { } fact { maxsome [ 2 ] subDAG [ root ] & ( And0 -> F0 + F0 -> x0 + And0 -> F1 + F1 -> x1 ) all n : DAGNode - Literal | lone n . ~ ( l + r ) no l & r root in And all n : Neg | n . l in Literal },"Named And0/F0/F1 identities; an And root; each nonliteral has at most one distinct parent; binary children are distinct; Neg has a Literal child. Maximize four retained direct edges, then minimize rooted DAG size.",OfficialRobotRR;Repair;NoDAGReuse;LeftNotEqualRight,Optional protected slots and NNF states; nonempty/empty fibers preserve sharing boundaries and direct old edges; lexicographic repair objective.,"Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;NnfAutomaton.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+"Peterson: response and x6,x2",peterson,5,datasets/benchmark/peterson/constrained/liveness1.trace,21281860c5f6cc0bde50084cda9d9817440664e679750da612484f6b1f982da5,"fact {
+    root in G
+    root.l in Imply
+    root.l.r in F
+
+    x6 in root.*(l+r) // pc0_a4
+    x2 in root.*(l+r) // pc0_CS
+
+    all n: root.*(l+r) | (n.l.*(l+r) & n.r.*(l+r) & Literal) = none // literals appear once in a formula
+}",fact { root in G root . l in Imply root . l . r in F x6 in root . * ( l + r ) x2 in root . * ( l + r ) all n : root . * ( l + r ) | ( n . l . * ( l + r ) & n . r . * ( l + r ) & Literal ) = none },G root with direct Imply/F response shape; x6 and x2 reachable from the root; left and right branches have disjoint reachable Literal identities.,OfficialPeterson;NoSharedLiteralBranches;RequiredProposition(x6);RequiredProposition(x2),"RootOperator(G), ResponseOuterShape, RequiredProposition(x6,x2), and disjoint Literal reachability at binary anchors.","Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;OfficialArtifactAutomata.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Voting: G root and NNF,voting_machine,9,datasets/benchmark/voting_machine/voting10.trace,26a1c5cdf634c218b7ec6578b1e99d466faacef0ee46f3f0bf3df29e92cfa4f7,"fact {
+    root in G
+    all n: Neg | n.l in Literal // negation normal form
+}",fact { root in G all n : Neg | n . l in Literal },G root; every Neg has a direct Literal child. No additional prohibition on temporal descendants of G.,OfficialVoting;NNF,RootOperator(G) and NNF states; G remains an anchor; no PropositionalOnly constraint.,"Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;NnfAutomaton.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Peterson: response and x6,peterson,10,datasets/benchmark/peterson/base/liveness1.trace,2d9df7af7d8884e7e857e5f9673e811205ce8a9106b28ecf32780e8687dbbe5b,"fact {
+    root in G
+    root.l in Imply
+    root.l.r in F
+
+    x6 in root.*(l+r) // pc0_a4
+    //x2 in root.*(l+r) // pc0_CS
+
+    all n: root.*(l+r) | (n.l.*(l+r) & n.r.*(l+r) & Literal) = none // literals appear once in a formula
+}",fact { root in G root . l in Imply root . l . r in F x6 in root . * ( l + r ) all n : root . * ( l + r ) | ( n . l . * ( l + r ) & n . r . * ( l + r ) & Literal ) = none },G root with a direct Imply child whose right child is F; x6 reachable; left and right Literal identity sets are disjoint. The commented x2 requirement is inactive.,OfficialPeterson;NoSharedLiteralBranches;RequiredProposition(x6),"RootOperator(G), ResponseOuterShape, RequiredProposition(x6), and disjoint Literal reachability at binary anchors.","Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;OfficialArtifactAutomata.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Robot RA: five old edges,robot,10,datasets/benchmark/robot/RAtrace/final21.trace,3733f60a5df184a1a381e400584e26e4a312f1424d294befcb81814046432891,"one sig And0 extends And {}
+one sig F0 extends F {}
+one sig G0 extends G {}
+one sig Neg0 extends Neg {}
+fact{
+ maxsome[2] subDAG[root] & (And0->G0 + G0->Neg0 + Neg0->x2 + And0->F0 + F0->x0)
+ all n: DAGNode - Literal | lone n.~(l+r)
+ no l & r
+ root in And
+}",one sig And0 extends And { } one sig F0 extends F { } one sig G0 extends G { } one sig Neg0 extends Neg { } fact { maxsome [ 2 ] subDAG [ root ] & ( And0 -> G0 + G0 -> Neg0 + Neg0 -> x2 + And0 -> F0 + F0 -> x0 ) all n : DAGNode - Literal | lone n . ~ ( l + r ) no l & r root in And },"Named And0/F0/G0/Neg0 identities; an And root; each nonliteral has at most one distinct parent; distinct binary children. Maximize five retained direct edges, then minimize rooted DAG size.",OfficialRobotRA;Repair;NoDAGReuse;LeftNotEqualRight,"Optional protected slots, sharing boundaries, empty fibers for direct edges, exact retained-edge accounting, and lexicographic repair.","Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;MacroAlloyModelBuilder.kt;MacroLearner.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Voting: G root,voting_machine,1,datasets/benchmark/voting_machine/voting2.trace,45efdf2ac6601915ba5a4a2cb7ae27bb967933be1a1beebd11b26b0af231a3cb,"fact {
+    root in G
+    // all n: Neg | n.l in Literal // negation normal form
+}",fact { root in G },G root only. The commented NNF constraint is inactive; no extra temporal-descendant restriction.,OfficialVoting,RootOperator(G); G is an anchor; G/F/X may occur in its descendants.,"Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Weakening antecedent,weakening,39,datasets/benchmark/weakening/weaken_antecedent/weaken_antecedent_100_10_10.trace,6793473afd9b8a8ec3a6c146d3e2f3b76d3d7cedbb5603fd69c5a251adad7319,"fact {
+    root = G0
+    
+    all imply: Imply {
+        all n: childrenOf[imply] | n in (Literal + And + Or + Neg)
+        all n: childrenOf[imply] & Neg | n.l in Literal
+        all n: childrenAndSelfOf[imply.l] & Or | no childrenOf[n] & And
+        all n: childrenAndSelfOf[imply.r] & And | no childrenOf[n] & Or
+    }
+}
+
+one sig G0 extends G {} { l = Imply0 }
+one sig Imply0 extends Imply {}
+
+fact {
+    Imply0.l = x0 or (Imply0.l in And and Imply0.l.l = x0)
+    
+    Imply0.r = x1 or (Imply0.r in Or and Imply0.r.l = x1)
+    
+}",fact { root = G0 all imply : Imply { all n : childrenOf [ imply ] | n in ( Literal + And + Or + Neg ) all n : childrenOf [ imply ] & Neg | n . l in Literal all n : childrenAndSelfOf [ imply . l ] & Or | no childrenOf [ n ] & And all n : childrenAndSelfOf [ imply . r ] & And | no childrenOf [ n ] & Or } } one sig G0 extends G { } { l = Imply0 } one sig Imply0 extends Imply { } fact { Imply0 . l = x0 or ( Imply0 . l in And and Imply0 . l . l = x0 ) Imply0 . r = x1 or ( Imply0 . r in Or and Imply0 . r . l = x1 ) },"Root G0 directly contains Imply0. All strict descendants of each Imply are Literal/And/Or/Neg; Neg children are Literal. Under the antecedent, no And occurs strictly below Or; under the consequent, no Or occurs strictly below And. The designated implication endpoints follow the frozen direct-child alternatives.",OfficialWeakeningAntecedent,"WeakeningTemplateAutomaton tracks body shape, noAndBelowOr, noOrBelowAnd, and endpoint alternatives; G is an anchor.","Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;OfficialArtifactAutomata.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+Weakening consequent,weakening,39,datasets/benchmark/weakening/weaken_consequent/weaken_consequent_100_10_10.trace,a20f604f9fd520d01e90555be5a5f8af73e8a77bc912cc2e9a0be57b84057f87,"fact {
+    root = G0
+    
+    all imply: Imply {
+        all n: childrenOf[imply] | n in (Literal + And + Or + Neg)
+        all n: childrenOf[imply] & Neg | n.l in Literal
+        all n: childrenAndSelfOf[imply.l] & Or | no childrenOf[n] & And
+        all n: childrenAndSelfOf[imply.r] & And | no childrenOf[n] & Or
+    }
+}
+
+one sig G0 extends G {} { l = Imply0 }
+one sig Imply0 extends Imply {}
+one sig And0 extends And {}
+
+
+fact {
+    Imply0.l = x0 or (Imply0.l in And and Imply0.l.l = x0)
+    
+    Imply0.r = And0 or (Imply0.r in Or and Imply0.r.l = And0)
+    (And0->x1 + And0->x2) in subDAG[Imply0.r]
+}",fact { root = G0 all imply : Imply { all n : childrenOf [ imply ] | n in ( Literal + And + Or + Neg ) all n : childrenOf [ imply ] & Neg | n . l in Literal all n : childrenAndSelfOf [ imply . l ] & Or | no childrenOf [ n ] & And all n : childrenAndSelfOf [ imply . r ] & And | no childrenOf [ n ] & Or } } one sig G0 extends G { } { l = Imply0 } one sig Imply0 extends Imply { } one sig And0 extends And { } fact { Imply0 . l = x0 or ( Imply0 . l in And and Imply0 . l . l = x0 ) Imply0 . r = And0 or ( Imply0 . r in Or and Imply0 . r . l = And0 ) ( And0 -> x1 + And0 -> x2 ) in subDAG [ Imply0 . r ] },The same global restrictions as weakening antecedent. The designated right endpoint is And0 or an Or directly containing And0; And0 has x1 and x2 as direct children in either order. And0 remains in the consequent sub-DAG.,OfficialWeakeningConsequent,WeakeningTemplateAutomaton also tracks exactAnd12 and right-endpoint alternatives; G is an anchor.,"Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;OfficialArtifactAutomata.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,
+"Peterson: safety and x2,x8",peterson,15,datasets/benchmark/peterson/base/safety1.trace,d58a9f51f5c1bc20f0078de05342722a1bf972de07a8d4d11d550cf51af247a6,"fact {
+    root in G
+
+    x2 in root.*(l+r) // pc0_CS
+    x8 in root.*(l+r) // pc1_CS
+
+    all n: root.*(l+r) | (n.l.*(l+r) & n.r.*(l+r) & Literal) = none // literals appear once in a formula
+}",fact { root in G x2 in root . * ( l + r ) x8 in root . * ( l + r ) all n : root . * ( l + r ) | ( n . l . * ( l + r ) & n . r . * ( l + r ) & Literal ) = none },G root; x2 and x8 reachable; disjoint reachable Literal identity sets in the two branches. No Imply/F response-shape requirement.,OfficialPeterson;NoSharedLiteralBranches;RequiredProposition(x2);RequiredProposition(x8),"RootOperator(G), RequiredProposition(x2,x8), and disjoint Literal reachability at binary anchors.","Expanded DAG constraint evaluation, identity/direct-edge checks when required, structural budgets, and concrete lasso trace evaluation.",RecognizedConstraintAnalyzer.kt;RequiredPropositionAutomaton.kt;MacroAlloyModelBuilder.kt;FinalSolutionVerifier.kt,EXACT_MATCH,

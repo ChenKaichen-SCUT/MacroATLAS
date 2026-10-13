@@ -1,0 +1,11 @@
+1;1;1;1;1;1::1
+---
+0;0;0;0;0;0::3
+---
+!,X,F,G,&,|,->
+---
+[1]
+---
+
+---
+fact { all n: DAGNode | n in (Literal + Neg + And + Or) all n: Neg | n.l in Literal all n: And | no childrenOf[n] & Or }

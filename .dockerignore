@@ -1,0 +1,6 @@
+.git
+target
+runs
+output
+**/__pycache__
+.venv
