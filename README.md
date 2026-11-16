@@ -1,6 +1,6 @@
 # MacroATLAS
 
-**Anonymous research artifact** for *MacroATLAS: Constraint-Preserving Semantic
+Artifact for *MacroATLAS: Constraint-Preserving Semantic
 Quotient Compilation for Constrained LTL Learning*.
 
 MacroATLAS learns constrained LTL formulas by compiling a macro skeleton and
@@ -8,18 +8,6 @@ constraint-preserving unary fibers to the AlloyMax backend. This artifact provid
 the implementation, matched baselines, frozen inputs, and the evidence underlying
 the final manuscript. The experimental results are included; running the full
 experiments is optional.
-
-## Start here
-
-| Review goal | Entry point |
-| :--- | :--- |
-| Inspect the paper's results | [Results and paper-to-file map](results/README.md) |
-| Understand the implementation | [Method and code walkthrough](method/README.md) |
-| Inspect the comparison methods | [Baselines](baselines/README.md) |
-| Inspect input selection and bounds | [Datasets](datasets/README.md) |
-| Recompute every reported statistic | `python3 scripts/check_results.py` |
-| Build and run a small example | [Quick start](#quick-start) |
-| Replay each experiment | [Reproduction guide](REPRODUCING.md) |
 
 ## Repository structure
 
@@ -92,19 +80,3 @@ size 3 and successful output verification. Timing depends on the machine.
 The runner writes `observations.csv` and per-case formulas, verification records,
 and metadata. To retain output, mount an output directory as described in the
 reproduction guide. Every output directory must be new.
-
-## Experimental scope
-
-| Question | Inputs | Evidence |
-| :--- | ---: | :--- |
-| RQ1: correctness against the independent SMT oracle | 1,000 small; 623 benchmark | 1,000/1,000 and 393/393 jointly decisive status agreements |
-| RQ2: CNF encoding size and translation success | 623 benchmark; 573 complete pairs | Unique-task variable/clause ratios and method-level success counts |
-| RQ3: solving performance | 623 benchmark | 346 solved by ATLAS-B; 393 by MacroATLAS |
-| RQ4: unary structural growth | 12 certified inputs | 5 solved by ATLAS-B; 12 by MacroATLAS |
-| Discussion: binary growth and profile overhead | 6 + 5 certified controls | Separate from the RQ4 unary series |
-
-These entries summarize the stored evidence. Full-precision values and the
-comparison denominators are available in [results/](results/README.md).
-Earlier exploratory campaigns and obsolete result presentations are excluded.
-
-historical-record qualifications are documented in the reproduction guide.
