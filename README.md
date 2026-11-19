@@ -6,35 +6,7 @@ Quotient Compilation for Constrained LTL Learning*.
 MacroATLAS learns constrained LTL formulas by compiling a macro skeleton and
 constraint-preserving unary fibers to the AlloyMax backend. This artifact provides
 the implementation, matched baselines, frozen inputs, and the evidence underlying
-the final manuscript. The experimental results are included; running the full
-experiments is optional.
-
-## Repository structure
-
-```text
-method/                    MacroATLAS, shared backend interfaces, and tests
-baselines/
-  atlas/                   Original ATLAS learner
-  atlas_b/                 Matched explicit-DAG baseline used in the paper
-  oracle/                  Independent finite-DAG SMT encoding and verifier
-datasets/
-  benchmark/               623 frozen U-free matched benchmark inputs + manifest
-  original/                Corresponding original benchmark inputs
-  small/                   1,000 frozen correctness inputs + manifest
-  unary/                   12 certified unary-growth inputs + manifest
-  discussion/              6 binary controls and 5 profile controls + manifests
-results/
-  raw/                     Final per-instance evidence for RQ1-RQ4
-  summary/                 Recomputed summary CSVs
-  figures/                 Final manuscript figure SVGs
-  discussion/              Evidence for the discussion controls
-  evidence/                Constraint audit, SMT checks, and source integrity
-scripts/                   Build, replay, consistency checks, and visualization
-lib/                       Shared AlloyMax JAR and Linux Open-WBO executable
-Dockerfile                 Linux build and runtime environment
-pom.xml                    One Maven module compiling both representations
-requirements.txt           Python dependencies, including Z3 4.14.1
-```
+the final manuscript. 
 
 ## Quick start
 
