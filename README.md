@@ -38,21 +38,7 @@ requirements.txt           Python dependencies, including Z3 4.14.1
 
 ## Quick start
 
-### 1. Verify the published numbers (no solver required)
-
-From the artifact root, with Python 3.10 or later:
-
-```sh
-python3 scripts/check_results.py
-python3 datasets/select_translation_scopes.py
-```
-
-The check reads the frozen inputs and CSVs, verifies input hashes, recomputes all
-table entries, and asserts the manuscript's values. Expected last line:
-`ALL MANUSCRIPT CONSISTENCY CHECKS PASSED`. It does not replace missing values
-with zero or treat TIMEOUT as a solved instance.
-
-### 2. Build on Linux, including tests
+### 1. Build on Linux, including tests
 
 Recommended: Docker on an x86-64 machine. Allow at least 8 GB of Docker memory
 for the build and smoke runs. Initial image construction requires network access
@@ -67,7 +53,7 @@ The image contains OpenJDK 8, Maven, AlloyMax 1.0.3, Open-WBO, and Z3 4.14.1.
 The native solver is a Linux x86-64 executable. For native Linux installation and
 resource details, see [REPRODUCING.md](REPRODUCING.md).
 
-### 3. Run both learning methods on one input
+### 2. Run both learning methods on one input
 
 ```sh
 docker run --rm --init macroatlas-artifact \
